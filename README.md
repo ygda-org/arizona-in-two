@@ -2,4 +2,4 @@
 
 <p>To contribute, make a fork and make a pull request from that fork, then ping or dm an officer (ideally MrPuffyWuff, Miih, or Pengu)</p>
 
-<p>Anyone who sets up the file system to have scenes and scripts folders will be murdered by yours truly</p>
+<p>If anyone sets up the file system to have scenes and scripts folders they will be murdered by yours truly</p>
