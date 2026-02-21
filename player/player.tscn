@@ -1,3 +1,19 @@
 [gd_scene format=3 uid="uid://tauxm8sc6ng2"]
 
+[ext_resource type="Texture2D" uid="uid://cq1rc5q3fkuji" path="res://assets/icon.svg" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://difviypagft55" path="res://player/player.gd" id="1_rkbax"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rkbax"]
+radius = 57.0
+height = 296.0
+
 [node name="Player" type="CharacterBody2D" unique_id=848334035]
+script = ExtResource("1_rkbax")
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=135685977]
+shape = SubResource("CapsuleShape2D_rkbax")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=572700105]
+position = Vector2(-0.5, 3.8146973e-06)
+scale = Vector2(0.6640625, 2.109375)
+texture = ExtResource("1_oul6g")
