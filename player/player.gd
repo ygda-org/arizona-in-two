@@ -1,33 +1,35 @@
 extends CharacterBody2D
 
 var speed: int = Gamestate.playerSpeed
+const deceleration := 10
+const acceleration := 0.9
 
 func _ready() -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	movement() # Movement function (Others can be added below)
+	movement(delta) # Movement function (Others can be added below)
 	
 	
 	move_and_slide()
 
-func movement():
+func movement(delta):
 	# Maps input to correct vector for velocity
 	var inputDir: Vector2 = Input.get_vector("Left", "Right", "Up", "Down")
 	
 	if inputDir:
-		# Changes velocity so player moves
-		velocity = speed * inputDir
+		# Slowly increases the speed
+		velocity = lerp(velocity, speed * inputDir, delta * acceleration)
 		
 		# Finds which direction in the X Axis
 		var horizontal := "" 
-		if inputDir[0] < 0: horizontal = "l"
-		if inputDir[0] > 0: horizontal = "r"
+		if inputDir.x < 0: horizontal = "l"
+		if inputDir.x > 0: horizontal = "r"
 		
 		# Finds which direction in the Y Axis
 		var vertical := ""
-		if inputDir[1] < 0: vertical = "u"
-		if inputDir[1] > 0: vertical = "d"
+		if inputDir.y < 0: vertical = "u"
+		if inputDir.y > 0: vertical = "d"
 		
 		# Logic for Animated Sprites
 		if horizontal == "l":
@@ -55,4 +57,4 @@ func movement():
 		
 	else:
 		# Slowly decreases the speed of the player
-		velocity = lerp(velocity, Vector2(0, 0), 0.5)
+		velocity = lerp(velocity, Vector2(0, 0), delta * deceleration)
