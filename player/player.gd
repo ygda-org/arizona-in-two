@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var speed: int = Gamestate.playerSpeed
 const deceleration := 10
-const acceleration := 0.9
+const acceleration := 50
 
 func _ready() -> void:
 	pass
