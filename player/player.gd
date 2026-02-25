@@ -4,8 +4,7 @@ var speed = 100
 const deceleration := 10
 const acceleration := 50
 
-var bullet = preload("res://bullet/bullet.tscn")
-@onready var main = $".."
+var bullet = preload("uid://c7uqco4biuu2g")
 var shot_cooldown_seconds = 0.25
 var time_since_last_shot = 0
 
@@ -75,13 +74,10 @@ func shoot(delta):
 		time_since_last_shot = 0
 		
 		var instance = bullet.instantiate()
-		main.add_child(instance)
+		get_parent().add_child(instance)
 		
 		# Finds which direction
-		if inputDir.x < 0: instance.x_direction = -1
-		elif inputDir.x > 0: instance.x_direction = 1
-		elif inputDir.y < 0: instance.y_direction = -1
-		elif inputDir.y > 0: instance.y_direction = 1
+		instance.direction = inputDir
 		
 		instance.position = position
 		
