@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://bpx1uek3wf426" path="res://ui/gui.gd" id="1_xcsiv"]
 [ext_resource type="Texture2D" uid="uid://bykg2im4ts65f" path="res://assets/ui/dialogue_box.png" id="1_xlv5r"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcsiv"]
+bg_color = Color(1, 1, 1, 1)
+
 [sub_resource type="Animation" id="Animation_xcsiv"]
 length = 0.001
 tracks/0/type = "value"
@@ -17,6 +20,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fade/LoseLabel:visible_characters")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fade/RestartButton:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_mcydh"]
@@ -49,11 +76,45 @@ tracks/0/keys = {
 "values": [0.0, 1.0]
 }
 
+[sub_resource type="Animation" id="Animation_juqqw"]
+resource_name = "game_over_title"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade/LoseLabel:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 6, 9]
+}
+
+[sub_resource type="Animation" id="Animation_02e3h"]
+resource_name = "restart_button_fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade/RestartButton:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_juqqw"]
 _data = {
 &"RESET": SubResource("Animation_xcsiv"),
 &"fade_in": SubResource("Animation_mcydh"),
-&"fade_out": SubResource("Animation_fr2ss")
+&"fade_out": SubResource("Animation_fr2ss"),
+&"game_over_title": SubResource("Animation_juqqw"),
+&"restart_button_fade_in": SubResource("Animation_02e3h")
 }
 
 [node name="Gui" type="Control" unique_id=1264883020]
@@ -84,15 +145,38 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -180.0
-offset_top = -30.0
-offset_right = 180.0
-offset_bottom = 30.0
+offset_left = -384.0
+offset_top = -58.0
+offset_right = 384.0
+offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_3f2kh")
 theme_override_font_sizes/font_size = 128
 text = "GAME OVER"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RestartButton" type="Button" parent="Fade" unique_id=17146154]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = 241.0
+offset_right = 116.0
+offset_bottom = 297.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_3f2kh")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xcsiv")
+disabled = true
+text = "RESTART"
+flat = true
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=536456143]
 layout_mode = 0
@@ -119,3 +203,5 @@ vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2049067625]
 libraries/ = SubResource("AnimationLibrary_juqqw")
+
+[connection signal="pressed" from="Fade/RestartButton" to="." method="_on_restart_button_pressed"]

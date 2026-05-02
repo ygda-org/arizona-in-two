@@ -150,5 +150,7 @@ func _on_bounces_power_timer_timeout() -> void:
 
 
 func _on_i_frame_timer_timeout() -> void:
+	if Gamestate.player_health == 0:
+		return
 	Gamestate.player_can_take_damage = true
 	set_iframe_shader(false)
