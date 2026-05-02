@@ -56,14 +56,17 @@ extends Node2D
 # Used to update the camera limits in adjust_camera_limits().
 @onready var _tile_map_layer: TileMapLayer = $BackgroundTileMapLayer
 
-const GUI = preload("uid://bh2vqcphc387j")
-
+const GUI_SCENE = preload("uid://bh2vqcphc387j")
+var gui : GUI = GUI_SCENE.instantiate()
 # Connect to the interaction areas
 func _ready() -> void:
 	var canvas_layer = CanvasLayer.new()
 	add_child(canvas_layer)
-	canvas_layer.add_child(GUI.instantiate())
-	
+	canvas_layer.add_child(gui)
+	start_up()
+
+func start_up():
+	await get_tree().create_timer(0.1).timeout
 	if left_zone_area != null:
 		_connect_location(left_zone_area, ZoneManager.ZONE_DIRECTION.LEFT)
 	
@@ -75,7 +78,9 @@ func _ready() -> void:
 	
 	if down_zone_area != null:
 		_connect_location(down_zone_area, ZoneManager.ZONE_DIRECTION.DOWN)
-
+	
+	gui.fade_in()
+	await gui.animation_player.animation_finished
 
 ## Updates the limits on the passed in [Camera2D] to match this zone's area.
 func adjust_camera_limits(camera: Camera2D) -> void:
@@ -111,6 +116,8 @@ func _connect_location(location: Area2D, direction: ZoneManager.ZONE_DIRECTION) 
 	# Connect to the body_entered signal
 	location.body_entered.connect(_on_area_2d_body_entered.bind(direction))
 
+func _disconnect_location(location: Area2D, direction: ZoneManager.ZONE_DIRECTION) -> void:
+	location.body_entered.disconnect(_on_area_2d_body_entered)
 
 ## Handles [signal Area2D.body_entered] signals and calls [method ZoneManager.change_zone].
 ## When calling [method ZoneManager.change_zone], a [PackedScene] version
@@ -121,10 +128,24 @@ func _on_area_2d_body_entered(body: Node2D, direction: ZoneManager.ZONE_DIRECTIO
 	# To ensure prior compatibility, both groups are now checked
 	if not body.is_in_group("Player") and not body.is_in_group("player"):
 		return
+	gui.fade_out()
+	await gui.animation_player.animation_finished
 	body.position = Vector2.ZERO
 	# Get the filename for the next scene (Zone)
 	var new_zone_filename : StringName = ""
 	var new_spawnpoint : Vector2 = Vector2.ZERO
+	
+	if left_zone_area != null:
+		_disconnect_location(left_zone_area, ZoneManager.ZONE_DIRECTION.LEFT)
+	
+	if up_zone_area != null:
+		_disconnect_location(up_zone_area, ZoneManager.ZONE_DIRECTION.UP)
+	
+	if right_zone_area != null:
+		_disconnect_location(right_zone_area, ZoneManager.ZONE_DIRECTION.RIGHT)
+	
+	if down_zone_area != null:
+		_disconnect_location(down_zone_area, ZoneManager.ZONE_DIRECTION.DOWN)
 	
 	match direction:
 		# Match the direction (ignore NONE)

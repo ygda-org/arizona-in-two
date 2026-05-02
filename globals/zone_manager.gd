@@ -89,51 +89,6 @@ func change_zone(new_zone_packed: PackedScene, direction: ZONE_DIRECTION, spawnp
 	if direction != ZONE_DIRECTION.NONE:
 		apply_player_effects(player, original_effects)
 	
-	
-	# Move the player close to the opposite transition location
-	
-	# NOTE: The CollisionShape2D node is assumed to be named "CollisionShape2D"
-	var collider_position: Vector2
-	var offset: Vector2
-	#
-	## Get the collider and calculate which direction it should go in
-	#match direction:
-		## Left -> Right
-		#ZONE_DIRECTION.LEFT:
-			## NOTE: A 2x multiplier is used to further distance the player
-			## offset (x) = -1 * width of the CollisionShape2D
-			#var collider: CollisionShape2D = new_zone.right_zone_area.find_child("CollisionShape2D")
-			#collider_position = collider.position
-			#offset = Vector2(-2 * collider.shape.get_rect().size.x, 0)
-		#
-		## Up -> Down
-		#ZONE_DIRECTION.UP:
-			## offset (y) = -1 * height of the CollisionShape2D
-			#var collider: CollisionShape2D = new_zone.down_zone_area.find_child("CollisionShape2D")
-			#collider_position = collider.position
-			#offset = Vector2(0, -2 * collider.shape.get_rect().size.y)
-		#
-		## Right -> Left
-		#ZONE_DIRECTION.RIGHT:
-			## offset (x) = width of the CollisionShape2D
-			#var collider: CollisionShape2D = new_zone.left_zone_area.find_child("CollisionShape2D")
-			#collider_position = collider.position
-			#offset = Vector2(2 * collider.shape.get_rect().size.x, 0)
-		#
-		## Down -> Up
-		#ZONE_DIRECTION.DOWN:
-			## offset (y) = height of the CollisionShape2D
-			#var collider: CollisionShape2D = new_zone.up_zone_area.find_child("CollisionShape2D")
-			#collider_position = collider.position
-			#offset = Vector2(0, 2 * collider.shape.get_rect().size.y)
-		#
-		## Handle NONE direction (pass through the current player position)
-		#ZONE_DIRECTION.NONE:
-			#collider_position = player.position
-			#offset = Vector2.ZERO
-	#
-	
-	
 	# Adjust the camera's limits
 	# NOTE: It's assumed that Camera2D will be a direct child node under the player node
 	var camera: Camera2D = player.find_child("Camera2D", false)
@@ -144,6 +99,8 @@ func change_zone(new_zone_packed: PackedScene, direction: ZONE_DIRECTION, spawnp
 	
 	# Resume processing
 	get_tree().paused = false
+	
+	new_zone.start_up()
 
 
 ## Returns a [Dictionary] containing the effects that the player currently has.[br]
