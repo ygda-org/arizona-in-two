@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Player
+
 @export var shot_speed_multiplier = 1
 
 @export var speedMulti = 1.0
@@ -19,6 +21,10 @@ var damage : float = 5.0
 
 const SHOTGUN_SPREAD = PI/4 # spread per shot
 
+@onready var iFrameTimer : Timer = $IFrameTimer
+
+func _ready() -> void:
+	Gamestate.player = self
 
 func _physics_process(delta: float) -> void:
 	movement(delta) # Movement function (Others can be added below)
@@ -131,8 +137,16 @@ func gain_powerup(power_name):
 		$BouncesPowerTimer.start()
 		bounce_powerup = true
 
+func set_iframe_shader(val : bool):
+	$AnimatedSprite2D.material.set_shader_parameter("isFlash", val)
+
 func _on_shotgun_power_timer_timeout():
 	shotgun_powerup = false
 
 func _on_bounces_power_timer_timeout() -> void:
 	bounce_powerup = false
+
+
+func _on_i_frame_timer_timeout() -> void:
+	Gamestate.player_can_take_damage = true
+	set_iframe_shader(false)

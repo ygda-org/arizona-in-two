@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bh2vqcphc387j"]
+
+[ext_resource type="FontFile" uid="uid://cyhc3qspkhxkm" path="res://assets/ui/font.png" id="1_3f2kh"]
+
+[node name="Gui" type="Control" unique_id=1264883020]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=690997009]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 40.0
+offset_right = 773.0
+offset_bottom = 141.0
+
+[node name="Label" type="Label" parent="." unique_id=1928279541]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_3f2kh")
+text = "1234567890
+.!?:'
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+abcdefghijklmnopqrstuvwxyz
+>(),;"

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://tauxm8sc6ng2"]
 
-[ext_resource type="Texture2D" uid="uid://cq1rc5q3fkuji" path="res://assets/icon.svg" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://difviypagft55" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://bsapgr03b7jf8" path="res://assets/player/Jackie walk cycle back.png" id="2_boad6"]
+[ext_resource type="Shader" uid="uid://dgurnonpv27rm" path="res://player/iframe_flash.gdshader" id="2_hg6s5"]
 [ext_resource type="PackedScene" uid="uid://c7fw2aq587t44" path="res://enemies/damage_component.tscn" id="3_g1dw6"]
 [ext_resource type="Texture2D" uid="uid://dykjtnjbhyvh0" path="res://assets/player/Jackie walk cycle front.png" id="3_rgyib"]
 [ext_resource type="Texture2D" uid="uid://ctmtr0mlnnor2" path="res://assets/player/Jackie walk cycle left.png" id="4_hg6s5"]
@@ -11,6 +11,10 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
 size = Vector2(16, 16)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8t03j"]
+shader = ExtResource("2_hg6s5")
+shader_parameter/isFlash = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ieo8"]
 atlas = ExtResource("2_boad6")
@@ -179,13 +183,9 @@ scale = Vector2(0.95, 0.95)
 shape = SubResource("RectangleShape2D_rkbax")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=598797111]
+material = SubResource("ShaderMaterial_8t03j")
 sprite_frames = SubResource("SpriteFrames_g1dw6")
 animation = &"right_walk"
-
-[node name="Sprite" type="Sprite2D" parent="." unique_id=80874033]
-visible = false
-scale = Vector2(0.125, 0.125)
-texture = ExtResource("1_oul6g")
 
 [node name="ShotgunPowerTimer" type="Timer" parent="." unique_id=1441716618]
 wait_time = 10.0
@@ -197,5 +197,9 @@ one_shot = true
 
 [node name="DamageComponent" parent="." unique_id=141590767 instance=ExtResource("3_g1dw6")]
 
+[node name="IFrameTimer" type="Timer" parent="." unique_id=450803665]
+wait_time = 0.25
+
 [connection signal="timeout" from="ShotgunPowerTimer" to="." method="_on_shotgun_power_timer_timeout"]
 [connection signal="timeout" from="BouncesPowerTimer" to="." method="_on_bounces_power_timer_timeout"]
+[connection signal="timeout" from="IFrameTimer" to="." method="_on_i_frame_timer_timeout"]

@@ -1,0 +1,25 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://cyhc3qspkhxkm"
+path="res://.godot/imported/font.png-65f9c85a86ab0120adf5d88d94df8464.fontdata"
+
+[deps]
+
+source_file="res://assets/ui/font.png"
+dest_files=["res://.godot/imported/font.png-65f9c85a86ab0120adf5d88d94df8464.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("49-57", "48", "46", "33", "63", "58", "39", "65-71", "97-102", "104", "62", "72-78", "105", "107-111", "114", "37", "79-85", "115-122", "86-90", "40-41", "44", "112", "113", "121", "103", "106", "59")
+kerning_pairs=PackedStringArray()
+columns=15
+rows=5
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(1, 1, 0, 0)
+ascent=0
+descent=0
+fallbacks=[]
+compress=true
+scaling_mode=2

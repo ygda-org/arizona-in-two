@@ -56,9 +56,14 @@ extends Node2D
 # Used to update the camera limits in adjust_camera_limits().
 @onready var _tile_map_layer: TileMapLayer = $BackgroundTileMapLayer
 
+const GUI = preload("uid://bh2vqcphc387j")
 
 # Connect to the interaction areas
 func _ready() -> void:
+	var canvas_layer = CanvasLayer.new()
+	add_child(canvas_layer)
+	canvas_layer.add_child(GUI.instantiate())
+	
 	if left_zone_area != null:
 		_connect_location(left_zone_area, ZoneManager.ZONE_DIRECTION.LEFT)
 	
