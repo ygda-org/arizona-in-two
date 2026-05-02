@@ -10,7 +10,7 @@
 
 [node name="Main" type="Node2D" unique_id=1701778157]
 
-[node name="Player" parent="." unique_id=848334035 groups=["Player"] instance=ExtResource("1_53q0u")]
+[node name="Player" parent="." unique_id=848334035 instance=ExtResource("1_53q0u")]
 unique_name_in_owner = true
 position = Vector2(320, 328)
 

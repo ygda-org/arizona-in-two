@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcrg1lgshthv0"
-path="res://.godot/imported/ice_terrain.png-acace382ae41365dd5c3805e669603ff.ctex"
+uid="uid://lejvxsfpvag0"
+path="res://.godot/imported/JackieGunRight.png-251b54b0208e6984d41cac797374eff6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/ice_area/ice_terrain.png"
-dest_files=["res://.godot/imported/ice_terrain.png-acace382ae41365dd5c3805e669603ff.ctex"]
+source_file="res://assets/player/JackieGunRight.png"
+dest_files=["res://.godot/imported/JackieGunRight.png-251b54b0208e6984d41cac797374eff6.ctex"]
 
 [params]
 

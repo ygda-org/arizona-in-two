@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcrg1lgshthv0"
-path="res://.godot/imported/ice_terrain.png-acace382ae41365dd5c3805e669603ff.ctex"
+uid="uid://cqt1vli8lq1gm"
+path="res://.godot/imported/right_jack_idle.png-48c11a58c82e3b22b232f64688c749a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/ice_area/ice_terrain.png"
-dest_files=["res://.godot/imported/ice_terrain.png-acace382ae41365dd5c3805e669603ff.ctex"]
+source_file="res://assets/player/right_jack_idle.png"
+dest_files=["res://.godot/imported/right_jack_idle.png-48c11a58c82e3b22b232f64688c749a0.ctex"]
 
 [params]
 

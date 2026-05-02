@@ -35,7 +35,6 @@ var modified_zones: Dictionary[StringName, Zone]
 func change_zone(new_zone_packed: PackedScene, direction: ZONE_DIRECTION, spawnpoint : Vector2) -> void:
 	# Pause processing (avoid weird intermediate processing)
 	get_tree().paused = true
-	print("you've changed zones")
 	
 	# Save player effects if there was a previous zone
 	var original_effects: Dictionary
@@ -45,7 +44,7 @@ func change_zone(new_zone_packed: PackedScene, direction: ZONE_DIRECTION, spawnp
 		
 		# Get effects
 		original_effects = get_player_effects(original_player)
-	
+		original_player.velocity = Vector2.ZERO
 	# Save the modified zone temporarily if there was a previous zone
 	if direction != ZONE_DIRECTION.NONE:
 		var modified_zone_root: Zone = get_tree().current_scene
@@ -143,7 +142,6 @@ func change_zone(new_zone_packed: PackedScene, direction: ZONE_DIRECTION, spawnp
 	# Snap the camera to the new location
 	camera.reset_smoothing()
 	
-	print('end of switch')
 	# Resume processing
 	get_tree().paused = false
 

@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var shot_speed_multiplier = 1
 
 @export var speedMulti = 1.0
-var speed: int = 70
+var speed: int = 300
 const deceleration: int = 10
 const acceleration: int = 50
 

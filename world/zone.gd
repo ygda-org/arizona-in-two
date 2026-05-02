@@ -74,6 +74,11 @@ func _ready() -> void:
 
 ## Updates the limits on the passed in [Camera2D] to match this zone's area.
 func adjust_camera_limits(camera: Camera2D) -> void:
+	camera.zoom = Vector2(3,3)
+	
+	if _tile_map_layer == null:
+		push_warning('BackgroundTileMapLayer not found')
+		return
 	# Get the tile size
 	var tile_size := _tile_map_layer.tile_set.tile_size
 	
@@ -107,9 +112,11 @@ func _connect_location(location: Area2D, direction: ZoneManager.ZONE_DIRECTION) 
 ## of the next zone specified by [param direction] is used.
 func _on_area_2d_body_entered(body: Node2D, direction: ZoneManager.ZONE_DIRECTION) -> void:
 	# Skip non-player interactions
-	if not body.is_in_group("Player"):
+	# NOTE: "Player" was the original Scene Group (now a Global Group) while "player" was the new Global Group
+	# To ensure prior compatibility, both groups are now checked
+	if not body.is_in_group("Player") and not body.is_in_group("player"):
 		return
-	
+	body.position = Vector2.ZERO
 	# Get the filename for the next scene (Zone)
 	var new_zone_filename : StringName = ""
 	var new_spawnpoint : Vector2 = Vector2.ZERO
@@ -131,6 +138,5 @@ func _on_area_2d_body_entered(body: Node2D, direction: ZoneManager.ZONE_DIRECTIO
 	
 	# Load a PackedScene version of the next zone
 	var new_zone_packed: PackedScene = load(ZONE_PATH + new_zone_filename + ".tscn")
-	print(self, direction)
 	# Call the _change_zone function directly
 	ZoneManager.change_zone(new_zone_packed, direction, new_spawnpoint)

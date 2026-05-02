@@ -62,17 +62,6 @@ func _ready() -> void:
 # automatically stopped by the VisibleOnScreenEnabler2D
 # Move and animate the slime
 func _physics_process(_delta: float) -> void:
-	# Check collisions
-	for i in get_slide_collision_count():
-		var obj := get_slide_collision(i).get_collider()
-		
-		# Player check
-		if obj is CharacterBody2D:
-			if obj.is_in_group("Player"):
-				# TODO: Damage function
-				#obj.damage(damage)
-				pass
-	
 	# If the idle movement timer is running, skip movement calculations
 	if not _idle_movement_timer.is_stopped():
 		return

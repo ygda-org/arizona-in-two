@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://tauxm8sc6ng2"]
+[gd_scene format=3 uid="uid://tauxm8sc6ng2"]
 
 [ext_resource type="Texture2D" uid="uid://cq1rc5q3fkuji" path="res://assets/icon.svg" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://difviypagft55" path="res://player/player.gd" id="1_rkbax"]
@@ -7,26 +7,43 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
 size = Vector2(16, 16)
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[sub_resource type="SpriteFrames" id="SpriteFrames_g1dw6"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"front_walk",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" unique_id=2010892964 groups=["Player", "player"]]
 script = ExtResource("1_rkbax")
 
-[node name="Hitbox" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=27240685]
 scale = Vector2(0.95, 0.95)
 shape = SubResource("RectangleShape2D_rkbax")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=598797111]
+sprite_frames = SubResource("SpriteFrames_g1dw6")
+animation = &"front_walk"
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=80874033]
 scale = Vector2(0.125, 0.125)
 texture = ExtResource("1_oul6g")
 
-[node name="ShotgunPowerTimer" type="Timer" parent="."]
+[node name="ShotgunPowerTimer" type="Timer" parent="." unique_id=1441716618]
 wait_time = 10.0
 one_shot = true
 
-[node name="BouncesPowerTimer" type="Timer" parent="."]
+[node name="BouncesPowerTimer" type="Timer" parent="." unique_id=2076303696]
 wait_time = 5.0
 one_shot = true
 
-[node name="DamageComponent" parent="." instance=ExtResource("3_g1dw6")]
+[node name="DamageComponent" parent="." unique_id=141590767 instance=ExtResource("3_g1dw6")]
 
 [connection signal="timeout" from="ShotgunPowerTimer" to="." method="_on_shotgun_power_timer_timeout"]
 [connection signal="timeout" from="BouncesPowerTimer" to="." method="_on_bounces_power_timer_timeout"]

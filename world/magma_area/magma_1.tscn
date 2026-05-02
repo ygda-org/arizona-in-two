@@ -53,8 +53,7 @@ offset_top = 230.0
 offset_right = 498.0
 offset_bottom = 253.0
 text = "Note to self: Add fire damage-over-time
-Note to self: Make enemies hate you
-Note to self: Make zone teleportato work"
+"
 
 [node name="Bullets" type="Node" parent="." unique_id=1147614252]
 
