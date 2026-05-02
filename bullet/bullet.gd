@@ -17,6 +17,9 @@ var speed = 128 #The speed of the bullet
 var bounceCount = 0
 var maxBounceCount = 2
 
+func _ready() -> void:
+	$Sprite2D.rotation = direction.angle()
+	
 func _physics_process(delta):
 	position += speed * direction * delta
 

@@ -114,7 +114,8 @@ func adjust_camera_limits(camera: Camera2D) -> void:
 # Connects an Area2D's body_entered signal to the _change_zone() function
 func _connect_location(location: Area2D, direction: ZoneManager.ZONE_DIRECTION) -> void:
 	# Connect to the body_entered signal
-	location.body_entered.connect(_on_area_2d_body_entered.bind(direction))
+	if not location.body_entered.is_connected(_on_area_2d_body_entered):
+		location.body_entered.connect(_on_area_2d_body_entered.bind(direction))
 
 func _disconnect_location(location: Area2D, direction: ZoneManager.ZONE_DIRECTION) -> void:
 	location.body_entered.disconnect(_on_area_2d_body_entered)
