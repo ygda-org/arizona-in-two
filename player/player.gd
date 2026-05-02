@@ -23,10 +23,12 @@ const SHOTGUN_SPREAD = PI/4 # spread per shot
 
 @onready var iFrameTimer : Timer = $IFrameTimer
 
-func _ready() -> void:
-	Gamestate.player = self
-
 func _physics_process(delta: float) -> void:
+	
+	# Iframe ducttape
+	if Gamestate.player_can_take_damage == false and $IFrameTimer.time_left == 0:
+		$IFrameTimer.start()
+	
 	movement(delta) # Movement function (Others can be added below)
 	
 	shoot(delta)

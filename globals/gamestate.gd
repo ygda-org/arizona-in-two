@@ -12,6 +12,7 @@ func reset():
 	player_health = 1000
 
 func damage_player(amount : int):
+	
 	player_can_take_damage = false
 	
 	if player_health <= amount:
