@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var shot_speed_multiplier = 1
 
 @export var speedMulti = 1.0
-var speed: int = 300
+var speed: int = 70
 const deceleration: int = 10
 const acceleration: int = 50
 
@@ -49,28 +49,37 @@ func movement(delta):
 		if horizontal == "l":
 			match vertical:
 				"u":
-					pass # Animated sprite for Left + Up
+					# Left + Up
+					$AnimatedSprite2D.play("left_walk")
 				"d":
-					pass # Animated sprite for Left + Down
+					# Left + Down
+					$AnimatedSprite2D.play("left_walk")
 				"":
-					pass # Animated sprite for Left ONLY
+					# Left
+					$AnimatedSprite2D.play("left_walk")
 		elif horizontal == "r":
 			match vertical:
 				"u":
-					pass # Animated sprite for Right + Up
+					# Right + Up
+					$AnimatedSprite2D.play("right_walk")
 				"d":
-					pass # Animated sprite for Right + Down
+					# Right + Down
+					$AnimatedSprite2D.play("right_walk")
 				"":
-					pass # Animated sprite for Right ONLY
+					# Right
+					$AnimatedSprite2D.play("right_walk")
 		else:
 			match vertical:
 				"u":
-					pass # Animated sprite for Up ONLY
+					# Up
+					$AnimatedSprite2D.play("back_walk")
 				"d":
-					pass # Animated sprite for Down ONLY
+					# Down
+					$AnimatedSprite2D.play("front_walk")
 		
 	else:
 		# Slowly decreases the speed of the player
+		$AnimatedSprite2D.play("idle")
 		velocity = lerp(velocity, Vector2(0, 0), delta * deceleration)
 
 func shoot(delta):
