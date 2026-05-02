@@ -1,6 +1,11 @@
 extends Control
 
+func _ready() -> void:
+	$Fade.color.a = 0.0
+
 func _on_start_pressed() -> void:
+	$AnimationPlayer.play("fade_out")
+	await $AnimationPlayer.animation_finished
 	var game: PackedScene = load("uid://bvhckihcs8a5l")
 	# Use change_zone to also fix the camera to the map's bounds
 	ZoneManager.change_zone(game, ZoneManager.ZONE_DIRECTION.NONE, Vector2(288,357))
