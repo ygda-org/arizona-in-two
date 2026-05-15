@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://4xihhr7r6pek" path="res://world/zone.gd" id="1_vk6yy"]
 [ext_resource type="TileSet" uid="uid://bgt3344imcawp" path="res://assets/tilesets/DecorTiles.tres" id="2_r42t0"]
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="4_sjy13"]
+[ext_resource type="PackedScene" uid="uid://csyqleioe2hjd" path="res://globals/audio/persistant_music_component.tscn" id="5_sjy13"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xyoh"]
 size = Vector2(127, 15)
@@ -32,3 +33,6 @@ tile_set = ExtResource("2_r42t0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Main4Exit" unique_id=1965523808]
 position = Vector2(-400.5, 360.5)
 shape = SubResource("RectangleShape2D_6xyoh")
+
+[node name="PersistantMusicComponent" parent="." unique_id=554467455 instance=ExtResource("5_sjy13")]
+music = 3

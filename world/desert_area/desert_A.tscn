@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="8_4f6ip"]
 [ext_resource type="PackedScene" uid="uid://c4kv058u3oyf5" path="res://enemies/tumbleweed/tumbleweed_enemy.tscn" id="9_b3xd2"]
 [ext_resource type="PackedScene" uid="uid://ctphcsxh0fik4" path="res://enemies/slime_enemy.tscn" id="10_s56m1"]
+[ext_resource type="PackedScene" uid="uid://csyqleioe2hjd" path="res://globals/audio/persistant_music_component.tscn" id="11_ymvjg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gdeaj"]
 
@@ -445,3 +446,6 @@ position = Vector2(161, 81)
 
 [node name="SlimeEnemy3" parent="Enemies" unique_id=1248393659 instance=ExtResource("10_s56m1")]
 position = Vector2(-72, 335)
+
+[node name="PersistantMusicComponent" parent="." unique_id=554467455 instance=ExtResource("11_ymvjg")]
+music = 1

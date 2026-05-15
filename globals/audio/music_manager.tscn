@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dmyqcgho218p5"]
+
+[ext_resource type="Script" uid="uid://ju8sjkggjyc6" path="res://globals/audio/music_manager.gd" id="1_kx7sf"]
+[ext_resource type="Script" uid="uid://bgobmrj4eva5m" path="res://globals/audio/music_settings.gd" id="2_totfy"]
+[ext_resource type="AudioStream" uid="uid://diko2smuj2ks3" path="res://assets/audio/arizonaboss.mp3" id="3_8ndsp"]
+[ext_resource type="AudioStream" uid="uid://byy43ruespscn" path="res://assets/audio/desert_there.mp3" id="4_8ndsp"]
+[ext_resource type="AudioStream" uid="uid://cp7o50bhl6iue" path="res://assets/audio/fire_theme.mp3" id="5_u1d3k"]
+[ext_resource type="AudioStream" uid="uid://baqsv6tj3ulks" path="res://assets/audio/ice_theme.mp3" id="6_kg6at"]
+[ext_resource type="AudioStream" uid="uid://dkholqjmdlvpi" path="res://assets/audio/pause.wav" id="7_jh7gr"]
+[ext_resource type="AudioStream" uid="uid://n05wo76si863" path="res://assets/audio/main_menu.mp3" id="8_q22p3"]
+
+[sub_resource type="Resource" id="Resource_ar1xu"]
+script = ExtResource("2_totfy")
+stream = ExtResource("3_8ndsp")
+metadata/_custom_type_script = "uid://bgobmrj4eva5m"
+
+[sub_resource type="Resource" id="Resource_u4lwj"]
+script = ExtResource("2_totfy")
+label = 1
+stream = ExtResource("4_8ndsp")
+metadata/_custom_type_script = "uid://bgobmrj4eva5m"
+
+[sub_resource type="Resource" id="Resource_2subl"]
+script = ExtResource("2_totfy")
+label = 2
+stream = ExtResource("5_u1d3k")
+metadata/_custom_type_script = "uid://bgobmrj4eva5m"
+
+[sub_resource type="Resource" id="Resource_57fxe"]
+script = ExtResource("2_totfy")
+label = 3
+stream = ExtResource("6_kg6at")
+metadata/_custom_type_script = "uid://bgobmrj4eva5m"
+
+[sub_resource type="Resource" id="Resource_totfy"]
+script = ExtResource("2_totfy")
+label = 4
+stream = ExtResource("7_jh7gr")
+metadata/_custom_type_script = "uid://bgobmrj4eva5m"
+
+[sub_resource type="Resource" id="Resource_8ndsp"]
+script = ExtResource("2_totfy")
+label = 5
+stream = ExtResource("8_q22p3")
+metadata/_custom_type_script = "uid://bgobmrj4eva5m"
+
+[node name="MusicManager" type="Node" unique_id=1614362050]
+script = ExtResource("1_kx7sf")
+sound_effect_dict = Dictionary[int, ExtResource("2_totfy")]({
+0: SubResource("Resource_ar1xu"),
+1: SubResource("Resource_u4lwj"),
+2: SubResource("Resource_2subl"),
+3: SubResource("Resource_57fxe"),
+4: SubResource("Resource_totfy"),
+5: SubResource("Resource_8ndsp")
+})

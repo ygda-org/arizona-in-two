@@ -138,7 +138,7 @@ func _physics_process(delta: float) -> void:
 				
 				# Get the position of the top of the player's sprite
 				var player_sprite: Sprite2D = player_node.get_node("Sprite")
-				var sprite_height := player_sprite.get_rect().size.y * player_sprite.scale.y
+				var sprite_height := 16
 				var player_head := player_node.position - Vector2(0, sprite_height / 2)
 				
 				# Get the vector from the slime to the player

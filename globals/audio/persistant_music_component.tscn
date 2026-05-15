@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://csyqleioe2hjd"]
+
+[ext_resource type="Script" uid="uid://0j4n8ox5ecw5" path="res://globals/audio/persistant_music_component.gd" id="1_f75im"]
+
+[node name="PersistantMusicComponent" type="Node" unique_id=554467455]
+script = ExtResource("1_f75im")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2041646343]
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

@@ -5,6 +5,7 @@
 [ext_resource type="TileSet" uid="uid://bgt3344imcawp" path="res://assets/tilesets/DecorTiles.tres" id="2_bq5f8"]
 [ext_resource type="Shader" uid="uid://l4e2qvfolngb" path="res://world/wall_shader.gdshader" id="3_u1qg7"]
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="4_m3bb1"]
+[ext_resource type="PackedScene" uid="uid://csyqleioe2hjd" path="res://globals/audio/persistant_music_component.tscn" id="6_bgth2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m3bb1"]
 shader = ExtResource("3_u1qg7")
@@ -54,3 +55,6 @@ shape = SubResource("RectangleShape2D_6iosy")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Main5Exit" unique_id=507715745]
 position = Vector2(63.5, -870)
 shape = SubResource("RectangleShape2D_bgth2")
+
+[node name="PersistantMusicComponent" parent="." unique_id=554467455 instance=ExtResource("6_bgth2")]
+music = 3

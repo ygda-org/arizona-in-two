@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://chr07qlqyf1cq" path="res://assets/player/Jackie walk cycle right.png" id="5_8t03j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
-size = Vector2(16, 16)
+size = Vector2(4.2105265, 17.894737)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8t03j"]
 shader = ExtResource("2_hg6s5")
@@ -179,6 +179,7 @@ animations = [{
 script = ExtResource("1_rkbax")
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=27240685]
+position = Vector2(1.0000002, 5.5)
 scale = Vector2(0.95, 0.95)
 shape = SubResource("RectangleShape2D_rkbax")
 
