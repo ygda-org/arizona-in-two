@@ -2,7 +2,7 @@ extends Node
 
 var player_health: int = 100
 var player_selected_bullet = 0 # 0 normal, 1 silver, 2 ice, 3 fire
-var player_max_bullet_strength = 4
+var player_max_bullet_strength = 3
 @onready var player : Player
 
 var player_can_take_damage : bool = true
@@ -10,6 +10,11 @@ var player_can_take_damage : bool = true
 signal player_dead
 
 const MENU = preload("uid://85alntk1uqvy")
+
+var total_elapsed_time = 0
+
+func _process(delta):
+	total_elapsed_time += delta
 
 func reset():
 	player_health = 100
@@ -35,5 +40,5 @@ func damage_player(amount : int):
 	player.set_iframe_shader(true)
 	player.iFrameTimer.start()
 
-func player_selected_bullet_cycle():
-	player_selected_bullet = (player_selected_bullet+1)%player_max_bullet_strength
+func player_selected_bullet_cycle(num: int):
+	player_selected_bullet = (player_selected_bullet+num)%(player_max_bullet_strength+1)

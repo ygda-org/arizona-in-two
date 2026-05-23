@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://4l5y3v8ie6dw"]
+
+[ext_resource type="Script" uid="uid://curxl08s5rgxf" path="res://bullet/bullet_destruction_component.gd" id="1_obfjv"]
+
+[node name="BulletDestructionComponent" type="Area2D" unique_id=701932544]
+script = ExtResource("1_obfjv")
+num_hits_to_break = 0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

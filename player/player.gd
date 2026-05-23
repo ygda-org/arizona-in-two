@@ -96,7 +96,9 @@ func movement(delta):
 func shoot(delta):
 	# check for bullet cycling
 	if Input.is_action_just_pressed("CycleBullet"):
-		Gamestate.player_selected_bullet_cycle()
+		Gamestate.player_selected_bullet_cycle(1)
+	if Input.is_action_just_pressed("CycleBulletBackwards"):
+		Gamestate.player_selected_bullet_cycle(-1)
 	
 	# Check if can shoot
 	if time_since_last_shot < shot_cooldown_seconds * (1.0/shot_speed_multiplier):

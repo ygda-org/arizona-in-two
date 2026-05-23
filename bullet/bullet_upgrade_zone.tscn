@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dntw6bbb2q15a"]
+
+[ext_resource type="Script" uid="uid://556au2y2fvql" path="res://bullet/bullet_upgrade_zone.gd" id="1_mpesr"]
+
+[node name="BulletUpgradeZone" type="Area2D" unique_id=897415398]
+script = ExtResource("1_mpesr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

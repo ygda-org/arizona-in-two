@@ -32,6 +32,7 @@ func _ready() -> void:
 	elif Gamestate.player_selected_bullet == 3:
 		$Sprite2D.texture = load("uid://clwyj6ncrsr3g")
 		bullet_attribute = "Fire"
+	name = "Bullet" + str(Gamestate.total_elapsed_time)
 	
 func _physics_process(delta):
 	position += speed * direction * delta
@@ -47,6 +48,7 @@ func _on_body_entered(body: Node2D) -> void:
 	var damage_component : DamageComponent = body.find_child("DamageComponent")
 	if damage_component:
 		damage_component.accept_bullet_(self)
+		play_hit_sound()
 		suicide()
 		return
 	if bulletBounce == true:
@@ -77,6 +79,14 @@ func _on_body_entered(body: Node2D) -> void:
 		if maxBounceCount < bounceCount:
 			call_deferred("queue_free")
 		await get_tree().create_timer(0.05).timeout
+
+func play_hit_sound():
+	if bullet_attribute == "Fire":
+		SFXManager.create_audio(SFXSettings.SFX_LABEL.Flame)
+	elif bullet_attribute == "Ice":
+		SFXManager.create_audio(SFXSettings.SFX_LABEL.Freeze)
+	else:
+		SFXManager.create_audio(SFXSettings.SFX_LABEL.HitSound)
 
 func suicide():
 	#explosions or smth if needed
