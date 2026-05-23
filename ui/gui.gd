@@ -4,6 +4,8 @@ class_name GUI
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 
+var indicators = ["Normal", "Silver", "Ice", "Fire"]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Fade.color.a = 1.0
@@ -13,6 +15,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	$TextureRect/Label.text = "Health: " + str(Gamestate.player_health)
+	set_bullet(indicators[Gamestate.player_selected_bullet])
+	
 
 func fade_in():
 	$AnimationPlayer.play("fade_in")
@@ -31,8 +35,12 @@ func game_over():
 	await animation_player.animation_finished
 	$Fade/RestartButton.disabled = false
 	#get_tree().paused = true
-	
 
+func set_bullet(bullet_name):
+	for n in $BulletIndicator.get_children():
+		n.visible = false
+	$BulletIndicator/Current.visible = true
+	$BulletIndicator.get_node(bullet_name).visible = true
 
 func _on_restart_button_pressed() -> void:
 	SFXManager.create_audio(SFXSettings.SFX_LABEL.ButtonPress)

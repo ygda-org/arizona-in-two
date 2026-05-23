@@ -94,6 +94,10 @@ func movement(delta):
 		velocity = lerp(velocity, Vector2(0, 0), delta * deceleration)
 
 func shoot(delta):
+	# check for bullet cycling
+	if Input.is_action_just_pressed("CycleBullet"):
+		Gamestate.player_selected_bullet_cycle()
+	
 	# Check if can shoot
 	if time_since_last_shot < shot_cooldown_seconds * (1.0/shot_speed_multiplier):
 		time_since_last_shot += delta
@@ -115,7 +119,8 @@ func shoot(delta):
 		if bounce_powerup:
 			bullet1.bulletBounce = true
 		get_parent().find_child("Bullets", false).add_child(bullet1)
-		
+		bullet1.global_position = $BulletSpawnLoc.global_position
+	
 		if shotgun_powerup:
 			var bullet2 : Bullet = BULLET.instantiate()
 			var bullet3 : Bullet = BULLET.instantiate()

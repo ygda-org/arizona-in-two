@@ -201,6 +201,9 @@ one_shot = true
 [node name="IFrameTimer" type="Timer" parent="." unique_id=450803665]
 wait_time = 0.25
 
+[node name="BulletSpawnLoc" type="Marker2D" parent="." unique_id=1528112902]
+position = Vector2(1, 6)
+
 [connection signal="timeout" from="ShotgunPowerTimer" to="." method="_on_shotgun_power_timer_timeout"]
 [connection signal="timeout" from="BouncesPowerTimer" to="." method="_on_bounces_power_timer_timeout"]
 [connection signal="timeout" from="IFrameTimer" to="." method="_on_i_frame_timer_timeout"]
