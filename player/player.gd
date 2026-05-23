@@ -109,7 +109,6 @@ func shoot(delta):
 	var inputDir: Vector2 = Input.get_vector("ShootLeft", "ShootRight", "ShootUp", "ShootDown")
 	
 	if inputDir:
-		
 		time_since_last_shot = 0
 		
 		var bullet1 : Bullet = BULLET.instantiate()
