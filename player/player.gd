@@ -40,6 +40,9 @@ func movement(delta):
 	var inputDir: Vector2 = Input.get_vector("MoveLeft", "MoveRight", "MoveUp", "MoveDown")
 	
 	if inputDir:
+		#if $AnimatedSprite2D.animation_finished:
+			#SFXManager.create_audio(SFXSettings.SFX_LABEL.GrassStep)
+		
 		# Slowly increases the speed
 		velocity = lerp(velocity, speed * speedMulti * inputDir, delta * acceleration)
 		
@@ -95,6 +98,7 @@ func shoot(delta):
 	if time_since_last_shot < shot_cooldown_seconds * (1.0/shot_speed_multiplier):
 		time_since_last_shot += delta
 		return
+	
 	# Maps input to correct vector for velocity
 	var inputDir: Vector2 = Input.get_vector("ShootLeft", "ShootRight", "ShootUp", "ShootDown")
 	
@@ -148,6 +152,11 @@ func _on_shotgun_power_timer_timeout():
 func _on_bounces_power_timer_timeout() -> void:
 	bounce_powerup = false
 
+func suicide():
+	queue_free()
+
+func damaged_sequence():
+	pass
 
 func _on_i_frame_timer_timeout() -> void:
 	if Gamestate.player_health == 0:

@@ -4,6 +4,7 @@
 [ext_resource type="TileSet" uid="uid://beguowxpoc1hi" path="res://assets/tilesets/MainTiles.tres" id="1_m2oex"]
 [ext_resource type="TileSet" uid="uid://bgt3344imcawp" path="res://assets/tilesets/DecorTiles.tres" id="2_78ss1"]
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="3_uoari"]
+[ext_resource type="PackedScene" uid="uid://csyqleioe2hjd" path="res://globals/audio/persistant_music_component.tscn" id="5_uoari"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2oex"]
 size = Vector2(16, 46)
@@ -29,7 +30,7 @@ tile_set = ExtResource("1_m2oex")
 tile_map_data = PackedByteArray("AAAbAAkAAQACAAAAAAAlAAcAAQACAAAAAAAiABEAAQACAAAAAAAtAA4AAQAAAAAAAAAkABcAAQAAAAAAAAAZAAgAAQAAAAAAAAAoAAoAAQAAAAAAAAAeAB4AAQAAAAAAAAALAB8AAQAAAAAAAAANACMAAQACAAAAAAAxAPj/AQAAAAAAAAAtAPv/AQAEAAAAAAAyAAIAAQAIAAAAAAAfACIAAQAIAAAAAAAQAB4AAQAEAAAAAAAKACAAAQAIAAAAAAAiAAcAAQAIAAAAAAAXAAoAAQAEAAAAAAAVABAAAQAAAAAAAAALAAkAAQACAAAAAAA=")
 tile_set = ExtResource("2_78ss1")
 
-[node name="Player" parent="." unique_id=1498438067 groups=["Player"] instance=ExtResource("3_uoari")]
+[node name="Player" parent="." unique_id=1498438067 instance=ExtResource("3_uoari")]
 unique_name_in_owner = true
 position = Vector2(176, 291)
 
@@ -57,3 +58,6 @@ position = Vector2(184, 584)
 shape = SubResource("RectangleShape2D_lyxc7")
 
 [node name="Bullets" type="Node" parent="." unique_id=198858286]
+
+[node name="PersistantMusicComponent" parent="." unique_id=554467455 instance=ExtResource("5_uoari")]
+music = 2

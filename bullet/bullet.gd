@@ -18,6 +18,7 @@ var bounceCount = 0
 var maxBounceCount = 2
 
 func _ready() -> void:
+	SFXManager.create_audio(SFXSettings.SFX_LABEL.Gunshot)
 	$Sprite2D.rotation = direction.angle()
 	
 func _physics_process(delta):

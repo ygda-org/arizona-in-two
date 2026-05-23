@@ -24,6 +24,7 @@ Gamestate="*uid://csimanntnbc8v"
 SceneSwitcher="*uid://coq5ooci1rwse"
 ZoneManager="*uid://lbqjb3skgser"
 MusicManager="*uid://dmyqcgho218p5"
+SFXManager="*uid://ci2bwtllpwfr4"
 
 [display]
 

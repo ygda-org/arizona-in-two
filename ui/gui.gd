@@ -35,4 +35,6 @@ func game_over():
 
 
 func _on_restart_button_pressed() -> void:
+	SFXManager.create_audio(SFXSettings.SFX_LABEL.ButtonPress)
+	
 	Gamestate.restart_sequence()

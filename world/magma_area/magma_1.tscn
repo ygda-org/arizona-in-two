@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b883ik2jdt2jl" path="res://enemies/dashingSlime/dashingSlime_enemy.tscn" id="5_fk8g3"]
 [ext_resource type="PackedScene" uid="uid://c1vqdg3iq4258" path="res://enemies/jumping_slime/jumping_slime_enemy.tscn" id="6_uj5bq"]
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="7_fk8g3"]
+[ext_resource type="PackedScene" uid="uid://csyqleioe2hjd" path="res://globals/audio/persistant_music_component.tscn" id="9_yyb8i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yyb8i"]
 texture = ExtResource("2_uj5bq")
@@ -143,3 +144,6 @@ position = Vector2(761, 282)
 
 [node name="Tumbleweed Enemy12" parent="Enemies" unique_id=220724849 instance=ExtResource("4_t834d")]
 position = Vector2(793, 280)
+
+[node name="PersistantMusicComponent" parent="." unique_id=554467455 instance=ExtResource("9_yyb8i")]
+music = 2

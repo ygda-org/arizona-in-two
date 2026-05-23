@@ -5,7 +5,12 @@ class_name DamageComponent
 @export var health: float = 100.0
 @export var knockback_strength : float = 100.0
 @export var damage: float = 10.0
+@export var suicide_on_death: bool = false
 @onready var parent : CharacterBody2D = get_parent()
+
+func _ready() -> void:
+	assert(parent.has_method("suicide"), 'ERROR: No suicide method found')
+	assert(parent.has_method("damaged_sequence"), 'ERROR: No damaged_sequence method found')
 
 func accept_bullet_(bullet: Bullet):
 	var damage = bullet.damage #exported damage
@@ -30,4 +35,5 @@ func _physics_process(delta: float) -> void:
 				var normal := collision.get_normal()
 				obj.velocity -= normal * knockback_strength
 				Gamestate.damage_player(damage)
-				pass
+				if suicide_on_death:
+					parent.suicide()

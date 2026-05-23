@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" uid="uid://kcfn2gawnutw" path="res://enemies/tumbleweed/tumble_bullet.gd" id="1_hjquc"]
 [ext_resource type="Texture2D" uid="uid://dq3avqf8vlk6r" path="res://assets/temporary-tiles/programmer_art-objects.png" id="2_hjquc"]
+[ext_resource type="PackedScene" uid="uid://c7fw2aq587t44" path="res://enemies/damage_component.tscn" id="3_03c4q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7qkp1"]
 radius = 15.033297
 
-[node name="TumbleBullet" type="Area2D" unique_id=985295449]
+[node name="TumbleBullet" type="CharacterBody2D" unique_id=639183007]
 script = ExtResource("1_hjquc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=817690790]
@@ -17,4 +18,5 @@ region_rect = Rect2(80, 16, 16, 16)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2039057553]
 shape = SubResource("CircleShape2D_7qkp1")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="DamageComponent" parent="." unique_id=1495931984 instance=ExtResource("3_03c4q")]
+health = 1.0

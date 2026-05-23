@@ -4,6 +4,8 @@ func _ready() -> void:
 	$Fade.color.a = 0.0
 
 func _on_start_pressed() -> void:
+	SFXManager.create_audio(SFXSettings.SFX_LABEL.ButtonPress)
+	
 	$AnimationPlayer.play("fade_out")
 	await $AnimationPlayer.animation_finished
 	var game: PackedScene = load("uid://bvhckihcs8a5l")
@@ -12,8 +14,12 @@ func _on_start_pressed() -> void:
 	#SceneSwitcher.switch_scene(game)
 
 func _on_settings_pressed() -> void:
+	SFXManager.create_audio(SFXSettings.SFX_LABEL.ButtonPress)
+	
 	var setting: PackedScene = load("uid://cyyylb4r6n4c")
 	SceneSwitcher.switch_scene(setting)
 
 func _on_quit_pressed() -> void:
+	SFXManager.create_audio(SFXSettings.SFX_LABEL.ButtonPress)
+	
 	get_tree().quit()

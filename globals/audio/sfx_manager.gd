@@ -1,8 +1,8 @@
 extends Node
 
-var queue : Array[MusicSettings.MUSIC_LABEL] = []
+var queue : Array[SFXSettings.SFX_LABEL] = []
 
-@export var sound_effect_dict : Dictionary[MusicSettings.MUSIC_LABEL, MusicSettings]
+@export var sound_effect_dict : Dictionary[SFXSettings.SFX_LABEL, SFXSettings]
 
 var rng = RandomNumberGenerator.new()
 
@@ -21,7 +21,7 @@ func _on_audio_finished(source : AudioStreamPlayer):
 	current_track = -1
 	source.queue_free()
 
-func create_audio(type : MusicSettings.MUSIC_LABEL):
+func create_audio(type : SFXSettings.SFX_LABEL):
 	var audioplayer : AudioStreamPlayer = AudioStreamPlayer.new()
 	add_child(audioplayer)
 	var sound_effect_setting = sound_effect_dict[type]
@@ -34,7 +34,7 @@ func create_audio(type : MusicSettings.MUSIC_LABEL):
 	audioplayer.play(sound_effect_setting.audio_start_offset)
 	#GlobalLog.log("Playing: " + str(sound_effect_setting.label))
 
-func create_audio_with_variance(type : MusicSettings.MUSIC_LABEL, pitch_range : Vector2):
+func create_audio_with_variance(type : SFXSettings.SFX_LABEL, pitch_range : Vector2):
 	var audioplayer : AudioStreamPlayer = AudioStreamPlayer.new()
 	add_child(audioplayer)
 	var sound_effect_setting = sound_effect_dict[type]

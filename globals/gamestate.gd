@@ -11,7 +11,7 @@ signal player_dead
 const MENU = preload("uid://85alntk1uqvy")
 
 func reset():
-	player_health = 1000
+	player_health = 100
 
 func restart_sequence():
 	ZoneManager.modified_zones.clear()
@@ -28,5 +28,8 @@ func damage_player(amount : int):
 		return
 	
 	player_health -= amount
+	
+	SFXManager.create_audio(SFXSettings.SFX_LABEL.HitSound)
+	
 	player.set_iframe_shader(true)
 	player.iFrameTimer.start()
