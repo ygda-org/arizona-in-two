@@ -45,7 +45,8 @@ func movement(delta):
 		
 		# Slowly increases the speed
 		velocity = lerp(velocity, speed * speedMulti * inputDir, delta * acceleration)
-		
+		if Input.is_action_pressed("DEBUGRUN"):
+			velocity *= 3
 		# Finds which direction in the X Axis
 		var horizontal := "" 
 		if inputDir.x < 0: horizontal = "l"
@@ -119,7 +120,7 @@ func shoot(delta):
 		bullet1.excluded_nodes = [self]
 		if bounce_powerup:
 			bullet1.bulletBounce = true
-		get_parent().find_child("Bullets", false).add_child(bullet1)
+		get_parent().add_child(bullet1)#find_child("Bullets", false).add_child(bullet1)
 		bullet1.global_position = $BulletSpawnLoc.global_position
 	
 		if shotgun_powerup:

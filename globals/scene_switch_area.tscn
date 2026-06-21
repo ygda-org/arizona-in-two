@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bf0t0p2rrmobp"]
+
+[ext_resource type="Script" uid="uid://de3l85wtdhf4j" path="res://globals/scene_switch_area.gd" id="1_kgaet"]
+
+[node name="SceneSwitchArea" type="Area2D" unique_id=223363775]
+script = ExtResource("1_kgaet")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

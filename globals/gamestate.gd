@@ -21,7 +21,7 @@ func reset():
 
 func restart_sequence():
 	ZoneManager.modified_zones.clear()
-	SceneSwitcher.switch_scene(MENU)
+	SceneSwitcher.switch_scene(MENU, "")
 	player_health = 100
 
 func damage_player(amount : int):
@@ -36,9 +36,9 @@ func damage_player(amount : int):
 	player_health -= amount
 	
 	SFXManager.create_audio(SFXSettings.SFX_LABEL.HitSound)
-	
-	player.set_iframe_shader(true)
-	player.iFrameTimer.start()
+	if player:
+		player.call_deferred("set_iframe_shader", true)
+		player.iFrameTimer.start()
 
 func player_selected_bullet_cycle(num: int):
 	player_selected_bullet = posmod(player_selected_bullet+num, player_max_bullet_strength+1)

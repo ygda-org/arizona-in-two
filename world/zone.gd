@@ -22,7 +22,7 @@ extends Node2D
 # These directions identify which direction the scene change goes in
 # The filename variable is used to set what new scene should be loaded
 # The area variable is used to identify when an interaction has occurred
-
+""" # bye to all this code lol
 ## The filename of for the zone to the [b]left[/b] of this zone.
 @export var left_zone_filename: StringName
 ## The interaction area for the zone to the [b]left[/b] of this zone.
@@ -50,7 +50,7 @@ extends Node2D
 @export var down_zone_area: Area2D
 ## Down spawnpoint variable. Coordinate
 @export var down_spawn_point : Vector2
-
+"""
 
 # The background TileMapLayer.
 # Used to update the camera limits in adjust_camera_limits().
@@ -67,20 +67,10 @@ func _ready() -> void:
 
 func start_up():
 	await get_tree().create_timer(0.1).timeout
-	if left_zone_area != null:
-		_connect_location(left_zone_area, ZoneManager.ZONE_DIRECTION.LEFT)
-	
-	if up_zone_area != null:
-		_connect_location(up_zone_area, ZoneManager.ZONE_DIRECTION.UP)
-	
-	if right_zone_area != null:
-		_connect_location(right_zone_area, ZoneManager.ZONE_DIRECTION.RIGHT)
-	
-	if down_zone_area != null:
-		_connect_location(down_zone_area, ZoneManager.ZONE_DIRECTION.DOWN)
 	
 	gui.fade_in()
 	await gui.animation_player.animation_finished
+
 
 ## Updates the limits on the passed in [Camera2D] to match this zone's area.
 func adjust_camera_limits(camera: Camera2D) -> void:
@@ -110,7 +100,7 @@ func adjust_camera_limits(camera: Camera2D) -> void:
 	camera.limit_right = x_max
 	camera.limit_bottom = y_max
 
-
+"""
 # Connects an Area2D's body_entered signal to the _change_zone() function
 func _connect_location(location: Area2D, direction: ZoneManager.ZONE_DIRECTION) -> void:
 	# Connect to the body_entered signal
@@ -167,3 +157,4 @@ func _on_area_2d_body_entered(body: Node2D, direction: ZoneManager.ZONE_DIRECTIO
 	var new_zone_packed: PackedScene = load(ZONE_PATH + new_zone_filename + ".tscn")
 	# Call the _change_zone function directly
 	ZoneManager.change_zone(new_zone_packed, direction, new_spawnpoint)
+"""

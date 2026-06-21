@@ -17,7 +17,7 @@ func _on_settings_pressed() -> void:
 	SFXManager.create_audio(SFXSettings.SFX_LABEL.ButtonPress)
 	
 	var setting: PackedScene = load("uid://cyyylb4r6n4c")
-	SceneSwitcher.switch_scene(setting)
+	SceneSwitcher.switch_scene(setting, "hi")
 
 func _on_quit_pressed() -> void:
 	SFXManager.create_audio(SFXSettings.SFX_LABEL.ButtonPress)
