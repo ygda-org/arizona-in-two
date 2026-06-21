@@ -6,5 +6,5 @@ func _ready() -> void:
 func _on_exit_pressed() -> void:
 	SFXManager.create_audio(SFXSettings.SFX_LABEL.ButtonPress)
 	
-	var game: PackedScene = load("uid://85alntk1uqvy")
-	SceneSwitcher.switch_scene(game)
+	var game: String = "uid://85alntk1uqvy"
+	SceneSwitcher.switch_scene_no_player(game)
