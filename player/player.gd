@@ -5,7 +5,7 @@ class_name Player
 @export var shot_speed_multiplier = 1
 
 @export var speedMulti = 1.0
-var speed: int = 70
+var speed: int = 95
 const deceleration: int = 10
 const acceleration: int = 50
 
@@ -26,7 +26,7 @@ const SHOTGUN_SPREAD = PI/4 # spread per shot
 func _physics_process(delta: float) -> void:
 	
 	# Iframe ducttape
-	if Gamestate.player_can_take_damage == false and $IFrameTimer.time_left == 0:
+	if GameState.player_can_take_damage == false and $IFrameTimer.time_left == 0:
 		$IFrameTimer.start()
 	
 	movement(delta) # Movement function (Others can be added below)
@@ -97,9 +97,9 @@ func movement(delta):
 func shoot(delta):
 	# check for bullet cycling
 	if Input.is_action_just_pressed("CycleBullet"):
-		Gamestate.player_selected_bullet_cycle(1)
+		GameState.player_selected_bullet_cycle(1)
 	if Input.is_action_just_pressed("CycleBulletBackwards"):
-		Gamestate.player_selected_bullet_cycle(-1)
+		GameState.player_selected_bullet_cycle(-1)
 	
 	# Check if can shoot
 	if time_since_last_shot < shot_cooldown_seconds * (1.0/shot_speed_multiplier):
@@ -142,6 +142,10 @@ func shoot(delta):
 		
 		time_since_last_shot += delta
 
+func set_spawn_position(pos):
+	global_position = pos
+	$Camera.global_position = pos
+
 func gain_powerup(power_name):
 	if power_name == "shotgun":
 		$ShotgunPowerTimer.start()
@@ -166,7 +170,7 @@ func damaged_sequence():
 	pass
 
 func _on_i_frame_timer_timeout() -> void:
-	if Gamestate.player_health == 0:
+	if GameState.player_health == 0:
 		return
-	Gamestate.player_can_take_damage = true
+	GameState.player_can_take_damage = true
 	set_iframe_shader(false)

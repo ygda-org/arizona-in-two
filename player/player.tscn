@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ctmtr0mlnnor2" path="res://assets/player/Jackie walk cycle left.png" id="4_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://b1oh8mbctdr4f" path="res://assets/player/front_jack_idle.png" id="4_rgyib"]
 [ext_resource type="Texture2D" uid="uid://chr07qlqyf1cq" path="res://assets/player/Jackie walk cycle right.png" id="5_8t03j"]
+[ext_resource type="PackedScene" uid="uid://c2n7vlwridqkn" path="res://player/camera.tscn" id="9_hg6s5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
 size = Vector2(4.2105265, 17.894737)
@@ -176,6 +177,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=2010892964 groups=["Player", "player"]]
+motion_mode = 1
 script = ExtResource("1_rkbax")
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=27240685]
@@ -203,6 +205,10 @@ wait_time = 0.25
 
 [node name="BulletSpawnLoc" type="Marker2D" parent="." unique_id=1528112902]
 position = Vector2(1, 6)
+
+[node name="Camera" parent="." unique_id=183673260 instance=ExtResource("9_hg6s5")]
+top_level = true
+motion_mode = 1
 
 [connection signal="timeout" from="ShotgunPowerTimer" to="." method="_on_shotgun_power_timer_timeout"]
 [connection signal="timeout" from="BouncesPowerTimer" to="." method="_on_bounces_power_timer_timeout"]

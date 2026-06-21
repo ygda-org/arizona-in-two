@@ -23,16 +23,16 @@ var maxBounceCount = 2
 func _ready() -> void:
 	SFXManager.create_audio(SFXSettings.SFX_LABEL.Gunshot)
 	$Sprite2D.rotation = direction.angle()
-	if Gamestate.player_selected_bullet == 1:
+	if GameState.player_selected_bullet == 1:
 		$Sprite2D.texture = load("uid://b0hh83564wuyl")
 		bullet_attribute = "Silver"
-	elif Gamestate.player_selected_bullet == 2:
+	elif GameState.player_selected_bullet == 2:
 		$Sprite2D.texture = load("uid://du5vgx11eg5vh")
 		bullet_attribute = "Ice"
-	elif Gamestate.player_selected_bullet == 3:
+	elif GameState.player_selected_bullet == 3:
 		$Sprite2D.texture = load("uid://clwyj6ncrsr3g")
 		bullet_attribute = "Fire"
-	name = "Bullet" + str(Gamestate.total_elapsed_time)
+	name = "Bullet" + str(GameState.total_elapsed_time)
 	
 func _physics_process(delta):
 	position += speed * direction * delta

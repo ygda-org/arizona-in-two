@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c2n7vlwridqkn"]
+
+[ext_resource type="Script" uid="uid://cfk3di7srrirr" path="res://player/camera.gd" id="1_8nkvj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nkvj"]
+size = Vector2(1920, 1080)
+
+[node name="Camera" type="CharacterBody2D" unique_id=183673260]
+collision_layer = 0
+collision_mask = 8
+motion_mode = 1
+script = ExtResource("1_8nkvj")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=69852055]
+process_callback = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1096797870]
+visible = false
+shape = SubResource("RectangleShape2D_8nkvj")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1116115320]
+collision_layer = 0
+collision_mask = 16

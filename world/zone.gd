@@ -74,6 +74,7 @@ func start_up():
 
 ## Updates the limits on the passed in [Camera2D] to match this zone's area.
 func adjust_camera_limits(camera: Camera2D) -> void:
+	return
 	camera.zoom = Vector2(3,3)
 	
 	if _tile_map_layer == null:

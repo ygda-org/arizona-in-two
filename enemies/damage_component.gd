@@ -31,9 +31,9 @@ func _physics_process(delta: float) -> void:
 		var obj := collision.get_collider()
 		# Player check
 		if obj is Player:
-			if obj.is_in_group("Player") and Gamestate.player_can_take_damage:
+			if obj.is_in_group("Player") and GameState.player_can_take_damage:
 				var normal := collision.get_normal()
 				obj.velocity -= normal * knockback_strength
-				Gamestate.damage_player(damage)
+				GameState.damage_player(damage)
 				if suicide_on_death:
 					parent.suicide()

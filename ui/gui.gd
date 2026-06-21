@@ -10,12 +10,12 @@ var indicators = ["Normal", "Silver", "Ice", "Fire"]
 func _ready() -> void:
 	$Fade.color.a = 1.0
 	$Fade/RestartButton.modulate.a = 0.0
-	Gamestate.player_dead.connect(game_over)
+	GameState.player_dead.connect(game_over)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$TextureRect/Label.text = "Health: " + str(Gamestate.player_health)
-	set_bullet(indicators[Gamestate.player_selected_bullet])
+	$TextureRect/Label.text = "Health: " + str(GameState.player_health)
+	set_bullet(indicators[GameState.player_selected_bullet])
 	
 
 func fade_in():
@@ -45,4 +45,4 @@ func set_bullet(bullet_name):
 func _on_restart_button_pressed() -> void:
 	SFXManager.create_audio(SFXSettings.SFX_LABEL.ButtonPress)
 	
-	Gamestate.restart_sequence()
+	GameState.restart_sequence()

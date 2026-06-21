@@ -9,8 +9,7 @@ func switch_scene_deferred(scene_path, spawn_loc):
 	await get_tree().process_frame
 	var level = get_tree().current_scene
 	var player = level.get_node("Player")
-	player.global_position = level.find_child(spawn_loc).global_position
-	level.adjust_camera_limits(player.get_node("Camera2D"))
+	player.set_spawn_position(level.find_child(spawn_loc).global_position)
 
 func switch_scene_no_player(scene_path):
 	call_deferred("switch_scene_no_player_deferred", scene_path)

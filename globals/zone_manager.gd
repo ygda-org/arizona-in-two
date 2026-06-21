@@ -78,7 +78,7 @@ func change_zone(new_zone_packed: PackedScene, direction: ZONE_DIRECTION, spawnp
 	# Get the player node in the new scene
 	var player: CharacterBody2D = new_zone.find_child("Player", false)
 	
-	Gamestate.player = player
+	GameState.player = player
 	
 	## Set the player position (area_position + offset)
 	player.position = spawnpoint
