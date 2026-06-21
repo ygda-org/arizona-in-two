@@ -300,7 +300,7 @@ tile_set = ExtResource("10_1lflj")
 
 [node name="Player" parent="." unique_id=1397859295 instance=ExtResource("5_aiqcp")]
 unique_name_in_owner = true
-position = Vector2(209, 332)
+position = Vector2(104, 750)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=732250491]
 position_smoothing_enabled = true
