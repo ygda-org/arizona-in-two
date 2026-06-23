@@ -3,21 +3,42 @@
 [ext_resource type="Script" uid="uid://cfk3di7srrirr" path="res://player/camera.gd" id="1_8nkvj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nkvj"]
-size = Vector2(1920, 1080)
+size = Vector2(10, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32rd2"]
+size = Vector2(10, 10)
 
 [node name="Camera" type="CharacterBody2D" unique_id=183673260]
 collision_layer = 0
 collision_mask = 8
 motion_mode = 1
+slide_on_ceiling = false
+floor_stop_on_slope = false
+floor_constant_speed = true
+floor_block_on_wall = false
 script = ExtResource("1_8nkvj")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=69852055]
 process_callback = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1096797870]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2105524156]
 visible = false
+position = Vector2(960, 0)
 shape = SubResource("RectangleShape2D_8nkvj")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1116115320]
-collision_layer = 0
-collision_mask = 16
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=495568457]
+visible = false
+position = Vector2(-960, 0)
+shape = SubResource("RectangleShape2D_32rd2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=1207106340]
+visible = false
+position = Vector2(0, 540)
+shape = SubResource("RectangleShape2D_32rd2")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=263268203]
+visible = false
+position = Vector2(0, -540)
+shape = SubResource("RectangleShape2D_32rd2")
+
+[node name="Monitors" type="Node2D" parent="." unique_id=2033907891]

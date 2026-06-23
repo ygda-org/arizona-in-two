@@ -24,7 +24,7 @@ enum ZONE_DIRECTION {
 ## Holds modified zones temporarily in memory.[br][br]
 ## Pairs are formatted as their root node name as a [StringName] to their root
 ## [Zone] node.
-var modified_zones: Dictionary[StringName, Zone]
+#var modified_zones: Dictionary[StringName, Zone]
 
 
 ## Changes the current zone to the next zone, specified by [param new_zone_packed]
@@ -32,7 +32,7 @@ var modified_zones: Dictionary[StringName, Zone]
 ## based on [param direction].[br]
 ## NOTE: If [param direction] is [constant NONE], then the default position, or
 ## the original position of the player in the zone scene, is used.
-func change_zone(new_zone_packed: PackedScene, direction: ZONE_DIRECTION, spawnpoint : Vector2) -> void:
+"""func change_zone(new_zone_packed: PackedScene, direction: ZONE_DIRECTION, spawnpoint : Vector2) -> void:
 	# Pause processing (avoid weird intermediate processing)
 	get_tree().paused = true
 	
@@ -160,3 +160,4 @@ func _restart_effect_timer(timer: Timer, remaining_time: float) -> void:
 	
 	# Start the timer
 	timer.start()
+"""

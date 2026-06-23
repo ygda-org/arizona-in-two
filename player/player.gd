@@ -17,7 +17,7 @@ var bounce_powerup = false
 
 var shotgun_powerup = false
 
-var damage : float = 5.0
+var damage : float = 50.0
 
 const SHOTGUN_SPREAD = PI/4 # spread per shot
 

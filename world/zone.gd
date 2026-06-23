@@ -54,7 +54,7 @@ extends Node2D
 
 # The background TileMapLayer.
 # Used to update the camera limits in adjust_camera_limits().
-@onready var _tile_map_layer: TileMapLayer = $BackgroundTileMapLayer
+#@onready var _tile_map_layer: TileMapLayer = $BackgroundTileMapLayer
 
 const GUI_SCENE = preload("uid://bh2vqcphc387j")
 var gui : GUI = GUI_SCENE.instantiate()
@@ -75,7 +75,7 @@ func start_up():
 ## Updates the limits on the passed in [Camera2D] to match this zone's area.
 func adjust_camera_limits(camera: Camera2D) -> void:
 	return
-	camera.zoom = Vector2(3,3)
+	"""camera.zoom = Vector2(3,3)
 	
 	if _tile_map_layer == null:
 		push_warning('BackgroundTileMapLayer not found')
@@ -101,7 +101,7 @@ func adjust_camera_limits(camera: Camera2D) -> void:
 	camera.limit_right = x_max
 	camera.limit_bottom = y_max
 
-"""
+
 # Connects an Area2D's body_entered signal to the _change_zone() function
 func _connect_location(location: Area2D, direction: ZoneManager.ZONE_DIRECTION) -> void:
 	# Connect to the body_entered signal

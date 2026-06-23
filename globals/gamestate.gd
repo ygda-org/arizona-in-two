@@ -20,7 +20,7 @@ func reset():
 	player_health = 100
 
 func restart_sequence():
-	ZoneManager.modified_zones.clear()
+	#ZoneManager.modified_zones.clear()
 	SceneSwitcher.switch_scene(MENU, "")
 	player_health = 100
 
