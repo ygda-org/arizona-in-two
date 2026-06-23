@@ -2,13 +2,15 @@ extends CharacterBody2D
 
 @export var zoom: float = 3.0
 
-const FOLLOW_STRENGTH = 100
+const FOLLOW_STRENGTH = 80
 var shapes = []
 var monitors = []
 
 var target_glide_position
 var glide_speed
 var lock_on_end
+
+var target_rail_dir
 
 var camera_lock: bool = false
 
@@ -37,12 +39,16 @@ func _physics_process(delta):
 		return
 	#velocity = global_position.lerp(get_parent().global_position, delta*FOLLOW_STRENGTH)
 	velocity = FOLLOW_STRENGTH * global_position.direction_to(get_parent().global_position)
-	if (global_position - get_parent().global_position).length() < 30:
+	velocity *= pow(13, (get_parent().global_position - global_position).length()/(get_window().size.length()/zoom))
+	if (global_position - get_parent().global_position).length() < 50:
 		velocity = Vector2.ZERO
-	#if $Area2D.get_overlapping_bodies():
-		#position += velocity * delta
-	#else:
-	var collision = move_and_collide(velocity * delta)
+	var collision
+	if target_rail_dir:
+		if (global_position - get_parent().global_position).project(target_rail_dir).length() < 50:
+			velocity = Vector2.ZERO
+		collision = move_and_collide(delta*velocity.project(target_rail_dir))
+	else: 
+		collision = move_and_collide(velocity * delta)
 	if collision:
 		if collision.get_normal()*-1 != collision.get_local_shape().position.normalized():
 			position += velocity*delta
@@ -61,3 +67,7 @@ func set_glide_position(global_pos: Vector2, speed: float, lock_on_finish:bool):
 
 func set_camera_lock(boolean: bool):
 	camera_lock = boolean
+
+func set_camera_rail(rail_dir: Vector2, rail_pos: Vector2):
+	global_position = rail_pos
+	target_rail_dir = rail_dir
