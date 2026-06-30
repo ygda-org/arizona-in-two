@@ -20,6 +20,9 @@ script = ExtResource("1_8nkvj")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=69852055]
 process_callback = 0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+editor_draw_drag_margin = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2105524156]
 visible = false
