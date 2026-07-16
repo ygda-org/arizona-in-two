@@ -137,7 +137,7 @@ func _physics_process(delta: float) -> void:
 				original_pos = position
 				
 				# Get the position of the top of the player's sprite
-				var player_sprite: Sprite2D = player_node.get_node("Sprite")
+				var player_sprite: AnimatedSprite2D = player_node.get_node("Sprite")
 				var sprite_height := 16
 				var player_head := player_node.position - Vector2(0, sprite_height / 2)
 				
