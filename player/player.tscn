@@ -104,12 +104,12 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kb6p2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"back_walk",
 "speed": 4.0
 }, {
 "frames": [],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -126,7 +126,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_e7oew")
 }],
-"loop": true,
+"loop": 1,
 "name": &"front_walk",
 "speed": 4.0
 }, {
@@ -137,7 +137,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8t03j")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 2.0
 }, {
@@ -154,7 +154,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bjvpn")
 }],
-"loop": true,
+"loop": 1,
 "name": &"left_walk",
 "speed": 4.0
 }, {
@@ -171,7 +171,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7pqkx")
 }],
-"loop": true,
+"loop": 1,
 "name": &"right_walk",
 "speed": 4.0
 }]
@@ -208,8 +208,12 @@ position = Vector2(1, 6)
 
 [node name="Camera" parent="." unique_id=183673260 instance=ExtResource("9_hg6s5")]
 top_level = true
-motion_mode = 1
+
+[node name="BulletTimeDur" type="Timer" parent="." unique_id=2100350288]
+wait_time = 2.0
+one_shot = true
 
 [connection signal="timeout" from="ShotgunPowerTimer" to="." method="_on_shotgun_power_timer_timeout"]
 [connection signal="timeout" from="BouncesPowerTimer" to="." method="_on_bounces_power_timer_timeout"]
 [connection signal="timeout" from="IFrameTimer" to="." method="_on_i_frame_timer_timeout"]
+[connection signal="timeout" from="BulletTimeDur" to="." method="_on_bullet_time_dur_timeout"]

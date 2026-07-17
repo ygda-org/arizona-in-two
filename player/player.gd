@@ -36,9 +36,12 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func movement(delta):
+	if Input.is_action_just_pressed("BulletTime") and $BulletTimeDur.is_stopped():
+		$BulletTimeDur.start()
+		GameState.bullet_time = true
+	
 	# Maps input to correct vector for velocity
 	var inputDir: Vector2 = Input.get_vector("MoveLeft", "MoveRight", "MoveUp", "MoveDown")
-	
 	if inputDir:
 		#if $AnimatedSprite2D.animation_finished:
 			#SFXManager.create_audio(SFXSettings.SFX_LABEL.GrassStep)
@@ -174,3 +177,7 @@ func _on_i_frame_timer_timeout() -> void:
 		return
 	GameState.player_can_take_damage = true
 	set_iframe_shader(false)
+
+
+func _on_bullet_time_dur_timeout() -> void:
+	GameState.bullet_time = false

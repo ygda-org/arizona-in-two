@@ -14,8 +14,10 @@ func _ready() -> void:
 
 func accept_bullet_(bullet: Bullet):
 	var damage = bullet.damage #exported damage
-	var effects = bullet.effects #exported effects (string array)
+	var effects = bullet.effects #exported effect string
 	#do certain actions based on the effects here
+	if effects == "Silver":
+		pass # knockback
 	take_damage(damage)
 
 func take_damage(damage: float):

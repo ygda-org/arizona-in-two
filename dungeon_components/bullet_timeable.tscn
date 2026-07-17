@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dgb36bgeo3mls"]
+
+[ext_resource type="Script" uid="uid://ckgh55c7wkgk0" path="res://dungeon_components/bullet_timeable.gd" id="1_taekn"]
+
+[node name="BulletTimeable" type="Node2D" unique_id=310443351]
+process_mode = 3
+script = ExtResource("1_taekn")

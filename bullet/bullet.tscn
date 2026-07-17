@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bqvmkeheuhjbg" path="res://bullet/bullet.gd" id="1_6wip1"]
 [ext_resource type="Texture2D" uid="uid://bof0xiqfh4ye7" path="res://assets/player/normal_bullet.png" id="2_6wip1"]
+[ext_resource type="PackedScene" uid="uid://dgb36bgeo3mls" path="res://dungeon_components/bullet_timeable.tscn" id="3_0qjqd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0qjqd"]
 radius = 6.0
@@ -34,6 +35,8 @@ target_position = Vector2(0, -25)
 collide_with_areas = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1938553024]
+
+[node name="BulletTimeable" parent="." unique_id=310443351 instance=ExtResource("3_0qjqd")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
