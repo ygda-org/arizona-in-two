@@ -1,7 +1,15 @@
 extends Node
 
+var saved_scenes = []
+
+var recents = [null, null]
+
 func switch_scene(scene_path, spawn_loc): # Accepts a String parameter
-	call_deferred("switch_scene_deferred", scene_path, spawn_loc)
+	recents = [scene_path, spawn_loc]
+	$AnimationPlayer.play("switch")
+
+func switch_scene_start():
+	call_deferred("switch_scene_deferred", recents[0], recents[1])
 
 func switch_scene_deferred(scene_path, spawn_loc):
 	get_tree().change_scene_to_file(scene_path)

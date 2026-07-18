@@ -21,10 +21,10 @@ config/features=PackedStringArray("4.7", "GL Compatibility")
 [autoload]
 
 GameState="*uid://csimanntnbc8v"
-SceneSwitcher="*uid://coq5ooci1rwse"
 ZoneManager="*uid://lbqjb3skgser"
 MusicManager="*uid://dmyqcgho218p5"
 SFXManager="*uid://ci2bwtllpwfr4"
+SceneSwitcher="*uid://dy5m1txurt7y5"
 
 [display]
 

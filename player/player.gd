@@ -22,6 +22,7 @@ var damage : float = 50.0
 const SHOTGUN_SPREAD = PI/4 # spread per shot
 
 @onready var iFrameTimer : Timer = $IFrameTimer
+@onready var camera = $Camera
 
 func _physics_process(delta: float) -> void:
 	

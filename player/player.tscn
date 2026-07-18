@@ -181,12 +181,13 @@ motion_mode = 1
 script = ExtResource("1_rkbax")
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=27240685]
-position = Vector2(1.0000002, 5.5)
+position = Vector2(0, 2.0000005)
 scale = Vector2(0.95, 0.95)
 shape = SubResource("RectangleShape2D_rkbax")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=598797111]
 material = SubResource("ShaderMaterial_8t03j")
+position = Vector2(-1, -5)
 sprite_frames = SubResource("SpriteFrames_g1dw6")
 animation = &"right_walk"
 

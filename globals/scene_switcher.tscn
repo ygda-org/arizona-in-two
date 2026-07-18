@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://dy5m1txurt7y5"]
+
+[ext_resource type="Script" uid="uid://coq5ooci1rwse" path="res://globals/switch_scene.gd" id="1_lpaq5"]
+
+[sub_resource type="Animation" id="Animation_kj40v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lpaq5"]
+resource_name = "switch"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"switch_scene_start"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kj40v"]
+_data = {
+&"RESET": SubResource("Animation_kj40v"),
+&"switch": SubResource("Animation_lpaq5")
+}
+
+[node name="SceneSwitcher" type="ColorRect" unique_id=1449991997]
+z_index = 1000
+offset_left = -3259.0
+offset_top = -3295.0
+offset_right = 6741.0
+offset_bottom = 6705.0
+color = Color(0, 0, 0, 0)
+script = ExtResource("1_lpaq5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=234154828]
+libraries/ = SubResource("AnimationLibrary_kj40v")
