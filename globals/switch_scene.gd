@@ -4,9 +4,11 @@ var saved_scenes = []
 
 var recents = [null, null]
 
+@onready var anim: AnimationPlayer = $AnimationPlayer
+
 func switch_scene(scene_path, spawn_loc): # Accepts a String parameter
 	recents = [scene_path, spawn_loc]
-	$AnimationPlayer.play("switch")
+	anim.play("switch")
 
 func switch_scene_start():
 	call_deferred("switch_scene_deferred", recents[0], recents[1])

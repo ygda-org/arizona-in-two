@@ -34,6 +34,7 @@ position = Vector2(-104, -30)
 
 [node name="KeyPickup" parent="." unique_id=1927968664 instance=ExtResource("2_6ncsm")]
 position = Vector2(-152, -24)
+key_id = "I1"
 spawn_signal = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1114522337]

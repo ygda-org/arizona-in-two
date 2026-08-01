@@ -1,0 +1,57 @@
+[gd_scene format=4 uid="uid://b58sn7ky1i52r"]
+
+[ext_resource type="Script" uid="uid://og4hcfh847ck" path="res://dungeon_components/dungeon_room.gd" id="1_tcrhm"]
+[ext_resource type="TileSet" uid="uid://bw0xbfjy4ywhf" path="res://assets/tilesets/dungeon_tiles.tres" id="1_xnf5m"]
+[ext_resource type="PackedScene" uid="uid://dssm7xm20gq8p" path="res://dungeon_components/key_pickup.tscn" id="3_1cs8n"]
+[ext_resource type="PackedScene" uid="uid://c70hw4vhwf7yf" path="res://dungeon_components/timed_shot_orb.tscn" id="4_ji13m"]
+[ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="5_01e2j"]
+[ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="6_01e2j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kg8m"]
+
+[node name="Left1Down3" type="Node2D" unique_id=1479230632]
+script = ExtResource("1_tcrhm")
+clear_type = 2
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1320356467]
+tile_map_data = PackedByteArray("AAD+//7/AAAAAAAAAAAAAP7/AAAEAAAAAAABAP7/AAAEAAAAAAACAP7/AAAEAAAAAAADAP7/AAAEAAAAAAAFAP//AAAPAAAAAAAHAP7/AAAEAAAAAAAIAP7/AAAEAAAAAAAJAP7/AAAEAAAAAAAKAP7/AAAEAAAAAAAMAP7/AAAGAAAAAAAMAAAAAAAGAAQAAAAMAAEAAAAGAAQAAAAMAAIAAAAGAAQAAAAMAAMAAAAGAAQAAAAMAAQAAAAGAAQAAAAMAAUAAAAGAAQAAAD+/wAAAAAAAAMAAAD+/wEAAAAAAAMAAAD+/wIAAAAAAAMAAAD+/wMAAAAAAAMAAAD+/wQAAAAAAAMAAAD+/wUAAAAAAAMAAAD+/wcAAAAAAAYAAAAAAAcAAAAEAAYAAAABAAcAAAAEAAYAAAACAAcAAAAEAAYAAAADAAcAAAAEAAYAAAAEAAcAAAAEAAYAAAAFAAcAAAAEAAYAAAAGAAcAAAAEAAYAAAAHAAcAAAAEAAYAAAAIAAcAAAAEAAYAAAAJAAcAAAAEAAYAAAAKAAcAAAAEAAYAAAAMAAcAAAAGAAYAAAAKAAUAAAAEAAQAAAAIAAUAAAAEAAQAAAAGAAUAAAAEAAQAAAAEAAUAAAAEAAQAAAACAAUAAAAEAAQAAAACAAMAAAAEAAQAAAAEAAMAAAAEAAQAAAAGAAMAAAAEAAQAAAAIAAMAAAAEAAQAAAAKAAMAAAAEAAQAAAAKAAEAAAAEAAQAAAAIAAEAAAAEAAQAAAAGAAEAAAAEAAQAAAAEAAEAAAAEAAQAAAACAAEAAAAEAAQAAAAAAAUAAAADAAQAAAAAAAMAAAADAAQAAAAAAAEAAAADAAQAAAA=")
+tile_set = ExtResource("1_xnf5m")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=395948482]
+position = Vector2(91, 48)
+zoom = Vector2(4, 4)
+
+[node name="KeyPickup" parent="." unique_id=1927968664 instance=ExtResource("3_1cs8n")]
+position = Vector2(89, 48)
+key_id = "I2"
+spawn_signal = 2
+
+[node name="TimedShotOrb" parent="." unique_id=420202707 instance=ExtResource("4_ji13m")]
+position = Vector2(14, 12)
+
+[node name="TimedShotOrb2" parent="." unique_id=1815009300 instance=ExtResource("4_ji13m")]
+position = Vector2(165, 13)
+
+[node name="TimedShotOrb3" parent="." unique_id=606820433 instance=ExtResource("4_ji13m")]
+position = Vector2(16, 85)
+
+[node name="TimedShotOrb4" parent="." unique_id=1903109897 instance=ExtResource("4_ji13m")]
+position = Vector2(166, 85)
+
+[node name="Player" parent="." unique_id=2010892964 instance=ExtResource("5_01e2j")]
+position = Vector2(88, 79)
+
+[node name="ToLeft1Down2" parent="." unique_id=223363775 instance=ExtResource("6_01e2j")]
+to_scene = "uid://bimdt4vkwgwjs"
+spawn_loc = "FromLeft1Down3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToLeft1Down2" unique_id=1919568473]
+position = Vector2(88, -14)
+shape = SubResource("RectangleShape2D_5kg8m")
+
+[node name="FromLeft1Down2" type="Marker2D" parent="." unique_id=1479500064]
+position = Vector2(88, 4)
+
+[node name="Camera2D2" type="Camera2D" parent="." unique_id=1542538450]
+position = Vector2(89, 50)
+zoom = Vector2(4, 4)

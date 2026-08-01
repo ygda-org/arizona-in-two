@@ -6,6 +6,12 @@ extends Node2D
 var cleared = false
 
 func _ready():
+	var bg: ColorRect = ColorRect.new()
+	bg.color = Color(32.0/256.0, 40.0/256.0, 78.0/256.0, 1.0) # 20284e
+	bg.size = Vector2(10000,10000)
+	bg.position = -bg.size/2
+	bg.z_index = -100
+	add_child(bg)
 	$Player.camera.get_node("Camera2D").zoom = Vector2(4,4)
 	$Player.camera.get_node("Camera2D").enabled = not override_camera
 

@@ -6,7 +6,7 @@ class_name Player
 
 @export var speedMulti = 1.0
 var speed: int = 95
-const deceleration: int = 10
+const deceleration: int = 700
 const acceleration: int = 50
 
 const BULLET = preload("uid://c7uqco4biuu2g")
@@ -25,7 +25,8 @@ const SHOTGUN_SPREAD = PI/4 # spread per shot
 @onready var camera = $Camera
 
 func _physics_process(delta: float) -> void:
-	
+	if SceneSwitcher.anim.is_playing():
+		return
 	# Iframe ducttape
 	if GameState.player_can_take_damage == false and $IFrameTimer.time_left == 0:
 		$IFrameTimer.start()
@@ -96,7 +97,7 @@ func movement(delta):
 	else:
 		# Slowly decreases the speed of the player
 		$AnimatedSprite2D.play("idle")
-		velocity = lerp(velocity, Vector2(0, 0), delta * deceleration)
+		velocity = velocity.move_toward(Vector2.ZERO, delta*deceleration)
 
 func shoot(delta):
 	# check for bullet cycling
