@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://g41ejapawsb5"]
+
+[ext_resource type="Script" uid="uid://cyoqajydw3ggj" path="res://dungeon_components/enemy_bullet.gd" id="1_e83e7"]
+[ext_resource type="Texture2D" uid="uid://du5vgx11eg5vh" path="res://assets/player/frozen_bullet.png" id="1_ixbhp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5kg8m"]
+radius = 3.0
+
+[node name="EnemyBullet" type="Area2D" unique_id=841755070]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("1_e83e7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1654465553]
+texture = ExtResource("1_ixbhp")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1436768646]
+position = Vector2(2, 0)
+shape = SubResource("CircleShape2D_5kg8m")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
