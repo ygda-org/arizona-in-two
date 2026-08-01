@@ -8,7 +8,10 @@ enum OpenTypes {
 	PUZZLE
 }
 
-@export var open_type: OpenTypes
+@export var open_type: OpenTypes:
+	set(new_type):
+		open_type = new_type
+		set_door_type()
 
 @export var door_id: String = ""
 
@@ -26,13 +29,20 @@ enum DIRECTIONS {
 
 func _ready():
 	rotate_to_dir(direction)
+	set_door_type()
 	if Engine.is_editor_hint():
 		return
 	if open_type != 0:
 		GameState.room_clear_signal_array[open_type].connect(open)
 	if door_id in GameState.persist_unlocked_doors:
 		queue_free()
-	
+
+func set_door_type():
+	if open_type == OpenTypes.KEY:
+		$Sprite2D.region_rect = Rect2(240, 64, 48, 56)
+	else:
+		$Sprite2D.region_rect = Rect2(288, 128, 48, 56)
+
 
 func rotate_to_dir(dir):
 	rotation = dir * PI/2
