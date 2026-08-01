@@ -21,7 +21,7 @@ tile_set = ExtResource("1_y8qaf")
 position = Vector2(-103, 56)
 
 [node name="Player" parent="." unique_id=2010892964 instance=ExtResource("3_achb7")]
-position = Vector2(-27, 112)
+position = Vector2(-56, 61)
 
 [node name="FromLeft1" type="Marker2D" parent="." unique_id=1339725662]
 position = Vector2(40, 20)
@@ -45,6 +45,7 @@ position = Vector2(57, 56)
 position = Vector2(-24, 116)
 rotation = 3.1415927
 open_type = 2
+door_id = "IP2"
 direction = 2
 
 [node name="ToLeft1Down2" parent="." unique_id=1934356464 instance=ExtResource("6_wvkgc")]

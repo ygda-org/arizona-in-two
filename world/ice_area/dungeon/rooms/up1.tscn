@@ -1,0 +1,44 @@
+[gd_scene format=4 uid="uid://b5p8np0je5qod"]
+
+[ext_resource type="TileSet" uid="uid://bw0xbfjy4ywhf" path="res://assets/tilesets/dungeon_tiles.tres" id="1_1eesc"]
+[ext_resource type="Script" uid="uid://og4hcfh847ck" path="res://dungeon_components/dungeon_room.gd" id="1_dapl6"]
+[ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="3_kjfsb"]
+[ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="4_j0q62"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjfsb"]
+
+[node name="Up1" type="Node2D" unique_id=1759756619]
+script = ExtResource("1_dapl6")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=819995539]
+tile_map_data = PackedByteArray("AAABAAIAAAASAAQAAAADAAMAAAAFAAYAAAAEAAMAAAAFAAYAAAAFAAMAAAAFAAYAAAD//wMAAAAFAAYAAAD+/wMAAAAFAAYAAAD9/wMAAAAFAAYAAAD7/wMAAAAAAAYAAAAHAAMAAAAGAAYAAAAHAAEAAAAGAAQAAAAHAAAAAAAGAAQAAAAHAPz/AAAGAAQAAAAHAPv/AAAGAAQAAAD7/wEAAAAAAAQAAAD7/wAAAAAAAAQAAAD7////AAAAAAQAAAD7//7/AAAAAAQAAAD7//3/AAAAAAQAAAD7//z/AAAAAAQAAAD7//v/AAAAAAQAAAAGAP7/AAAAAAkAAAAHAPn/AAAGAAAAAAD7//n/AAAAAAAAAAD9//n/AAAEAAAAAAD+//n/AAAEAAAAAAD///n/AAAEAAAAAAADAPn/AAAEAAAAAAAEAPn/AAAEAAAAAAAFAPn/AAAEAAAAAAAFAAEAAAAEAAQAAAADAAEAAAAEAAQAAAABAAEAAAAEAAQAAAD//wEAAAAEAAQAAAD/////AAAEAAQAAAABAP//AAAEAAQAAAADAP//AAAEAAQAAAAFAP//AAAEAAQAAAAFAP3/AAAEAAQAAAADAP3/AAAEAAQAAAABAP3/AAAEAAQAAAD///3/AAAEAAQAAAD9/wEAAAADAAQAAAD9////AAADAAQAAAD9//3/AAADAAQAAAAFAPv/AAAFAAMAAAADAPv/AAAFAAMAAAABAPv/AAAFAAMAAAD///v/AAAFAAMAAAD9//v/AAAFAAMAAAD+//v/AAAEAAMAAAAAAPv/AAAEAAMAAAACAPv/AAAEAAMAAAAEAPv/AAAEAAMAAAABAPr/AAAPAAAAAAA=")
+tile_set = ExtResource("1_1eesc")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=671090640]
+position = Vector2(25, -23)
+zoom = Vector2(4, 4)
+
+[node name="FromEntrance" type="Marker2D" parent="." unique_id=1477438166]
+position = Vector2(24, 23)
+
+[node name="ToEntrance" parent="." unique_id=223363775 instance=ExtResource("3_kjfsb")]
+to_scene = "uid://2tms3x8k4iba"
+spawn_loc = "FromUp1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToEntrance" unique_id=928294925]
+position = Vector2(24, 44)
+shape = SubResource("RectangleShape2D_kjfsb")
+
+[node name="ToUp2" parent="." unique_id=1261959146 instance=ExtResource("3_kjfsb")]
+to_scene = "uid://dg2xyp2qi5xet"
+spawn_loc = "FromUp1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToUp2" unique_id=2010095138]
+position = Vector2(24, -94)
+shape = SubResource("RectangleShape2D_kjfsb")
+
+[node name="FromUp2" type="Marker2D" parent="." unique_id=370223775]
+position = Vector2(24, -78)
+
+[node name="Player" parent="." unique_id=2010892964 instance=ExtResource("4_j0q62")]
+position = Vector2(-22, -30)

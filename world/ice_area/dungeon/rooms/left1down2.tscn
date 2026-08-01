@@ -24,12 +24,13 @@ position = Vector2(-117, 28)
 position = Vector2(-115, 83)
 
 [node name="TimedShotOrb3" parent="." unique_id=735034703 instance=ExtResource("3_sofb1")]
-position = Vector2(-17, 53)
+position = Vector2(70, 53)
 
 [node name="DungeonLockedDoor" parent="." unique_id=663165658 instance=ExtResource("4_y6mnw")]
 position = Vector2(-24, 116)
 rotation = 3.1415927
 open_type = 2
+door_id = 2515870108
 direction = 2
 
 [node name="Player" parent="." unique_id=2010892964 instance=ExtResource("5_ljlc2")]

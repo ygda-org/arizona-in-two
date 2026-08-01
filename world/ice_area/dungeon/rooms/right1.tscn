@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://esc6iogtqgf3"]
+
+[ext_resource type="TileSet" uid="uid://bw0xbfjy4ywhf" path="res://assets/tilesets/dungeon_tiles.tres" id="1_wwrgw"]
+
+[node name="Right1" type="Node2D" unique_id=1966239479]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1974325631]
+tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 4, 0, 9, 0, 0, 0)
+tile_set = ExtResource("1_wwrgw")
