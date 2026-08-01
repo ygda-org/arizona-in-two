@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://uqyovq6ioqwj"]
+
+[ext_resource type="Script" uid="uid://43cy0ep8do3a" path="res://dungeon_components/dungeon_locked_door.gd" id="1_wkepj"]
+[ext_resource type="Texture2D" uid="uid://bthlnjo27u0b1" path="res://assets/tilesets/ice_area/Ice_Dungeon_Tileset.png" id="2_mw0yf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wkepj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mw0yf"]
+size = Vector2(22, 22)
+
+[node name="DungeonLockedDoor" type="StaticBody2D" unique_id=663165658]
+script = ExtResource("1_wkepj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1994600350]
+texture = ExtResource("2_mw0yf")
+region_enabled = true
+region_rect = Rect2(240, 64, 48, 56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=223952754]
+z_index = -1
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_wkepj")
+
+[node name="UnlockZone" type="Area2D" parent="." unique_id=2016515094]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UnlockZone" unique_id=2082498490]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_mw0yf")
+
+[connection signal="body_entered" from="UnlockZone" to="." method="_on_unlock_zone_body_entered"]

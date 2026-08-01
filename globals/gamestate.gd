@@ -6,6 +6,10 @@ var player_max_bullet_strength = 3
 @onready var player : Player
 var bullet_time = false
 
+var player_keys = 0
+var persist_unlocked_doors = []
+var persist_keys_obtained = []
+
 var player_can_take_damage : bool = true
 
 signal player_dead

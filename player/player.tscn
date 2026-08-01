@@ -177,6 +177,8 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=2010892964 groups=["Player", "player"]]
+z_index = 1
+collision_layer = 17
 motion_mode = 1
 script = ExtResource("1_rkbax")
 

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dssm7xm20gq8p"]
+
+[ext_resource type="Texture2D" uid="uid://davelhus8fw46" path="res://assets/temporary-tiles/water.png" id="1_iran1"]
+[ext_resource type="Script" uid="uid://bcpt55pgq6a5k" path="res://dungeon_components/key_pickup.gd" id="1_r770c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5kg8m"]
+
+[node name="KeyPickup" type="Area2D" unique_id=1927968664]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("1_r770c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2083220294]
+shape = SubResource("CircleShape2D_5kg8m")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=81534411]
+texture = ExtResource("1_iran1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

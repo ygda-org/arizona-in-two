@@ -108,6 +108,7 @@ BulletTime={
 [layer_names]
 
 2d_physics/layer_4="Camera Boundaries"
+2d_physics/layer_5="Easy Player Detection"
 
 [physics]
 
