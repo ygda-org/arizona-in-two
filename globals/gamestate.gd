@@ -9,6 +9,15 @@ var bullet_time = false
 var player_keys = 0
 var persist_unlocked_doors = []
 var persist_keys_obtained = []
+enum RoomClearSignals {
+	NONE,
+	ENEMIES,
+	PUZZLE
+}
+signal enemies_cleared
+signal puzzle_cleared
+@onready var room_clear_signal_array = [null, enemies_cleared, puzzle_cleared]
+
 
 var player_can_take_damage : bool = true
 

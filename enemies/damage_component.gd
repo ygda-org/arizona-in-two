@@ -6,15 +6,16 @@ class_name DamageComponent
 @export var knockback_strength : float = 100.0
 @export var damage: float = 10.0
 @export var suicide_on_death: bool = false
-@onready var parent : CharacterBody2D = get_parent()
+@onready var parent : CollisionObject2D = get_parent()
 
 func _ready() -> void:
-	assert(parent.has_method("suicide"), 'ERROR: No suicide method found')
+	if suicide_on_death:
+		assert(parent.has_method("suicide"), 'ERROR: No suicide method found')
 	assert(parent.has_method("damaged_sequence"), 'ERROR: No damaged_sequence method found')
 
 func accept_bullet_(bullet: Bullet):
 	var damage = bullet.damage #exported damage
-	var effects = bullet.effects #exported effect string
+	var effects = bullet.bullet_attribute #exported effect string
 	#do certain actions based on the effects here
 	if effects == "Silver":
 		pass # knockback
@@ -27,6 +28,8 @@ func take_damage(damage: float):
 	parent.damaged_sequence()
 
 func _physics_process(delta: float) -> void:
+	if knockback_strength == 0.0 and damage == 0.0:
+		return
 	# Check collisions
 	for i in parent.get_slide_collision_count():
 		var collision : KinematicCollision2D = parent.get_slide_collision(i)

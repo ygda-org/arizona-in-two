@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c70hw4vhwf7yf"]
+
+[ext_resource type="Script" uid="uid://csj5y5kgq5wec" path="res://dungeon_components/timed_shot_orb.gd" id="1_xxi5r"]
+[ext_resource type="PackedScene" uid="uid://c7fw2aq587t44" path="res://enemies/damage_component.tscn" id="2_4hj08"]
+[ext_resource type="Texture2D" uid="uid://c746h544057v2" path="res://assets/temporary-tiles/rock.png" id="2_mlvk5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kg8m"]
+size = Vector2(16, 16)
+
+[node name="TimedShotOrb" type="StaticBody2D" unique_id=420202707]
+script = ExtResource("1_xxi5r")
+
+[node name="DamageComponent" parent="." unique_id=1495931984 instance=ExtResource("2_4hj08")]
+health = 100000000000.0
+knockback_strength = 0.0
+damage = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=3623915]
+texture = ExtResource("2_mlvk5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1577603001]
+shape = SubResource("RectangleShape2D_5kg8m")
+
+[node name="Time" type="Timer" parent="." unique_id=38424368]
+
+[connection signal="timeout" from="Time" to="." method="_on_time_timeout"]
