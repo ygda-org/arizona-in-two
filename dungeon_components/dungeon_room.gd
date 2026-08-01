@@ -1,24 +1,20 @@
 extends Node2D
 
-@export var center_pos: Vector2
-@export var rail_dir: Vector2
+@export var override_camera: bool = true
 
 @export var clear_type: GameState.RoomClearSignals
 var cleared = false
 
 func _ready():
 	$Player.camera.get_node("Camera2D").zoom = Vector2(4,4)
-	if rail_dir:
-		$Player.camera.set_camera_rail(rail_dir, center_pos)
-	else:
-		$Player.camera.set_glide_position(center_pos, 100, true)
+	$Player.camera.get_node("Camera2D").enabled = not override_camera
 
 func _process(_delta):
 	if cleared:
 		return
 	if clear_type == GameState.RoomClearSignals.PUZZLE:
 		check_shot_orb_clear()
-	if clear_type == GameState.RoomClearSignals.PUZZLE:
+	if clear_type == GameState.RoomClearSignals.ENEMIES:
 		check_enemies_clear()
 
 func check_shot_orb_clear():
@@ -30,4 +26,8 @@ func check_shot_orb_clear():
 	GameState.puzzle_cleared.emit()
 
 func check_enemies_clear():
-	pass
+	for node in get_children():
+		if "Enemy" in node.name: # bad solution, fix later
+			return
+	cleared = true
+	GameState.enemies_cleared.emit()

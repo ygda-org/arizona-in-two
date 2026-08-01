@@ -1,12 +1,17 @@
 [gd_scene format=4 uid="uid://bfxdpu0axqnvl"]
 
 [ext_resource type="TileSet" uid="uid://bw0xbfjy4ywhf" path="res://assets/tilesets/dungeon_tiles.tres" id="1_2qswk"]
+[ext_resource type="Script" uid="uid://og4hcfh847ck" path="res://dungeon_components/dungeon_room.gd" id="1_yoe38"]
 [ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="2_egrav"]
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="3_c3srk"]
+[ext_resource type="PackedScene" uid="uid://uqyovq6ioqwj" path="res://dungeon_components/dungeon_locked_door.tscn" id="5_o4b24"]
+[ext_resource type="PackedScene" uid="uid://ctphcsxh0fik4" path="res://enemies/slime_enemy.tscn" id="6_y10nc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3srk"]
 
 [node name="Left1up1" type="Node2D" unique_id=1012939410]
+script = ExtResource("1_yoe38")
+clear_type = 1
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=607458337]
 tile_map_data = PackedByteArray("AAD//wIAAAASAAQAAAABAAMAAAAEAAYAAAACAAMAAAAEAAYAAAADAAMAAAAEAAYAAAD9/wMAAAAEAAYAAAD7/wMAAAAEAAYAAAD8/wMAAAAEAAYAAAAFAAMAAAAGAAYAAAD5/wMAAAAAAAYAAAAFAAEAAAAGAAQAAAAFAAAAAAAGAAQAAAAFAP//AAAGAAQAAAAFAP7/AAAGAAQAAAAFAP3/AAAGAAQAAAAFAPz/AAAGAAQAAAAFAPv/AAAGAAQAAAAFAPr/AAAGAAQAAAAFAPn/AAAGAAQAAAAFAPf/AAAGAAAAAAD5//f/AAAAAAAAAAD5//n/AAAAAAMAAAD5//r/AAAAAAMAAAD5//v/AAAAAAMAAAD5//z/AAAAAAMAAAD5//3/AAAAAAMAAAD5//7/AAAAAAMAAAD5////AAAAAAMAAAD5/wAAAAAAAAMAAAD5/wEAAAAAAAMAAAD7//f/AAADAAAAAAD8//f/AAADAAAAAAD9//f/AAADAAAAAAABAPf/AAADAAAAAAACAPf/AAADAAAAAAADAPf/AAADAAAAAAD///j/AAAPAAAAAAADAAEAAAAEAAQAAAABAAEAAAAEAAQAAAD//wEAAAAEAAQAAAD9/wEAAAAEAAQAAAD9////AAAEAAQAAAD/////AAAEAAQAAAABAP//AAAEAAQAAAADAP//AAAEAAQAAAADAP3/AAAEAAQAAAABAP3/AAAEAAQAAAD///3/AAAEAAQAAAD9//3/AAAEAAQAAAADAPv/AAAEAAQAAAABAPv/AAAEAAQAAAD///v/AAAEAAQAAAD9//v/AAAEAAQAAAD7//v/AAADAAQAAAD7//3/AAADAAQAAAD7////AAADAAQAAAD7/wEAAAADAAQAAAD7//n/AAADAAMAAAD9//n/AAADAAMAAAD///n/AAADAAMAAAABAPn/AAADAAMAAAADAPn/AAADAAMAAAACAPn/AAAEAAMAAAAAAPn/AAAEAAMAAAD+//n/AAAEAAMAAAD8//n/AAAEAAMAAAA=")
@@ -36,3 +41,22 @@ position = Vector2(-8, -104)
 
 [node name="Player" parent="." unique_id=2010892964 instance=ExtResource("3_c3srk")]
 position = Vector2(-36, -57)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1214921725]
+position = Vector2(0, -37)
+zoom = Vector2(4, 4)
+
+[node name="DungeonLockedDoor" parent="." unique_id=663165658 instance=ExtResource("5_o4b24")]
+position = Vector2(-8, -132)
+open_type = 1
+door_id = "IC1.1"
+
+[node name="DungeonLockedDoor2" parent="." unique_id=636436651 instance=ExtResource("5_o4b24")]
+position = Vector2(-9, 52)
+rotation = 3.1415927
+open_type = 1
+door_id = "IC1.2"
+direction = 2
+
+[node name="SlimeEnemy" parent="." unique_id=538334106 instance=ExtResource("6_y10nc")]
+position = Vector2(30, -79)

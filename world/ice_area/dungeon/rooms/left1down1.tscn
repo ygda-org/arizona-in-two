@@ -11,7 +11,6 @@
 
 [node name="Left1Down1" type="Node2D" unique_id=1586657274]
 script = ExtResource("1_p6a67")
-center_pos = Vector2(-20, 112)
 clear_type = 2
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=554626903]
@@ -45,3 +44,7 @@ spawn_loc = "FromLeft1Down1"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToLeft1" unique_id=784437023]
 position = Vector2(40, 2)
 shape = SubResource("RectangleShape2D_mgvxl")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2095702936]
+position = Vector2(-9, 116)
+zoom = Vector2(3, 3)

@@ -69,5 +69,17 @@ func set_camera_lock(boolean: bool):
 	camera_lock = boolean
 
 func set_camera_rail(rail_dir: Vector2, rail_pos: Vector2):
+	$Camera2D.drag_horizontal_enabled = false
+	$Camera2D.drag_vertical_enabled = false
 	global_position = rail_pos
 	target_rail_dir = rail_dir
+	$Camera2D.drag_horizontal_enabled = true
+	$Camera2D.drag_vertical_enabled = true
+
+func force_set_position(pos):
+	$Camera2D.drag_horizontal_enabled = false
+	$Camera2D.drag_vertical_enabled = false
+	$Camera2D.global_position = pos
+	$Camera2D.drag_horizontal_enabled = true
+	$Camera2D.drag_vertical_enabled = true
+	camera_lock = true
