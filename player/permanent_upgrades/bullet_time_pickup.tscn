@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cgham5no0faxf"]
+
+[ext_resource type="Texture2D" uid="uid://ba47whfpnvqcu" path="res://assets/ui/current_ice_bullet.png" id="1_hmm0l"]
+[ext_resource type="Script" uid="uid://ciq5lpmyeylbf" path="res://player/permanent_upgrades/bullet_time_pickup.gd" id="1_v40dy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kmwm5"]
+size = Vector2(44, 39)
+
+[node name="BulletTimePickup" type="Area2D" unique_id=245844570]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("1_v40dy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2083425324]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_kmwm5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=456539864]
+texture = ExtResource("1_hmm0l")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

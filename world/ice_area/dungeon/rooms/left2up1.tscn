@@ -1,0 +1,37 @@
+[gd_scene format=4 uid="uid://dilfstq32rsh8"]
+
+[ext_resource type="TileSet" uid="uid://bw0xbfjy4ywhf" path="res://assets/tilesets/dungeon_tiles.tres" id="1_4pqdt"]
+[ext_resource type="Script" uid="uid://og4hcfh847ck" path="res://dungeon_components/dungeon_room.gd" id="1_tgx1u"]
+[ext_resource type="PackedScene" uid="uid://cgham5no0faxf" path="res://player/permanent_upgrades/bullet_time_pickup.tscn" id="2_ayci5"]
+[ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="3_cttej"]
+[ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="4_7jkyc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kg8m"]
+
+[node name="Left2Up1" type="Node2D" unique_id=2022759400]
+script = ExtResource("1_tgx1u")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=514111894]
+tile_map_data = PackedByteArray("AAAAAAEAAAASAAQAAAACAAIAAAAEAAYAAAADAAIAAAAEAAYAAAAEAAIAAAAEAAYAAAD+/wIAAAAEAAYAAAD9/wIAAAAEAAYAAAD8/wIAAAAEAAYAAAAGAAIAAAAGAAYAAAD6/wIAAAAAAAYAAAAGAAAAAAAGAAQAAAAGAP//AAAGAAQAAAAGAP7/AAAGAAQAAAAGAP3/AAAGAAQAAAAGAPz/AAAGAAQAAAAGAPv/AAAGAAQAAAAGAPr/AAAGAAQAAAD6/wAAAAAAAAQAAAD6////AAAAAAQAAAD6//7/AAAAAAQAAAD6//3/AAAAAAQAAAD6//z/AAAAAAQAAAD6//v/AAAAAAQAAAD6//r/AAAAAAQAAAD6//n/AAAAAAQAAAD6//f/AAAAAAQAAAD6//j/AAAAAAQAAAAGAPn/AAAGAAQAAAAGAPj/AAAGAAQAAAAGAPf/AAAGAAQAAAD6//b/AAAAAAQAAAAEAAAAAAAEAAQAAAACAAAAAAAEAAQAAAAAAAAAAAAEAAQAAAD+/wAAAAAEAAQAAAD+//7/AAAEAAQAAAAAAP7/AAAEAAQAAAACAP7/AAAEAAQAAAAEAP7/AAAEAAQAAAAEAPz/AAAEAAQAAAACAPz/AAAEAAQAAAAAAPz/AAAEAAQAAAD+//z/AAAEAAQAAAD+//r/AAAEAAQAAAD+//j/AAAEAAQAAAAEAPj/AAAEAAQAAAACAPj/AAAEAAQAAAAAAPj/AAAEAAQAAAAAAPr/AAAEAAQAAAACAPr/AAAEAAQAAAAEAPr/AAAEAAQAAAD8/wAAAAADAAQAAAD8//7/AAADAAQAAAD8//z/AAADAAQAAAD8//r/AAADAAQAAAD8//j/AAADAAQAAAAGAPb/AAAGAAQAAAD6//T/AAAAAAAAAAD8//T/AAAEAAAAAAD9//T/AAAEAAAAAAD+//T/AAAEAAAAAAD///T/AAAEAAAAAAAAAPT/AAAEAAAAAAABAPT/AAAEAAAAAAACAPT/AAAEAAAAAAADAPT/AAAEAAAAAAAEAPT/AAAEAAAAAAAGAPT/AAAGAAAAAAADAPb/AAAEAAMAAAABAPb/AAAEAAMAAAD///b/AAAEAAMAAAD9//b/AAAEAAMAAAD8//b/AAADAAMAAAD+//b/AAADAAMAAAAAAPb/AAADAAMAAAACAPb/AAADAAMAAAAEAPb/AAADAAMAAAA=")
+tile_set = ExtResource("1_4pqdt")
+
+[node name="BulletTimePickup" parent="." unique_id=245844570 instance=ExtResource("2_ayci5")]
+position = Vector2(10, -141)
+
+[node name="FromLeft2" type="Marker2D" parent="." unique_id=60332782]
+position = Vector2(8, 3)
+
+[node name="ToLeft2" parent="." unique_id=223363775 instance=ExtResource("3_cttej")]
+to_scene = "uid://bx23m7dyddfql"
+spawn_loc = "FromLeft2Up1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToLeft2" unique_id=307768005]
+position = Vector2(8, 28)
+shape = SubResource("RectangleShape2D_5kg8m")
+
+[node name="Player" parent="." unique_id=2010892964 instance=ExtResource("4_7jkyc")]
+position = Vector2(-40, -57)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=222938726]
+position = Vector2(11, -72)
+zoom = Vector2(4, 4)

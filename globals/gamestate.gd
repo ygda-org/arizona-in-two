@@ -4,6 +4,7 @@ var player_health: int = 100
 var player_selected_bullet = 0 # 0 normal, 1 silver, 2 ice, 3 fire
 var player_max_bullet_strength = 3
 @onready var player : Player
+var bullet_time_obtained = false
 var bullet_time = false
 
 var player_keys = 0
