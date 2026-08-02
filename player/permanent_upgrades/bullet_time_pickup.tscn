@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://cgham5no0faxf"]
 
-[ext_resource type="Texture2D" uid="uid://ba47whfpnvqcu" path="res://assets/ui/current_ice_bullet.png" id="1_hmm0l"]
 [ext_resource type="Script" uid="uid://ciq5lpmyeylbf" path="res://player/permanent_upgrades/bullet_time_pickup.gd" id="1_v40dy"]
+[ext_resource type="Texture2D" uid="uid://ycxn3gs3dsnk" path="res://assets/particles/snow.png" id="2_v40dy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmwm5"]
 size = Vector2(44, 39)
+
+[sub_resource type="Gradient" id="Gradient_v40dy"]
+offsets = PackedFloat32Array(0, 0.76600987, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0)
 
 [node name="BulletTimePickup" type="Area2D" unique_id=245844570]
 collision_layer = 0
@@ -12,10 +16,32 @@ collision_mask = 16
 script = ExtResource("1_v40dy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2083425324]
+visible = false
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_kmwm5")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=456539864]
-texture = ExtResource("1_hmm0l")
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=924293331]
+amount = 256
+texture = ExtResource("2_v40dy")
+lifetime = 3.5
+preprocess = 1.0
+emission_shape = 6
+emission_ring_inner_radius = 10.0
+emission_ring_radius = 20.0
+spread = 30.0
+gravity = Vector2(0, 0)
+angular_velocity_min = -30.0
+angular_velocity_max = 30.0
+orbit_velocity_min = -0.5
+orbit_velocity_max = 1.0
+radial_accel_min = -30.0
+radial_accel_max = -30.0
+tangential_accel_min = 30.0
+tangential_accel_max = 30.0
+scale_amount_min = 0.5
+scale_amount_max = 0.8
+color_ramp = SubResource("Gradient_v40dy")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

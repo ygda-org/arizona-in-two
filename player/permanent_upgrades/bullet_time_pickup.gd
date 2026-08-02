@@ -6,7 +6,6 @@ func _ready():
 	if GameState.bullet_time_obtained:
 		queue_free()
 
-
 func _on_body_entered(body):
 	GameState.bullet_time_obtained = true
 	queue_free()
