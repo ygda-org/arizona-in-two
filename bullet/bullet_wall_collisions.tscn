@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://423xo3g05tu1"]
+
+[ext_resource type="Script" uid="uid://bvbfb2i3ibuuw" path="res://bullet/bullet_wall_collisions.gd" id="1_dmju8"]
+
+[node name="BulletWallCollisions" type="Area2D" unique_id=2023164522]
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("1_dmju8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

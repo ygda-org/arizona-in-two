@@ -112,5 +112,5 @@ texture = ExtResource("1_otlcc")
 6:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -8, 8, -8, 8, 8, -24, 8)
 
 [resource]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 33
 sources/0 = SubResource("TileSetAtlasSource_8jlc2")

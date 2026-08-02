@@ -2,9 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cyoqajydw3ggj" path="res://dungeon_components/enemy_bullet.gd" id="1_e83e7"]
 [ext_resource type="Texture2D" uid="uid://du5vgx11eg5vh" path="res://assets/player/frozen_bullet.png" id="1_ixbhp"]
+[ext_resource type="PackedScene" uid="uid://dgb36bgeo3mls" path="res://dungeon_components/bullet_timeable.tscn" id="3_thtgh"]
+[ext_resource type="PackedScene" uid="uid://423xo3g05tu1" path="res://bullet/bullet_wall_collisions.tscn" id="4_1wkie"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5kg8m"]
 radius = 3.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjbhb"]
+size = Vector2(3, 1)
 
 [node name="EnemyBullet" type="Area2D" unique_id=841755070]
 collision_layer = 0
@@ -20,4 +25,16 @@ region_rect = Rect2(0, 0, 16, 16)
 position = Vector2(2, 0)
 shape = SubResource("CircleShape2D_5kg8m")
 
+[node name="BulletTimeable" parent="." unique_id=310443351 instance=ExtResource("3_thtgh")]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2113058353]
+rect = Rect2(0, -1, 1, 1)
+
+[node name="BulletWallCollisions" parent="." unique_id=2023164522 instance=ExtResource("4_1wkie")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletWallCollisions" unique_id=297815695]
+position = Vector2(2.5, -0.5)
+shape = SubResource("RectangleShape2D_kjbhb")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

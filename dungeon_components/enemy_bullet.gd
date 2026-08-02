@@ -8,7 +8,14 @@ func _ready():
 
 func _on_body_entered(body):
 	body.find_child("DamageComponent").take_damage(damage)
-	queue_free()
+	suicide()
 
 func _process(delta):
 	position += velocity * delta
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	queue_free()
+
+func suicide():
+	queue_free()

@@ -20,18 +20,22 @@ tile_set = ExtResource("1_4rs26")
 [node name="IceTurret" parent="." unique_id=720114937 instance=ExtResource("3_2m31l")]
 position = Vector2(-182, -88)
 shot_dir = Vector2(0, 1)
+speed_up_after_player_collects_bullet_time = true
 
 [node name="IceTurret2" parent="." unique_id=1114959304 instance=ExtResource("3_2m31l")]
 position = Vector2(-96, -90)
 shot_dir = Vector2(0, 1)
+speed_up_after_player_collects_bullet_time = true
 
 [node name="IceTurret3" parent="." unique_id=377134818 instance=ExtResource("3_2m31l")]
 position = Vector2(-142, 37)
 shot_dir = Vector2(0, -1)
+speed_up_after_player_collects_bullet_time = true
 
 [node name="IceTurret4" parent="." unique_id=424013027 instance=ExtResource("3_2m31l")]
 position = Vector2(-50, 38)
 shot_dir = Vector2(0, -1)
+speed_up_after_player_collects_bullet_time = true
 
 [node name="SlimeEnemy" parent="." unique_id=538334106 instance=ExtResource("4_p13xg")]
 position = Vector2(-295, -111)

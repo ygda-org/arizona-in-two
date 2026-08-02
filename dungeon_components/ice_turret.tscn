@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b0w8mubvvmuy5" path="res://dungeon_components/ice_turret.gd" id="1_u62uo"]
 [ext_resource type="Texture2D" uid="uid://du5vgx11eg5vh" path="res://assets/player/frozen_bullet.png" id="2_u62uo"]
+[ext_resource type="PackedScene" uid="uid://dgb36bgeo3mls" path="res://dungeon_components/bullet_timeable.tscn" id="3_ubimd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kne22"]
 size = Vector2(17, 15.5)
@@ -17,5 +18,7 @@ position = Vector2(0, 0.75)
 shape = SubResource("RectangleShape2D_kne22")
 
 [node name="Timer" type="Timer" parent="." unique_id=1075983674]
+
+[node name="BulletTimeable" parent="." unique_id=310443351 instance=ExtResource("3_ubimd")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
