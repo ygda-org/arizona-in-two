@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://og4hcfh847ck" path="res://dungeon_components/dungeon_room.gd" id="1_dapl6"]
 [ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="3_kjfsb"]
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="4_j0q62"]
+[ext_resource type="PackedScene" uid="uid://cewmlvnbn41e1" path="res://dungeon_components/ice_turret.tscn" id="5_65cwc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjfsb"]
 
@@ -42,3 +43,15 @@ position = Vector2(24, -78)
 
 [node name="Player" parent="." unique_id=2010892964 instance=ExtResource("4_j0q62")]
 position = Vector2(-22, -30)
+
+[node name="IceTurret" parent="." unique_id=720114937 instance=ExtResource("5_65cwc")]
+position = Vector2(-39, -72)
+shot_time = 0.7
+
+[node name="ToUp1Right1" parent="." unique_id=19037174 instance=ExtResource("3_kjfsb")]
+to_scene = "uid://whlxo6ggv4qq"
+spawn_loc = "FromUp1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToUp1Right1" unique_id=1754915130]
+position = Vector2(111, -24)
+shape = SubResource("RectangleShape2D_kjfsb")

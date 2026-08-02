@@ -45,3 +45,15 @@ spawn_loc = "FromUp2"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToUp1" unique_id=1158325744]
 position = Vector2(24, 61)
 shape = SubResource("RectangleShape2D_5kg8m")
+
+[node name="FromUp3" type="Marker2D" parent="." unique_id=1114220534]
+position = Vector2(25, -105)
+
+[node name="ToUp3" parent="." unique_id=520582446 instance=ExtResource("6_xbaw6")]
+visible = false
+to_scene = "uid://djodt83vt2qxs"
+spawn_loc = "FromUp2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToUp3" unique_id=1681248700]
+position = Vector2(24, -125)
+shape = SubResource("RectangleShape2D_5kg8m")

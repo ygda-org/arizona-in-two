@@ -1,0 +1,59 @@
+[gd_scene format=4 uid="uid://djodt83vt2qxs"]
+
+[ext_resource type="TileSet" uid="uid://bw0xbfjy4ywhf" path="res://assets/tilesets/dungeon_tiles.tres" id="1_5yvq2"]
+[ext_resource type="Script" uid="uid://og4hcfh847ck" path="res://dungeon_components/dungeon_room.gd" id="1_xo5k7"]
+[ext_resource type="PackedScene" uid="uid://cewmlvnbn41e1" path="res://dungeon_components/ice_turret.tscn" id="3_on24y"]
+[ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="4_k1vdb"]
+[ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="5_3vd74"]
+[ext_resource type="PackedScene" uid="uid://ctphcsxh0fik4" path="res://enemies/slime_enemy.tscn" id="6_i734c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kg8m"]
+
+[node name="Up3" type="Node2D" unique_id=997194854]
+script = ExtResource("1_xo5k7")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=588308580]
+tile_map_data = PackedByteArray("AAABAAAAAAASAAQAAAADAAEAAAADAAYAAAAEAAEAAAADAAYAAAAFAAEAAAADAAYAAAAGAAEAAAAEAAYAAAAHAAEAAAAEAAYAAAD//wEAAAAEAAYAAAD+/wEAAAAEAAYAAAD9/wEAAAAEAAYAAAD8/wEAAAAEAAYAAAD7/wEAAAAEAAYAAAD7//b/AAAEAAAAAAD8//b/AAAEAAAAAAD9//b/AAAEAAAAAAD+//b/AAAEAAAAAAD///b/AAAEAAAAAAABAPf/AAAPAAAAAAADAPb/AAAFAAAAAAAEAPb/AAAFAAAAAAAFAPb/AAAFAAAAAAAGAPb/AAAFAAAAAAAHAPb/AAAFAAAAAAD3//b/AAAAAAAAAAD3//n/AAAAAAQAAAD3//r/AAAAAAQAAAD3//v/AAAAAAQAAAD3//z/AAAAAAQAAAD3//3/AAAAAAQAAAD3//7/AAAAAAQAAAD3////AAAAAAQAAAD3/wEAAAAAAAYAAAALAPb/AAAGAAAAAAALAPn/AAAGAAQAAAALAPr/AAAGAAQAAAALAPv/AAAGAAQAAAALAPz/AAAGAAQAAAALAP3/AAAGAAQAAAALAP7/AAAGAAQAAAALAP//AAAGAAQAAAALAAEAAAAGAAYAAAD6/wEAAAAEAAYAAAD5/wEAAAAEAAYAAAAIAAEAAAAEAAYAAAAJAAEAAAAEAAYAAAD5//b/AAADAAAAAAD6//b/AAADAAAAAAAIAPb/AAADAAAAAAAJAPb/AAADAAAAAAALAPj/AAAGAAUAAAD3//j/AAAAAAQAAAAJAP//AAAEAAQAAAAHAP//AAAEAAQAAAAFAP//AAAEAAQAAAADAP//AAAEAAQAAAABAP//AAAEAAQAAAD/////AAAEAAQAAAD9////AAAEAAQAAAD7////AAAEAAQAAAD7//3/AAAEAAQAAAD7//v/AAAEAAQAAAD7//n/AAAEAAQAAAD9//3/AAAEAAQAAAD///3/AAAEAAQAAAABAP3/AAAEAAQAAAADAP3/AAAEAAQAAAAFAP3/AAAEAAQAAAAHAP3/AAAEAAQAAAAJAP3/AAAEAAQAAAAJAPv/AAAEAAQAAAAHAPv/AAAEAAQAAAAFAPv/AAAEAAQAAAADAPv/AAAEAAQAAAABAPv/AAAEAAQAAAD///v/AAAEAAQAAAD9//v/AAAEAAQAAAD9//n/AAAEAAQAAAD///n/AAAEAAQAAAABAPn/AAAEAAQAAAADAPn/AAAEAAQAAAAFAPn/AAAEAAQAAAAHAPn/AAAEAAQAAAAJAPn/AAAEAAQAAAD5////AAADAAQAAAD5//3/AAADAAQAAAD5//v/AAADAAQAAAD5//n/AAADAAQAAAA=")
+tile_set = ExtResource("1_5yvq2")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=756589728]
+position = Vector2(25, -64)
+zoom = Vector2(4, 4)
+
+[node name="IceTurret" parent="." unique_id=720114937 instance=ExtResource("3_on24y")]
+position = Vector2(-26, -120)
+shot_dir = Vector2(0, 1)
+
+[node name="IceTurret2" parent="." unique_id=671992045 instance=ExtResource("3_on24y")]
+position = Vector2(73, -121)
+shot_dir = Vector2(0, 1)
+
+[node name="IceTurret3" parent="." unique_id=1437106161 instance=ExtResource("3_on24y")]
+position = Vector2(-106, -64)
+
+[node name="IceTurret4" parent="." unique_id=1144710789 instance=ExtResource("3_on24y")]
+position = Vector2(153, -63)
+shot_dir = Vector2(-1, 0)
+
+[node name="Player" parent="." unique_id=2010892964 instance=ExtResource("4_k1vdb")]
+position = Vector2(-87, -17)
+
+[node name="FromUp2" type="Marker2D" parent="." unique_id=1511070403]
+position = Vector2(24, -5)
+
+[node name="ToUp2" parent="." unique_id=223363775 instance=ExtResource("5_3vd74")]
+to_scene = "uid://dg2xyp2qi5xet"
+spawn_loc = "FromUp3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToUp2" unique_id=2135203159]
+position = Vector2(24, 12)
+shape = SubResource("RectangleShape2D_5kg8m")
+
+[node name="SlimeEnemy" parent="." unique_id=538334106 instance=ExtResource("6_i734c")]
+position = Vector2(-82, -24)
+
+[node name="SlimeEnemy2" parent="." unique_id=1995240671 instance=ExtResource("6_i734c")]
+position = Vector2(-78, -106)
+
+[node name="SlimeEnemy3" parent="." unique_id=2133928503 instance=ExtResource("6_i734c")]
+position = Vector2(130, -107)
