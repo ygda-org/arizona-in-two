@@ -40,7 +40,7 @@ position = Vector2(11, -72)
 zoom = Vector2(4, 4)
 
 [node name="TimedShotOrb" parent="." unique_id=420202707 instance=ExtResource("6_yrt5c")]
-position = Vector2(-71, -152)
+position = Vector2(-72, -152)
 
 [node name="TimedShotOrb2" parent="." unique_id=564707334 instance=ExtResource("6_yrt5c")]
 position = Vector2(88, -152)
@@ -64,3 +64,6 @@ spawn_loc = "FromLeft2Up1"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToLeft2Up2" unique_id=1535249112]
 position = Vector2(7, -125)
 shape = SubResource("RectangleShape2D_5kg8m")
+
+[node name="FromLeft2Up2" type="Marker2D" parent="." unique_id=288937013]
+position = Vector2(8, -103)

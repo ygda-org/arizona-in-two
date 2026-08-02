@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c2n7vlwridqkn" path="res://player/camera.tscn" id="9_hg6s5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
-size = Vector2(4.2105265, 17.894737)
+size = Vector2(4.211, 15.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8t03j"]
 shader = ExtResource("2_hg6s5")
@@ -183,7 +183,7 @@ motion_mode = 1
 script = ExtResource("1_rkbax")
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=27240685]
-position = Vector2(0, 2.0000005)
+position = Vector2(0, 3)
 scale = Vector2(0.95, 0.95)
 shape = SubResource("RectangleShape2D_rkbax")
 
@@ -213,6 +213,10 @@ position = Vector2(1, 6)
 top_level = true
 
 [node name="BulletTimeDur" type="Timer" parent="." unique_id=2100350288]
+wait_time = 2.0
+one_shot = true
+
+[node name="BulletTimeCD" type="Timer" parent="." unique_id=2088467783]
 wait_time = 2.0
 one_shot = true
 

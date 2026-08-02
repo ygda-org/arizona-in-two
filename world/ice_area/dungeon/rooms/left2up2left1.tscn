@@ -1,0 +1,33 @@
+[gd_scene format=4 uid="uid://4o7ltv5cmxjm"]
+
+[ext_resource type="Script" uid="uid://og4hcfh847ck" path="res://dungeon_components/dungeon_room.gd" id="1_pydfe"]
+[ext_resource type="TileSet" uid="uid://bw0xbfjy4ywhf" path="res://assets/tilesets/dungeon_tiles.tres" id="1_vho6j"]
+[ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="2_vnkbp"]
+[ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="3_x767b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnkbp"]
+
+[node name="Left2Up2Left1" type="Node2D" unique_id=654965342]
+script = ExtResource("1_pydfe")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=227812505]
+tile_map_data = PackedByteArray("AAADAAEAAAAAAAkAAAAEAAMAAAAGAAQAAAAEAP//AAAGAAQAAAAEAAUAAAAGAAYAAAAEAP3/AAAGAAAAAAACAP3/AAAEAAAAAAABAP3/AAAEAAAAAAAAAP3/AAAEAAAAAAD///3/AAAEAAAAAAD+//3/AAAEAAAAAAD9//3/AAAEAAAAAAD8//3/AAAEAAAAAAD7//3/AAAEAAAAAAD6//3/AAAEAAAAAAD5//3/AAAEAAAAAAACAAUAAAAFAAYAAAABAAUAAAAFAAYAAAAAAAUAAAAFAAYAAAD//wUAAAAFAAYAAAD+/wUAAAAFAAYAAAD9/wUAAAAFAAYAAAD8/wUAAAAFAAYAAAD7/wUAAAAFAAYAAAD6/wUAAAAFAAYAAAD5/wUAAAAFAAYAAAD3/wUAAAAAAAYAAAD3/wMAAAAAAAQAAAD3/wIAAAAAAAQAAAD3/wEAAAAAAAQAAAD3/wAAAAAAAAQAAAD3////AAAAAAQAAAD3//3/AAAAAAAAAAACAAMAAAAEAAQAAAAAAAMAAAAEAAQAAAD+/wMAAAAEAAQAAAD8/wMAAAAEAAQAAAD6/wMAAAAEAAQAAAD6/wEAAAAEAAQAAAD8/wEAAAAEAAQAAAD+/wEAAAAEAAQAAAAAAAEAAAAEAAQAAAACAAEAAAAEAAQAAAACAP//AAAFAAMAAAAAAP//AAAFAAMAAAD8////AAAFAAMAAAD6////AAAFAAMAAAD5////AAAEAAMAAAD7////AAAEAAMAAAD+////AAAFAAMAAAD9////AAAEAAMAAAD/////AAAEAAMAAAABAP//AAAEAAMAAAA=")
+tile_set = ExtResource("1_vho6j")
+
+[node name="FromLeft2Up2" type="Marker2D" parent="." unique_id=1523961588]
+position = Vector2(38, 25)
+
+[node name="ToLeft2Up2" parent="." unique_id=223363775 instance=ExtResource("2_vnkbp")]
+to_scene = "uid://2t474qx3kjna"
+spawn_loc = "FromLeft2Up2Left1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToLeft2Up2" unique_id=1909871926]
+position = Vector2(62, 24)
+shape = SubResource("RectangleShape2D_vnkbp")
+
+[node name="Player" parent="." unique_id=2010892964 instance=ExtResource("3_x767b")]
+position = Vector2(-21, 14)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=954257758]
+position = Vector2(-27, 22)
+zoom = Vector2(4, 4)

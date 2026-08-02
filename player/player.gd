@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func movement(delta):
-	if Input.is_action_just_pressed("BulletTime") and $BulletTimeDur.is_stopped() and GameState.bullet_time_obtained:
+	if Input.is_action_just_pressed("BulletTime") and $BulletTimeDur.is_stopped() and GameState.bullet_time_obtained and $BulletTimeCD.is_stopped():
 		$BulletTimeDur.start()
 		GameState.bullet_time = true
 	
@@ -183,3 +183,4 @@ func _on_i_frame_timer_timeout() -> void:
 
 func _on_bullet_time_dur_timeout() -> void:
 	GameState.bullet_time = false
+	$BulletTimeCD.start()
