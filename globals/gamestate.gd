@@ -8,6 +8,7 @@ var bullet_time_obtained = true # should be default false
 var bullet_time = false
 
 var player_keys = 0
+var player_big_keys = 0
 var persist_unlocked_doors = []
 var persist_keys_obtained = []
 enum RoomClearSignals {

@@ -6,6 +6,8 @@ extends StaticBody2D
 @export var bullet_speed: float = 100.0
 @export var bullet_damage: int = 10
 
+@export var start_delay: float = 0.0
+
 ## literally just for a demo lol
 @export var speed_up_after_player_collects_bullet_time: bool = false
 
@@ -16,6 +18,8 @@ func _ready():
 	$Timer.wait_time = shot_time
 	if speed_up_after_player_collects_bullet_time and GameState.bullet_time_obtained:
 		$Timer.wait_time = 0.5
+	if start_delay:
+		await get_tree().create_timer(start_delay).timeout
 	$Timer.start()
 
 
