@@ -8,6 +8,8 @@ extends StaticBody2D
 
 @export var start_delay: float = 0.0
 
+@export var burst_amount: int = 1
+
 ## literally just for a demo lol
 @export var speed_up_after_player_collects_bullet_time: bool = false
 
@@ -24,7 +26,10 @@ func _ready():
 
 
 func _on_timer_timeout():
-	var bullet = BULLET.instantiate()
-	bullet.velocity = bullet_speed * shot_dir
-	bullet.damage = bullet_damage
-	add_child(bullet)
+	for i in range(burst_amount):
+		var bullet = BULLET.instantiate()
+		bullet.velocity = bullet_speed * shot_dir
+		bullet.damage = bullet_damage
+		add_child(bullet)
+		await get_tree().create_timer(0.12).timeout
+	$Timer.start()

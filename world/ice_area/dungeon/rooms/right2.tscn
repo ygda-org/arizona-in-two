@@ -1,0 +1,83 @@
+[gd_scene format=4 uid="uid://5o5nr0fb8ogc"]
+
+[ext_resource type="Script" uid="uid://og4hcfh847ck" path="res://dungeon_components/dungeon_room.gd" id="1_7rtem"]
+[ext_resource type="TileSet" uid="uid://bw0xbfjy4ywhf" path="res://assets/tilesets/dungeon_tiles.tres" id="1_oprs5"]
+[ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="3_nmxg1"]
+[ext_resource type="PackedScene" uid="uid://cewmlvnbn41e1" path="res://dungeon_components/ice_turret.tscn" id="4_ytyvq"]
+
+[node name="Right2" type="Node2D" unique_id=1432653856]
+script = ExtResource("1_7rtem")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2033428716]
+tile_map_data = PackedByteArray("AAAAAAAAAAAEAAkAAAD//wIAAAAAAAQAAAD//wMAAAAAAAQAAAD///7/AAAAAAQAAAD///3/AAAAAAQAAAD///v/AAAAAAAAAAABAPv/AAAEAAAAAAACAPv/AAAEAAAAAAADAPv/AAAEAAAAAAAEAPv/AAAEAAAAAAD//wUAAAAAAAYAAAABAAUAAAAEAAYAAAACAAUAAAAEAAYAAAADAAUAAAAEAAYAAAAEAAUAAAAEAAYAAAAFAPv/AAAEAAAAAAAGAPv/AAAFAAAAAAAHAPv/AAAFAAAAAAAIAPv/AAAEAAAAAAAJAPv/AAAFAAAAAAAKAPv/AAAFAAAAAAALAPv/AAAFAAAAAAAMAPv/AAAEAAAAAAANAPv/AAAEAAAAAAAOAPv/AAAEAAAAAAAPAPv/AAAEAAAAAAAQAPv/AAAEAAAAAAARAPv/AAAEAAAAAAASAPv/AAAEAAAAAAATAPv/AAAEAAAAAAAUAPv/AAAEAAAAAAAVAPv/AAAEAAAAAAAWAPv/AAAEAAAAAAAXAPv/AAAEAAAAAAAZAPv/AAAGAAAAAAAZAAUAAAAGAAYAAAAZAAMAAAAGAAQAAAAZAAIAAAAGAAQAAAAZAAEAAAAGAAQAAAAZAAAAAAAGAAQAAAAZAP//AAAGAAQAAAAZAP7/AAAGAAQAAAAZAP3/AAAGAAQAAAAXAAUAAAAEAAYAAAAWAAUAAAAEAAYAAAAVAAUAAAAEAAYAAAAUAAUAAAAEAAYAAAATAAUAAAAEAAYAAAASAAUAAAAEAAYAAAARAAUAAAAEAAYAAAAQAAUAAAAEAAYAAAAPAAUAAAAEAAYAAAAOAAUAAAAEAAYAAAANAAUAAAAEAAYAAAAMAAUAAAAEAAYAAAALAAUAAAAEAAYAAAAKAAUAAAAEAAYAAAAJAAUAAAAEAAYAAAAIAAUAAAAEAAYAAAAHAAUAAAAEAAYAAAAGAAUAAAAEAAYAAAAFAAUAAAAEAAYAAAAXAAMAAAAEAAQAAAAVAAMAAAAEAAQAAAATAAMAAAAEAAQAAAARAAMAAAAEAAQAAAAPAAMAAAAEAAQAAAANAAMAAAAEAAQAAAALAAMAAAAEAAQAAAAJAAMAAAAEAAQAAAAHAAMAAAAEAAQAAAAFAAMAAAAEAAQAAAADAAMAAAAEAAQAAAADAAEAAAAEAAQAAAADAP//AAAEAAQAAAAFAAEAAAAEAAQAAAAHAAEAAAAEAAQAAAAJAAEAAAAEAAQAAAALAAEAAAAEAAQAAAANAAEAAAAEAAQAAAAPAAEAAAAEAAQAAAARAAEAAAAEAAQAAAATAAEAAAAEAAQAAAAVAAEAAAAEAAQAAAAXAAEAAAAEAAQAAAAXAP//AAAEAAQAAAAVAP//AAAEAAQAAAATAP//AAAEAAQAAAARAP//AAAEAAQAAAAPAP//AAAEAAQAAAANAP//AAAEAAQAAAALAP//AAAEAAQAAAAJAP//AAAEAAQAAAAHAP//AAAEAAQAAAAFAP//AAAEAAQAAAABAAMAAAADAAQAAAABAAEAAAADAAQAAAABAP//AAADAAQAAAABAP3/AAADAAMAAAADAP3/AAADAAMAAAAFAP3/AAADAAMAAAAHAP3/AAADAAMAAAAJAP3/AAADAAMAAAALAP3/AAADAAMAAAANAP3/AAADAAMAAAAPAP3/AAADAAMAAAARAP3/AAADAAMAAAATAP3/AAADAAMAAAAVAP3/AAADAAMAAAAXAP3/AAADAAMAAAAWAP3/AAAEAAMAAAAUAP3/AAAEAAMAAAASAP3/AAAEAAMAAAAQAP3/AAAEAAMAAAAOAP3/AAAEAAMAAAAMAP3/AAAEAAMAAAAKAP3/AAAEAAMAAAAIAP3/AAAEAAMAAAAGAP3/AAAEAAMAAAAEAP3/AAAEAAMAAAACAP3/AAAEAAMAAAA=")
+tile_set = ExtResource("1_oprs5")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=974310383]
+position = Vector2(203, 7)
+zoom = Vector2(4, 4)
+
+[node name="Player" parent="." unique_id=2010892964 instance=ExtResource("3_nmxg1")]
+position = Vector2(32, 8)
+
+[node name="FromRight1" type="Marker2D" parent="." unique_id=815932591]
+position = Vector2(18, 8)
+
+[node name="IceTurret" parent="." unique_id=720114937 instance=ExtResource("4_ytyvq")]
+position = Vector2(89, -41)
+shot_time = 0.5
+shot_dir = Vector2(0, 1)
+burst_amount = 5
+
+[node name="IceTurret2" parent="." unique_id=826701104 instance=ExtResource("4_ytyvq")]
+position = Vector2(106, -41)
+shot_time = 0.5
+shot_dir = Vector2(0, 1)
+burst_amount = 5
+
+[node name="IceTurret3" parent="." unique_id=410345926 instance=ExtResource("4_ytyvq")]
+position = Vector2(123, -41)
+shot_time = 0.5
+shot_dir = Vector2(0, 1)
+burst_amount = 5
+
+[node name="IceTurret4" parent="." unique_id=1406786324 instance=ExtResource("4_ytyvq")]
+position = Vector2(140, -41)
+shot_time = 0.5
+shot_dir = Vector2(0, 1)
+burst_amount = 5
+
+[node name="IceTurret5" parent="." unique_id=444292126 instance=ExtResource("4_ytyvq")]
+position = Vector2(157, -41)
+shot_time = 0.5
+shot_dir = Vector2(0, 1)
+burst_amount = 5
+
+[node name="IceTurret6" parent="." unique_id=1037443874 instance=ExtResource("4_ytyvq")]
+position = Vector2(174, -41)
+shot_time = 0.5
+shot_dir = Vector2(0, 1)
+burst_amount = 5
+
+[node name="IceTurret7" parent="." unique_id=2025481138 instance=ExtResource("4_ytyvq")]
+position = Vector2(191, -41)
+shot_time = 0.5
+shot_dir = Vector2(0, 1)
+burst_amount = 5
+
+[node name="IceTurret8" parent="." unique_id=964671421 instance=ExtResource("4_ytyvq")]
+position = Vector2(208, -41)
+shot_time = 0.5
+shot_dir = Vector2(0, 1)
+burst_amount = 5
+
+[node name="IceTurret9" parent="." unique_id=266967905 instance=ExtResource("4_ytyvq")]
+position = Vector2(225, -41)
+shot_time = 0.5
+shot_dir = Vector2(0, 1)
+burst_amount = 5
+
+[node name="IceTurret10" parent="." unique_id=247994707 instance=ExtResource("4_ytyvq")]
+position = Vector2(242, -41)
+shot_time = 0.5
+shot_dir = Vector2(0, 1)
+burst_amount = 5

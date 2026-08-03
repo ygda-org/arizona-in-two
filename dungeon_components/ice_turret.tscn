@@ -18,6 +18,7 @@ position = Vector2(0, 0.75)
 shape = SubResource("RectangleShape2D_kne22")
 
 [node name="Timer" type="Timer" parent="." unique_id=1075983674]
+one_shot = true
 
 [node name="BulletTimeable" parent="." unique_id=310443351 instance=ExtResource("3_ubimd")]
 
