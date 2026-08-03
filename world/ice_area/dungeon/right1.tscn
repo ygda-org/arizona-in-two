@@ -80,3 +80,6 @@ spawn_loc = "FromRight1"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToRight1Up1" unique_id=426789599]
 position = Vector2(104, -77)
 shape = SubResource("RectangleShape2D_i50wy")
+
+[node name="FromRight1Up1" type="Marker2D" parent="." unique_id=80416579]
+position = Vector2(104, -61)
