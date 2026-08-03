@@ -3,7 +3,7 @@ extends Area2D
 class_name Bullet
 
 @export var damage = 1 #Bullet's damage
-@export var effects = ["fire","ice"] #Bullet's effects
+#@export var effects = ["fire","ice"] #Bullet's effects
 
 ## set this variable on instantiate if special effects
 var bullet_attribute = "Normal"
@@ -27,11 +27,11 @@ func _ready() -> void:
 		$Sprite2D.texture = load("uid://b0hh83564wuyl")
 		bullet_attribute = "Silver"
 	elif GameState.player_selected_bullet == 2:
-		$Sprite2D.texture = load("uid://du5vgx11eg5vh")
-		bullet_attribute = "Ice"
-	elif GameState.player_selected_bullet == 3:
 		$Sprite2D.texture = load("uid://clwyj6ncrsr3g")
 		bullet_attribute = "Fire"
+	elif GameState.player_selected_bullet == 3:
+		$Sprite2D.texture = load("uid://du5vgx11eg5vh")
+		bullet_attribute = "Ice"
 	name = "Bullet" + str(GameState.total_elapsed_time)
 	
 func _physics_process(delta):

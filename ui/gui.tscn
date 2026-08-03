@@ -228,19 +228,19 @@ offset_right = 42.0
 offset_bottom = 36.0
 texture = ExtResource("5_s5xys")
 
-[node name="Ice" type="TextureRect" parent="BulletIndicator" unique_id=586235212]
-visible = false
-layout_mode = 0
-offset_right = 42.0
-offset_bottom = 36.0
-texture = ExtResource("5_02e3h")
-
 [node name="Fire" type="TextureRect" parent="BulletIndicator" unique_id=959155614]
 visible = false
 layout_mode = 0
 offset_right = 42.0
 offset_bottom = 36.0
 texture = ExtResource("6_s5xys")
+
+[node name="Ice" type="TextureRect" parent="BulletIndicator" unique_id=586235212]
+visible = false
+layout_mode = 0
+offset_right = 42.0
+offset_bottom = 36.0
+texture = ExtResource("5_02e3h")
 
 [node name="Current" type="TextureRect" parent="BulletIndicator" unique_id=785330820]
 layout_mode = 0

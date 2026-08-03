@@ -1,7 +1,7 @@
 extends Node
 
 var player_health: int = 100
-var player_selected_bullet = 0 # 0 normal, 1 silver, 2 ice, 3 fire
+var player_selected_bullet = 0 # 0 normal, 1 silver, 2 fire, 3 ice
 var player_max_bullet_strength = 3
 @onready var player : Player
 var bullet_time_obtained = true # should be default false
