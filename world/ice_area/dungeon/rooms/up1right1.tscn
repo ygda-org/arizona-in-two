@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cewmlvnbn41e1" path="res://dungeon_components/ice_turret.tscn" id="4_tykgs"]
 [ext_resource type="PackedScene" uid="uid://c70hw4vhwf7yf" path="res://dungeon_components/timed_shot_orb.tscn" id="5_g4yj5"]
 [ext_resource type="PackedScene" uid="uid://dssm7xm20gq8p" path="res://dungeon_components/key_pickup.tscn" id="6_7jqjc"]
+[ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="7_bpwro"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5k1q"]
 
 [node name="Up1Right1" type="Node2D" unique_id=1482667149]
 script = ExtResource("1_4xisd")
@@ -74,3 +77,11 @@ position = Vector2(38, 25)
 key_id = "IBIG"
 spawn_signal = 2
 is_big_key = true
+
+[node name="ToUp1" parent="." unique_id=223363775 instance=ExtResource("7_bpwro")]
+to_scene = "uid://b5p8np0je5qod"
+spawn_loc = "FromUp1Right1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToUp1" unique_id=1736710668]
+position = Vector2(4, 24)
+shape = SubResource("RectangleShape2D_h5k1q")
