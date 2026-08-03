@@ -20,6 +20,7 @@ signal enemies_cleared
 signal puzzle_cleared
 @onready var room_clear_signal_array = [null, enemies_cleared, puzzle_cleared]
 
+var persist_break_ids = []
 
 var player_can_take_damage : bool = true
 

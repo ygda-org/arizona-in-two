@@ -4,6 +4,9 @@
 [ext_resource type="TileSet" uid="uid://bw0xbfjy4ywhf" path="res://assets/tilesets/dungeon_tiles.tres" id="1_oprs5"]
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="3_nmxg1"]
 [ext_resource type="PackedScene" uid="uid://cewmlvnbn41e1" path="res://dungeon_components/ice_turret.tscn" id="4_ytyvq"]
+[ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="5_wlp3x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i50wy"]
 
 [node name="Right2" type="Node2D" unique_id=1432653856]
 script = ExtResource("1_7rtem")
@@ -81,3 +84,11 @@ position = Vector2(242, -41)
 shot_time = 0.5
 shot_dir = Vector2(0, 1)
 burst_amount = 5
+
+[node name="ToRight1" parent="." unique_id=223363775 instance=ExtResource("5_wlp3x")]
+to_scene = "uid://esc6iogtqgf3"
+spawn_loc = "FromRight2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToRight1" unique_id=1129606445]
+position = Vector2(1, 8)
+shape = SubResource("RectangleShape2D_i50wy")
