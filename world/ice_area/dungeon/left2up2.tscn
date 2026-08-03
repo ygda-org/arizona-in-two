@@ -47,7 +47,7 @@ shape = SubResource("RectangleShape2D_5kg8m")
 position = Vector2(-139, -88)
 
 [node name="DungeonLockedDoor" parent="." unique_id=663165658 instance=ExtResource("6_rc20c")]
-position = Vector2(-164, -87)
+position = Vector2(-164, -88)
 rotation = 4.712389
 open_type = 2
 door_id = "l2u2"
