@@ -61,6 +61,6 @@ position = Vector2(-78, -106)
 position = Vector2(130, -107)
 
 [node name="DungeonLockedDoor" parent="." unique_id=663165658 instance=ExtResource("7_b5k3l")]
-position = Vector2(25, -148)
+position = Vector2(24, -148)
 open_type = 2
 door_id = "IU3"
