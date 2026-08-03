@@ -55,3 +55,6 @@ shape = SubResource("RectangleShape2D_5kg8m")
 
 [node name="FromUp1" type="Marker2D" parent="." unique_id=1520113945]
 position = Vector2(-8, -72)
+
+[node name="FromRight1" type="Marker2D" parent="." unique_id=1904026174]
+position = Vector2(80, -7)
