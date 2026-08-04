@@ -24,6 +24,9 @@ const SHOTGUN_SPREAD = PI/4 # spread per shot
 @onready var iFrameTimer : Timer = $IFrameTimer
 @onready var camera = $Camera
 
+func _ready():
+	GameState.bullet_time = false
+
 func _physics_process(delta: float) -> void:
 	if SceneSwitcher.anim.is_playing():
 		return
