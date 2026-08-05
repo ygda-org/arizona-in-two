@@ -27,7 +27,7 @@ enum Labels {
 
 ## [code]TRUE[/code]: Print debug messages [br]
 ## [code]FALSE[/code]: Do not print debug messages
-const DEBUG_MESSAGES: bool = true
+const DEBUG_MESSAGES: bool = false
 
 ## Variable to make each [AudioStreamPlayer]'s name unique. 
 ## Increased by one when a new [AudioStreamPlayer] is instantiated.

@@ -25,6 +25,7 @@ func create_audio(type : MusicSettings.MUSIC_LABEL):
 	var audioplayer : AudioStreamPlayer = AudioStreamPlayer.new()
 	add_child(audioplayer)
 	var sound_effect_setting = sound_effect_dict[type]
+	audioplayer.bus = "Music"
 	audioplayer.stream = sound_effect_setting.stream
 	audioplayer.volume_linear = sound_effect_setting.volume
 	audioplayer.pitch_scale = sound_effect_setting.pitch

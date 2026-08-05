@@ -11,23 +11,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_he5ap")
 
-[node name="Label" type="Label" parent="." unique_id=1372868520]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "WIP"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Exit" type="Button" parent="." unique_id=1656264372]
 layout_mode = 1
 anchors_preset = 7
@@ -43,5 +26,60 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Exit"
 
+[node name="Master" type="HSlider" parent="." unique_id=698902497]
+layout_mode = 0
+offset_left = 780.0
+offset_top = 226.0
+offset_right = 1496.0
+offset_bottom = 296.0
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="Music" type="HSlider" parent="." unique_id=973182846]
+layout_mode = 0
+offset_left = 784.0
+offset_top = 304.0
+offset_right = 1500.0
+offset_bottom = 374.0
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="Ambience" type="HSlider" parent="." unique_id=444301408]
+layout_mode = 0
+offset_left = 798.0
+offset_top = 424.0
+offset_right = 1514.0
+offset_bottom = 494.0
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="SFX" type="HSlider" parent="." unique_id=798061514]
+layout_mode = 0
+offset_left = 794.0
+offset_top = 511.0
+offset_right = 1510.0
+offset_bottom = 581.0
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="Label" type="Label" parent="." unique_id=8991219]
+layout_mode = 0
+offset_left = 558.0
+offset_top = 315.0
+offset_right = 1158.0
+offset_bottom = 877.0
+text = "master
+music
+ambience
+sfx"
+
 [connection signal="mouse_entered" from="Exit" to="." method="_on_exit_mouse_entered"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="value_changed" from="Master" to="." method="_on_master_value_changed"]
+[connection signal="value_changed" from="Music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="Ambience" to="." method="_on_ambience_value_changed"]
+[connection signal="value_changed" from="SFX" to="." method="_on_sfx_value_changed"]
