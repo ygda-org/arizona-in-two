@@ -123,6 +123,9 @@ libraries/ = SubResource("AnimationLibrary_2ot4n")
 [node name="PersistantMusicComponent" parent="." unique_id=554467455 instance=ExtResource("4_2ot4n")]
 music = 5
 
+[connection signal="mouse_entered" from="Start" to="." method="_on_start_mouse_entered"]
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="Settings" to="." method="_on_settings_mouse_entered"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="mouse_entered" from="Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

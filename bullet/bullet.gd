@@ -21,7 +21,7 @@ var bounceCount = 0
 var maxBounceCount = 2
 
 func _ready() -> void:
-	SFXManager.create_audio(SFXSettings.SFX_LABEL.Gunshot)
+	SFX.play(SFX.Labels.GUNSHOT)
 	$Sprite2D.rotation = direction.angle()
 	if GameState.player_selected_bullet == 1:
 		$Sprite2D.texture = load("uid://b0hh83564wuyl")
@@ -82,11 +82,11 @@ func _on_body_entered(body: Node2D) -> void:
 
 func play_hit_sound():
 	if bullet_attribute == "Fire":
-		SFXManager.create_audio(SFXSettings.SFX_LABEL.Flame)
+		SFX.play(SFX.Labels.FLAME)
 	elif bullet_attribute == "Ice":
-		SFXManager.create_audio(SFXSettings.SFX_LABEL.Freeze)
+		SFX.play(SFX.Labels.FREEZE)
 	else:
-		SFXManager.create_audio(SFXSettings.SFX_LABEL.HitSound)
+		SFX.play(SFX.Labels.HIT_SOUND)
 
 func suicide():
 	#explosions or smth if needed

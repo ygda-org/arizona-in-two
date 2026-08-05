@@ -18,12 +18,16 @@ config/name="Arizona 2"
 run/main_scene="uid://85alntk1uqvy"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
+[audio]
+
+buses/default_bus_layout="uid://8tl47v7wii2x"
+
 [autoload]
 
 GameState="*uid://csimanntnbc8v"
 ZoneManager="*uid://lbqjb3skgser"
 MusicManager="*uid://dmyqcgho218p5"
-SFXManager="*uid://ci2bwtllpwfr4"
+SFX="*uid://ci2bwtllpwfr4"
 SceneSwitcher="*uid://dy5m1txurt7y5"
 
 [display]

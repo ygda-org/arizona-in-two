@@ -49,7 +49,7 @@ func movement(delta):
 	var inputDir: Vector2 = Input.get_vector("MoveLeft", "MoveRight", "MoveUp", "MoveDown")
 	if inputDir:
 		#if $AnimatedSprite2D.animation_finished:
-			#SFXManager.create_audio(SFXSettings.SFX_LABEL.GrassStep)
+			#SFX.play(SFX.Labels.GrassStep)
 		
 		# Slowly increases the speed
 		velocity = lerp(velocity, speed * speedMulti * inputDir, delta * acceleration)

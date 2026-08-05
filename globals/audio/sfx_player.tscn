@@ -1,0 +1,161 @@
+[gd_scene format=3 uid="uid://ci2bwtllpwfr4"]
+
+[ext_resource type="Script" uid="uid://cpmbmlevaivld" path="res://globals/audio/sfx_player.gd" id="1_dtfen"]
+[ext_resource type="Script" uid="uid://tlf86ayg5nux" path="res://globals/audio/sfx_settings.gd" id="2_2bsey"]
+[ext_resource type="AudioStream" uid="uid://54ujuxf80kvy" path="res://assets/audio/sfx/button_hover.wav" id="3_wqlko"]
+[ext_resource type="AudioStream" uid="uid://dbcv7ja8emy2c" path="res://assets/audio/sfx/cycle_cylinder.wav" id="4_45623"]
+[ext_resource type="AudioStream" uid="uid://n7mqhfktfje6" path="res://assets/audio/sfx/door_close.wav" id="5_3uwyv"]
+[ext_resource type="AudioStream" uid="uid://d15kixvwl14pg" path="res://assets/audio/sfx/door_open.wav" id="6_r2f7t"]
+[ext_resource type="AudioStream" uid="uid://cu3o0ub0viahn" path="res://assets/audio/sfx/empty_shot.wav" id="7_nm1mw"]
+[ext_resource type="AudioStream" uid="uid://bg3b1dy2mnsf6" path="res://assets/audio/sfx/fire_ambient.wav" id="8_8emn1"]
+[ext_resource type="AudioStream" uid="uid://bpuy6t3l573ku" path="res://assets/audio/sfx/flame.mp3" id="9_gw3hu"]
+[ext_resource type="AudioStream" uid="uid://hvjnckmltn55" path="res://assets/audio/sfx/freeze.mp3" id="10_o2y6d"]
+[ext_resource type="AudioStream" uid="uid://b05h0b0ddsl77" path="res://assets/audio/sfx/grass_step.mp3" id="11_yfqdi"]
+[ext_resource type="AudioStream" uid="uid://df7yjug8i2tdt" path="res://assets/audio/sfx/gunshot.wav" id="12_y0yxb"]
+[ext_resource type="AudioStream" uid="uid://b5etqinmy2q33" path="res://assets/audio/sfx/hit_sound.mp3" id="13_xpcgx"]
+[ext_resource type="AudioStream" uid="uid://crapdfjodrnmx" path="res://assets/audio/sfx/magma_step.mp3" id="14_ol38a"]
+[ext_resource type="AudioStream" uid="uid://x5yoefm1oo4g" path="res://assets/audio/sfx/secret_sound.mp3" id="15_bpe1m"]
+[ext_resource type="AudioStream" uid="uid://cho8fakhs33qn" path="res://assets/audio/sfx/snow_footsteps.mp3" id="16_mbaoh"]
+[ext_resource type="AudioStream" uid="uid://8fijy58u318m" path="res://assets/audio/sfx/swing_1.wav" id="17_i0dpu"]
+[ext_resource type="AudioStream" uid="uid://bwf1d4l8eh1q5" path="res://assets/audio/sfx/swing_2.wav" id="18_do81b"]
+[ext_resource type="AudioStream" uid="uid://dtrfncm12ild" path="res://assets/audio/sfx/thick_reload.wav" id="19_vva8u"]
+[ext_resource type="AudioStream" uid="uid://cy2p0naxwdor6" path="res://assets/audio/sfx/thin_reload.wav" id="20_c7squ"]
+[ext_resource type="AudioStream" uid="uid://gss24sooc3ef" path="res://assets/audio/sfx/button_click.mp3" id="21_wqlko"]
+
+[sub_resource type="Resource" id="Resource_wqlko"]
+script = ExtResource("2_2bsey")
+bus = "SFX"
+stream = ExtResource("3_wqlko")
+metadata/_custom_type_script = "uid://tlf86ayg5nux"
+
+[sub_resource type="Resource" id="Resource_4a5pt"]
+script = ExtResource("2_2bsey")
+bus = "SFX"
+stream = ExtResource("4_45623")
+metadata/_custom_type_script = "uid://tlf86ayg5nux"
+
+[sub_resource type="Resource" id="Resource_tw0h2"]
+script = ExtResource("2_2bsey")
+bus = "SFX"
+stream = ExtResource("5_3uwyv")
+metadata/_custom_type_script = "uid://tlf86ayg5nux"
+
+[sub_resource type="Resource" id="Resource_5k3b2"]
+script = ExtResource("2_2bsey")
+bus = "SFX"
+stream = ExtResource("6_r2f7t")
+metadata/_custom_type_script = "uid://tlf86ayg5nux"
+
+[sub_resource type="Resource" id="Resource_jwp23"]
+script = ExtResource("2_2bsey")
+bus = "SFX"
+stream = ExtResource("7_nm1mw")
+metadata/_custom_type_script = "uid://tlf86ayg5nux"
+
+[sub_resource type="Resource" id="Resource_33siw"]
+script = ExtResource("2_2bsey")
+bus = "Ambience"
+stream = ExtResource("8_8emn1")
+metadata/_custom_type_script = "uid://tlf86ayg5nux"
+
+[sub_resource type="Resource" id="Resource_x5kk8"]
+script = ExtResource("2_2bsey")
+bus = "SFX"
+stream = ExtResource("9_gw3hu")
+metadata/_custom_type_script = "uid://tlf86ayg5nux"
+
+[sub_resource type="Resource" id="Resource_2rya5"]
+script = ExtResource("2_2bsey")
+bus = "SFX"
+stream = ExtResource("10_o2y6d")
+metadata/_custom_type_script = "uid://tlf86ayg5nux"
+
+[sub_resource type="Resource" id="Resource_krgy1"]
+script = ExtResource("2_2bsey")
+bus = "Ambience"
+stream = ExtResource("11_yfqdi")
+metadata/_custom_type_script = "uid://tlf86ayg5nux"
+
+[sub_resource type="Resource" id="Resource_4s2y8"]
+script = ExtResource("2_2bsey")
+bus = "SFX"
+stream = ExtResource("12_y0yxb")
+metadata/_custom_type_script = "uid://tlf86ayg5nux"
+
+[sub_resource type="Resource" id="Resource_bigpq"]
+script = ExtResource("2_2bsey")
+bus = "SFX"
+stream = ExtResource("13_xpcgx")
+metadata/_custom_type_script = "uid://tlf86ayg5nux"
+
+[sub_resource type="Resource" id="Resource_ijtdf"]
+script = ExtResource("2_2bsey")
+bus = "SFX"
+stream = ExtResource("14_ol38a")
+metadata/_custom_type_script = "uid://tlf86ayg5nux"
+
+[sub_resource type="Resource" id="Resource_dv7ae"]
+script = ExtResource("2_2bsey")
+bus = "SFX"
+stream = ExtResource("15_bpe1m")
+metadata/_custom_type_script = "uid://tlf86ayg5nux"
+
+[sub_resource type="Resource" id="Resource_3uqaa"]
+script = ExtResource("2_2bsey")
+bus = "Ambience"
+stream = ExtResource("16_mbaoh")
+metadata/_custom_type_script = "uid://tlf86ayg5nux"
+
+[sub_resource type="Resource" id="Resource_g07o6"]
+script = ExtResource("2_2bsey")
+bus = "SFX"
+stream = ExtResource("17_i0dpu")
+metadata/_custom_type_script = "uid://tlf86ayg5nux"
+
+[sub_resource type="Resource" id="Resource_hah12"]
+script = ExtResource("2_2bsey")
+bus = "SFX"
+stream = ExtResource("18_do81b")
+metadata/_custom_type_script = "uid://tlf86ayg5nux"
+
+[sub_resource type="Resource" id="Resource_k1m5v"]
+script = ExtResource("2_2bsey")
+bus = "SFX"
+stream = ExtResource("19_vva8u")
+metadata/_custom_type_script = "uid://tlf86ayg5nux"
+
+[sub_resource type="Resource" id="Resource_uw7il"]
+script = ExtResource("2_2bsey")
+bus = "SFX"
+stream = ExtResource("20_c7squ")
+metadata/_custom_type_script = "uid://tlf86ayg5nux"
+
+[sub_resource type="Resource" id="Resource_u8u05"]
+script = ExtResource("2_2bsey")
+bus = "SFX"
+stream = ExtResource("21_wqlko")
+metadata/_custom_type_script = "uid://tlf86ayg5nux"
+
+[node name="SfxPlayer" type="Node" unique_id=324261651]
+script = ExtResource("1_dtfen")
+label_to_setting = Dictionary[int, ExtResource("2_2bsey")]({
+0: SubResource("Resource_wqlko"),
+1: SubResource("Resource_4a5pt"),
+2: SubResource("Resource_tw0h2"),
+3: SubResource("Resource_5k3b2"),
+4: SubResource("Resource_jwp23"),
+5: SubResource("Resource_33siw"),
+6: SubResource("Resource_x5kk8"),
+7: SubResource("Resource_2rya5"),
+8: SubResource("Resource_krgy1"),
+9: SubResource("Resource_4s2y8"),
+10: SubResource("Resource_bigpq"),
+11: SubResource("Resource_ijtdf"),
+12: SubResource("Resource_dv7ae"),
+13: SubResource("Resource_3uqaa"),
+14: SubResource("Resource_g07o6"),
+15: SubResource("Resource_hah12"),
+16: SubResource("Resource_k1m5v"),
+17: SubResource("Resource_uw7il"),
+18: SubResource("Resource_u8u05")
+})

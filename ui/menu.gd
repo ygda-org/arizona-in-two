@@ -4,7 +4,7 @@ func _ready() -> void:
 	$Fade.color.a = 0.0
 
 func _on_start_pressed() -> void:
-	SFXManager.create_audio(SFXSettings.SFX_LABEL.ButtonPress)
+	SFX.play(SFX.Labels.BUTTON_CLICK)
 	
 	$AnimationPlayer.play("fade_out")
 	await $AnimationPlayer.animation_finished
@@ -14,12 +14,21 @@ func _on_start_pressed() -> void:
 	#SceneSwitcher.switch_scene(game)
 
 func _on_settings_pressed() -> void:
-	SFXManager.create_audio(SFXSettings.SFX_LABEL.ButtonPress)
+	SFX.play(SFX.Labels.BUTTON_CLICK)
 	
 	var setting: String = "uid://cyyylb4r6n4c"
 	SceneSwitcher.switch_scene_no_player(setting)
 
 func _on_quit_pressed() -> void:
-	SFXManager.create_audio(SFXSettings.SFX_LABEL.ButtonPress)
+	SFX.play(SFX.Labels.BUTTON_CLICK)
 	
 	get_tree().quit()
+
+func _on_start_mouse_entered():
+	SFX.play(SFX.Labels.BUTTON_HOVER)
+
+func _on_settings_mouse_entered():
+	SFX.play(SFX.Labels.BUTTON_HOVER)
+	
+func _on_quit_mouse_entered():
+	SFX.play(SFX.Labels.BUTTON_HOVER)

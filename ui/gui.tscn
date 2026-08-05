@@ -250,4 +250,5 @@ offset_right = 65.0
 offset_bottom = 4.0
 texture = ExtResource("7_02e3h")
 
+[connection signal="mouse_entered" from="Fade/RestartButton" to="." method="_on_restart_button_mouse_entered"]
 [connection signal="pressed" from="Fade/RestartButton" to="." method="_on_restart_button_pressed"]
