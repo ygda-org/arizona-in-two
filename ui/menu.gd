@@ -8,7 +8,7 @@ func _on_start_pressed() -> void:
 	
 	$AnimationPlayer.play("fade_out")
 	await $AnimationPlayer.animation_finished
-	var game: PackedScene = load("uid://bvhckihcs8a5l")
+	var _game: PackedScene = load("uid://bvhckihcs8a5l")
 	# Use change_zone to also fix the camera to the map's bounds
 	SceneSwitcher.switch_scene("res://world/desert_area/desert_A.tscn", "FromGrass")
 	#SceneSwitcher.switch_scene(game)

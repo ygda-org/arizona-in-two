@@ -11,7 +11,7 @@ var current_track : int = -1
 func _ready() -> void:
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if get_child_count() == 0 and len(queue) > 0:
 		current_track = queue.pop_front()
 		create_audio(current_track)

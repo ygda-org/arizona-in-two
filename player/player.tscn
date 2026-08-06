@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c2n7vlwridqkn" path="res://player/camera.tscn" id="9_hg6s5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
-size = Vector2(4.211, 15.5)
+size = Vector2(4, 14)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8t03j"]
 shader = ExtResource("2_hg6s5")
@@ -176,6 +176,9 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_hg6s5"]
+points = PackedVector2Array(-4, 1.5, 4, 1.5, 1.1920929e-07, -2.5)
+
 [node name="Player" type="CharacterBody2D" unique_id=2010892964 groups=["Player", "player"]]
 z_index = 1
 collision_layer = 17
@@ -184,7 +187,6 @@ script = ExtResource("1_rkbax")
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=27240685]
 position = Vector2(0, 3)
-scale = Vector2(0.95, 0.95)
 shape = SubResource("RectangleShape2D_rkbax")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=598797111]
@@ -219,6 +221,10 @@ one_shot = true
 [node name="BulletTimeCD" type="Timer" parent="." unique_id=2088467783]
 wait_time = 2.0
 one_shot = true
+
+[node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=631564527]
+position = Vector2(-1.1920929e-07, 9.5)
+shape = SubResource("ConvexPolygonShape2D_hg6s5")
 
 [connection signal="timeout" from="ShotgunPowerTimer" to="." method="_on_shotgun_power_timer_timeout"]
 [connection signal="timeout" from="BouncesPowerTimer" to="." method="_on_bounces_power_timer_timeout"]
