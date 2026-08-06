@@ -10,6 +10,8 @@
 [ext_resource type="TileSet" uid="uid://kdjb34j8n6i1" path="res://assets/tilesets/CameraBounding.tres" id="8_1y4f1"]
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="8_4f6ip"]
 [ext_resource type="PackedScene" uid="uid://c4kv058u3oyf5" path="res://enemies/tumbleweed/tumbleweed_enemy.tscn" id="9_b3xd2"]
+[ext_resource type="PackedScene" uid="uid://cvrmisvpyoqcv" path="res://world/decor/cactus1.tscn" id="9_lbcur"]
+[ext_resource type="PackedScene" uid="uid://28rbkwo17tdr" path="res://world/decor/cactus2.tscn" id="9_p8ejn"]
 [ext_resource type="PackedScene" uid="uid://ctphcsxh0fik4" path="res://enemies/slime_enemy.tscn" id="10_s56m1"]
 [ext_resource type="PackedScene" uid="uid://csyqleioe2hjd" path="res://globals/audio/persistant_music_component.tscn" id="11_ymvjg"]
 [ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="12_ngcoc"]
@@ -197,6 +199,10 @@ texture = ExtResource("6_p8ejn")
 0:9/0 = 0
 1:9/0 = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_mf48i"]
+scenes/4/scene = ExtResource("9_lbcur")
+scenes/5/scene = ExtResource("9_p8ejn")
+
 [sub_resource type="TileSet" id="TileSet_vy8nl"]
 physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_gdeaj")
@@ -205,6 +211,7 @@ sources/1 = SubResource("TileSetAtlasSource_ltnys")
 sources/2 = SubResource("TileSetAtlasSource_dqlvo")
 sources/3 = SubResource("TileSetAtlasSource_uyqcf")
 sources/4 = SubResource("TileSetAtlasSource_sp5ms")
+sources/5 = SubResource("TileSetScenesCollectionSource_mf48i")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ngcoc"]
 size = Vector2(16, 64)
@@ -218,7 +225,7 @@ tile_map_data = PackedByteArray("AAAEABAAAwAAAAQAAAAEABEAAwAAAAQAAAAEABIAAwAAAAQ
 tile_set = ExtResource("2_ngcoc")
 
 [node name="Decor" type="TileMapLayer" parent="." unique_id=604627265]
-tile_map_data = PackedByteArray("AAD3/wgAAQABAAAAAAD+/wYAAQAAAAAAAAABAAsAAQABAAAAAAAGAAMAAQABAAAAAAAOAP//AQABAAAAAAASAAQAAQABAAAAAAANAAgAAQABAAAAAAAWAA8AAQABAAAAAAAaAAcAAQABAAAAAAAeABIAAQABAAAAAAAJABIAAQABAAAAAAAHABEAAQAAAAAAAAAPAA4AAQAAAAAAAAAOAAYAAQAAAAAAAAAZAAwAAQAAAAAAAAD4/xAAAQAAAAAAAAD1/wQABAABAAMAAAD3/wMABAACAAMAAAD1/wMABAAAAAMAAAD2/wMABAABAAMAAAAIABIAAQACAAEAAAARAA8AAQACAAEAAAAOAAwAAQACAAEAAAAOAAoAAQACAAEAAAAYAAsAAQACAAEAAAASAAYAAQACAAEAAAAeAAkAAQACAAEAAAAMAAEAAQACAAEAAAACAAUAAQACAAEAAAD4/wYAAQACAAEAAAAXAP//AQACAAEAAAAHABIAAQABAAEAAAAAAAsAAQABAAEAAAD4/xEAAQABAAEAAAD3/xUAAQABAAEAAAAQABcAAQABAAEAAAAeABMAAQABAAEAAAAeAAMAAQABAAEAAAAbAAIAAQABAAEAAAD7/wQAAQABAAEAADD1/wYAAQABAAEAAAD4/wMAAQABAAEAAFAOAAcAAQABAAEAADAVAAUAAQABAAEAAGAEABQABAACAAMAAAAXAAAABAABAAMAAAA=")
+tile_map_data = PackedByteArray("AAD3/wgABQAAAAAABAD+/wYABQAAAAAABQABAAsABQAAAAAABAAGAAMABQAAAAAABAAOAP//BQAAAAAABQASAAQABQAAAAAABAANAAgABQAAAAAABQAWAA8ABQAAAAAABQAaAAcABQAAAAAABAAeABIABQAAAAAABQAPAA4ABQAAAAAABAAOAAYABQAAAAAABQAZAAwABQAAAAAABQD4/xAABQAAAAAABQD1/wQABAABAAMAAAD3/wMABAACAAMAAAD1/wMABAAAAAMAAAD2/wMABAABAAMAAAAIABIAAQACAAEAAAARAA8AAQACAAEAAAAOAAwAAQACAAEAAAAOAAoAAQACAAEAAAAYAAsAAQACAAEAAAASAAYAAQACAAEAAAAeAAkAAQACAAEAAAAMAAEAAQACAAEAAAACAAUAAQACAAEAAAD4/wYAAQACAAEAAAAXAP//AQACAAEAAAAHABIAAQABAAEAAAAAAAsAAQABAAEAAAD4/xEAAQABAAEAAAD3/xUAAQABAAEAAAAQABcAAQABAAEAAAAeABMAAQABAAEAAAAeAAMAAQABAAEAAAAbAAIAAQABAAEAAAD7/wQAAQABAAEAADD1/wYAAQABAAEAAAD4/wMAAQABAAEAAFAOAAcAAQABAAEAADAVAAUAAQABAAEAAGAEABQABAACAAMAAAAXAAAABAABAAMAAAAJABIABQAAAAAABAAHABEABQAAAAAABQAWABYABQAAAAAABQAfAAcABQAAAAAABQA=")
 tile_set = SubResource("TileSet_vy8nl")
 
 [node name="CameraBounds" type="TileMapLayer" parent="." unique_id=925529302]

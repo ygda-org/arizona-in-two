@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cvrmisvpyoqcv"]
+
+[ext_resource type="Script" uid="uid://b2fqeuied0jhp" path="res://world/decor/destroyable_object.gd" id="1_kvyrp"]
+[ext_resource type="Texture2D" uid="uid://dq3avqf8vlk6r" path="res://assets/temporary-tiles/programmer_art-objects.png" id="2_8o6qt"]
+[ext_resource type="PackedScene" uid="uid://c7fw2aq587t44" path="res://enemies/damage_component.tscn" id="3_4qofl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r320e"]
+radius = 8.0
+
+[node name="DestroyableItem" type="CharacterBody2D" unique_id=990065551]
+script = ExtResource("1_kvyrp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=569208228]
+texture = ExtResource("2_8o6qt")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1510223874]
+shape = SubResource("CircleShape2D_r320e")
+
+[node name="DamageComponent" parent="." unique_id=1495931984 instance=ExtResource("3_4qofl")]
+health = 75.0
