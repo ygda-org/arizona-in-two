@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ddlfsege4jkwo"]
+
+[ext_resource type="Texture2D" uid="uid://cy7gy5nqg8hwh" path="res://assets/temporary-tiles/programmer_art-terrain.png" id="1_miufm"]
+[ext_resource type="Script" uid="uid://bmj1ifmeeu124" path="res://player/camera_spawn.gd" id="2_3ac2i"]
+
+[node name="CameraSpawn" type="Sprite2D" unique_id=1636753081]
+modulate = Color(0.26047185, 0.16283599, 1, 1)
+texture = ExtResource("1_miufm")
+region_enabled = true
+region_rect = Rect2(144, 48, 16, 16)
+script = ExtResource("2_3ac2i")

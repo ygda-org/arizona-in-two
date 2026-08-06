@@ -1,6 +1,7 @@
 [gd_resource type="TileSet" format=3 uid="uid://kdjb34j8n6i1"]
 
 [ext_resource type="Texture2D" uid="uid://cy7gy5nqg8hwh" path="res://assets/temporary-tiles/programmer_art-terrain.png" id="1_km08r"]
+[ext_resource type="PackedScene" uid="uid://ddlfsege4jkwo" path="res://player/camera_spawn.tscn" id="2_jlwua"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jlwua"]
 texture = ExtResource("1_km08r")
@@ -9,7 +10,11 @@ texture = ExtResource("1_km08r")
 9:3/0 = 0
 9:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_pihpi"]
+scenes/1/scene = ExtResource("2_jlwua")
+
 [resource]
 physics_layer_0/collision_layer = 24
 physics_layer_0/collision_mask = 8
 sources/0 = SubResource("TileSetAtlasSource_jlwua")
+sources/1 = SubResource("TileSetScenesCollectionSource_pihpi")

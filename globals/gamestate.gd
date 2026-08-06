@@ -35,6 +35,8 @@ const MENU = preload("uid://85alntk1uqvy")
 
 var total_elapsed_time = 0
 
+var loaded_camera_spawns = []
+
 func _process(delta):
 	total_elapsed_time += delta
 
