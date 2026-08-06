@@ -14,7 +14,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_12qxq")
 }],
-"loop": true,
+"loop": 1,
 "name": &"down",
 "speed": 5.0
 }, {
@@ -22,7 +22,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_12qxq")
 }],
-"loop": true,
+"loop": 1,
 "name": &"down_idle",
 "speed": 5.0
 }, {
@@ -30,7 +30,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_12qxq")
 }],
-"loop": true,
+"loop": 1,
 "name": &"left",
 "speed": 5.0
 }, {
@@ -38,7 +38,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_12qxq")
 }],
-"loop": true,
+"loop": 1,
 "name": &"left_idle",
 "speed": 5.0
 }, {
@@ -46,7 +46,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_12qxq")
 }],
-"loop": true,
+"loop": 1,
 "name": &"right",
 "speed": 5.0
 }, {
@@ -54,7 +54,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_12qxq")
 }],
-"loop": true,
+"loop": 1,
 "name": &"right_idle",
 "speed": 5.0
 }, {
@@ -62,7 +62,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_12qxq")
 }],
-"loop": true,
+"loop": 1,
 "name": &"up",
 "speed": 5.0
 }, {
@@ -70,7 +70,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_12qxq")
 }],
-"loop": true,
+"loop": 1,
 "name": &"up_idle",
 "speed": 5.0
 }]
@@ -107,6 +107,10 @@ health = 40.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseArea" unique_id=1944958268]
 shape = SubResource("CircleShape2D_12qxq")
+
+[node name="MinAttackDelayTimer" type="Timer" parent="." unique_id=187713459]
+wait_time = 0.5
+one_shot = true
 
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
 [connection signal="timeout" from="IdleMovementTimer" to="." method="_on_idle_movement_timer_timeout"]
