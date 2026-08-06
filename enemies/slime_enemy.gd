@@ -55,6 +55,7 @@ var player_node: CharacterBody2D = null
 
 # Connect to the chase Area2D if it was set
 func _ready() -> void:
+	$DamageComponent.health = 100
 	chase_area.body_entered.connect(_on_area_2d_body_entered)
 
 
@@ -152,5 +153,6 @@ func damaged_sequence():
 	pass
 
 func suicide():
-	#death animation
+	$AnimatedSprite2D.play("death")
+	await $AnimatedSprite2D.animation_finished
 	queue_free()

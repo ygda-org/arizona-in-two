@@ -28,6 +28,7 @@ func accept_bullet_(bullet: Bullet):
 	take_damage(damage_from_bullet)
 
 func take_damage(damage_from_player: float):
+	print(damage_from_player)
 	health -= damage_from_player #take damage
 	if(health <= 0):
 		parent.suicide()
