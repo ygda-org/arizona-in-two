@@ -35,7 +35,7 @@ func _ready():
 	#		monitors.append(monitor)
 
 func _physics_process(delta):
-	if camera_lock:
+	if camera_lock or Engine.is_editor_hint():
 		return
 	if glide_speed:
 		velocity = global_position.direction_to(target_glide_position) * glide_speed
@@ -98,5 +98,5 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 	for pos in GameState.loaded_camera_spawns:
 		if global_position.distance_to(pos) < global_position.distance_to(min_pos):
 			min_pos = pos
+			print('hi')
 	global_position = min_pos
-	

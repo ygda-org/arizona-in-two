@@ -11,6 +11,7 @@ func switch_scene(scene_path, spawn_loc): # Accepts a String parameter
 	anim.play("switch")
 
 func switch_scene_start():
+	GameState.loaded_camera_spawns = []
 	call_deferred("switch_scene_deferred", recents[0], recents[1])
 
 func switch_scene_deferred(scene_path, spawn_loc):
