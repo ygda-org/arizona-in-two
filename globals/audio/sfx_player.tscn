@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cpmbmlevaivld" path="res://globals/audio/sfx_player.gd" id="1_dtfen"]
 [ext_resource type="Script" uid="uid://tlf86ayg5nux" path="res://globals/audio/sfx_settings.gd" id="2_2bsey"]
 [ext_resource type="AudioStream" uid="uid://54ujuxf80kvy" path="res://assets/audio/sfx/button_hover.wav" id="3_wqlko"]
+[ext_resource type="AudioStream" uid="uid://dbcv7ja8emy2c" path="res://assets/audio/sfx/cycle_cylinder.wav" id="4_45623"]
 [ext_resource type="AudioStream" uid="uid://n7mqhfktfje6" path="res://assets/audio/sfx/door_close.wav" id="5_3uwyv"]
 [ext_resource type="AudioStream" uid="uid://d15kixvwl14pg" path="res://assets/audio/sfx/door_open.wav" id="6_r2f7t"]
 [ext_resource type="AudioStream" uid="uid://cu3o0ub0viahn" path="res://assets/audio/sfx/empty_shot.wav" id="7_nm1mw"]
@@ -30,7 +31,7 @@ metadata/_custom_type_script = "uid://tlf86ayg5nux"
 [sub_resource type="Resource" id="Resource_f4dxo"]
 script = ExtResource("2_2bsey")
 bus = "SFX"
-stream = ExtResource("3_wqlko")
+stream = ExtResource("4_45623")
 min_delay = 0.28
 metadata/_custom_type_script = "uid://tlf86ayg5nux"
 

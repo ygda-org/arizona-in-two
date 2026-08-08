@@ -18,7 +18,6 @@ extends Node
 # Optionally, append a comment (##) after each id to describe where it is used
 ## List of all sounds. Add a new id here when you add a new sound.
 enum Id {
-	BUTTON_CLICK, ## A button being clicked on
 	BUTTON_HOVER, ## A button being hovered over
 	CYCLE_CYLINDER, ## 
 	DOOR_CLOSE, ## A wooden door opening
@@ -37,6 +36,7 @@ enum Id {
 	SWING_2, ## One variation of the player swinging a sword
 	THICK_RELOAD, ## The sound of the player reloading their gun. "Thick," whatever that means
 	THIN_RELOAD, ## The sound of the player reloading their gun. "Thin," whatever that means
+	BUTTON_CLICK, ## A button being clicked on
 }
 
 ## [code]TRUE[/code]: Print debug messages [br]
