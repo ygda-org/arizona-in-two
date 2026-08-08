@@ -6,7 +6,7 @@ extends CharacterBody2D
 		zoom = new_zoom
 		_ready()
 
-const FOLLOW_STRENGTH = 80
+const FOLLOW_STRENGTH = 0.8
 var shapes = []
 var monitors = []
 
@@ -45,7 +45,7 @@ func _physics_process(delta):
 			set_camera_lock(lock_on_end)
 		return
 	#velocity = global_position.lerp(get_parent().global_position, delta*FOLLOW_STRENGTH)
-	velocity = FOLLOW_STRENGTH * global_position.direction_to(get_parent().global_position)
+	velocity = FOLLOW_STRENGTH * global_position.direction_to(get_parent().global_position) * global_position.distance_to(get_parent().global_position)
 	velocity *= pow(13, (get_parent().global_position - global_position).length()/(get_window().size.length()/zoom))
 	if (global_position - get_parent().global_position).length() < 50:
 		velocity = Vector2.ZERO
