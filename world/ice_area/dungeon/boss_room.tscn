@@ -6,12 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://43i7djt6o5k3" path="res://enemies/ice_dungeon_boss/ice_boss.tscn" id="5_c24la"]
 [ext_resource type="PackedScene" uid="uid://uqyovq6ioqwj" path="res://dungeon_components/dungeon_locked_door.tscn" id="6_2isng"]
 
-[sub_resource type="Curve2D" id="Curve2D_2isng"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -258, -252, 0, 0, 0, 0, 287, -252, 0, 0, 0, 0, 287, 61, 0, 0, 0, 0, -258, 61, 0, 0, 0, 0, -258, -252)
-}
-point_count = 5
-
 [node name="BossRoom" type="Node2D" unique_id=1193448069]
 script = ExtResource("1_1clib")
 clear_type = 1
@@ -29,7 +23,6 @@ zoom = Vector2(4, 4)
 position = Vector2(-136, -11)
 
 [node name="IceBoss" parent="." unique_id=1408571318 instance=ExtResource("5_c24la")]
-position = Vector2(208, -89)
 
 [node name="DungeonLockedDoor" parent="." unique_id=663165658 instance=ExtResource("6_2isng")]
 position = Vector2(-151, 108)
@@ -40,9 +33,3 @@ direction = 2
 
 [node name="FromPrevious" type="Marker2D" parent="." unique_id=1700251969]
 position = Vector2(-135, -9)
-
-[node name="Path2D" type="Path2D" parent="." unique_id=2113056895]
-curve = SubResource("Curve2D_2isng")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1436455890]
-position = Vector2(-258, -252)

@@ -1,26 +1,13 @@
 [gd_scene format=3 uid="uid://43i7djt6o5k3"]
 
 [ext_resource type="Script" uid="uid://cqi53ss0wqce" path="res://enemies/ice_dungeon_boss/ice_boss.gd" id="1_t1obe"]
-[ext_resource type="PackedScene" uid="uid://c7fw2aq587t44" path="res://enemies/damage_component.tscn" id="2_ggemu"]
-[ext_resource type="Texture2D" uid="uid://bbruf7qlq0adb" path="res://assets/tilesets/ice_area/ice_decor.png" id="2_t1obe"]
+[ext_resource type="PackedScene" uid="uid://dbm1p0cidymyi" path="res://enemies/ice_dungeon_boss/boss_piece.tscn" id="4_7qvya"]
+[ext_resource type="Script" uid="uid://o76bcl2air6e" path="res://enemies/ice_dungeon_boss/grid_shots.gd" id="4_apd6o"]
 [ext_resource type="Script" uid="uid://b81lxyeqy1a1c" path="res://enemies/ice_dungeon_boss/wall.gd" id="4_pe80m"]
 [ext_resource type="Script" uid="uid://dlw84fh44wgpy" path="res://enemies/ice_dungeon_boss/random_shots.gd" id="5_7qvya"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehtj3"]
-
-[node name="IceBoss" type="CharacterBody2D" unique_id=1408571318]
+[node name="IceBoss" type="Node2D" unique_id=121632663]
 script = ExtResource("1_t1obe")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=469094922]
-texture = ExtResource("2_t1obe")
-region_enabled = true
-region_rect = Rect2(32, 32, 32, 32)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1001681382]
-shape = SubResource("RectangleShape2D_ehtj3")
-
-[node name="DamageComponent" parent="." unique_id=1495931984 instance=ExtResource("2_ggemu")]
-suicide_on_death = true
 
 [node name="States" type="Node2D" parent="." unique_id=333491758]
 
@@ -32,14 +19,63 @@ top_level = true
 
 [node name="RandomShots" type="Node2D" parent="States" unique_id=374599691]
 script = ExtResource("5_7qvya")
-total_shot_count = 60
+total_shot_count = 48
 shot_cd = 1.2
 bullet_speed = 350.0
-burst_amount = 10
+burst_amount = 8
 
 [node name="Timer" type="Timer" parent="States/RandomShots" unique_id=937582270]
 
 [node name="Shots" type="Node2D" parent="States/RandomShots" unique_id=1918388088]
 top_level = true
 
+[node name="States2" type="Node2D" parent="." unique_id=297429888]
+
+[node name="RandomShots" type="Node2D" parent="States2" unique_id=39941084]
+script = ExtResource("5_7qvya")
+total_shot_count = 48
+shot_cd = 1.0
+bullet_speed = 350.0
+burst_amount = 12
+
+[node name="Timer" type="Timer" parent="States2/RandomShots" unique_id=567107722]
+
+[node name="Shots" type="Node2D" parent="States2/RandomShots" unique_id=513526043]
+top_level = true
+
+[node name="GridShots" type="Node2D" parent="States2" unique_id=1218503849]
+script = ExtResource("4_apd6o")
+frequency = 2.0
+bullet_speed = 300.0
+total_shot_amount = 3
+
+[node name="Timer" type="Timer" parent="States2/GridShots" unique_id=1696612130]
+
+[node name="Shots" type="Node2D" parent="States2/GridShots" unique_id=65315161]
+top_level = true
+
+[node name="Wall" type="Node2D" parent="States2" unique_id=167507850]
+script = ExtResource("4_pe80m")
+phase_dur = 1.5
+max_spikes = 23
+
+[node name="Spikes" type="Node2D" parent="States2/Wall" unique_id=781765699]
+top_level = true
+
+[node name="Pieces" type="Node2D" parent="." unique_id=478585638]
+
+[node name="BossPiece" parent="Pieces" unique_id=1124327369 instance=ExtResource("4_7qvya")]
+position = Vector2(175, 0)
+
+[node name="BossPiece2" parent="Pieces" unique_id=716733888 instance=ExtResource("4_7qvya")]
+position = Vector2(-175, 0)
+
+[node name="BossPiece3" parent="Pieces" unique_id=1839315608 instance=ExtResource("4_7qvya")]
+position = Vector2(0, 70)
+
+[node name="BossPiece4" parent="Pieces" unique_id=1345097732 instance=ExtResource("4_7qvya")]
+position = Vector2(0, -79)
+
 [connection signal="timeout" from="States/RandomShots/Timer" to="States/RandomShots" method="_on_timer_timeout"]
+[connection signal="timeout" from="States2/RandomShots/Timer" to="States2/RandomShots" method="_on_timer_timeout"]
+[connection signal="timeout" from="States2/GridShots/Timer" to="States2/GridShots" method="_on_timer_timeout"]

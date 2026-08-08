@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dbm1p0cidymyi"]
+
+[ext_resource type="Texture2D" uid="uid://bbruf7qlq0adb" path="res://assets/tilesets/ice_area/ice_decor.png" id="1_4dxb3"]
+[ext_resource type="Script" uid="uid://13c4lp7ipvb3" path="res://enemies/ice_dungeon_boss/boss_piece.gd" id="1_62e01"]
+[ext_resource type="PackedScene" uid="uid://c7fw2aq587t44" path="res://enemies/damage_component.tscn" id="2_62e01"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eoxr6"]
+
+[node name="BossPiece" type="CharacterBody2D" unique_id=1124327369]
+script = ExtResource("1_62e01")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=501035484]
+texture = ExtResource("1_4dxb3")
+region_enabled = true
+region_rect = Rect2(32, 32, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=570512702]
+shape = SubResource("RectangleShape2D_eoxr6")
+
+[node name="DamageComponent" parent="." unique_id=1495931984 instance=ExtResource("2_62e01")]
+suicide_on_death = true
