@@ -98,5 +98,4 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 	for pos in GameState.loaded_camera_spawns:
 		if global_position.distance_to(pos) < global_position.distance_to(min_pos):
 			min_pos = pos
-			print('hi')
 	global_position = min_pos
