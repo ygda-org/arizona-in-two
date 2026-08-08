@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ukvstgcvpp0c" path="res://powerups/sped_boost/speed_boost.tscn" id="5_3wy1v"]
 [ext_resource type="PackedScene" uid="uid://b1npi0iamldqa" path="res://powerups/bullet_bounce/bullet_bounce.tscn" id="6_kfbq2"]
 [ext_resource type="PackedScene" uid="uid://c4kv058u3oyf5" path="res://enemies/tumbleweed/tumbleweed_enemy.tscn" id="7_4dugh"]
-[ext_resource type="PackedScene" uid="uid://b883ik2jdt2jl" path="res://enemies/dashingSlime/dashingSlime_enemy.tscn" id="8_67ri8"]
+[ext_resource type="PackedScene" uid="uid://b883ik2jdt2jl" path="res://enemies/dashing_slime/dashing_slime_enemy.tscn" id="8_67ri8"]
 
 [node name="Main" type="Node2D" unique_id=1701778157]
 

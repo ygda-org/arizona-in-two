@@ -31,6 +31,7 @@ var on_magma : bool = false
 
 
 func _ready():
+	GameState.player = self
 	GameState.bullet_time = false
 
 func _physics_process(delta: float) -> void:

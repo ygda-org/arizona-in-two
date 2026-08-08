@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b883ik2jdt2jl"]
 
-[ext_resource type="Script" uid="uid://c1cau14i6mdfu" path="res://enemies/dashingSlime/dashing_slime_enemy.gd" id="1_gvqc2"]
+[ext_resource type="Script" uid="uid://c1cau14i6mdfu" path="res://enemies/dashing_slime/dashing_slime_enemy.gd" id="1_gvqc2"]
 [ext_resource type="Texture2D" uid="uid://dq3avqf8vlk6r" path="res://assets/temporary-tiles/programmer_art-objects.png" id="1_iej7t"]
 [ext_resource type="Texture2D" uid="uid://diferihrj6ffi" path="res://assets/temporary-tiles/dashing_slime_die.png" id="2_gdvna"]
 [ext_resource type="PackedScene" uid="uid://c7fw2aq587t44" path="res://enemies/damage_component.tscn" id="2_gvqc2"]
@@ -147,6 +147,10 @@ shape = SubResource("CircleShape2D_gdvna")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea" unique_id=336436524]
 shape = SubResource("CircleShape2D_jwd6l")
+
+[node name="MinAttackDelayTimer" type="Timer" parent="." unique_id=162537077]
+wait_time = 0.5
+one_shot = true
 
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
 [connection signal="timeout" from="IdleMovementTimer" to="." method="_on_idle_movement_timer_timeout"]

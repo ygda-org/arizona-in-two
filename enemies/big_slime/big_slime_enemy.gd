@@ -12,7 +12,7 @@ extends CharacterBody2D
 @export var idle_speed: float = 10.0
 
 ## The slime's chase speed.
-@export var chase_speed: float = 32.0
+@export var chase_speed: float = 70.0
 
 ## How much damage the slime will cause upon player collision.
 @export var attack_damage: float = 0
@@ -53,10 +53,10 @@ var player_node: CharacterBody2D = null
 # Sprite
 @onready var _animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-
 # Connect to the chase Area2D if it was set
 func _ready() -> void:
-	$DamageComponent.health = 100
+	$DamageComponent.damage = attack_damage
+	$DamageComponent.health = 300
 
 # NOTE: When the slime moves too far off screen, movement calculations are
 # automatically stopped by the VisibleOnScreenEnabler2D
@@ -64,11 +64,11 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	
 	if GameState.player:
-		if GameState.player.position.y + 11 > position.y + 8:
+		if GameState.player.position.y > position.y + 16:
 			z_index = GameState.player.z_index - 1
 			print("player in front")
 			
-		if GameState.player.position.y + 11 < position.y + 8:
+		if GameState.player.position.y < position.y + 16:
 			z_index = GameState.player.z_index + 1
 			print("player behind")
 	
@@ -155,7 +155,7 @@ func suicide():
 	$AnimatedSprite2D.play("death")
 	await $AnimatedSprite2D.animation_finished
 	var dead_body = DEAD_BODY.instantiate()
-	dead_body.type = "slime_dead"
+	dead_body.type = "big_slime_dead"
 	dead_body.set_type()
 	get_parent().add_child(dead_body)
 	dead_body.position = position

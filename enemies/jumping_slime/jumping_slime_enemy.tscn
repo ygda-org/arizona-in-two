@@ -154,6 +154,10 @@ shape = SubResource("CircleShape2D_12qxq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea" unique_id=810477121]
 shape = SubResource("CircleShape2D_jwd6l")
 
+[node name="MinAttackDelayTimer" type="Timer" parent="." unique_id=595339812]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
 [connection signal="timeout" from="IdleMovementTimer" to="." method="_on_idle_movement_timer_timeout"]
 [connection signal="body_exited" from="ChaseArea" to="." method="_on_chase_area_body_exited"]

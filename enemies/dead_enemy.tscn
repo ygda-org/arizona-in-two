@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dg6vd4w76xk55"]
 
+[ext_resource type="Texture2D" uid="uid://xrdnvdfkhtft" path="res://assets/temporary-tiles/big_slime_dead.png" id="1_43ywd"]
 [ext_resource type="Texture2D" uid="uid://diferihrj6ffi" path="res://assets/temporary-tiles/dashing_slime_die.png" id="1_dwuds"]
 [ext_resource type="Texture2D" uid="uid://ce8r8n5eyh0wm" path="res://assets/temporary-tiles/jumping_slime_die.png" id="2_hnlai"]
 [ext_resource type="Texture2D" uid="uid://bcqpx7i1ylxw4" path="res://assets/temporary-tiles/slime_die.png" id="3_43ywd"]
@@ -24,6 +25,14 @@ region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jwd6l"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_43ywd")
+}],
+"loop": 0,
+"name": &"big_slime_dead",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tfndu")
@@ -59,5 +68,5 @@ animations = [{
 
 [node name="EnemyDeadBody" type="AnimatedSprite2D" unique_id=928376474]
 sprite_frames = SubResource("SpriteFrames_jwd6l")
-animation = &"tumbleweed_dead"
+animation = &"big_slime_dead"
 script = ExtResource("4_oon7s")
