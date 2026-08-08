@@ -1,8 +1,22 @@
 extends Node
-# This node (the scene) to be added as a global named SFX
+## How to use this SFX Manager:
+##
+## Setup:
+## Copy all of the files inside of the "globals" folder into your project.
+## Add the SCENE "sfx_player.tscn" as an autoload in your project.
+##
+## Use:
+## When you want to add a new sound, start by loading the file into Godot.
+## Add a descriptive name to the enum "Id" in sfx_player.gd.
+## This name should be in ALL_CAPS.
+## Go into the inspector of the node "SfxPlayer" in sfx_player.tscn.
+## In the dictionary "Id_to_Setting," add a new pair of a key and a setting.
+## Select your audio file as the "stream."
+## Make sure to click "Add Key/Value Pair"!!
+## You can now call SFX.play(SFX.Id.YOUR_ID).
 
-## Optionally, append a comment (##) after each label to describe where it is used [br]
-## List of all sounds. Add a new item here when you add a new sound.
+# Optionally, append a comment (##) after each id to describe where it is used
+## List of all sounds. Add a new id here when you add a new sound.
 enum Id {
 	BUTTON_CLICK, ## A button being clicked on
 	BUTTON_HOVER, ## A button being hovered over
