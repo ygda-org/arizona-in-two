@@ -1,7 +1,6 @@
 extends Control
 func _ready() -> void:
-	if get_parent().name == "Player":
-		visible = false
+	visible = false
 	
 	$Master.value = GameState.master_volume 
 	$Music.value = GameState.music_volume
