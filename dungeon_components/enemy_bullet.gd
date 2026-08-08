@@ -1,6 +1,6 @@
 extends Area2D
 
-var damage = 0
+var damage = 10
 var velocity = Vector2(1,0)
 
 func _ready():
