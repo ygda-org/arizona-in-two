@@ -316,7 +316,7 @@ position = Vector2(123, 282)
 position = Vector2(18, -125)
 
 [node name="BigSlimeEnemy" parent="Enemies" unique_id=538334106 instance=ExtResource("17_g1y6v")]
-position = Vector2(-479, 304)
+position = Vector2(-603, 296)
 
 [node name="PersistantMusicComponent" parent="." unique_id=554467455 instance=ExtResource("14_kyupo")]
 music = 1
