@@ -10,13 +10,12 @@ func _ready():
 
 
 func _on_body_entered(_body):
-	print('hi')
 	GameState.player_max_bullet_strength = upgrade_level
 	if upgrade_level == 2:
 		$Sprite2D.visible = false
 		set_deferred("monitoring", false)
 		var gate = load("uid://bc4df4v86bpt2").instantiate()
-		add_child(gate)
+		call_deferred("add_child", gate)
 		gate.position.y += 48
 	else:
 		queue_free()

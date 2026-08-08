@@ -14,7 +14,7 @@ texture = ExtResource("1_km08r")
 scenes/1/scene = ExtResource("2_jlwua")
 
 [resource]
-physics_layer_0/collision_layer = 24
+physics_layer_0/collision_layer = 8
 physics_layer_0/collision_mask = 8
 sources/0 = SubResource("TileSetAtlasSource_jlwua")
 sources/1 = SubResource("TileSetScenesCollectionSource_pihpi")
