@@ -26,9 +26,9 @@ func _on_timer_timeout():
 		var telegraph = TELEGRAPH_LINE.instantiate()
 		var spawn_pos
 		if randi_range(0,1):
-			spawn_pos = Vector2(0, -200 * (randi_range(0,1)*2-1)) # 
+			spawn_pos = Vector2(0, -400 * (randi_range(0,1)*2-1)) # 
 		else:
-			spawn_pos = Vector2(-300 * (randi_range(0,1)*2-1), 0)
+			spawn_pos = Vector2(-550 * (randi_range(0,1)*2-1), 0)
 		$Shots.add_child(telegraph)
 		telegraph.rotation = spawn_pos.angle() - PI/2
 		bullet.velocity = -spawn_pos.normalized() * bullet_speed

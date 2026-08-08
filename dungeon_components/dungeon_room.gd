@@ -38,7 +38,7 @@ func check_shot_orb_clear():
 
 func check_enemies_clear():
 	for node in get_children():
-		if "Enemy" in node.name: # bad solution, fix later
+		if "Enemy" in node.name or "Boss" in node.name: # bad solution, fix later
 			return
 	cleared = true
 	GameState.enemies_cleared.emit()

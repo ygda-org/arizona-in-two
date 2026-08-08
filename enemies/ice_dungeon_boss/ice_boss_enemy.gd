@@ -22,3 +22,6 @@ func piece_destroyed():
 		states = $States2
 		current_state = 0
 		next_state()
+	if len($Pieces.get_children()) < 2:
+		GameState.ice_dungeon_boss_cleared = true
+		queue_free()

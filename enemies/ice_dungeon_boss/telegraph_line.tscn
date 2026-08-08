@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c70a6tty5ockd"]
 
 [ext_resource type="Script" uid="uid://7s3kh1tffeuv" path="res://enemies/ice_dungeon_boss/telegraph_line.gd" id="1_3uadr"]
+[ext_resource type="PackedScene" uid="uid://dgb36bgeo3mls" path="res://dungeon_components/bullet_timeable.tscn" id="2_quvim"]
 
 [sub_resource type="Gradient" id="Gradient_6cxg5"]
 offsets = PackedFloat32Array(0, 0.37740386, 0.50721157, 0.62259614, 1)
@@ -9,8 +10,10 @@ colors = PackedColorArray(0, 0.81960785, 0.85490197, 0, 0, 0.81960785, 0.8549019
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_6cxg5"]
 gradient = SubResource("Gradient_6cxg5")
 width = 8
-height = 1024
+height = 2048
 
 [node name="TelegraphLine" type="Sprite2D" unique_id=1471353980]
 texture = SubResource("GradientTexture2D_6cxg5")
 script = ExtResource("1_3uadr")
+
+[node name="BulletTimeable" parent="." unique_id=310443351 instance=ExtResource("2_quvim")]

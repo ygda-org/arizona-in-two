@@ -64,3 +64,14 @@ position = Vector2(130, -107)
 position = Vector2(24, -148)
 open_type = 1
 door_id = "IU3"
+
+[node name="ToUpBoss" parent="." unique_id=914669748 instance=ExtResource("5_3vd74")]
+to_scene = "uid://cb0gba0lvapw0"
+spawn_loc = "FromUp3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToUpBoss" unique_id=2138337483]
+position = Vector2(24, -140)
+shape = SubResource("RectangleShape2D_5kg8m")
+
+[node name="FromBoss" type="Marker2D" parent="." unique_id=1455334408]
+position = Vector2(24, -118)
