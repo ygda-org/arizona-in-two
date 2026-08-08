@@ -56,8 +56,6 @@ var player_node: CharacterBody2D = null
 # Connect to the chase Area2D if it was set
 func _ready() -> void:
 	$DamageComponent.health = 100
-	chase_area.body_entered.connect(_on_area_2d_body_entered)
-
 
 # NOTE: When the slime moves too far off screen, movement calculations are
 # automatically stopped by the VisibleOnScreenEnabler2D
@@ -66,7 +64,6 @@ func _physics_process(_delta: float) -> void:
 	# If the idle movement timer is running, skip movement calculations
 	if not _idle_movement_timer.is_stopped():
 		return
-	
 	
 	if player_node != null:
 		# Move towards the player (chase sequence)
@@ -140,14 +137,14 @@ func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
 	player_node = null
 
 
-# Set player variable on entering the Area2D
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	# Player in area
-	if body is CharacterBody2D and body.is_in_group("Player"):
-		player_node = body
-		
-		# Stop idle movement
-		_idle_movement_timer.stop()
+## Set player variable on entering the Area2D
+#func _on_area_2d_body_entered(body: Node2D) -> void:
+	## Player in area
+	#if body is CharacterBody2D and body.is_in_group("Player"):
+		#player_node = body
+		#print("in")
+		## Stop idle movement
+		#_idle_movement_timer.stop()
 
 func damaged_sequence():
 	#damage animation
@@ -157,3 +154,16 @@ func suicide():
 	$AnimatedSprite2D.play("death")
 	await $AnimatedSprite2D.animation_finished
 	queue_free()
+
+
+func _on_target_area_body_entered(body):
+	if body is CharacterBody2D and body.is_in_group("Player"):
+		player_node = body
+		# Stop idle movement
+		_idle_movement_timer.stop()
+
+func _on_chase_area_body_exited(body):
+	if body is CharacterBody2D and body.is_in_group("Player"):
+		# Start idle movement
+		_idle_movement_timer.start()
+		player_node = null

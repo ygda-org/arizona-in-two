@@ -115,6 +115,9 @@ size = Vector2(14, 12)
 [sub_resource type="CircleShape2D" id="CircleShape2D_12qxq"]
 radius = 50.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jwd6l"]
+radius = 146.0
+
 [node name="SlimeEnemy" type="CharacterBody2D" unique_id=538334106]
 motion_mode = 1
 script = ExtResource("1_lwubp")
@@ -137,14 +140,22 @@ shape = SubResource("RectangleShape2D_yr4wy")
 [node name="DamageComponent" parent="." unique_id=1495931984 instance=ExtResource("3_12qxq")]
 health = 40.0
 
-[node name="ChaseArea" type="Area2D" parent="." unique_id=1294927946]
+[node name="TargetArea" type="Area2D" parent="." unique_id=1294927946]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseArea" unique_id=1944958268]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea" unique_id=1944958268]
 shape = SubResource("CircleShape2D_12qxq")
 
 [node name="MinAttackDelayTimer" type="Timer" parent="." unique_id=187713459]
 wait_time = 0.5
 one_shot = true
 
+[node name="ChaseArea" type="Area2D" parent="." unique_id=976539241]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseArea" unique_id=1120936592]
+shape = SubResource("CircleShape2D_jwd6l")
+debug_color = Color(9.1448425e-07, 0.46932244, 0.5509413, 0.41960785)
+
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
 [connection signal="timeout" from="IdleMovementTimer" to="." method="_on_idle_movement_timer_timeout"]
+[connection signal="body_entered" from="TargetArea" to="." method="_on_target_area_body_entered"]
+[connection signal="body_exited" from="ChaseArea" to="." method="_on_chase_area_body_exited"]
