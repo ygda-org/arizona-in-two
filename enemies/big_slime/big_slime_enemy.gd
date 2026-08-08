@@ -15,7 +15,7 @@ extends CharacterBody2D
 @export var chase_speed: float = 70.0
 
 ## How much damage the slime will cause upon player collision.
-@export var attack_damage: float = 0
+@export var attack_damage: float = 25.0
 
 ## The suffix used for idle animations in the [AnimatedSprite2D].
 @export var idle_animation_suffix: StringName = "_idle"
@@ -64,11 +64,11 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	
 	if GameState.player:
-		if GameState.player.position.y > position.y + 16:
+		if GameState.player.position.y + 11 > position.y + 16:
 			z_index = GameState.player.z_index - 1
 			print("player in front")
 			
-		if GameState.player.position.y < position.y + 16:
+		if GameState.player.position.y + 11< position.y + 16:
 			z_index = GameState.player.z_index + 1
 			print("player behind")
 	

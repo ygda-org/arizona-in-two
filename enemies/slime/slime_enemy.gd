@@ -15,9 +15,9 @@ extends CharacterBody2D
 @export var chase_speed: float = 32.0
 
 ## How much damage the slime will cause upon player collision.
-@export var attack_damage: float = 0
+@export var attack_damage: float = 10.0
 
-## The suffix used for idle animations in the [AnimatedSprite2D].
+## The suffix used for idle anations in the [AnimatedSprite2D].
 @export var idle_animation_suffix: StringName = "_idle"
 
 ## The area to monitor for player chase interactions.
