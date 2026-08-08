@@ -1,8 +1,25 @@
 [gd_scene format=3 uid="uid://c1vqdg3iq4258"]
 
 [ext_resource type="Script" uid="uid://civ55pgp0fxs6" path="res://enemies/jumping_slime/jumping_slime_enemy.gd" id="1_1ynn2"]
+[ext_resource type="Texture2D" uid="uid://ce8r8n5eyh0wm" path="res://assets/temporary-tiles/jumping_slime_die.png" id="2_vx467"]
 [ext_resource type="Texture2D" uid="uid://dq3avqf8vlk6r" path="res://assets/temporary-tiles/programmer_art-objects.png" id="2_x2kra"]
 [ext_resource type="PackedScene" uid="uid://c7fw2aq587t44" path="res://enemies/damage_component.tscn" id="3_vx467"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvcyu"]
+atlas = ExtResource("2_vx467")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cg0eq"]
+atlas = ExtResource("2_vx467")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_huqqh"]
+atlas = ExtResource("2_vx467")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqh1v"]
+atlas = ExtResource("2_vx467")
+region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ynn2"]
 atlas = ExtResource("2_x2kra")
@@ -12,9 +29,26 @@ region = Rect2(96, 64, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_mvcyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cg0eq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_huqqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqh1v")
+}],
+"loop": 0,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_1ynn2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"down",
 "speed": 5.0
 }, {
@@ -22,7 +56,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1ynn2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"down_idle",
 "speed": 5.0
 }, {
@@ -30,7 +64,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1ynn2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"left",
 "speed": 5.0
 }, {
@@ -38,7 +72,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1ynn2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"left_idle",
 "speed": 5.0
 }, {
@@ -46,7 +80,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1ynn2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"right",
 "speed": 5.0
 }, {
@@ -54,7 +88,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1ynn2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"right_idle",
 "speed": 5.0
 }, {
@@ -62,7 +96,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1ynn2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"up",
 "speed": 5.0
 }, {
@@ -70,7 +104,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1ynn2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"up_idle",
 "speed": 5.0
 }]
@@ -79,6 +113,9 @@ animations = [{
 size = Vector2(14, 12)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_12qxq"]
+radius = 198.0101
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jwd6l"]
 radius = 50.0
 
 [node name="JumpingSlimeEnemy" type="CharacterBody2D" unique_id=538334106]
@@ -98,7 +135,7 @@ one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1390256038]
 sprite_frames = SubResource("SpriteFrames_lwubp")
-animation = &"up_idle"
+animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=561916679]
 position = Vector2(0, 1)
@@ -112,5 +149,12 @@ health = 40.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseArea" unique_id=1944958268]
 shape = SubResource("CircleShape2D_12qxq")
 
+[node name="TargetArea" type="Area2D" parent="." unique_id=1906838889]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea" unique_id=810477121]
+shape = SubResource("CircleShape2D_jwd6l")
+
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
 [connection signal="timeout" from="IdleMovementTimer" to="." method="_on_idle_movement_timer_timeout"]
+[connection signal="body_exited" from="ChaseArea" to="." method="_on_chase_area_body_exited"]
+[connection signal="body_entered" from="TargetArea" to="." method="_on_target_area_body_entered"]

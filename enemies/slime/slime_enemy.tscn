@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ctphcsxh0fik4"]
 
-[ext_resource type="Script" uid="uid://uyl0igpux7sm" path="res://enemies/slime_enemy.gd" id="1_lwubp"]
+[ext_resource type="Script" uid="uid://uyl0igpux7sm" path="res://enemies/slime/slime_enemy.gd" id="1_lwubp"]
 [ext_resource type="Texture2D" uid="uid://bcqpx7i1ylxw4" path="res://assets/temporary-tiles/slime_die.png" id="2_eie7s"]
 [ext_resource type="Texture2D" uid="uid://dq3avqf8vlk6r" path="res://assets/temporary-tiles/programmer_art-objects.png" id="2_ysf2m"]
 [ext_resource type="PackedScene" uid="uid://c7fw2aq587t44" path="res://enemies/damage_component.tscn" id="3_12qxq"]

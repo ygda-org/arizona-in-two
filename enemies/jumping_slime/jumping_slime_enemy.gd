@@ -30,6 +30,7 @@ extends CharacterBody2D
 ## The area to monitor for player chase interactions.
 @onready var chase_area : Area2D = $ChaseArea
 
+const DEAD_BODY = preload("uid://dg6vd4w76xk55")
 
 # Physics process variables
 
@@ -110,12 +111,6 @@ var in_jump := false
 ## Controls the delay between jump attacks.
 @onready var unique_attack_timer: Timer = $UniqueAttackTimer
 #endregion
-
-
-# Connect to the chase Area2D if it was set
-func _ready() -> void:
-	chase_area.body_entered.connect(_on_area_2d_body_entered)
-
 
 # NOTE: When the slime moves too far off screen, movement calculations are
 # automatically stopped by the VisibleOnScreenEnabler2D
@@ -258,20 +253,29 @@ func _on_idle_movement_timer_timeout() -> void:
 func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
 	player_node = null
 
-
-# Set player variable on entering the Area2D
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	# Player in area
-	if body is CharacterBody2D and body.is_in_group("Player"):
-		player_node = body
-		
-		# Stop idle movement
-		_idle_movement_timer.stop()
-
 func damaged_sequence():
 	#damage animation
 	pass
 
 func suicide():
-	#death animation
+	$AnimatedSprite2D.play("death")
+	await $AnimatedSprite2D.animation_finished
+	var dead_body = DEAD_BODY.instantiate()
+	dead_body.type = "jumping_slime_dead"
+	dead_body.set_type()
+	get_parent().add_child(dead_body)
+	dead_body.position = position
+	dead_body.name = "Dead" + name
 	queue_free()
+	
+func _on_target_area_body_entered(body):
+	if body is CharacterBody2D and body.is_in_group("Player"):
+		player_node = body
+		# Stop idle movement
+		_idle_movement_timer.stop()
+
+func _on_chase_area_body_exited(body):
+	if body is CharacterBody2D and body.is_in_group("Player"):
+		# Start idle movement
+		_idle_movement_timer.start()
+		player_node = null

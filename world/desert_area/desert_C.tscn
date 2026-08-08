@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://nl8234om3bpc" path="res://assets/tilesets/desert_area/Sand_terrain.png" id="5_ovap4"]
 [ext_resource type="Texture2D" uid="uid://chyscyessavhl" path="res://assets/tilesets/grass_area/grass_decor.png" id="6_emmd6"]
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="6_oyeey"]
-[ext_resource type="PackedScene" uid="uid://ctphcsxh0fik4" path="res://enemies/slime_enemy.tscn" id="7_tpw8m"]
+[ext_resource type="PackedScene" uid="uid://ctphcsxh0fik4" path="res://enemies/slime/slime_enemy.tscn" id="7_tpw8m"]
 [ext_resource type="TileSet" uid="uid://kdjb34j8n6i1" path="res://assets/tilesets/CameraBounding.tres" id="8_nriax"]
 [ext_resource type="PackedScene" uid="uid://c4kv058u3oyf5" path="res://enemies/tumbleweed/tumbleweed_enemy.tscn" id="8_t3m8n"]
 [ext_resource type="PackedScene" uid="uid://csyqleioe2hjd" path="res://globals/audio/persistant_music_component.tscn" id="11_emmd6"]

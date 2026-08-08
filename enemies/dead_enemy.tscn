@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dg6vd4w76xk55"]
+
+[ext_resource type="Texture2D" uid="uid://diferihrj6ffi" path="res://assets/temporary-tiles/dashing_slime_die.png" id="1_dwuds"]
+[ext_resource type="Texture2D" uid="uid://ce8r8n5eyh0wm" path="res://assets/temporary-tiles/jumping_slime_die.png" id="2_hnlai"]
+[ext_resource type="Texture2D" uid="uid://bcqpx7i1ylxw4" path="res://assets/temporary-tiles/slime_die.png" id="3_43ywd"]
+[ext_resource type="Script" uid="uid://bvuqssr30vsou" path="res://enemies/dead_enemy.gd" id="4_oon7s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfndu"]
+atlas = ExtResource("1_dwuds")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnbj5"]
+atlas = ExtResource("2_hnlai")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iw0o5"]
+atlas = ExtResource("3_43ywd")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jwd6l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfndu")
+}],
+"loop": 1,
+"name": &"dashing_slime_dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnbj5")
+}],
+"loop": 1,
+"name": &"jumping_slime_dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iw0o5")
+}],
+"loop": 1,
+"name": &"slime_dead",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"tumbleweed_dead",
+"speed": 5.0
+}]
+
+[node name="EnemyDeadBody" type="AnimatedSprite2D" unique_id=928376474]
+sprite_frames = SubResource("SpriteFrames_jwd6l")
+animation = &"dashing_slime_dead"
+script = ExtResource("4_oon7s")

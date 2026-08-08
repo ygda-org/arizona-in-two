@@ -1,6 +1,6 @@
 extends Control
 func _ready() -> void:
-	visible = false
+	visible = true
 	
 	$Master.value = GameState.master_volume 
 	$Music.value = GameState.music_volume

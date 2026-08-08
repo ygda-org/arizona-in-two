@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cf8vbfpfm8jwn"]
 
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="1_53q0u"]
-[ext_resource type="PackedScene" uid="uid://ctphcsxh0fik4" path="res://enemies/slime_enemy.tscn" id="3_xwkvk"]
+[ext_resource type="PackedScene" uid="uid://ctphcsxh0fik4" path="res://enemies/slime/slime_enemy.tscn" id="3_xwkvk"]
 [ext_resource type="PackedScene" uid="uid://bufa3nu78h2f7" path="res://powerups/rapid_fire/rapid_fire.tscn" id="4_c651c"]
 [ext_resource type="PackedScene" uid="uid://ukvstgcvpp0c" path="res://powerups/sped_boost/speed_boost.tscn" id="5_3wy1v"]
 [ext_resource type="PackedScene" uid="uid://b1npi0iamldqa" path="res://powerups/bullet_bounce/bullet_bounce.tscn" id="6_kfbq2"]

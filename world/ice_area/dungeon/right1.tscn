@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://bw0xbfjy4ywhf" path="res://assets/tilesets/dungeon_tiles.tres" id="1_wwrgw"]
 [ext_resource type="PackedScene" uid="uid://4l5y3v8ie6dw" path="res://bullet/bullet_destruction_component.tscn" id="2_nhn2e"]
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="3_kymx6"]
-[ext_resource type="PackedScene" uid="uid://ctphcsxh0fik4" path="res://enemies/slime_enemy.tscn" id="4_nvuvu"]
+[ext_resource type="PackedScene" uid="uid://ctphcsxh0fik4" path="res://enemies/slime/slime_enemy.tscn" id="4_nvuvu"]
 [ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="5_4f4vd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kymx6"]

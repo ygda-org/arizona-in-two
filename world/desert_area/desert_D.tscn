@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://davelhus8fw46" path="res://assets/temporary-tiles/water.png" id="3_wjllt"]
 [ext_resource type="Texture2D" uid="uid://chyscyessavhl" path="res://assets/tilesets/grass_area/grass_decor.png" id="5_2gxp0"]
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="5_aiqcp"]
-[ext_resource type="PackedScene" uid="uid://ctphcsxh0fik4" path="res://enemies/slime_enemy.tscn" id="6_aiqcp"]
+[ext_resource type="PackedScene" uid="uid://ctphcsxh0fik4" path="res://enemies/slime/slime_enemy.tscn" id="6_aiqcp"]
 [ext_resource type="Texture2D" uid="uid://nl8234om3bpc" path="res://assets/tilesets/desert_area/Sand_terrain.png" id="6_jkucu"]
 [ext_resource type="PackedScene" uid="uid://c1vqdg3iq4258" path="res://enemies/jumping_slime/jumping_slime_enemy.tscn" id="7_c7n7v"]
 [ext_resource type="Texture2D" uid="uid://dcrg1lgshthv0" path="res://assets/tilesets/ice_area/ice_terrain.png" id="7_jkucu"]

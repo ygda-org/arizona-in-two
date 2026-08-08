@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://b1oh8mbctdr4f" path="res://assets/player/front_jack_idle.png" id="4_rgyib"]
 [ext_resource type="Texture2D" uid="uid://chr07qlqyf1cq" path="res://assets/player/Jackie walk cycle right.png" id="5_8t03j"]
 [ext_resource type="PackedScene" uid="uid://c2n7vlwridqkn" path="res://player/camera.tscn" id="9_hg6s5"]
-[ext_resource type="PackedScene" uid="uid://cyyylb4r6n4c" path="res://ui/settings.tscn" id="10_8t03j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
 size = Vector2(4, 14)
@@ -226,11 +225,6 @@ one_shot = true
 [node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=631564527]
 position = Vector2(-1.1920929e-07, 9.5)
 shape = SubResource("ConvexPolygonShape2D_hg6s5")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1697012541]
-
-[node name="Settings" parent="CanvasLayer" unique_id=268189996 instance=ExtResource("10_8t03j")]
-process_mode = 3
 
 [connection signal="timeout" from="ShotgunPowerTimer" to="." method="_on_shotgun_power_timer_timeout"]
 [connection signal="timeout" from="BouncesPowerTimer" to="." method="_on_bounces_power_timer_timeout"]

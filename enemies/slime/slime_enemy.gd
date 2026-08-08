@@ -23,6 +23,7 @@ extends CharacterBody2D
 ## The area to monitor for player chase interactions.
 @onready var chase_area : Area2D = $ChaseArea
 
+const DEAD_BODY = preload("uid://dg6vd4w76xk55")
 
 # Physics process variables
 
@@ -153,6 +154,12 @@ func damaged_sequence():
 func suicide():
 	$AnimatedSprite2D.play("death")
 	await $AnimatedSprite2D.animation_finished
+	var dead_body = DEAD_BODY.instantiate()
+	dead_body.type = "slime_dead"
+	dead_body.set_type()
+	get_parent().add_child(dead_body)
+	dead_body.position = position
+	dead_body.name = "Dead" + name
 	queue_free()
 
 

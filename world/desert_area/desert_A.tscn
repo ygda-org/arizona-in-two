@@ -12,9 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://c4kv058u3oyf5" path="res://enemies/tumbleweed/tumbleweed_enemy.tscn" id="9_b3xd2"]
 [ext_resource type="PackedScene" uid="uid://cvrmisvpyoqcv" path="res://world/decor/cactus1.tscn" id="9_lbcur"]
 [ext_resource type="PackedScene" uid="uid://28rbkwo17tdr" path="res://world/decor/cactus2.tscn" id="9_p8ejn"]
-[ext_resource type="PackedScene" uid="uid://ctphcsxh0fik4" path="res://enemies/slime_enemy.tscn" id="10_s56m1"]
+[ext_resource type="PackedScene" uid="uid://ctphcsxh0fik4" path="res://enemies/slime/slime_enemy.tscn" id="10_s56m1"]
 [ext_resource type="PackedScene" uid="uid://csyqleioe2hjd" path="res://globals/audio/persistant_music_component.tscn" id="11_ymvjg"]
 [ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="12_ngcoc"]
+[ext_resource type="PackedScene" uid="uid://c1vqdg3iq4258" path="res://enemies/jumping_slime/jumping_slime_enemy.tscn" id="16_lbcur"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gdeaj"]
 
@@ -275,3 +276,6 @@ position = Vector2(-133, 320)
 
 [node name="FromGrass" type="Marker2D" parent="." unique_id=64302894]
 position = Vector2(290, 360)
+
+[node name="JumpingSlimeEnemy" parent="." unique_id=538334106 instance=ExtResource("16_lbcur")]
+position = Vector2(200, 270)
