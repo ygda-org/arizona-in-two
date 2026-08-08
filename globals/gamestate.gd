@@ -7,7 +7,7 @@ var sfx_volume = 0.5
 
 var player_health: int = 100
 var player_selected_bullet = 0 # 0 normal, 1 silver, 2 fire, 3 ice
-var player_max_bullet_strength = 2
+var player_max_bullet_strength = 1
 @onready var player : Player
 var bullet_time_obtained = true # should be default false
 var bullet_time = false

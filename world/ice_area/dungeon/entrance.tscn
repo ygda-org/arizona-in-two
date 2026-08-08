@@ -8,6 +8,8 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5kg8m"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyp3o"]
+
 [node name="Entrance" type="Node2D" unique_id=26461368]
 script = ExtResource("1_u8qgo")
 
@@ -58,3 +60,14 @@ position = Vector2(-8, -72)
 
 [node name="FromRight1" type="Marker2D" parent="." unique_id=1904026174]
 position = Vector2(80, -7)
+
+[node name="FromOutside" type="Marker2D" parent="." unique_id=1786252840]
+position = Vector2(-8, 57)
+
+[node name="ToOutside" parent="." unique_id=72013679 instance=ExtResource("3_7t2jn")]
+to_scene = "uid://bxppl34p3ub5q"
+spawn_loc = "FromDungeon"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToOutside" unique_id=313017680]
+position = Vector2(-8, 74)
+shape = SubResource("RectangleShape2D_jyp3o")

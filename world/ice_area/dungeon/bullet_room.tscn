@@ -1,3 +1,48 @@
-[gd_scene format=3 uid="uid://bpuc6nlgohj47"]
+[gd_scene format=4 uid="uid://bpuc6nlgohj47"]
+
+[ext_resource type="Script" uid="uid://og4hcfh847ck" path="res://dungeon_components/dungeon_room.gd" id="1_l5n4v"]
+[ext_resource type="TileSet" uid="uid://bw0xbfjy4ywhf" path="res://assets/tilesets/dungeon_tiles.tres" id="1_wjkgf"]
+[ext_resource type="PackedScene" uid="uid://dfuyacp7shm8f" path="res://player/permanent_upgrades/bullet_upgrade.tscn" id="2_4euwd"]
+[ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="3_oon4b"]
+[ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="5_wkdxf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ds0mr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kg8m"]
 
 [node name="BulletRoom" type="Node2D" unique_id=2127374645]
+script = ExtResource("1_l5n4v")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2030769796]
+tile_map_data = PackedByteArray("AAAAAAAAAAASAAQAAAD+/wEAAAAEAAYAAAACAAEAAAAEAAYAAAD8/wEAAAAAAAYAAAD8////AAAAAAQAAAD8//7/AAAAAAQAAAD8//3/AAAAAAQAAAD8//z/AAAAAAQAAAD8//v/AAAAAAQAAAD8//r/AAAAAAQAAAAEAAEAAAAGAAYAAAAEAP7/AAAGAAQAAAAEAP3/AAAGAAQAAAAEAPz/AAAGAAQAAAAEAPv/AAAGAAQAAAAEAP//AAAGAAQAAAAEAPr/AAAGAAQAAAAEAPn/AAAGAAQAAAAEAPj/AAAGAAQAAAD8//n/AAAAAAQAAAD8//j/AAAAAAQAAAACAP//AAAEAAQAAAAAAP//AAAEAAQAAAAAAP3/AAAEAAQAAAAAAPv/AAAEAAQAAAACAP3/AAAEAAQAAAACAPv/AAAEAAQAAAACAPn/AAAEAAQAAAAAAPn/AAAEAAQAAAD+////AAADAAQAAAD+//3/AAADAAQAAAD+//v/AAADAAQAAAD+//n/AAADAAQAAAAEAPb/AAAGAAAAAAACAPb/AAAEAAAAAAD+//b/AAAEAAAAAAD8//b/AAAAAAAAAAAAAPf/AAAPAAAAAAA=")
+tile_set = ExtResource("1_wjkgf")
+
+[node name="BulletUpgrade" parent="." unique_id=1609355370 instance=ExtResource("2_4euwd")]
+position = Vector2(9, -81)
+upgrade_level = 3
+
+[node name="FromBoss" type="Marker2D" parent="." unique_id=20362295]
+position = Vector2(8, -6)
+
+[node name="Player" parent="." unique_id=2010892964 instance=ExtResource("3_oon4b")]
+position = Vector2(42, -12)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1100730394]
+position = Vector2(9, -63)
+zoom = Vector2(4, 4)
+
+[node name="ToBoss" parent="." unique_id=223363775 instance=ExtResource("5_wkdxf")]
+to_scene = "uid://cb0gba0lvapw0"
+spawn_loc = "FromBulletRoom"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToBoss" unique_id=1880850848]
+position = Vector2(8, 12)
+shape = SubResource("RectangleShape2D_ds0mr")
+
+[node name="Exit" parent="." unique_id=435921337 instance=ExtResource("5_wkdxf")]
+to_scene = "uid://bxppl34p3ub5q"
+spawn_loc = "FromDungeon"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit" unique_id=1506228544]
+position = Vector2(8, -140)
+shape = SubResource("RectangleShape2D_5kg8m")

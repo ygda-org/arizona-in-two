@@ -2,11 +2,15 @@ extends Area2D
 
 @export var upgrade_level: int
 
+const FIRE_SHADER = preload("uid://bk4ncxry3lup6")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if GameState.player_max_bullet_strength >= upgrade_level:
 		queue_free()
+	if upgrade_level == 2:
+		$Sprite2D.texture = load("uid://w21kmohupf6u")
+		$Sprite2D.material.shader = FIRE_SHADER
 
 
 func _on_body_entered(_body):

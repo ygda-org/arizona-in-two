@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="2_02i2f"]
 [ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="4_vr5ow"]
 [ext_resource type="TileSet" uid="uid://kdjb34j8n6i1" path="res://assets/tilesets/CameraBounding.tres" id="5_q46uc"]
+[ext_resource type="PackedScene" uid="uid://oxjanjnhv45y" path="res://world_components/destructible_fire.tscn" id="6_gq2ta"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q46uc"]
 size = Vector2(60, 20)
@@ -46,3 +47,11 @@ position = Vector2(203, -175)
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=461865601]
 tile_set = ExtResource("5_q46uc")
+
+[node name="DestructibleFire" parent="." unique_id=69963188 instance=ExtResource("6_gq2ta")]
+position = Vector2(9, -283)
+persist_break_id = "fe1"
+
+[node name="DestructibleFire2" parent="." unique_id=1436653641 instance=ExtResource("6_gq2ta")]
+position = Vector2(22, -283)
+persist_break_id = "fe2"

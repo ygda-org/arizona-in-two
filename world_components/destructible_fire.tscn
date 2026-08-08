@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://oxjanjnhv45y"]
+
+[ext_resource type="Texture2D" uid="uid://dq3avqf8vlk6r" path="res://assets/temporary-tiles/programmer_art-objects.png" id="1_427yd"]
+[ext_resource type="Script" uid="uid://bh1de2yliucrv" path="res://world_components/destructible_fire.gd" id="1_hwfba"]
+[ext_resource type="PackedScene" uid="uid://4l5y3v8ie6dw" path="res://bullet/bullet_destruction_component.tscn" id="2_427yd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v77co"]
+size = Vector2(13, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hwfba"]
+size = Vector2(15, 12)
+
+[node name="DestructibleFire" type="StaticBody2D" unique_id=69963188]
+script = ExtResource("1_hwfba")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1781406924]
+texture = ExtResource("1_427yd")
+region_enabled = true
+region_rect = Rect2(32, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=733077170]
+position = Vector2(-0.5, 2)
+shape = SubResource("RectangleShape2D_v77co")
+
+[node name="BulletDestructionComponent" parent="." unique_id=701932544 instance=ExtResource("2_427yd")]
+weakness = 2
+num_hits_to_break = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletDestructionComponent" unique_id=35095762]
+position = Vector2(-0.5, 2)
+shape = SubResource("RectangleShape2D_hwfba")
