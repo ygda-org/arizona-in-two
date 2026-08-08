@@ -59,7 +59,7 @@ func damage_player(amount : int):
 	
 	player_health -= amount
 	
-	SFX.play(SFX.Labels.HIT_SOUND)
+	SFX.play(SFX.Id.HIT_SOUND)
 	if player:
 		player.call_deferred("set_iframe_shader", true)
 		player.iFrameTimer.start()

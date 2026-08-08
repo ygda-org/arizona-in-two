@@ -1,5 +1,6 @@
 extends Control
 func _ready() -> void:
+	visible = false
 	
 	$Master.value = GameState.master_volume 
 	$Music.value = GameState.music_volume
@@ -11,14 +12,35 @@ func _ready() -> void:
 	change_bus_volume("SFX", GameState.sfx_volume)
 	change_bus_volume("Ambience", GameState.ambience_volume)
 
+func _process(_delta):
+	if Input.is_action_just_pressed("Menu"):
+		toggle_pause()
+	if not visible:
+		return
+	print("visible")
+	SFX.pause_all()
+	SFX.unpause_type(SFX.Id.BUTTON_CLICK)
+	SFX.unpause_type(SFX.Id.BUTTON_HOVER)
+
 func _on_exit_pressed() -> void:
-	SFX.play(SFX.Labels.BUTTON_CLICK)
-	
+	SFX.play(SFX.Id.BUTTON_CLICK)
+	toggle_pause()
 	var game: String = "uid://85alntk1uqvy"
 	SceneSwitcher.switch_scene_no_player(game)
 
+func toggle_pause():
+	if get_tree().paused == true:
+		print("unpause")
+		SFX.unpause_all(true, 10.0)
+	if get_tree().paused == false:
+		print("pause")
+		SFX.pause_all(true, 10.0)
+		
+	get_tree().paused = not get_tree().paused
+	visible = get_tree().paused
+
 func _on_exit_mouse_entered():
-	SFX.play(SFX.Labels.BUTTON_HOVER)
+	SFX.play(SFX.Id.BUTTON_HOVER)
 
 
 func _on_master_value_changed(value):

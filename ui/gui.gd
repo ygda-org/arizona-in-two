@@ -44,9 +44,9 @@ func set_bullet(bullet_name):
 	$BulletIndicator.get_node(bullet_name).visible = true
 
 func _on_restart_button_pressed() -> void:
-	SFX.play(SFX.Labels.BUTTON_CLICK)
+	SFX.play(SFX.Id.BUTTON_CLICK)
 	
 	GameState.restart_sequence()
 
 func _on_restart_button_mouse_entered():
-	SFX.play(SFX.Labels.BUTTON_HOVER)
+	SFX.play(SFX.Id.BUTTON_HOVER)
