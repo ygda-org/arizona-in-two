@@ -9,7 +9,7 @@ const ICE_SPIKE = preload("uid://bc4df4v86bpt2")
 func activate():
 	var spike_positions = []
 	for i in range(spawn_attempt_amount):
-		var attempt_pos = Vector2(randf_range(-100,100), randf_range(-175, -15))
+		var attempt_pos = Vector2(randf_range(-100,100), randf_range(-75, 75))
 		var is_too_close = false
 		for pos in spike_positions:
 			if attempt_pos.distance_to(pos) < 20:
@@ -24,3 +24,6 @@ func activate():
 		$Spikes.add_child(ice_spike)
 	await get_tree().create_timer(phase_dur).timeout
 	get_parent().get_parent().next_state()
+
+func deactivate():
+	return

@@ -16,5 +16,6 @@ func suicide():
 	pass
 
 func next_state():
+	states.get_child(current_state).deactivate()
 	current_state = (current_state + 1) % len(states.get_children())
 	states.get_child(current_state).activate()

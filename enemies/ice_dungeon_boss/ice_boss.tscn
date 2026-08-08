@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c7fw2aq587t44" path="res://enemies/damage_component.tscn" id="2_ggemu"]
 [ext_resource type="Texture2D" uid="uid://bbruf7qlq0adb" path="res://assets/tilesets/ice_area/ice_decor.png" id="2_t1obe"]
 [ext_resource type="Script" uid="uid://b81lxyeqy1a1c" path="res://enemies/ice_dungeon_boss/wall.gd" id="4_pe80m"]
+[ext_resource type="Script" uid="uid://dlw84fh44wgpy" path="res://enemies/ice_dungeon_boss/random_shots.gd" id="5_7qvya"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehtj3"]
 
@@ -28,3 +29,17 @@ script = ExtResource("4_pe80m")
 
 [node name="Spikes" type="Node2D" parent="States/Wall" unique_id=1061553986]
 top_level = true
+
+[node name="RandomShots" type="Node2D" parent="States" unique_id=374599691]
+script = ExtResource("5_7qvya")
+total_shot_count = 60
+shot_cd = 1.2
+bullet_speed = 350.0
+burst_amount = 10
+
+[node name="Timer" type="Timer" parent="States/RandomShots" unique_id=937582270]
+
+[node name="Shots" type="Node2D" parent="States/RandomShots" unique_id=1918388088]
+top_level = true
+
+[connection signal="timeout" from="States/RandomShots/Timer" to="States/RandomShots" method="_on_timer_timeout"]
