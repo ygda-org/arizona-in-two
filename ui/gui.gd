@@ -8,6 +8,7 @@ var indicators = ["Normal", "Silver", "Fire", "Ice"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$BulletIndicator.scale = get_viewport().get_camera_2d().zoom
 	$Fade.color.a = 1.0
 	$Fade/RestartButton.modulate.a = 0.0
 	GameState.player_dead.connect(game_over)

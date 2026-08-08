@@ -211,10 +211,11 @@ libraries/ = SubResource("AnimationLibrary_juqqw")
 
 [node name="BulletIndicator" type="Control" parent="." unique_id=918409497]
 anchors_preset = 0
-offset_left = 31.0
-offset_top = 981.0
-offset_right = 71.0
-offset_bottom = 1021.0
+offset_left = 114.0
+offset_top = 880.0
+offset_right = 154.0
+offset_bottom = 920.0
+scale = Vector2(4, 4)
 
 [node name="Normal" type="TextureRect" parent="BulletIndicator" unique_id=1951300491]
 layout_mode = 0
