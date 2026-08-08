@@ -119,7 +119,7 @@ BulletTime={
 2d_physics/layer_9="Sand"
 2d_physics/layer_10="Grass"
 2d_physics/layer_11="Magma"
-2d_physics/layer_12="Ice"
+2d_physics/layer_12="Snow"
 
 [physics]
 

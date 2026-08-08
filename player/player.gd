@@ -202,6 +202,35 @@ func _on_sand_footsteps_body_entered(_body):
 func _on_sand_footsteps_body_exited(_body):
 	on_sand = false
 
+func _on_grass_footsteps_body_entered(_body):
+	on_grass = true
+
+
+func _on_grass_footsteps_body_exited(_body):
+	on_grass = false
+
+
+func _on_magma_footsteps_body_entered(_body):
+	on_magma = true
+
+
+func _on_magma_footsteps_body_exited(_body):
+	on_magma = false
+
+
+func _on_snow_footsteps_body_entered(_body):
+	on_snow = true
+
+
+func _on_snow_footsteps_body_exited(_body):
+	on_snow = false
+
 func play_footsteps():
 	if on_sand:
 		SFX.play(SFX.Id.BUTTON_HOVER)
+	if on_grass:
+		SFX.play(SFX.Id.GRASS_STEP)
+	if on_snow:
+		SFX.play(SFX.Id.SNOW_FOOTSTEPS)
+	if on_magma:
+		SFX.play(SFX.Id.MAGMA_STEP)

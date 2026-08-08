@@ -76,6 +76,7 @@ metadata/_custom_type_script = "uid://tlf86ayg5nux"
 script = ExtResource("2_2bsey")
 bus = "SFX"
 stream = ExtResource("11_yfqdi")
+min_delay = 0.16
 metadata/_custom_type_script = "uid://tlf86ayg5nux"
 
 [sub_resource type="Resource" id="Resource_p267l"]

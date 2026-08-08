@@ -201,7 +201,8 @@ func _physics_process(delta: float) -> void:
 			
 			# Play an idle animation if one is not already playing
 			if not _animated_sprite_2d.animation.ends_with(idle_animation_suffix):
-				_animated_sprite_2d.play(_animated_sprite_2d.animation + idle_animation_suffix)
+				if not _animated_sprite_2d.animation.begins_with("death"):
+					_animated_sprite_2d.play(_animated_sprite_2d.animation + idle_animation_suffix)
 		
 		# Update speed
 		velocity = idle_speed * target_angle_vector

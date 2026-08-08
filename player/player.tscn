@@ -238,9 +238,39 @@ collision_mask = 256
 position = Vector2(-0.5, 10)
 shape = SubResource("SegmentShape2D_x388h")
 
+[node name="GrassFootsteps" type="Area2D" parent="." unique_id=1184269308]
+collision_layer = 0
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrassFootsteps" unique_id=451178756]
+position = Vector2(-0.5, 10)
+shape = SubResource("SegmentShape2D_x388h")
+
+[node name="MagmaFootsteps" type="Area2D" parent="." unique_id=1710735260]
+collision_layer = 0
+collision_mask = 1024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MagmaFootsteps" unique_id=1658765621]
+position = Vector2(-0.5, 10)
+shape = SubResource("SegmentShape2D_x388h")
+
+[node name="SnowFootsteps" type="Area2D" parent="." unique_id=1701942539]
+collision_layer = 0
+collision_mask = 2048
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SnowFootsteps" unique_id=799058838]
+position = Vector2(-0.5, 10)
+shape = SubResource("SegmentShape2D_x388h")
+
 [connection signal="timeout" from="ShotgunPowerTimer" to="." method="_on_shotgun_power_timer_timeout"]
 [connection signal="timeout" from="BouncesPowerTimer" to="." method="_on_bounces_power_timer_timeout"]
 [connection signal="timeout" from="IFrameTimer" to="." method="_on_i_frame_timer_timeout"]
 [connection signal="timeout" from="BulletTimeDur" to="." method="_on_bullet_time_dur_timeout"]
 [connection signal="body_entered" from="SandFootsteps" to="." method="_on_sand_footsteps_body_entered"]
 [connection signal="body_exited" from="SandFootsteps" to="." method="_on_sand_footsteps_body_exited"]
+[connection signal="body_entered" from="GrassFootsteps" to="." method="_on_grass_footsteps_body_entered"]
+[connection signal="body_exited" from="GrassFootsteps" to="." method="_on_grass_footsteps_body_exited"]
+[connection signal="body_entered" from="MagmaFootsteps" to="." method="_on_magma_footsteps_body_entered"]
+[connection signal="body_exited" from="MagmaFootsteps" to="." method="_on_magma_footsteps_body_exited"]
+[connection signal="body_entered" from="SnowFootsteps" to="." method="_on_snow_footsteps_body_entered"]
+[connection signal="body_exited" from="SnowFootsteps" to="." method="_on_snow_footsteps_body_exited"]
