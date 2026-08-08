@@ -9,8 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://chyscyessavhl" path="res://assets/tilesets/grass_area/grass_decor.png" id="6_emmd6"]
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="6_oyeey"]
 [ext_resource type="PackedScene" uid="uid://ctphcsxh0fik4" path="res://enemies/slime/slime_enemy.tscn" id="7_tpw8m"]
+[ext_resource type="PackedScene" uid="uid://cvrmisvpyoqcv" path="res://world/decor/cactus1.tscn" id="8_37ary"]
 [ext_resource type="TileSet" uid="uid://kdjb34j8n6i1" path="res://assets/tilesets/CameraBounding.tres" id="8_nriax"]
 [ext_resource type="PackedScene" uid="uid://c4kv058u3oyf5" path="res://enemies/tumbleweed/tumbleweed_enemy.tscn" id="8_t3m8n"]
+[ext_resource type="PackedScene" uid="uid://28rbkwo17tdr" path="res://world/decor/cactus2.tscn" id="9_f17dt"]
 [ext_resource type="PackedScene" uid="uid://csyqleioe2hjd" path="res://globals/audio/persistant_music_component.tscn" id="11_emmd6"]
 [ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="12_xgci6"]
 
@@ -194,6 +196,10 @@ texture = ExtResource("6_emmd6")
 0:9/0 = 0
 1:9/0 = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_gbwei"]
+scenes/1/scene = ExtResource("8_37ary")
+scenes/2/scene = ExtResource("9_f17dt")
+
 [sub_resource type="TileSet" id="TileSet_h0rxb"]
 physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_yo18o")
@@ -202,6 +208,7 @@ sources/1 = SubResource("TileSetAtlasSource_6mais")
 sources/2 = SubResource("TileSetAtlasSource_tyu5p")
 sources/3 = SubResource("TileSetAtlasSource_xgci6")
 sources/4 = SubResource("TileSetAtlasSource_nriax")
+sources/5 = SubResource("TileSetScenesCollectionSource_gbwei")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgci6"]
 size = Vector2(20, 65)
@@ -215,7 +222,7 @@ tile_map_data = PackedByteArray("AAAEABkAAwABAAAAAAAFABkAAwABAAAAAAAGABkAAwABAAA
 tile_set = ExtResource("2_xgci6")
 
 [node name="Foreground" type="TileMapLayer" parent="." unique_id=1973515687]
-tile_map_data = PackedByteArray("AAAFAAgAAQACAAAAAAAEAAkAAQACAAAAAAAGAAkAAQACAAAAAAAFAAkAAQAFAAAAAAAFAAoAAQACAAAAAAAFAAYAAQAEAAAAAAAHAAcAAQAEAAAAAAADAAcAAQAEAAAAAAADAAsAAQAEAAAAAAAHAAsAAQAEAAAAAAAFAAwAAQAEAAAAAAAIAAkAAQAEAAAAAAACAAkAAQAEAAAAAAD1/wwAAQABAAAAAAD3/woAAQABAAAAAAD8/xIAAQABAAAAAAAHABcAAQABAAAAAAAPABAAAQABAAAAAAALAAUAAQABAAAAAAD2/w0AAQAAAAAAAAD5/xEAAQAAAAAAAAADABUAAQAAAAAAAAAMABYAAQAAAAAAAAAGAA4AAQAAAAAAAAD//wYAAQAAAAAAAADz/xQABAABAAMAAAD3/xUABAABAAMAAAD0/xIABAAAAAMAAAD8/xYABAACAAMAAAD5/xQABAACAAIAAADz/xAABAACAAUAAAD7/xYAAQABAAEAAADz/xMAAQABAAEAAAD4/w8AAQABAAEAAAAFABYAAQABAAEAAAD//wgAAQABAAEAAAD7/w0AAQACAAEAAAAIABIAAQACAAEAAAACAA8AAQACAAEAAAALABgAAQACAAEAAAAKAAgAAQACAAEAAAACAAQAAQACAAEAAADz/woAAQACAAEAAAA=")
+tile_map_data = PackedByteArray("AAAFAAgAAQACAAAAAAAEAAkAAQACAAAAAAAGAAkAAQACAAAAAAAFAAkAAQAFAAAAAAAFAAoAAQACAAAAAAAFAAYAAQAEAAAAAAAHAAcAAQAEAAAAAAADAAcAAQAEAAAAAAADAAsAAQAEAAAAAAAHAAsAAQAEAAAAAAAFAAwAAQAEAAAAAAAIAAkAAQAEAAAAAAACAAkAAQAEAAAAAAD1/wwABQAAAAAAAQD3/woABQAAAAAAAQD8/xIABQAAAAAAAQAHABcABQAAAAAAAQAPABAABQAAAAAAAQALAAUABQAAAAAAAQD2/w0ABQAAAAAAAgD5/xEABQAAAAAAAgADABUABQAAAAAAAgAMABYABQAAAAAAAgAGAA4ABQAAAAAAAgD//wYABQAAAAAAAgDz/xQABAABAAMAAAD3/xUABAABAAMAAAD0/xIABAAAAAMAAAD8/xYABAACAAMAAAD5/xQABAACAAIAAADz/xAABAACAAUAAAD7/xYAAQABAAEAAADz/xMAAQABAAEAAAD4/w8AAQABAAEAAAAFABYAAQABAAEAAAD//wgAAQABAAEAAAD7/w0AAQACAAEAAAAIABIAAQACAAEAAAACAA8AAQACAAEAAAALABgAAQACAAEAAAAKAAgAAQACAAEAAAACAAQAAQACAAEAAADz/woAAQACAAEAAAA=")
 tile_set = SubResource("TileSet_h0rxb")
 
 [node name="CameraBoundary" type="TileMapLayer" parent="." unique_id=2027529379]

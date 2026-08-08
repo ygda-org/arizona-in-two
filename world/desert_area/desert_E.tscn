@@ -13,8 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://c1vqdg3iq4258" path="res://enemies/jumping_slime/jumping_slime_enemy.tscn" id="8_nxr48"]
 [ext_resource type="Texture2D" uid="uid://diprdd8pofiw0" path="res://assets/tilesets/magma_area/magma_decoration.png" id="8_tbuvq"]
 [ext_resource type="PackedScene" uid="uid://b883ik2jdt2jl" path="res://enemies/dashingSlime/dashingSlime_enemy.tscn" id="9_7mpu7"]
+[ext_resource type="PackedScene" uid="uid://cvrmisvpyoqcv" path="res://world/decor/cactus1.tscn" id="10_2q6vy"]
 [ext_resource type="TileSet" uid="uid://kdjb34j8n6i1" path="res://assets/tilesets/CameraBounding.tres" id="10_ssmtt"]
 [ext_resource type="TileSet" uid="uid://beguowxpoc1hi" path="res://assets/tilesets/MainTiles.tres" id="10_tbuvq"]
+[ext_resource type="PackedScene" uid="uid://28rbkwo17tdr" path="res://world/decor/cactus2.tscn" id="11_ylqwr"]
 [ext_resource type="PackedScene" uid="uid://csyqleioe2hjd" path="res://globals/audio/persistant_music_component.tscn" id="15_8xi7t"]
 [ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="16_gs5mx"]
 
@@ -244,6 +246,10 @@ texture = ExtResource("8_tbuvq")
 3:0/0 = 0
 1:0/0 = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_16tia"]
+scenes/1/scene = ExtResource("10_2q6vy")
+scenes/2/scene = ExtResource("11_ylqwr")
+
 [sub_resource type="TileSet" id="TileSet_4coqi"]
 physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_yo18o")
@@ -254,6 +260,7 @@ sources/3 = SubResource("TileSetAtlasSource_ssmtt")
 sources/4 = SubResource("TileSetAtlasSource_2q6vy")
 sources/5 = SubResource("TileSetAtlasSource_ylqwr")
 sources/6 = SubResource("TileSetAtlasSource_16tia")
+sources/7 = SubResource("TileSetScenesCollectionSource_16tia")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gs5mx"]
 size = Vector2(16, 64)
@@ -269,7 +276,7 @@ tile_map_data = PackedByteArray("AAAGABAAAwACAAIAAAAGAA8AAwACAAEAAAAGAA4AAwACAAE
 tile_set = ExtResource("10_tbuvq")
 
 [node name="ForegroundTileMapLayer" type="TileMapLayer" parent="." unique_id=1338882544]
-tile_map_data = PackedByteArray("AAAvABAAAQAAAAAAAAAwAA0AAQABAAAAAAAyAAoAAQAAAAAAAAAhAAQAAQABAAAAAAAVAAEAAQABAAAAAAAMAAUAAQABAAAAAAAXABUAAQABAAAAAAAMABAAAQABAAAAAAAgABkAAQABAAAAAAAqABMAAQAAAAAAAAAQABYAAQAAAAAAAAALAAEAAQAAAAAAAAAfABEABAABAAMAAAAmABoABAABAAMAAAAlABoABAAAAAMAAAArAAAABAABAAMAAAAxABEAAQAAAAEAAAAzAA0AAQAAAAEAAAAyABAAAQACAAEAAAAvABEAAQABAAEAAAAxAA4AAQABAAEAAAAuAA0AAQABAAEAAGAzAAkAAQABAAEAAFAwAAsAAQABAAEAADAgABMAAQABAAEAAAAjABQAAQABAAEAAFAkABYAAQABAAEAADAkABgAAQABAAEAAAAhABYAAQABAAEAAGAdABAAAQABAAEAAGArAAIAAQABAAEAAFApAAAAAQABAAEAAGAaAAEAAQABAAEAAGARAAQAAQABAAEAADAIAAAAAQABAAEAADAIAAcAAQABAAEAAFAKAAYAAQABAAEAAGAYAAUAAQABAAEAADASABAAAQABAAEAADAJABYAAQABAAEAAFAIABAAAQABAAEAAGAZABMAAQABAAEAAGATAAYAAQABAAEAADAHAAEAAQACAAEAAAAQAAsAAQAFAAAAAAAWAAsAAQAFAAAAAAARAAsAAQAEAAAAAAAUAAsAAQAEAAAAAAAVAAsAAQAEAAAAAAAVAA0AAQABAAAAAAARAAwAAQABAAEAAAAVAAoAAQABAAEAAAASAAoAAQABAAAAAAAUAAkAAQAAAAAAAAATAAoABAABAAMAAAAkAA8AAQACAAEAAAAZAAAAAQACAAEAAAAbAAIAAQABAAEAAAAOAPP/BgAAAAAAAAAPAPH/BgACAAAAAAASAPX/BgAIAAAAAAA=")
+tile_map_data = PackedByteArray("AAAvABAABwAAAAAAAgAwAA0ABwAAAAAAAQAyAAoABwAAAAAAAgAhAAQABwAAAAAAAQAVAAEABwAAAAAAAQAMAAUABwAAAAAAAQAXABUABwAAAAAAAQAMABAABwAAAAAAAQAgABkABwAAAAAAAQAqABMABwAAAAAAAgAQABYABwAAAAAAAgALAAEABwAAAAAAAgAfABEABAABAAMAAAAmABoABAABAAMAAAAlABoABAAAAAMAAAArAAAABAABAAMAAAAxABEAAQAAAAEAAAAzAA0AAQAAAAEAAAAyABAAAQACAAEAAAAvABEAAQABAAEAAAAxAA4AAQABAAEAAAAuAA0AAQABAAEAAGAzAAkAAQABAAEAAFAwAAsAAQABAAEAADAgABMAAQABAAEAAAAjABQAAQABAAEAAFAkABYAAQABAAEAADAkABgAAQABAAEAAAAhABYAAQABAAEAAGAdABAAAQABAAEAAGArAAIAAQABAAEAAFApAAAAAQABAAEAAGAaAAEAAQABAAEAAGARAAQAAQABAAEAADAIAAAAAQABAAEAADAIAAcAAQABAAEAAFAKAAYAAQABAAEAAGAYAAUAAQABAAEAADASABAAAQABAAEAADAJABYAAQABAAEAAFAIABAAAQABAAEAAGAZABMAAQABAAEAAGATAAYAAQABAAEAADAHAAEAAQACAAEAAAAQAAsAAQAFAAAAAAAWAAsAAQAFAAAAAAARAAsAAQAEAAAAAAAUAAsAAQAEAAAAAAAVAAsAAQAEAAAAAAAVAA0ABwAAAAAAAQARAAwAAQABAAEAAAAVAAoAAQABAAEAAAASAAoABwAAAAAAAQAUAAkABwAAAAAAAgATAAoABAABAAMAAAAkAA8AAQACAAEAAAAZAAAAAQACAAEAAAAbAAIAAQABAAEAAAAOAPP/BgAAAAAAAAAPAPH/BgACAAAAAAASAPX/BgAIAAAAAAA=")
 tile_set = SubResource("TileSet_4coqi")
 
 [node name="CameraBoundary" type="TileMapLayer" parent="." unique_id=990426897]

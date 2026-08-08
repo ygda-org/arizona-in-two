@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dqvaigx2nv7to" path="res://assets/tilesets/magma_area/magma_terrain.png" id="3_gaw6i"]
 [ext_resource type="Texture2D" uid="uid://nl8234om3bpc" path="res://assets/tilesets/desert_area/Sand_terrain.png" id="4_iugvd"]
 [ext_resource type="Texture2D" uid="uid://cy7gy5nqg8hwh" path="res://assets/temporary-tiles/programmer_art-terrain.png" id="5_gaw6i"]
+[ext_resource type="PackedScene" uid="uid://cvrmisvpyoqcv" path="res://world/decor/cactus1.tscn" id="6_y5yvy"]
+[ext_resource type="PackedScene" uid="uid://28rbkwo17tdr" path="res://world/decor/cactus2.tscn" id="7_7qhk5"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_iugvd"]
 tile_data = PackedInt32Array(0, 262145, 2, 65536, 262145, 3, 1, 327681, 2, 65537, 327681, 3)
@@ -365,6 +367,10 @@ texture = ExtResource("5_gaw6i")
 6:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:5/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_laruj"]
+scenes/1/scene = ExtResource("6_y5yvy")
+scenes/2/scene = ExtResource("7_7qhk5")
+
 [resource]
 physics_layer_0/collision_layer = 33
 physics_layer_1/collision_layer = 8
@@ -374,4 +380,5 @@ sources/1 = SubResource("TileSetAtlasSource_y5yvy")
 sources/2 = SubResource("TileSetAtlasSource_7qhk5")
 sources/3 = SubResource("TileSetAtlasSource_gaw6i")
 sources/4 = SubResource("TileSetAtlasSource_laruj")
+sources/5 = SubResource("TileSetScenesCollectionSource_laruj")
 pattern_0 = SubResource("TileMapPattern_iugvd")

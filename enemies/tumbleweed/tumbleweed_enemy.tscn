@@ -1,8 +1,56 @@
 [gd_scene format=3 uid="uid://c4kv058u3oyf5"]
 
 [ext_resource type="Script" uid="uid://2sdcldg4n0q6" path="res://enemies/tumbleweed/tumbleweed_enemy.gd" id="1_r320e"]
-[ext_resource type="Texture2D" uid="uid://dq3avqf8vlk6r" path="res://assets/temporary-tiles/programmer_art-objects.png" id="2_r320e"]
+[ext_resource type="Texture2D" uid="uid://mv6g5s5pf4d0" path="res://assets/temporary-tiles/tumbleweed_die.png" id="2_r320e"]
 [ext_resource type="PackedScene" uid="uid://c7fw2aq587t44" path="res://enemies/damage_component.tscn" id="3_r320e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl85x"]
+atlas = ExtResource("2_r320e")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myoil"]
+atlas = ExtResource("2_r320e")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5p8k"]
+atlas = ExtResource("2_r320e")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehra5"]
+atlas = ExtResource("2_r320e")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtye7"]
+atlas = ExtResource("2_r320e")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jwd6l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hl85x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myoil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5p8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehra5")
+}],
+"loop": 0,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtye7")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r320e"]
 
@@ -12,10 +60,9 @@ radius = 89.94443
 [node name="Tumbleweed Enemy" type="CharacterBody2D" unique_id=990065551]
 script = ExtResource("1_r320e")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1948865916]
-texture = ExtResource("2_r320e")
-region_enabled = true
-region_rect = Rect2(48, 0, 16, 16)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=777075927]
+sprite_frames = SubResource("SpriteFrames_jwd6l")
+animation = &"death"
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1510223874]
 shape = SubResource("CircleShape2D_r320e")

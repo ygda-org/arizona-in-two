@@ -15,6 +15,8 @@ var spread: float = PI/6
 
 var mode: String = "Idle"
 
+const DEAD_BODY = preload("uid://dg6vd4w76xk55")
+
 @onready var timer: Timer = $"Movement Timer"
 @onready var delay: Timer = $"Movement Delay"
 @onready var attackTimer: Timer = $"Attack Delay"
@@ -49,7 +51,15 @@ func damaged_sequence():
 	pass # Hurt Animation
 
 func suicide():
-	queue_free() # Death Animation
+	$AnimatedSprite2D.play("death")
+	await $AnimatedSprite2D.animation_finished
+	var dead_body = DEAD_BODY.instantiate()
+	dead_body.type = "tumbleweed_dead"
+	dead_body.set_type()
+	get_parent().add_child(dead_body)
+	dead_body.position = position
+	dead_body.name = "Dead" + name
+	queue_free()
 
 func _on_attack_range_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D and body.is_in_group("Player"):
