@@ -7,7 +7,7 @@ var sfx_volume = 0.5
 
 var player_health: int = 100
 var player_selected_bullet = 0 # 0 normal, 1 silver, 2 fire, 3 ice
-var player_max_bullet_strength = 1
+var player_max_bullet_strength = 2
 @onready var player : Player
 var bullet_time_obtained = true # should be default false
 var bullet_time = false
@@ -26,6 +26,7 @@ signal puzzle_cleared
 @onready var room_clear_signal_array = [null, enemies_cleared, puzzle_cleared]
 
 var persist_break_ids = []
+var ice_dungeon_boss_cleared = false
 
 var player_can_take_damage : bool = true
 
