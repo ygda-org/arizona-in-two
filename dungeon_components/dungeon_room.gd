@@ -14,6 +14,11 @@ func _ready():
 	add_child(bg)
 	$Player.camera.get_node("Camera2D").zoom = Vector2(4,4)
 	$Player.camera.get_node("Camera2D").enabled = not override_camera
+	var canvas_layer = CanvasLayer.new()
+	add_child(canvas_layer)
+	var gui = load("uid://bh2vqcphc387j").instantiate()
+	canvas_layer.add_child(gui)
+	gui.fade_in()
 
 func _process(_delta):
 	if cleared:
