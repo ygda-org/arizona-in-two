@@ -1,44 +1,44 @@
 [gd_scene format=3 uid="uid://cvrmisvpyoqcv"]
 
 [ext_resource type="Script" uid="uid://b2fqeuied0jhp" path="res://world/decor/destroyable_object.gd" id="1_kvyrp"]
+[ext_resource type="Texture2D" uid="uid://i56i6tp6j76v" path="res://assets/temporary-tiles/cactus1_die.png" id="2_4qofl"]
 [ext_resource type="Texture2D" uid="uid://dq3avqf8vlk6r" path="res://assets/temporary-tiles/programmer_art-objects.png" id="2_8o6qt"]
-[ext_resource type="Texture2D" uid="uid://d2mcuoba1nymm" path="res://assets/temporary-tiles/cactus_die.png" id="2_kvyrp"]
 [ext_resource type="PackedScene" uid="uid://c7fw2aq587t44" path="res://enemies/damage_component.tscn" id="3_4qofl"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8o6qt"]
-atlas = ExtResource("2_kvyrp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_umb1a"]
+atlas = ExtResource("2_4qofl")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4qofl"]
-atlas = ExtResource("2_kvyrp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5mgf"]
+atlas = ExtResource("2_4qofl")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_umb1a"]
-atlas = ExtResource("2_kvyrp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d5n7"]
+atlas = ExtResource("2_4qofl")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t5mgf"]
-atlas = ExtResource("2_kvyrp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_je2hl"]
+atlas = ExtResource("2_4qofl")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uhefr"]
 atlas = ExtResource("2_8o6qt")
-region = Rect2(0, 0, 16, 16)
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jwd6l"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8o6qt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4qofl")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_umb1a")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t5mgf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1d5n7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je2hl")
 }],
 "loop": 0,
 "name": &"death",

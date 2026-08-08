@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2mcuoba1nymm"
-path="res://.godot/imported/cactus_die.png-56311e29b579a86506fc143851fb9ef4.ctex"
+path="res://.godot/imported/cactus2_die.png-53dd8467b800ebd5352f4982ee14b99a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/temporary-tiles/cactus_die.png"
-dest_files=["res://.godot/imported/cactus_die.png-56311e29b579a86506fc143851fb9ef4.ctex"]
+source_file="res://assets/temporary-tiles/cactus2_die.png"
+dest_files=["res://.godot/imported/cactus2_die.png-53dd8467b800ebd5352f4982ee14b99a.ctex"]
 
 [params]
 

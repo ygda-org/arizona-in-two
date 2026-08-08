@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://28rbkwo17tdr"]
 
 [ext_resource type="Script" uid="uid://b2fqeuied0jhp" path="res://world/decor/destroyable_object.gd" id="1_m6hqw"]
-[ext_resource type="Texture2D" uid="uid://d2mcuoba1nymm" path="res://assets/temporary-tiles/cactus_die.png" id="2_7t7vx"]
+[ext_resource type="Texture2D" uid="uid://d2mcuoba1nymm" path="res://assets/temporary-tiles/cactus2_die.png" id="2_7t7vx"]
 [ext_resource type="Texture2D" uid="uid://dq3avqf8vlk6r" path="res://assets/temporary-tiles/programmer_art-objects.png" id="2_ssvhu"]
 [ext_resource type="PackedScene" uid="uid://c7fw2aq587t44" path="res://enemies/damage_component.tscn" id="3_7t7vx"]
 
