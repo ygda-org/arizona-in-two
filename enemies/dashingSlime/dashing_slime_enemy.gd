@@ -184,14 +184,12 @@ func suicide():
 	queue_free()
 	
 func _on_target_area_body_entered(body):
-	print("enter dash ara")
 	if body is CharacterBody2D and body.is_in_group("Player"):
 		player_node = body
 		# Stop idle movement
 		_idle_movement_timer.stop()
 
 func _on_chase_area_body_exited(body):
-	print("dash stop chase")
 	if body is CharacterBody2D and body.is_in_group("Player"):
 		# Start idle movement
 		_idle_movement_timer.start()

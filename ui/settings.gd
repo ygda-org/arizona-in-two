@@ -17,7 +17,6 @@ func _ready() -> void:
 		#toggle_pause()
 	#if not visible:
 		#return
-	#print("visible")
 	#SFX.pause_all()
 	#SFX.unpause_type(SFX.Id.BUTTON_CLICK)
 	#SFX.unpause_type(SFX.Id.BUTTON_HOVER)
@@ -30,10 +29,8 @@ func _on_exit_pressed() -> void:
 
 func toggle_pause():
 	if get_tree().paused == true:
-		print("unpause")
 		SFX.unpause_all(true, 10.0)
 	if get_tree().paused == false:
-		print("pause")
 		SFX.pause_all(true, 10.0)
 		
 	get_tree().paused = not get_tree().paused

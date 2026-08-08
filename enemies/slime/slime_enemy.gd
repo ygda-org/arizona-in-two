@@ -137,16 +137,6 @@ func _on_idle_movement_timer_timeout() -> void:
 func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
 	player_node = null
 
-
-## Set player variable on entering the Area2D
-#func _on_area_2d_body_entered(body: Node2D) -> void:
-	## Player in area
-	#if body is CharacterBody2D and body.is_in_group("Player"):
-		#player_node = body
-		#print("in")
-		## Stop idle movement
-		#_idle_movement_timer.stop()
-
 func damaged_sequence():
 	#damage animation
 	pass
