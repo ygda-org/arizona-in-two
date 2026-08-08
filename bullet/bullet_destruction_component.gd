@@ -20,15 +20,14 @@ func _ready():
 		get_parent().queue_free()
 
 func _on_area_entered(area):
-	if "Bullet" in area.name:
-		if weakness == BULLET_WEAKNESSES.ALL:
-			area.play_hit_sound()
-			num_hits_to_break -= 1
-		elif BULLET_WEAKNESS_MAP[weakness] == area.bullet_attribute:
-			area.play_hit_sound()
-			num_hits_to_break -= 1
-		if num_hits_to_break <= 0:
-			if persist_break_id:
-				GameState.persist_break_ids.append(persist_break_id)
-			get_parent().queue_free()
-		area.queue_free()
+	if weakness == BULLET_WEAKNESSES.ALL:
+		area.play_hit_sound()
+		num_hits_to_break -= 1
+	elif BULLET_WEAKNESS_MAP[weakness] == area.bullet_attribute:
+		area.play_hit_sound()
+		num_hits_to_break -= 1
+	if num_hits_to_break <= 0:
+		if persist_break_id:
+			GameState.persist_break_ids.append(persist_break_id)
+		get_parent().queue_free()
+	area.queue_free()

@@ -4,7 +4,7 @@ class_name GUI
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 
-var indicators = ["Normal", "Silver", "Ice", "Fire"]
+var indicators = ["Normal", "Silver", "Fire", "Ice"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

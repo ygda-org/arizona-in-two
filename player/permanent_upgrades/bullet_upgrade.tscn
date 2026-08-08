@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://dfuyacp7shm8f"]
 
+[ext_resource type="Shader" uid="uid://bk4ncxry3lup6" path="res://player/permanent_upgrades/bullet_upgrade.gdshader" id="1_4p2fy"]
 [ext_resource type="Script" uid="uid://dognm4ypjw0tw" path="res://player/permanent_upgrades/bullet_upgrade.gd" id="1_8iblp"]
-[ext_resource type="Texture2D" uid="uid://cq1rc5q3fkuji" path="res://assets/icon.svg" id="1_hhj68"]
+[ext_resource type="Texture2D" uid="uid://w21kmohupf6u" path="res://assets/ui/current_fire_bullet.png" id="2_8iblp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t80ec"]
-size = Vector2(44, 39)
+size = Vector2(38, 30)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4p2fy"]
+shader = ExtResource("1_4p2fy")
 
 [node name="BulletUpgrade" type="Area2D" unique_id=1609355370]
 collision_layer = 0
@@ -12,10 +16,11 @@ collision_mask = 16
 script = ExtResource("1_8iblp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1048886030]
-position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_t80ec")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1752454109]
+material = SubResource("ShaderMaterial_4p2fy")
 position = Vector2(0.4999981, 0)
-scale = Vector2(0.3203125, 0.296875)
-texture = ExtResource("1_hhj68")
+texture = ExtResource("2_8iblp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

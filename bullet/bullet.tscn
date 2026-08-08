@@ -12,6 +12,7 @@ radius = 6.0
 size = Vector2(5, 2)
 
 [node name="Bullet" type="Area2D" unique_id=1957532685]
+collision_layer = 65
 script = ExtResource("1_6wip1")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1714022266]

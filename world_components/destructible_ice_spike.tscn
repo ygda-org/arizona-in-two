@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bc4df4v86bpt2"]
+
+[ext_resource type="Texture2D" uid="uid://bbruf7qlq0adb" path="res://assets/tilesets/ice_area/ice_decor.png" id="1_lb5i7"]
+[ext_resource type="PackedScene" uid="uid://4l5y3v8ie6dw" path="res://bullet/bullet_destruction_component.tscn" id="2_wbol7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lb5i7"]
+size = Vector2(31, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbol7"]
+size = Vector2(33, 14)
+
+[node name="DestructibleIceSpike" type="StaticBody2D" unique_id=1405917130]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=400548955]
+texture = ExtResource("1_lb5i7")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1285275039]
+position = Vector2(-0.5, 10)
+shape = SubResource("RectangleShape2D_lb5i7")
+
+[node name="BulletDestructionComponent" parent="." unique_id=701932544 instance=ExtResource("2_wbol7")]
+weakness = 1
+num_hits_to_break = 1
+persist_break_id = "431242"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletDestructionComponent" unique_id=823797303]
+position = Vector2(-0.5, 10)
+shape = SubResource("RectangleShape2D_wbol7")

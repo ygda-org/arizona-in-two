@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://curxl08s5rgxf" path="res://bullet/bullet_destruction_component.gd" id="1_obfjv"]
 
 [node name="BulletDestructionComponent" type="Area2D" unique_id=701932544]
+collision_mask = 64
 script = ExtResource("1_obfjv")
 num_hits_to_break = 0
 
