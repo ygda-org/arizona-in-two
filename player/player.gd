@@ -24,6 +24,12 @@ const SHOTGUN_SPREAD = PI/4 # spread per shot
 @onready var iFrameTimer : Timer = $IFrameTimer
 @onready var camera = $Camera
 
+var on_sand : bool = false
+var on_snow : bool = false
+var on_grass : bool = false
+var on_magma : bool = false
+
+
 func _ready():
 	GameState.bullet_time = false
 
@@ -48,6 +54,7 @@ func movement(delta):
 	# Maps input to correct vector for velocity
 	var inputDir: Vector2 = Input.get_vector("MoveLeft", "MoveRight", "MoveUp", "MoveDown")
 	if inputDir:
+		play_footsteps()
 		#if $AnimatedSprite2D.animation_finished:
 			#SFX.play(SFX.Id.GrassStep)
 		
@@ -100,6 +107,7 @@ func movement(delta):
 	else:
 		# Slowly decreases the speed of the player
 		$AnimatedSprite2D.play("idle")
+		SFX.clear_type(SFX.Id.BUTTON_HOVER)
 		velocity = velocity.move_toward(Vector2.ZERO, delta*deceleration)
 
 func shoot(delta):
@@ -187,3 +195,13 @@ func _on_i_frame_timer_timeout() -> void:
 func _on_bullet_time_dur_timeout() -> void:
 	GameState.bullet_time = false
 	$BulletTimeCD.start()
+	
+func _on_sand_footsteps_body_entered(_body):
+	on_sand = true
+	
+func _on_sand_footsteps_body_exited(_body):
+	on_sand = false
+
+func play_footsteps():
+	if on_sand:
+		SFX.play(SFX.Id.BUTTON_HOVER)

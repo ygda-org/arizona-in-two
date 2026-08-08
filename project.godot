@@ -116,6 +116,10 @@ BulletTime={
 2d_physics/layer_6="Enemy Bullet Collisions"
 2d_physics/layer_7="Player Bullet Collisions"
 2d_physics/layer_8="Layer 8"
+2d_physics/layer_9="Sand"
+2d_physics/layer_10="Grass"
+2d_physics/layer_11="Magma"
+2d_physics/layer_12="Ice"
 
 [physics]
 

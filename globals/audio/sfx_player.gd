@@ -78,8 +78,10 @@ func play(id: Id, loop : bool = false, volume_mod: float = 0.0, pitch_mod: float
 	audio_stream_player.volume_db = setting.volume + randf_range(-1,1) * setting.volume_variance + volume_mod
 	audio_stream_player.pitch_scale = setting.pitch + randf_range(-1,1) * setting.pitch_variance + pitch_mod
 	if loop == true:
+		print("loop")
 		if audio_stream_player.stream is AudioStreamWAV:
 			audio_stream_player.stream.loop_mode = 1
+			audio_stream_player.stream.loop_end = audio_stream_player.stream.get_length() * audio_stream_player.stream.mix_rate
 		elif audio_stream_player.stream is AudioStreamMP3:
 			audio_stream_player.stream.loop = true
 	
