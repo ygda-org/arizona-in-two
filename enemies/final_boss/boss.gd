@@ -4,14 +4,14 @@ extends CharacterBody2D
 
 @onready var states = $States
 
-const VEC_TO_DIR = {Vector2(1.0,0.0): "right", Vector2(-1.0, 0.0): "left", Vector2(0.0, 1.0): "down", Vector2(0.0, -1.0): "up"}
+const VEC_TO_DIR = {Vector2i(1,0.0): "right", Vector2i(-1.0, 0.0): "left", Vector2i(0.0, 1.0): "down", Vector2i(0.0, -1.0): "up"}
 
 func _ready():
 	$States/Repositioning.activate()
 
 func _physics_process(delta):
 	if $States/Repositioning and $States/Repositioning.active:
-		$Anim.play("run_" + VEC_TO_DIR[$States/Repositioning.get_node("WallCheck").target_position.normalized()])
+		$Anim.play("run_" + VEC_TO_DIR[$States/Repositioning.dir])
 		velocity = $States/Repositioning.travel_speed * global_position.direction_to($States/Repositioning.target_position)
 		move_and_slide()
 		if global_position.distance_to($States/Repositioning.target_position) < 10:

@@ -4,6 +4,7 @@ extends Node2D
 @export var travel_speed: float = 200.0
 
 var target_position: Vector2
+var dir = Vector2i(1,0)
 
 var active: bool = false
 
@@ -15,6 +16,8 @@ func activate():
 		if not $WallCheck.is_colliding():
 			target_position = $WallCheck.target_position + get_parent().get_parent().global_position
 			break
+	dir = Vector2i($WallCheck.target_position.normalized())
+	
 	active = true
 
 func deactivate():
