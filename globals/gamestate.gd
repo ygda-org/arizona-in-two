@@ -6,11 +6,16 @@ var ambience_volume = 0.5
 var sfx_volume = 0.5
 
 var player_health: int = 100
+var player_max_health: int = 100
 var player_selected_bullet = 0 # 0 normal, 1 silver, 2 fire, 3 ice
 var player_max_bullet_strength = 1
 @onready var player : Player
 var bullet_time_obtained = true # should be default false
 var bullet_time = false
+
+var player_bonus_damage: int = 0
+
+var persist_generic_upgrades = []
 
 var player_keys = 0
 var player_big_keys = 0
@@ -42,12 +47,12 @@ func _process(delta):
 	total_elapsed_time += delta
 
 func reset():
-	player_health = 100
+	player_health = player_max_health
 
 func restart_sequence():
 	#ZoneManager.modified_zones.clear()
 	SceneSwitcher.switch_scene(MENU, "")
-	player_health = 100
+	player_health = player_max_health
 
 func damage_player(amount : int):
 	

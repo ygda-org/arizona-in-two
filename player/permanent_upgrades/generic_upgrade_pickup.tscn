@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cqdsp3qtxmisq"]
+
+[ext_resource type="Script" uid="uid://ca1i3uncw2pwr" path="res://player/permanent_upgrades/generic_upgrade_pickup.gd" id="1_4nxqf"]
+
+[node name="GenericUpgradePickup" type="Area2D" unique_id=1062878019]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("1_4nxqf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

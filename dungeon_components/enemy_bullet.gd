@@ -7,7 +7,7 @@ func _ready():
 	rotation = velocity.angle()
 
 func _on_body_entered(body):
-	body.find_child("DamageComponent").take_damage(damage)
+	GameState.damage_player(damage)
 	suicide()
 
 func _process(delta):

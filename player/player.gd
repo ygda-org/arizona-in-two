@@ -131,7 +131,7 @@ func shoot(delta):
 		
 		var bullet1 : Bullet = BULLET.instantiate()
 		# sets bullet direction
-		bullet1.damage = damage
+		bullet1.damage = damage + GameState.player_bonus_damage
 		bullet1.direction = inputDir
 		bullet1.position = position
 		bullet1.excluded_nodes = [self]
