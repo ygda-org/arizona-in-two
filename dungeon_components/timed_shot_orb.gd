@@ -9,10 +9,10 @@ func _ready():
 
 func damaged_sequence():
 	on = true
-	$Sprite2D.texture = load("res://assets/temporary-tiles/grass.png")
+	$Sprite2D.texture = load("res://assets/dungeon_objects/purple_orb.png")
 	$Time.start()
 
 
 func _on_time_timeout():
 	on = false
-	$Sprite2D.texture = load("res://assets/temporary-tiles/rock.png")
+	$Sprite2D.texture = load("res://assets/dungeon_objects/blue_orb.png")
