@@ -8,7 +8,7 @@ var sfx_volume = 0.5
 var player_health: int = 100
 var player_max_health: int = 100
 var player_selected_bullet = 0 # 0 normal, 1 silver, 2 fire, 3 ice
-var player_max_bullet_strength = 1
+var player_max_bullet_strength = 3
 @onready var player : Player
 var bullet_time_obtained = true # should be default false
 var bullet_time = false
@@ -72,3 +72,5 @@ func damage_player(amount : int):
 
 func player_selected_bullet_cycle(num: int):
 	player_selected_bullet = posmod(player_selected_bullet+num, player_max_bullet_strength+1)
+	if player_selected_bullet == 1:
+		player_selected_bullet = posmod(player_selected_bullet+num, player_max_bullet_strength+1)
