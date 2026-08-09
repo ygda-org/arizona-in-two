@@ -5,8 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="3_nmxg1"]
 [ext_resource type="PackedScene" uid="uid://cewmlvnbn41e1" path="res://dungeon_components/ice_turret.tscn" id="4_ytyvq"]
 [ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="5_wlp3x"]
+[ext_resource type="PackedScene" uid="uid://cqdsp3qtxmisq" path="res://player/permanent_upgrades/generic_upgrade_pickup.tscn" id="6_s4n03"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i50wy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3bttj"]
 
 [node name="Right2" type="Node2D" unique_id=1432653856]
 script = ExtResource("1_7rtem")
@@ -92,3 +95,11 @@ spawn_loc = "FromRight2"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToRight1" unique_id=1129606445]
 position = Vector2(1, 8)
 shape = SubResource("RectangleShape2D_i50wy")
+
+[node name="GenericUpgradePickup" parent="." unique_id=1062878019 instance=ExtResource("6_s4n03")]
+persist_collect_id = "IR2"
+upgrade_amount = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GenericUpgradePickup" unique_id=335252221]
+position = Vector2(331, 10)
+shape = SubResource("RectangleShape2D_3bttj")

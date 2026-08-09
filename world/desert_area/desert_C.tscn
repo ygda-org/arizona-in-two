@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://28rbkwo17tdr" path="res://world/decor/cactus2.tscn" id="9_f17dt"]
 [ext_resource type="PackedScene" uid="uid://csyqleioe2hjd" path="res://globals/audio/persistant_music_component.tscn" id="11_emmd6"]
 [ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="12_xgci6"]
+[ext_resource type="PackedScene" uid="uid://cqdsp3qtxmisq" path="res://player/permanent_upgrades/generic_upgrade_pickup.tscn" id="16_f17dt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yo18o"]
 
@@ -213,6 +214,8 @@ sources/5 = SubResource("TileSetScenesCollectionSource_gbwei")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgci6"]
 size = Vector2(20, 65)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f17dt"]
+
 [node name="ZoneDesertC" type="Node2D" unique_id=454848574]
 script = ExtResource("1_jfnnh")
 ZONE_PATH = &"res://world/desert_area/"
@@ -264,3 +267,11 @@ spawn_loc = "FromC"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToB" unique_id=1409260060]
 position = Vector2(324, 320.5)
 shape = SubResource("RectangleShape2D_xgci6")
+
+[node name="GenericUpgradePickup" parent="." unique_id=1062878019 instance=ExtResource("16_f17dt")]
+persist_collect_id = "DesertC"
+upgrade_amount = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GenericUpgradePickup" unique_id=2062631526]
+position = Vector2(154, 115)
+shape = SubResource("RectangleShape2D_f17dt")

@@ -4,8 +4,11 @@
 [ext_resource type="TileSet" uid="uid://bw0xbfjy4ywhf" path="res://assets/tilesets/dungeon_tiles.tres" id="1_vho6j"]
 [ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="2_vnkbp"]
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="3_x767b"]
+[ext_resource type="PackedScene" uid="uid://cqdsp3qtxmisq" path="res://player/permanent_upgrades/generic_upgrade_pickup.tscn" id="5_st33i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vnkbp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kg8m"]
 
 [node name="Left2Up2Left1" type="Node2D" unique_id=654965342]
 script = ExtResource("1_pydfe")
@@ -31,3 +34,12 @@ position = Vector2(-21, 14)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=954257758]
 position = Vector2(-27, 22)
 zoom = Vector2(4, 4)
+
+[node name="GenericUpgradePickup" parent="." unique_id=1062878019 instance=ExtResource("5_st33i")]
+persist_collect_id = "IceL2U2L2"
+upgrade_amount = 5
+upgrade_type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GenericUpgradePickup" unique_id=2002739162]
+position = Vector2(-81, 26)
+shape = SubResource("RectangleShape2D_5kg8m")

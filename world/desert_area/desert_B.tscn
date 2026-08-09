@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://csyqleioe2hjd" path="res://globals/audio/persistant_music_component.tscn" id="14_kyupo"]
 [ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="15_x2t07"]
 [ext_resource type="PackedScene" uid="uid://cnkysyg6cl1oc" path="res://enemies/big_slime/big_slime_enemy.tscn" id="17_g1y6v"]
+[ext_resource type="PackedScene" uid="uid://cqdsp3qtxmisq" path="res://player/permanent_upgrades/generic_upgrade_pickup.tscn" id="20_qfxr5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a0k0v"]
 
@@ -275,6 +276,8 @@ size = Vector2(64, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3tbr8"]
 size = Vector2(16, 64)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kg8m"]
+
 [node name="ZoneDesertB" type="Node2D" unique_id=1052487403]
 script = ExtResource("1_pkhdo")
 ZONE_PATH = &"res://world/desert_area/"
@@ -353,3 +356,11 @@ position = Vector2(-50, -80)
 
 [node name="FromD" type="Marker2D" parent="." unique_id=459793970]
 position = Vector2(112, -194)
+
+[node name="GenericUpgradePickup" parent="." unique_id=1062878019 instance=ExtResource("20_qfxr5")]
+persist_collect_id = "DesertB"
+upgrade_amount = 25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GenericUpgradePickup" unique_id=581985994]
+position = Vector2(-480, 302)
+shape = SubResource("RectangleShape2D_5kg8m")
