@@ -177,7 +177,7 @@ animations = [{
 }]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_hg6s5"]
-points = PackedVector2Array(-4, 1.5, 4, 1.5, 1.1920929e-07, -2.5)
+points = PackedVector2Array(-5, 1.5, 5, 1.5, 1.1920929e-07, -2.5)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_x388h"]
 a = Vector2(1.5, 0)
