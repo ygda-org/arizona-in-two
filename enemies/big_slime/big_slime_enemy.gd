@@ -66,11 +66,11 @@ func _physics_process(_delta: float) -> void:
 	if GameState.player:
 		if GameState.player.position.y + 11 > position.y + 16:
 			z_index = GameState.player.z_index - 1
-			print("player in front")
+			#print("player in front")
 			
 		if GameState.player.position.y + 11< position.y + 16:
 			z_index = GameState.player.z_index + 1
-			print("player behind")
+			#print("player behind")
 	
 	# If the idle movement timer is running, skip movement calculations
 	if not _idle_movement_timer.is_stopped():

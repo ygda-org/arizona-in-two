@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://28rbkwo17tdr" path="res://world/decor/cactus2.tscn" id="11_x2klr"]
 [ext_resource type="PackedScene" uid="uid://csyqleioe2hjd" path="res://globals/audio/persistant_music_component.tscn" id="15_qnkw2"]
 [ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="16_yerux"]
+[ext_resource type="PackedScene" uid="uid://bnoh5n8gambhh" path="res://enemies/final_boss/boss.tscn" id="20_x2klr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gdeaj"]
 
@@ -380,3 +381,6 @@ position = Vector2(973, -62)
 
 [node name="FromIce" type="Marker2D" parent="." unique_id=939178606]
 position = Vector2(-240, -360)
+
+[node name="Boss" parent="." unique_id=2095755487 instance=ExtResource("20_x2klr")]
+position = Vector2(273, 119)
