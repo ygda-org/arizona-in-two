@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://doewkmht5dtqb" path="res://assets/final_boss/miniboss_run_right.png" id="12_dusnj"]
 [ext_resource type="Texture2D" uid="uid://bc2yst6fi7hj1" path="res://assets/final_boss/miniboss_run_up.png" id="13_qjocp"]
 [ext_resource type="Script" uid="uid://dpy7r5bv0b76i" path="res://enemies/final_boss/repositioning.gd" id="15_dusnj"]
+[ext_resource type="Script" uid="uid://c7f1uydu0b1ls" path="res://enemies/final_boss/spread_shot.gd" id="16_qjocp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xu4f0"]
 atlas = ExtResource("1_f8dde")
@@ -636,7 +637,7 @@ script = ExtResource("1_31cql")
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=674278309]
 sprite_frames = SubResource("SpriteFrames_5kg8m")
-animation = &"front"
+animation = &"attack_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=924015887]
 visible = false
@@ -651,3 +652,10 @@ travel_distance = 150.0
 
 [node name="WallCheck" type="RayCast2D" parent="States/Repositioning" unique_id=1764714855]
 target_position = Vector2(0, 150)
+
+[node name="SpreadShot" type="Node2D" parent="States" unique_id=689434227]
+script = ExtResource("16_qjocp")
+bullet_speed = 150.0
+
+[node name="Bullets" type="Node2D" parent="States/SpreadShot" unique_id=229049656]
+top_level = true

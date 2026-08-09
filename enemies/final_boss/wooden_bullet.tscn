@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bb7l55p2q3sp5"]
+
+[ext_resource type="Script" uid="uid://j0rjlf5by3g3" path="res://enemies/final_boss/wooden_bullet.gd" id="1_ac0rr"]
+[ext_resource type="Texture2D" uid="uid://cl1b4y3dw4q6i" path="res://assets/final_boss/attacks/wooden_bullet_right.png" id="2_2p1b7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kg8m"]
+size = Vector2(13, 6)
+
+[node name="WoodenBullet" type="Area2D" unique_id=34927339]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("1_ac0rr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=746271878]
+texture = ExtResource("2_2p1b7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1101431072]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_5kg8m")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
