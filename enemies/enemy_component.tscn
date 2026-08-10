@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c8518ga76vmyi"]
+
+[ext_resource type="Script" uid="uid://c416bdss0jtbv" path="res://enemies/enemy_component.gd" id="1_exhe8"]
+
+[node name="EnemyComponent" type="Node2D" unique_id=25077899]
+script = ExtResource("1_exhe8")
+
+[node name="FlashTimer" type="Timer" parent="." unique_id=1725358856]
+wait_time = 0.2
+
+[connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]

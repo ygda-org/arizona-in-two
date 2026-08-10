@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://lejvxsfpvag0" path="res://assets/player/JackieGunRight.png" id="10_32hag"]
 [ext_resource type="Texture2D" uid="uid://xk1407v4wl7x" path="res://assets/player/left_jack_idle.png" id="10_tqiix"]
 [ext_resource type="Texture2D" uid="uid://cqt1vli8lq1gm" path="res://assets/player/right_jack_idle.png" id="13_e7oew"]
+[ext_resource type="Texture2D" uid="uid://cguesv3kvy608" path="res://assets/particles/walk_particle.png" id="17_tqiix"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
 size = Vector2(4, 14)
@@ -378,6 +379,18 @@ one_shot = true
 [node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=631564527]
 position = Vector2(-1.1920929e-07, 9.5)
 shape = SubResource("ConvexPolygonShape2D_hg6s5")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=470635656]
+z_index = -1
+position = Vector2(0, 9)
+texture = ExtResource("17_tqiix")
+lifetime = 0.25
+lifetime_randomness = 0.2
+emission_shape = 3
+emission_rect_extents = Vector2(6, 2)
+direction = Vector2(0, 0)
+gravity = Vector2(0, 0)
+color = Color(0, 0, 0, 0.27058825)
 
 [node name="SandFootsteps" type="Area2D" parent="." unique_id=1287766541]
 collision_layer = 0

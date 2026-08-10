@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://blh1a5n75wwv8"]
+
+[ext_resource type="Script" uid="uid://l6sapso4nxdf" path="res://enemies/slime/slime.gd" id="1_sv735"]
+[ext_resource type="Shader" uid="uid://dx1icrv8b1ma" path="res://enemies/effect.gdshader" id="2_57eei"]
+[ext_resource type="Texture2D" uid="uid://c3kq4e5vtcpi5" path="res://assets/slimes/sand_slime.png" id="2_j284o"]
+[ext_resource type="PackedScene" uid="uid://c8518ga76vmyi" path="res://enemies/enemy_component.tscn" id="3_6326o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6326o"]
+shader = ExtResource("2_57eei")
+shader_parameter/enabled = false
+shader_parameter/color = Color(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6326o"]
+atlas = ExtResource("2_j284o")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sv735"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6326o")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_55d6i"]
+size = Vector2(16, 11)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_55d6i"]
+radius = 75.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_57eei"]
+radius = 125.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5fofi"]
+radius = 35.0
+
+[node name="Slime" type="CharacterBody2D" unique_id=113900471]
+script = ExtResource("1_sv735")
+
+[node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1188971178]
+material = SubResource("ShaderMaterial_6326o")
+position = Vector2(0, -3)
+sprite_frames = SubResource("SpriteFrames_sv735")
+
+[node name="HitBox" type="CollisionShape2D" parent="." unique_id=1621758793]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_55d6i")
+debug_color = Color(0, 0.9137255, 0.34117648, 0.41960785)
+
+[node name="EnemyComponent" parent="." unique_id=25077899 instance=ExtResource("3_6326o")]
+
+[node name="TargetArea" type="Area2D" parent="." unique_id=2081357623]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea" unique_id=599659084]
+shape = SubResource("CircleShape2D_55d6i")
+
+[node name="ChaseArea" type="Area2D" parent="." unique_id=1646693443]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseArea" unique_id=670748793]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_57eei")
+
+[node name="DashArea" type="Area2D" parent="." unique_id=1007731938]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DashArea" unique_id=1552089788]
+shape = SubResource("CircleShape2D_5fofi")
+
+[node name="IdleTimer" type="Timer" parent="." unique_id=358739124]
+process_callback = 0
+
+[node name="DashTimer" type="Timer" parent="." unique_id=717472758]
+
+[connection signal="dead" from="EnemyComponent" to="." method="_on_enemy_component_dead"]
+[connection signal="body_entered" from="TargetArea" to="." method="_on_target_area_body_entered"]
+[connection signal="body_exited" from="ChaseArea" to="." method="_on_chase_area_body_exited"]
+[connection signal="body_entered" from="DashArea" to="." method="_on_dash_area_body_entered"]
+[connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]

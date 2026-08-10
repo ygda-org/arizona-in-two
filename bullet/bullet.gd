@@ -45,9 +45,9 @@ func _on_body_entered(body: Node2D) -> void:
 	#only works as a for loop? DEBUG later
 	if body in excluded_nodes:
 		return
-	var damage_component : DamageComponent = body.find_child("DamageComponent")
-	if damage_component:
-		damage_component.accept_bullet_(self)
+	var enemy_component : EnemyComponent = body.find_child("EnemyComponent")
+	if enemy_component:
+		enemy_component.process_bullet(self)
 		play_hit_sound()
 		suicide()
 		return
