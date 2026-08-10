@@ -9,6 +9,8 @@ var target_velocity : Vector2 = Vector2.ZERO
 #dash
 var state : String = "idle"
 
+@onready var particles = $CPUParticles2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$IdleTimer.wait_time = randf_range(4.0,7.0)
@@ -31,6 +33,9 @@ func _physics_process(delta: float) -> void:
 				velocity = target_velocity.normalized() * CHASE_SPEED
 		"dash":
 			velocity = velocity.lerp(target_velocity, ACCEL * delta)
+	
+	# Particles only show up when moving
+	particles.emitting = velocity.length() > 0
 	move_and_slide()
 
 func _on_idle_timer_timeout() -> void:

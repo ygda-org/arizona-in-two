@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dq3avqf8vlk6r" path="res://assets/temporary-tiles/programmer_art-objects.png" id="1_iej7t"]
 [ext_resource type="Texture2D" uid="uid://diferihrj6ffi" path="res://assets/temporary-tiles/dashing_slime_die.png" id="2_gdvna"]
 [ext_resource type="PackedScene" uid="uid://c7fw2aq587t44" path="res://enemies/damage_component.tscn" id="2_gvqc2"]
+[ext_resource type="Texture2D" uid="uid://cguesv3kvy608" path="res://assets/particles/walk_particle.png" id="5_s8a3k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kmrw3"]
 atlas = ExtResource("2_gdvna")
@@ -151,6 +152,18 @@ shape = SubResource("CircleShape2D_jwd6l")
 [node name="MinAttackDelayTimer" type="Timer" parent="." unique_id=162537077]
 wait_time = 0.5
 one_shot = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2105319988]
+z_index = -1
+position = Vector2(0, 7)
+texture = ExtResource("5_s8a3k")
+lifetime = 0.25
+lifetime_randomness = 0.2
+emission_shape = 3
+emission_rect_extents = Vector2(6, 2)
+direction = Vector2(0, 0)
+gravity = Vector2(0, 0)
+color = Color(0, 0, 0, 0.27058825)
 
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
 [connection signal="timeout" from="IdleMovementTimer" to="." method="_on_idle_movement_timer_timeout"]

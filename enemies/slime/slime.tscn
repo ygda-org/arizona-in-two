@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://dx1icrv8b1ma" path="res://enemies/effect.gdshader" id="2_57eei"]
 [ext_resource type="Texture2D" uid="uid://c3kq4e5vtcpi5" path="res://assets/slimes/sand_slime.png" id="2_j284o"]
 [ext_resource type="PackedScene" uid="uid://c8518ga76vmyi" path="res://enemies/enemy_component.tscn" id="3_6326o"]
+[ext_resource type="Texture2D" uid="uid://cguesv3kvy608" path="res://assets/particles/walk_particle.png" id="5_u2l51"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6326o"]
 shader = ExtResource("2_57eei")
@@ -72,6 +73,18 @@ shape = SubResource("CircleShape2D_5fofi")
 process_callback = 0
 
 [node name="DashTimer" type="Timer" parent="." unique_id=717472758]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2009711817]
+z_index = -1
+position = Vector2(0, 4)
+texture = ExtResource("5_u2l51")
+lifetime = 0.25
+lifetime_randomness = 0.2
+emission_shape = 3
+emission_rect_extents = Vector2(6, 2)
+direction = Vector2(0, 0)
+gravity = Vector2(0, 0)
+color = Color(0, 0, 0, 0.27058825)
 
 [connection signal="dead" from="EnemyComponent" to="." method="_on_enemy_component_dead"]
 [connection signal="body_entered" from="TargetArea" to="." method="_on_target_area_body_entered"]

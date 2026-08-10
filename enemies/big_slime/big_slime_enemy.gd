@@ -23,6 +23,8 @@ extends CharacterBody2D
 ## The area to monitor for player chase interactions.
 @onready var chase_area : Area2D = $ChaseArea
 
+@onready var particles = $CPUParticles2D
+
 const DEAD_BODY = preload("uid://dg6vd4w76xk55")
 
 # Physics process variables
@@ -101,6 +103,8 @@ func _physics_process(_delta: float) -> void:
 		# Update speed
 		velocity = idle_speed * target_angle_vector
 	
+	# Particles only appear while moving
+	particles.emitting = velocity.length() > 0
 	# Finalize movement
 	move_and_slide()
 

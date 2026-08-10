@@ -49,6 +49,7 @@ var player_node: CharacterBody2D = null
 # Sprite
 @onready var _animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+@onready var particles = $CPUParticles2D
 
 #region Dashing Variables
 var dashDuration: float = 0.0
@@ -111,7 +112,7 @@ func _physics_process(delta: float) -> void:
 		
 		# Update speed
 		velocity = idle_speed * target_angle_vector
-	
+	particles.emitting = velocity.length() > 0
 	# Finalize movement
 	move_and_slide()
 
