@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ctphcsxh0fik4" path="res://enemies/slime/slime_enemy.tscn" id="10_s56m1"]
 [ext_resource type="PackedScene" uid="uid://csyqleioe2hjd" path="res://globals/audio/persistant_music_component.tscn" id="11_ymvjg"]
 [ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="12_ngcoc"]
+[ext_resource type="PackedScene" uid="uid://qrjkf43abikr" path="res://world/desert_area/heat_haze.tscn" id="16_lbcur"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gdeaj"]
 
@@ -285,3 +286,5 @@ position = Vector2(-133, 320)
 
 [node name="FromGrass" type="Marker2D" parent="." unique_id=64302894]
 position = Vector2(290, 360)
+
+[node name="HeatHaze" parent="." unique_id=1368225760 instance=ExtResource("16_lbcur")]
