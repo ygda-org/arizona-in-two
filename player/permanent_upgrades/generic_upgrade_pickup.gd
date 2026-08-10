@@ -22,3 +22,5 @@ func _on_body_entered(_body):
 		GameState.player_max_health += upgrade_amount
 	elif upgrade_type == UpgradeTypes.DAMAGE:
 		GameState.player_bonus_damage += upgrade_amount
+	
+	queue_free()

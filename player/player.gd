@@ -56,8 +56,6 @@ func movement(delta):
 	var inputDir: Vector2 = Input.get_vector("MoveLeft", "MoveRight", "MoveUp", "MoveDown")
 	if inputDir:
 		play_footsteps()
-		#if $AnimatedSprite2D.animation_finished:
-			#SFX.play(SFX.Id.GrassStep)
 		
 		# Slowly increases the speed
 		velocity = lerp(velocity, speed * speedMulti * inputDir, delta * acceleration)
@@ -74,40 +72,43 @@ func movement(delta):
 		if inputDir.y > 0: vertical = "d"
 		
 		# Logic for Animated Sprites
-		if horizontal == "l":
-			match vertical:
-				"u":
-					# Left + Up
-					$AnimatedSprite2D.play("left_walk")
-				"d":
-					# Left + Down
-					$AnimatedSprite2D.play("left_walk")
-				"":
-					# Left
-					$AnimatedSprite2D.play("left_walk")
-		elif horizontal == "r":
-			match vertical:
-				"u":
-					# Right + Up
-					$AnimatedSprite2D.play("right_walk")
-				"d":
-					# Right + Down
-					$AnimatedSprite2D.play("right_walk")
-				"":
-					# Right
-					$AnimatedSprite2D.play("right_walk")
-		else:
-			match vertical:
-				"u":
-					# Up
-					$AnimatedSprite2D.play("back_walk")
-				"d":
-					# Down
-					$AnimatedSprite2D.play("front_walk")
+		
+		if not $AnimatedSprite2D.animation.ends_with("gun") or not $AnimatedSprite2D.is_playing():
+			if horizontal == "l":
+				match vertical:
+					"u":
+						# Left + Up
+						$AnimatedSprite2D.play("left_walk")
+					"d":
+						# Left + Down
+						$AnimatedSprite2D.play("left_walk")
+					"":
+						# Left
+						$AnimatedSprite2D.play("left_walk")
+			elif horizontal == "r":
+				match vertical:
+					"u":
+						# Right + Up
+						$AnimatedSprite2D.play("right_walk")
+					"d":
+						# Right + Down
+						$AnimatedSprite2D.play("right_walk")
+					"":
+						# Right
+						$AnimatedSprite2D.play("right_walk")
+			else:
+				match vertical:
+					"u":
+						# Up
+						$AnimatedSprite2D.play("back_walk")
+					"d":
+						# Down
+						$AnimatedSprite2D.play("front_walk")
 		
 	else:
 		# Slowly decreases the speed of the player
-		$AnimatedSprite2D.play("idle")
+		if not $AnimatedSprite2D.animation.ends_with("gun") or not $AnimatedSprite2D.is_playing():
+			$AnimatedSprite2D.play("idle")
 		SFX.clear_type(SFX.Id.BUTTON_HOVER)
 		velocity = velocity.move_toward(Vector2.ZERO, delta*deceleration)
 
@@ -129,6 +130,15 @@ func shoot(delta):
 	if inputDir:
 		time_since_last_shot = 0
 		
+		if inputDir.x < 0:
+			$AnimatedSprite2D.play("left_gun")
+		if inputDir.x > 0:
+			$AnimatedSprite2D.play("right_gun")
+		if inputDir.y < 0:
+			$AnimatedSprite2D.play("back_gun")
+		if inputDir.y > 0:
+			$AnimatedSprite2D.play("front_gun")
+			
 		var bullet1 : Bullet = BULLET.instantiate()
 		# sets bullet direction
 		bullet1.damage = damage + GameState.player_bonus_damage
@@ -196,7 +206,7 @@ func _on_i_frame_timer_timeout() -> void:
 func _on_bullet_time_dur_timeout() -> void:
 	GameState.bullet_time = false
 	$BulletTimeCD.start()
-	
+
 func _on_sand_footsteps_body_entered(_body):
 	on_sand = true
 	

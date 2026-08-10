@@ -5,10 +5,14 @@
 [ext_resource type="Shader" uid="uid://dgurnonpv27rm" path="res://player/iframe_flash.gdshader" id="2_hg6s5"]
 [ext_resource type="PackedScene" uid="uid://c7fw2aq587t44" path="res://enemies/damage_component.tscn" id="3_g1dw6"]
 [ext_resource type="Texture2D" uid="uid://dykjtnjbhyvh0" path="res://assets/player/Jackie walk cycle front.png" id="3_rgyib"]
+[ext_resource type="Texture2D" uid="uid://b6twe1y4f3c82" path="res://assets/player/JackieGunBack.png" id="3_yllr7"]
 [ext_resource type="Texture2D" uid="uid://ctmtr0mlnnor2" path="res://assets/player/Jackie walk cycle left.png" id="4_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://b1oh8mbctdr4f" path="res://assets/player/front_jack_idle.png" id="4_rgyib"]
 [ext_resource type="Texture2D" uid="uid://chr07qlqyf1cq" path="res://assets/player/Jackie walk cycle right.png" id="5_8t03j"]
+[ext_resource type="Texture2D" uid="uid://71hae6st6yia" path="res://assets/player/JackieGunFront.png" id="5_kb6p2"]
+[ext_resource type="Texture2D" uid="uid://degbiwjcrygx5" path="res://assets/player/JackieGunLeft.png" id="8_wodsf"]
 [ext_resource type="PackedScene" uid="uid://c2n7vlwridqkn" path="res://player/camera.tscn" id="9_hg6s5"]
+[ext_resource type="Texture2D" uid="uid://lejvxsfpvag0" path="res://assets/player/JackieGunRight.png" id="10_32hag"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
 size = Vector2(4, 14)
@@ -16,6 +20,18 @@ size = Vector2(4, 14)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8t03j"]
 shader = ExtResource("2_hg6s5")
 shader_parameter/isFlash = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw77l"]
+atlas = ExtResource("3_yllr7")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rptt4"]
+atlas = ExtResource("3_yllr7")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7pn3"]
+atlas = ExtResource("3_yllr7")
+region = Rect2(96, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ieo8"]
 atlas = ExtResource("2_boad6")
@@ -32,6 +48,18 @@ region = Rect2(32, 0, 16, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_kb6p2"]
 atlas = ExtResource("2_boad6")
 region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8hi5"]
+atlas = ExtResource("5_kb6p2")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2uvqg"]
+atlas = ExtResource("5_kb6p2")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1s1yo"]
+atlas = ExtResource("5_kb6p2")
+region = Rect2(96, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wodsf"]
 atlas = ExtResource("3_rgyib")
@@ -57,6 +85,18 @@ region = Rect2(0, 0, 16, 32)
 atlas = ExtResource("4_rgyib")
 region = Rect2(16, 0, 16, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ejfk"]
+atlas = ExtResource("8_wodsf")
+region = Rect2(36, 0, 18, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jd2rm"]
+atlas = ExtResource("8_wodsf")
+region = Rect2(72, 0, 18, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q28gw"]
+atlas = ExtResource("8_wodsf")
+region = Rect2(108, 0, 18, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_c35mf"]
 atlas = ExtResource("4_hg6s5")
 region = Rect2(0, 0, 16, 32)
@@ -72,6 +112,18 @@ region = Rect2(32, 0, 16, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_bjvpn"]
 atlas = ExtResource("4_hg6s5")
 region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ge24q"]
+atlas = ExtResource("10_32hag")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnw6m"]
+atlas = ExtResource("10_32hag")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1so5t"]
+atlas = ExtResource("10_32hag")
+region = Rect2(96, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s7qer"]
 atlas = ExtResource("5_8t03j")
@@ -93,6 +145,20 @@ region = Rect2(48, 0, 16, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_uw77l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rptt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7pn3")
+}],
+"loop": 0,
+"name": &"back_gun",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_2ieo8")
 }, {
 "duration": 1.0,
@@ -108,10 +174,19 @@ animations = [{
 "name": &"back_walk",
 "speed": 4.0
 }, {
-"frames": [],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8hi5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2uvqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1s1yo")
+}],
+"loop": 0,
+"name": &"front_gun",
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -143,6 +218,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_5ejfk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jd2rm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q28gw")
+}],
+"loop": 0,
+"name": &"left_gun",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_c35mf")
 }, {
 "duration": 1.0,
@@ -157,6 +246,20 @@ animations = [{
 "loop": 1,
 "name": &"left_walk",
 "speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ge24q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnw6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1so5t")
+}],
+"loop": 0,
+"name": &"right_gun",
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -197,7 +300,7 @@ shape = SubResource("RectangleShape2D_rkbax")
 material = SubResource("ShaderMaterial_8t03j")
 position = Vector2(-1, -5)
 sprite_frames = SubResource("SpriteFrames_g1dw6")
-animation = &"right_walk"
+animation = &"back_gun"
 
 [node name="ShotgunPowerTimer" type="Timer" parent="." unique_id=1441716618]
 wait_time = 10.0
@@ -213,7 +316,7 @@ one_shot = true
 wait_time = 0.25
 
 [node name="BulletSpawnLoc" type="Marker2D" parent="." unique_id=1528112902]
-position = Vector2(1, 6)
+position = Vector2(1, 1)
 
 [node name="Camera" parent="." unique_id=183673260 instance=ExtResource("9_hg6s5")]
 top_level = true
