@@ -12,10 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://c4kv058u3oyf5" path="res://enemies/tumbleweed/tumbleweed_enemy.tscn" id="9_b3xd2"]
 [ext_resource type="PackedScene" uid="uid://cvrmisvpyoqcv" path="res://world/decor/cactus1.tscn" id="9_lbcur"]
 [ext_resource type="PackedScene" uid="uid://28rbkwo17tdr" path="res://world/decor/cactus2.tscn" id="9_p8ejn"]
-[ext_resource type="PackedScene" uid="uid://ctphcsxh0fik4" path="res://enemies/slime/slime_enemy.tscn" id="10_s56m1"]
+[ext_resource type="PackedScene" uid="uid://ctphcsxh0fik4" path="res://enemies/slime_depricated/slime_enemy.tscn" id="10_s56m1"]
 [ext_resource type="PackedScene" uid="uid://csyqleioe2hjd" path="res://globals/audio/persistant_music_component.tscn" id="11_ymvjg"]
 [ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="12_ngcoc"]
 [ext_resource type="PackedScene" uid="uid://qrjkf43abikr" path="res://world/desert_area/heat_haze.tscn" id="16_lbcur"]
+[ext_resource type="PackedScene" uid="uid://blh1a5n75wwv8" path="res://enemies/slime/slime.tscn" id="17_4f6ip"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gdeaj"]
 
@@ -246,6 +247,9 @@ position = Vector2(288, 356)
 [node name="Bullets" type="Node" parent="." unique_id=507993896]
 
 [node name="Enemies" type="Node" parent="." unique_id=1987847742]
+
+[node name="Slime" parent="Enemies" unique_id=113900471 instance=ExtResource("17_4f6ip")]
+position = Vector2(174, 252)
 
 [node name="Tumbleweed Enemy" parent="Enemies" unique_id=1242878640 instance=ExtResource("9_b3xd2")]
 position = Vector2(-146, 78)
