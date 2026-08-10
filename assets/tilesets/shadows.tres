@@ -1,0 +1,22 @@
+[gd_resource type="TileSet" format=3 uid="uid://bk0r174xba3d5"]
+
+[ext_resource type="Texture2D" uid="uid://46pe3ell5q5s" path="res://assets/tilesets/shadows.png" id="1_scgok"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7m5w6"]
+texture = ExtResource("1_scgok")
+1:2/0 = 0
+1:3/0 = 0
+0:3/0 = 0
+0:2/0 = 0
+1:1/0 = 0
+1:0/0 = 0
+3:1/0 = 0
+3:2/0 = 0
+4:1/0 = 0
+4:2/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+2:0/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_7m5w6")
