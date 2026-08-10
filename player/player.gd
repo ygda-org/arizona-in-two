@@ -228,7 +228,7 @@ func _on_snow_footsteps_body_exited(_body):
 
 func play_footsteps():
 	if on_sand:
-		SFX.play(SFX.Id.BUTTON_HOVER)
+		SFX.play(SFX.Id.GRASS_STEP)
 	if on_grass:
 		SFX.play(SFX.Id.GRASS_STEP)
 	if on_snow:
