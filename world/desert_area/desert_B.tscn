@@ -372,6 +372,5 @@ shape = SubResource("RectangleShape2D_5kg8m")
 
 [node name="Sprite2D" type="Sprite2D" parent="GenericUpgradePickup" unique_id=1770580492]
 position = Vector2(-480, 302)
-texture = ExtResource("2_pkhdo")
 region_enabled = true
 region_rect = Rect2(112, 0, 16, 16)

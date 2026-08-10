@@ -92,7 +92,7 @@ func movement(delta):
 						$AnimatedSprite2D.play("right_walk")
 					"d":
 						# Right + Down
-						$AnimatedSprite2D.play("right_walk")
+						$AnimatedSprite2D.play("front_walk")
 					"":
 						# Right
 						$AnimatedSprite2D.play("right_walk")
@@ -108,8 +108,14 @@ func movement(delta):
 	else:
 		# Slowly decreases the speed of the player
 		if not $AnimatedSprite2D.animation.ends_with("gun") or not $AnimatedSprite2D.is_playing():
-			$AnimatedSprite2D.play("idle")
-		SFX.clear_type(SFX.Id.BUTTON_HOVER)
+			if $AnimatedSprite2D.animation.begins_with("right"):
+				$AnimatedSprite2D.play("front_idle")
+			elif $AnimatedSprite2D.animation.begins_with("left"):
+				$AnimatedSprite2D.play("front_idle")
+			elif $AnimatedSprite2D.animation.begins_with("front"):
+				$AnimatedSprite2D.play("front_idle")
+			elif $AnimatedSprite2D.animation.begins_with("back"):
+				$AnimatedSprite2D.play("back_idle")
 		velocity = velocity.move_toward(Vector2.ZERO, delta*deceleration)
 
 func shoot(delta):
