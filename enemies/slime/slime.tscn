@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cguesv3kvy608" path="res://assets/particles/walk_particle.png" id="5_u2l51"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6326o"]
+resource_local_to_scene = true
 shader = ExtResource("2_57eei")
 shader_parameter/enabled = false
 shader_parameter/color = Color(1, 1, 1, 1)

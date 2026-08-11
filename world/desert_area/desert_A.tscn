@@ -10,13 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://chyscyessavhl" path="res://assets/tilesets/grass_area/grass_decor.png" id="6_p8ejn"]
 [ext_resource type="TileSet" uid="uid://kdjb34j8n6i1" path="res://assets/tilesets/CameraBounding.tres" id="8_1y4f1"]
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="8_4f6ip"]
-[ext_resource type="PackedScene" uid="uid://c4kv058u3oyf5" path="res://enemies/tumbleweed/tumbleweed_enemy.tscn" id="9_b3xd2"]
+[ext_resource type="PackedScene" uid="uid://c4kv058u3oyf5" path="res://enemies/tumbleweed_depricated/tumbleweed_enemy.tscn" id="9_b3xd2"]
 [ext_resource type="PackedScene" uid="uid://cvrmisvpyoqcv" path="res://world/decor/cactus1.tscn" id="9_lbcur"]
 [ext_resource type="PackedScene" uid="uid://28rbkwo17tdr" path="res://world/decor/cactus2.tscn" id="9_p8ejn"]
 [ext_resource type="PackedScene" uid="uid://csyqleioe2hjd" path="res://globals/audio/persistant_music_component.tscn" id="11_ymvjg"]
 [ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="12_ngcoc"]
 [ext_resource type="PackedScene" uid="uid://qrjkf43abikr" path="res://world/desert_area/heat_haze.tscn" id="16_lbcur"]
 [ext_resource type="PackedScene" uid="uid://blh1a5n75wwv8" path="res://enemies/slime/slime.tscn" id="17_4f6ip"]
+[ext_resource type="PackedScene" uid="uid://dhln58xkow42h" path="res://enemies/tumbleweed/tumbleweed.tscn" id="18_b3xd2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gdeaj"]
 
@@ -303,11 +304,14 @@ position = Vector2(290, 360)
 
 [node name="HeatHaze" parent="." unique_id=1368225760 instance=ExtResource("16_lbcur")]
 z_index = 5
-offset_left = -2803.0
-offset_top = -3112.0
-offset_right = 3525.0
-offset_bottom = 2977.0
+offset_left = -2613.0
+offset_top = -3589.0
+offset_right = 3715.0
+offset_bottom = 2500.0
 disable = true
 
 [node name="DestroyableItem" parent="." unique_id=990065551 instance=ExtResource("9_lbcur")]
 position = Vector2(226, 348)
+
+[node name="Tumbleweed" parent="." unique_id=953680716 instance=ExtResource("18_b3xd2")]
+position = Vector2(347, 80)

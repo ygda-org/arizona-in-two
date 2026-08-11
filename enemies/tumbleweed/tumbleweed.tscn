@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dhln58xkow42h"]
+
+[ext_resource type="Script" uid="uid://bsprq1ni0j5b5" path="res://enemies/tumbleweed/tumbleweed.gd" id="1_klt0j"]
+[ext_resource type="PackedScene" uid="uid://c8518ga76vmyi" path="res://enemies/enemy_component.tscn" id="2_tlg85"]
+[ext_resource type="Shader" uid="uid://dx1icrv8b1ma" path="res://enemies/effect.gdshader" id="2_v6xly"]
+[ext_resource type="Texture2D" uid="uid://b1n6fhv2uaidy" path="res://assets/tumbleweed/Tumbles.png" id="3_d6hyn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_55d6i"]
+shader = ExtResource("2_v6xly")
+shader_parameter/enabled = false
+shader_parameter/color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33qiy"]
+atlas = ExtResource("3_d6hyn")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_55d6i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33qiy")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5fofi"]
+size = Vector2(14, 14)
+
+[node name="Tumbleweed" type="CharacterBody2D" unique_id=953680716]
+script = ExtResource("1_klt0j")
+
+[node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1875656018]
+material = SubResource("ShaderMaterial_55d6i")
+sprite_frames = SubResource("SpriteFrames_55d6i")
+
+[node name="HitBox" type="CollisionShape2D" parent="." unique_id=628819797]
+shape = SubResource("RectangleShape2D_5fofi")
+
+[node name="EnemyComponent" parent="." unique_id=25077899 instance=ExtResource("2_tlg85")]
+
+[node name="IdleTimer" type="Timer" parent="." unique_id=837921707]
+one_shot = true

@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://beguowxpoc1hi" path="res://assets/tilesets/MainTiles.tres" id="1_x0xod"]
 [ext_resource type="TileSet" uid="uid://bgt3344imcawp" path="res://assets/tilesets/DecorTiles.tres" id="2_kl0x4"]
 [ext_resource type="Texture2D" uid="uid://c746h544057v2" path="res://assets/temporary-tiles/rock.png" id="2_uj5bq"]
-[ext_resource type="PackedScene" uid="uid://c4kv058u3oyf5" path="res://enemies/tumbleweed/tumbleweed_enemy.tscn" id="4_t834d"]
+[ext_resource type="PackedScene" uid="uid://c4kv058u3oyf5" path="res://enemies/tumbleweed_depricated/tumbleweed_enemy.tscn" id="4_t834d"]
 [ext_resource type="PackedScene" uid="uid://b883ik2jdt2jl" path="res://enemies/dashing_slime/dashing_slime_enemy.tscn" id="5_fk8g3"]
 [ext_resource type="PackedScene" uid="uid://c1vqdg3iq4258" path="res://enemies/jumping_slime/jumping_slime_enemy.tscn" id="6_uj5bq"]
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="7_fk8g3"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://byrtstv8asgi7"]
 
-[ext_resource type="Script" uid="uid://kcfn2gawnutw" path="res://enemies/tumbleweed/tumble_bullet.gd" id="1_hjquc"]
+[ext_resource type="Script" uid="uid://kcfn2gawnutw" path="res://enemies/tumbleweed_depricated/tumble_bullet.gd" id="1_hjquc"]
 [ext_resource type="Texture2D" uid="uid://dq3avqf8vlk6r" path="res://assets/temporary-tiles/programmer_art-objects.png" id="2_hjquc"]
 [ext_resource type="PackedScene" uid="uid://c7fw2aq587t44" path="res://enemies/damage_component.tscn" id="3_03c4q"]
 
