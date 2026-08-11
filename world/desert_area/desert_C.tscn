@@ -270,15 +270,12 @@ position_smoothing_speed = 4.0
 [node name="Enemies" type="Node" parent="." unique_id=490497814]
 
 [node name="SlimeEnemy" parent="Enemies" unique_id=530496463 instance=ExtResource("7_tpw8m")]
-visible = false
 position = Vector2(-54, 187)
 
 [node name="SlimeEnemy2" parent="Enemies" unique_id=1778457941 instance=ExtResource("7_tpw8m")]
-visible = false
 position = Vector2(118, 307)
 
 [node name="Tumbleweed Enemy" parent="Enemies" unique_id=1988482269 instance=ExtResource("8_t3m8n")]
-visible = false
 position = Vector2(-202, 350)
 
 [node name="PersistantMusicComponent" parent="." unique_id=554467455 instance=ExtResource("11_emmd6")]

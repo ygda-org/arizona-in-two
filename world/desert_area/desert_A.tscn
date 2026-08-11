@@ -271,23 +271,18 @@ position = Vector2(288, 356)
 position = Vector2(174, 252)
 
 [node name="Tumbleweed Enemy" parent="Enemies" unique_id=1242878640 instance=ExtResource("9_b3xd2")]
-visible = false
 position = Vector2(-146, 78)
 
 [node name="Tumbleweed Enemy2" parent="Enemies" unique_id=1442943878 instance=ExtResource("9_b3xd2")]
-visible = false
 position = Vector2(483, 39)
 
 [node name="SlimeEnemy" parent="Enemies" unique_id=998499748 instance=ExtResource("10_s56m1")]
-visible = false
 position = Vector2(438, 259)
 
 [node name="SlimeEnemy2" parent="Enemies" unique_id=1161028953 instance=ExtResource("10_s56m1")]
-visible = false
 position = Vector2(161, 81)
 
 [node name="SlimeEnemy3" parent="Enemies" unique_id=1248393659 instance=ExtResource("10_s56m1")]
-visible = false
 position = Vector2(-72, 335)
 
 [node name="PersistantMusicComponent" parent="." unique_id=554467455 instance=ExtResource("11_ymvjg")]
