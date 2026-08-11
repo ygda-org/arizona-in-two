@@ -23,6 +23,7 @@ const SHOTGUN_SPREAD = PI/4 # spread per shot
 
 @onready var iFrameTimer : Timer = $IFrameTimer
 @onready var camera = $Camera
+@onready var particles = $CPUParticles2D
 
 var on_sand : bool = false
 var on_snow : bool = false
@@ -40,6 +41,9 @@ func _physics_process(delta: float) -> void:
 	# Iframe ducttape
 	if GameState.player_can_take_damage == false and $IFrameTimer.time_left == 0:
 		$IFrameTimer.start()
+	
+	# Particles only show up when moving
+	particles.emitting = velocity.length() > 0
 	
 	movement(delta) # Movement function (Others can be added below)
 	
