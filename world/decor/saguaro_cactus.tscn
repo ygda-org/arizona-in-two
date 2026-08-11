@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://b3jd4mjlaxq1m"]
+
+[ext_resource type="Script" uid="uid://b2fqeuied0jhp" path="res://world/decor/destroyable_object.gd" id="1_6pfd4"]
+[ext_resource type="Texture2D" uid="uid://i56i6tp6j76v" path="res://assets/temporary-tiles/cactus1_die.png" id="2_phpqc"]
+[ext_resource type="Texture2D" uid="uid://nsmm1dtlk6q5" path="res://assets/decor/Saguaro Cactus.png" id="3_6pfd4"]
+[ext_resource type="PackedScene" uid="uid://c7fw2aq587t44" path="res://enemies/damage_component.tscn" id="4_d0e86"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umb1a"]
+atlas = ExtResource("2_phpqc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5mgf"]
+atlas = ExtResource("2_phpqc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d5n7"]
+atlas = ExtResource("2_phpqc")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je2hl"]
+atlas = ExtResource("2_phpqc")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jwd6l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umb1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5mgf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1d5n7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je2hl")
+}],
+"loop": 0,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6pfd4")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tm5b5"]
+radius = 4.0
+height = 50.0
+
+[node name="DestroyableItem" type="CharacterBody2D" unique_id=990065551]
+collision_mask = 65
+script = ExtResource("1_6pfd4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1006285860]
+position = Vector2(0, -25)
+sprite_frames = SubResource("SpriteFrames_jwd6l")
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1510223874]
+position = Vector2(0, -25)
+shape = SubResource("CapsuleShape2D_tm5b5")
+
+[node name="DamageComponent" parent="." unique_id=1495931984 instance=ExtResource("4_d0e86")]
+health = 75.0

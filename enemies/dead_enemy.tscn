@@ -68,5 +68,5 @@ animations = [{
 
 [node name="EnemyDeadBody" type="AnimatedSprite2D" unique_id=928376474]
 sprite_frames = SubResource("SpriteFrames_jwd6l")
-animation = &"big_slime_dead"
+animation = &"slime_dead"
 script = ExtResource("4_oon7s")

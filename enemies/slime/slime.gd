@@ -17,6 +17,7 @@ func _ready() -> void:
 	$IdleTimer.wait_time = randf_range(4.0,7.0)
 	$IdleTimer.start()
 
+const DEAD_ENEMY = preload("uid://dg6vd4w76xk55")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -91,6 +92,14 @@ func _on_chase_area_body_exited(body: Node2D) -> void:
 
 
 func _on_enemy_component_dead() -> void:
+	#Uncomment once there is a death animation
+	#$Anim.play("death")
+	#await $Anim.animation_finished
+	var dead_body = DEAD_ENEMY.instantiate()
+	dead_body.position = position
+	dead_body.type = "slime_dead"
+	dead_body.set_type()
+	get_parent().add_child(dead_body)
 	queue_free()
 
 

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b2fqeuied0jhp" path="res://world/decor/destroyable_object.gd" id="1_m6hqw"]
 [ext_resource type="Texture2D" uid="uid://d2mcuoba1nymm" path="res://assets/temporary-tiles/cactus2_die.png" id="2_7t7vx"]
-[ext_resource type="Texture2D" uid="uid://dq3avqf8vlk6r" path="res://assets/temporary-tiles/programmer_art-objects.png" id="2_ssvhu"]
 [ext_resource type="PackedScene" uid="uid://c7fw2aq587t44" path="res://enemies/damage_component.tscn" id="3_7t7vx"]
+[ext_resource type="Texture2D" uid="uid://ydfyr6ncn4w3" path="res://assets/decor/Pink Flower Saguaro Cactus.png" id="3_d0x1l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1wm42"]
 atlas = ExtResource("2_7t7vx")
@@ -20,10 +20,6 @@ region = Rect2(32, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_urg3t"]
 atlas = ExtResource("2_7t7vx")
 region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lxpjs"]
-atlas = ExtResource("2_ssvhu")
-region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jwd6l"]
 animations = [{
@@ -46,25 +42,27 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lxpjs")
+"texture": ExtResource("3_d0x1l")
 }],
 "loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_r320e"]
-radius = 8.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4af00"]
+radius = 4.0
+height = 34.0
 
 [node name="DestroyableItem" type="CharacterBody2D" unique_id=990065551]
 script = ExtResource("1_m6hqw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1865840014]
+position = Vector2(0, -17.5)
 sprite_frames = SubResource("SpriteFrames_jwd6l")
-animation = &"death"
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1510223874]
-shape = SubResource("CircleShape2D_r320e")
+position = Vector2(0, -17.5)
+shape = SubResource("CapsuleShape2D_4af00")
 
 [node name="DamageComponent" parent="." unique_id=1495931984 instance=ExtResource("3_7t7vx")]
 health = 75.0
