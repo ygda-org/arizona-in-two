@@ -18,8 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://cqt1vli8lq1gm" path="res://assets/player/right_jack_idle.png" id="13_e7oew"]
 [ext_resource type="Texture2D" uid="uid://cguesv3kvy608" path="res://assets/particles/walk_particle.png" id="17_tqiix"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
-size = Vector2(4, 14)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tqiix"]
+radius = 3.0
+height = 16.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8t03j"]
 shader = ExtResource("2_hg6s5")
@@ -117,9 +118,17 @@ region = Rect2(0, 0, 16, 32)
 atlas = ExtResource("10_tqiix")
 region = Rect2(16, 0, 16, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_c35mf"]
+atlas = ExtResource("4_hg6s5")
+region = Rect2(0, 0, 16, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_65viv"]
 atlas = ExtResource("4_hg6s5")
 region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7c3f"]
+atlas = ExtResource("4_hg6s5")
+region = Rect2(32, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bjvpn"]
 atlas = ExtResource("4_hg6s5")
@@ -274,7 +283,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_c35mf")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_65viv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7c3f")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bjvpn")
@@ -326,9 +341,6 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_hg6s5"]
-points = PackedVector2Array(-5, 1.5, 5, 1.5, 1.1920929e-07, -2.5)
-
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_x388h"]
 a = Vector2(1.5, 0)
 b = Vector2(1.5, 0)
@@ -341,7 +353,7 @@ script = ExtResource("1_rkbax")
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=27240685]
 position = Vector2(0, 3)
-shape = SubResource("RectangleShape2D_rkbax")
+shape = SubResource("CapsuleShape2D_tqiix")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=598797111]
 material = SubResource("ShaderMaterial_8t03j")
@@ -375,10 +387,6 @@ one_shot = true
 [node name="BulletTimeCD" type="Timer" parent="." unique_id=2088467783]
 wait_time = 2.0
 one_shot = true
-
-[node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=631564527]
-position = Vector2(-1.1920929e-07, 9.5)
-shape = SubResource("ConvexPolygonShape2D_hg6s5")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=470635656]
 z_index = -1
