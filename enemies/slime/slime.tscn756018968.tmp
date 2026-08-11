@@ -81,10 +81,8 @@ shape = ExtResource("5_2ui2u")
 
 [node name="IdleTimer" type="Timer" parent="." unique_id=358739124]
 process_callback = 0
-one_shot = true
 
 [node name="DashTimer" type="Timer" parent="." unique_id=717472758]
-one_shot = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2009711817]
 z_index = -1

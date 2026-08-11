@@ -3,6 +3,7 @@ extends CharacterBody2D
 const ACCEL : float = 20.0
 const IDLE_SPEED : float = 20.0
 const CHASE_SPEED : float = 30.0
+const DASH_STRENGTH : float = 1200.0
 var target_velocity : Vector2 = Vector2.ZERO
 #idle
 #chase
@@ -26,16 +27,21 @@ func _physics_process(delta: float) -> void:
 			target_velocity = GameState.player.global_position - global_position
 			if abs(abs(target_velocity.x) - abs(target_velocity.y)) > 10:
 				if abs(target_velocity.x) > abs(target_velocity.y):
+					target_velocity.x = sign(target_velocity.x) * CHASE_SPEED
 					target_velocity.y = 0
 				else:
 					target_velocity.x = 0
-				print(target_velocity)
-				velocity = target_velocity.normalized() * CHASE_SPEED
+					target_velocity.y = sign(target_velocity.y) * CHASE_SPEED
+				velocity = target_velocity
 		"dash":
 			velocity = velocity.lerp(target_velocity, ACCEL * delta)
+			if velocity.length_squared() < 0.01 and $DashTimer.is_stopped():
+				modulate = Color(1.0,1.0,1.0)
+				state = "idle"
+				$IdleTimer.start()
 	
 	# Particles only show up when moving
-	particles.emitting = velocity.length() > 0
+	particles.emitting = velocity.length_squared() > 0
 	move_and_slide()
 
 func _on_idle_timer_timeout() -> void:
@@ -59,8 +65,17 @@ func _on_idle_timer_timeout() -> void:
 func _on_target_area_body_entered(body: Node2D) -> void:
 	if not body is Player:
 		return
+	if state == "dash":
+		return
 	state = "chase"
-	target_velocity = Vector2.ZERO
+	target_velocity = GameState.player.global_position - global_position
+	if abs(target_velocity.x) > abs(target_velocity.y):
+		target_velocity.x = sign(target_velocity.x) * CHASE_SPEED
+		target_velocity.y = 0
+	else:
+		target_velocity.x = 0
+		target_velocity.y = sign(target_velocity.y) * CHASE_SPEED
+	velocity = target_velocity
 	$IdleTimer.stop()
 
 
@@ -82,7 +97,20 @@ func _on_enemy_component_dead() -> void:
 func _on_dash_area_body_entered(body: Node2D) -> void:
 	if not body is Player:
 		return
-	state = "chase"
+	state = "dash"
 	target_velocity = Vector2.ZERO
 	velocity = Vector2.ZERO
+	modulate = Color(1.0,0.0,0.0)
 	$DashTimer.start()
+
+
+func _on_dash_timer_timeout() -> void:
+	target_velocity = GameState.player.global_position - global_position
+	if abs(target_velocity.x) > abs(target_velocity.y):
+		target_velocity.x = sign(target_velocity.x) * DASH_STRENGTH
+		target_velocity.y = 0
+	else:
+		target_velocity.x = 0
+		target_velocity.y = sign(target_velocity.y) * DASH_STRENGTH
+	velocity = target_velocity
+	target_velocity = Vector2.ZERO

@@ -51,6 +51,12 @@ func _on_body_entered(body: Node2D) -> void:
 		play_hit_sound()
 		suicide()
 		return
+	var damage_component : DamageComponent = body.find_child("DamageComponent")
+	if damage_component:
+		damage_component.accept_bullet_(self)
+		play_hit_sound()
+		suicide()
+		return
 	if bulletBounce == true:
 		var angle: int = int(rad_to_deg(body.get_angle_to(direction)))
 		if angle == 135:
