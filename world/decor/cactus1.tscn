@@ -57,6 +57,7 @@ animations = [{
 radius = 8.0
 
 [node name="DestroyableItem" type="CharacterBody2D" unique_id=990065551]
+collision_mask = 65
 script = ExtResource("1_kvyrp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1006285860]

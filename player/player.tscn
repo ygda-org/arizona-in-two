@@ -20,7 +20,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tqiix"]
 radius = 3.0
-height = 16.0
+height = 14.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8t03j"]
 shader = ExtResource("2_hg6s5")
@@ -352,7 +352,7 @@ motion_mode = 1
 script = ExtResource("1_rkbax")
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=27240685]
-position = Vector2(0, 3)
+position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_tqiix")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=598797111]

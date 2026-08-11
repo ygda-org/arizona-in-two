@@ -311,8 +311,12 @@ position = Vector2(-133, 320)
 position = Vector2(290, 360)
 
 [node name="HeatHaze" parent="." unique_id=1368225760 instance=ExtResource("16_lbcur")]
-visible = false
+z_index = 5
 offset_left = -2899.0
 offset_top = -3196.0
 offset_right = 3429.0
 offset_bottom = 2893.0
+disable = true
+
+[node name="DestroyableItem" parent="." unique_id=990065551 instance=ExtResource("9_lbcur")]
+position = Vector2(226, 348)
