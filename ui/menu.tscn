@@ -8,10 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://hcgwnttwj22g" path="res://assets/title_screen/AZ2_Jackie.png" id="4_l8jcj"]
 [ext_resource type="Texture2D" uid="uid://cnob1qlymow1q" path="res://assets/title_screen/2_text.png" id="4_oumb1"]
 [ext_resource type="Texture2D" uid="uid://ch77j1jctvhk5" path="res://assets/title_screen/jackie_arm.png" id="5_0bcp5"]
+[ext_resource type="Texture2D" uid="uid://s050cfev7bjq" path="res://assets/title_screen/2_text_broken_left.png" id="5_k3j3x"]
 [ext_resource type="Texture2D" uid="uid://c3ekf5gkn2abe" path="res://assets/title_screen/birds_1.png" id="6_l8jcj"]
+[ext_resource type="Texture2D" uid="uid://dyfhh5n6le0n0" path="res://assets/title_screen/2_text_broken_right.png" id="6_u22un"]
 [ext_resource type="Texture2D" uid="uid://dr01qikx051ap" path="res://assets/title_screen/birds_2.png" id="7_cp6tm"]
+[ext_resource type="Texture2D" uid="uid://ndcm38qcknrn" path="res://assets/title_screen/gun_end.png" id="8_7toyc"]
 [ext_resource type="PackedScene" uid="uid://qrjkf43abikr" path="res://world/desert_area/heat_haze.tscn" id="10_2fd1n"]
-[ext_resource type="AnimationLibrary" uid="uid://dxslsojm2k4qg" path="res://temporaryanims.res" id="10_oumb1"]
+[ext_resource type="Texture2D" uid="uid://by5s6bmite3tu" path="res://assets/title_screen/bullet.png" id="12_oumb1"]
+[ext_resource type="Texture2D" uid="uid://dxp26twl78ty0" path="res://assets/title_screen/explosion.png" id="14_ybgh7"]
 
 [sub_resource type="Animation" id="Animation_ybgh7"]
 resource_name = "fade_out"
@@ -31,6 +35,76 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k3j3x"]
 _data = {
 &"fade_out": SubResource("Animation_ybgh7")
+}
+
+[sub_resource type="Animation" id="Animation_lf6dv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Jackie/JackieArmPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jbsda"]
+resource_name = "jackie_idle"
+length = 4.0
+loop_mode = 2
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Jackie:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 15), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Jackie/JackieArmPivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.034906585, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_is7kr"]
+resource_name = "return_to_shoot"
+length = 0.25
+step = 1.0
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Jackie/JackieArmPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"update": 2,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ot4n"]
+_data = {
+&"RESET": SubResource("Animation_lf6dv"),
+&"jackie_idle": SubResource("Animation_jbsda"),
+&"return_to_shoot": SubResource("Animation_is7kr")
 }
 
 [sub_resource type="Animation" id="Animation_oumb1"]
@@ -128,6 +202,23 @@ tracks/1/keys = {
 "values": [0.0]
 }
 
+[sub_resource type="Animation" id="Animation_wb0cg"]
+resource_name = "return_to_shoot"
+length = 0.25
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("2TextPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"update": 2,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_u22un"]
 resource_name = "text_wiggle"
 length = 3.0000000000000004
@@ -160,8 +251,120 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_akon5"]
 _data = {
 &"RESET": SubResource("Animation_k3j3x"),
+&"return_to_shoot": SubResource("Animation_wb0cg"),
 &"text_wiggle": SubResource("Animation_u22un")
 }
+
+[sub_resource type="Animation" id="Animation_akon5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1528, 482)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_c5cit"]
+resource_name = "shoot"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1134, 408), Vector2(1934, 545)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lf6dv"]
+_data = {
+&"RESET": SubResource("Animation_akon5"),
+&"shoot": SubResource("Animation_c5cit")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5cit"]
+atlas = ExtResource("14_ybgh7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lf6dv"]
+atlas = ExtResource("14_ybgh7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_is7kr"]
+atlas = ExtResource("14_ybgh7")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wb0cg"]
+atlas = ExtResource("14_ybgh7")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmbxc"]
+atlas = ExtResource("14_ybgh7")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryq6k"]
+atlas = ExtResource("14_ybgh7")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jwd6l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5cit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lf6dv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_is7kr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wb0cg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmbxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryq6k")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 48.0
+}]
 
 [node name="Menu" type="Control" unique_id=1875752583]
 layout_mode = 3
@@ -177,11 +380,11 @@ z_index = -1
 layout_mode = 0
 offset_left = -3518.0
 offset_top = -3254.0
-offset_right = 2810.0
+offset_right = -1084.0
 offset_bottom = 2835.0
 
 [node name="Fade" type="ColorRect" parent="." unique_id=2131059613]
-z_index = 2
+z_index = 4
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -214,6 +417,7 @@ offset_right = 1390.0
 offset_bottom = 144.0
 
 [node name="ArizonaText" type="TextureRect" parent="ArizonaTextPivot" unique_id=709586787]
+z_index = 3
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -236,21 +440,55 @@ offset_top = 480.0
 offset_right = 1674.0
 offset_bottom = 520.0
 
-[node name="2Text" type="TextureRect" parent="2TextPivot" unique_id=996499595]
+[node name="2TextLeft" type="TextureRect" parent="2TextPivot" unique_id=996499595]
+z_index = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -164.0
-offset_top = -222.0
-offset_right = 200.0
-offset_bottom = 226.30884
+offset_left = -177.0
+offset_top = -246.0
+offset_right = 13.0
+offset_bottom = 424.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.71999943, 0.71999943)
+texture = ExtResource("5_k3j3x")
+
+[node name="2Text" type="TextureRect" parent="2TextPivot" unique_id=1204534339]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.0
+offset_top = -246.0
+offset_right = 366.0
+offset_bottom = 424.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.71999943, 0.71999943)
 texture = ExtResource("4_oumb1")
-expand_mode = 1
+
+[node name="2TextRight" type="TextureRect" parent="2TextPivot" unique_id=874874927]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -246.0
+offset_right = 313.0
+offset_bottom = 424.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.71999943, 0.71999943)
+texture = ExtResource("6_u22un")
 
 [node name="Jackie" type="TextureRect" parent="." unique_id=1622625883]
 layout_mode = 1
@@ -260,9 +498,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -960.0
-offset_top = -525.0
+offset_top = -526.36084
 offset_right = 960.0
-offset_bottom = 555.0
+offset_bottom = 553.63916
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_l8jcj")
@@ -276,11 +514,20 @@ offset_right = 254.0
 offset_bottom = 581.6643
 
 [node name="Arm" type="TextureRect" parent="Jackie/JackieArmPivot" unique_id=1716939129]
+z_index = 2
 layout_mode = 0
 offset_top = -252.0
 offset_right = 1182.0
 offset_bottom = 408.0
 texture = ExtResource("5_0bcp5")
+
+[node name="GunEnd" type="TextureRect" parent="Jackie/JackieArmPivot" unique_id=1098900382]
+layout_mode = 0
+offset_left = 1077.0
+offset_top = -152.30347
+offset_right = 1182.0
+offset_bottom = -56.303467
+texture = ExtResource("8_7toyc")
 
 [node name="Birds1" type="TextureRect" parent="." unique_id=919211480]
 z_index = -2
@@ -359,7 +606,7 @@ text = "Quit"
 libraries/ = SubResource("AnimationLibrary_k3j3x")
 
 [node name="JackieAnimationPlayer" type="AnimationPlayer" parent="." unique_id=335999660]
-libraries/ = ExtResource("10_oumb1")
+libraries/ = SubResource("AnimationLibrary_2ot4n")
 autoplay = &"jackie_idle"
 
 [node name="Birds1AnimationPlayer" type="AnimationPlayer" parent="." unique_id=946095419]
@@ -372,8 +619,30 @@ libraries/ = SubResource("AnimationLibrary_ybgh7")
 libraries/ = SubResource("AnimationLibrary_akon5")
 autoplay = &"text_wiggle"
 
+[node name="ShootAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1681079836]
+root_node = NodePath("../Bullet")
+libraries/ = SubResource("AnimationLibrary_lf6dv")
+
 [node name="PersistantMusicComponent" parent="." unique_id=554467455 instance=ExtResource("4_2ot4n")]
 music = 5
+
+[node name="Bullet" type="TextureRect" parent="." unique_id=1144379678]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = 1528.0
+offset_top = 482.0
+offset_right = 1722.0
+offset_bottom = 592.00275
+texture = ExtResource("12_oumb1")
+
+[node name="Explosion" type="AnimatedSprite2D" parent="." unique_id=721506479]
+z_index = 4
+position = Vector2(1392.9999, 475.99997)
+scale = Vector2(16.22121, 16.103956)
+sprite_frames = SubResource("SpriteFrames_jwd6l")
+frame = 5
+frame_progress = 1.0
 
 [connection signal="timeout" from="Birds1Timer" to="." method="_on_birds_1_timer_timeout"]
 [connection signal="timeout" from="Birds2Timer" to="." method="_on_birds_2_timer_timeout"]
