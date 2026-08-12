@@ -5,6 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://c7fw2aq587t44" path="res://enemies/damage_component.tscn" id="3_4qofl"]
 [ext_resource type="Texture2D" uid="uid://3amr3vk23oy2" path="res://assets/decor/Yellow Flower Short Cactus.png" id="3_tm5b5"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tm5b5"]
+radius = 12.0
+height = 24.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_umb1a"]
 atlas = ExtResource("2_4qofl")
 region = Rect2(0, 0, 16, 16)
@@ -49,21 +53,32 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tm5b5"]
-radius = 13.038404
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2j3wq"]
+radius = 8.0
+height = 16.0
 
-[node name="DestroyableItem" type="CharacterBody2D" unique_id=990065551]
-collision_layer = 65
-collision_mask = 65
+[node name="Node2D" type="Node2D" unique_id=867229396]
+position = Vector2(0, 8)
+
+[node name="DestroyableItem" type="CharacterBody2D" parent="." unique_id=620495901]
+collision_layer = 64
+collision_mask = 64
 script = ExtResource("1_kvyrp")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1006285860]
+[node name="Hitbox" type="CollisionShape2D" parent="DestroyableItem" unique_id=1528808746]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_tm5b5")
+
+[node name="DamageComponent" parent="DestroyableItem" unique_id=1495931984 instance=ExtResource("3_4qofl")]
+health = 75.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DestroyableItem" unique_id=1006285860]
 position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_jwd6l")
 
-[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1510223874]
-position = Vector2(0, -10)
-shape = SubResource("CircleShape2D_tm5b5")
+[node name="CollisionBox" type="CharacterBody2D" parent="." unique_id=674560563]
+collision_mask = 0
 
-[node name="DamageComponent" parent="." unique_id=1495931984 instance=ExtResource("3_4qofl")]
-health = 75.0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionBox" unique_id=1461713579]
+position = Vector2(0, -5)
+shape = SubResource("CapsuleShape2D_2j3wq")

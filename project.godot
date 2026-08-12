@@ -111,6 +111,7 @@ BulletTime={
 
 [layer_names]
 
+2d_physics/layer_2="Layer 2"
 2d_physics/layer_4="Camera Boundaries"
 2d_physics/layer_5="Easy Player Detection"
 2d_physics/layer_6="Enemy Bullet Collisions"

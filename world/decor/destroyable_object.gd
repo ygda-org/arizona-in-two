@@ -1,5 +1,6 @@
 extends CharacterBody2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var collision_box = $"../CollisionBox"
 
 var died = false
 
@@ -15,3 +16,4 @@ func suicide():
 		died = true
 		animated_sprite_2d.play("death")
 		$Hitbox.queue_free()
+		collision_box.queue_free()

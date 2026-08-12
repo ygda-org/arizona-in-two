@@ -5,6 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://bhp7vk3rkbkoq" path="res://assets/decor/Pink Flower Bulb Cactus.png" id="3_o455b"]
 [ext_resource type="PackedScene" uid="uid://c7fw2aq587t44" path="res://enemies/damage_component.tscn" id="4_1mxyb"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i45bf"]
+radius = 11.0
+height = 22.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_1wm42"]
 atlas = ExtResource("2_oxpjh")
 region = Rect2(0, 0, 16, 16)
@@ -49,20 +53,32 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i45bf"]
-radius = 7.0
-height = 18.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x388h"]
+radius = 5.0
+height = 12.0
 
-[node name="DestroyableItem" type="CharacterBody2D" unique_id=990065551]
+[node name="Node2D" type="Node2D" unique_id=421018]
+position = Vector2(0, 8)
+
+[node name="DestroyableItem" type="CharacterBody2D" parent="." unique_id=990065551]
+collision_layer = 64
+collision_mask = 64
 script = ExtResource("1_o455b")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1865840014]
+[node name="Hitbox" type="CollisionShape2D" parent="DestroyableItem" unique_id=1510223874]
+position = Vector2(0, -10)
+shape = SubResource("CapsuleShape2D_i45bf")
+
+[node name="DamageComponent" parent="DestroyableItem" unique_id=1495931984 instance=ExtResource("4_1mxyb")]
+health = 75.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DestroyableItem" unique_id=1865840014]
 position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_jwd6l")
 
-[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1510223874]
-position = Vector2(0, -9)
-shape = SubResource("CapsuleShape2D_i45bf")
+[node name="CollisionBox" type="CharacterBody2D" parent="." unique_id=280993222]
+collision_mask = 0
 
-[node name="DamageComponent" parent="." unique_id=1495931984 instance=ExtResource("4_1mxyb")]
-health = 75.0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionBox" unique_id=1597425089]
+position = Vector2(0, -6)
+shape = SubResource("CapsuleShape2D_x388h")
