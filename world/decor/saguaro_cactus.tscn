@@ -93,7 +93,7 @@ position = Vector2(0, -25)
 sprite_frames = SubResource("SpriteFrames_jwd6l")
 
 [node name="Shadow" type="AnimatedSprite2D" parent="DestroyableItem" unique_id=2131248157]
-position = Vector2(12, 16)
+position = Vector2(12, 16.5)
 sprite_frames = SubResource("SpriteFrames_6pfd4")
 
 [node name="CollisionBox" type="CharacterBody2D" parent="." unique_id=1467664800]

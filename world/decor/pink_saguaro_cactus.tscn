@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d2mcuoba1nymm" path="res://assets/temporary-tiles/cactus2_die.png" id="2_7t7vx"]
 [ext_resource type="PackedScene" uid="uid://c7fw2aq587t44" path="res://enemies/damage_component.tscn" id="3_7t7vx"]
 [ext_resource type="Texture2D" uid="uid://ydfyr6ncn4w3" path="res://assets/decor/Pink Flower Saguaro Cactus.png" id="3_d0x1l"]
+[ext_resource type="Texture2D" uid="uid://buaa33edljtvy" path="res://assets/decor/saguaro_shadow.png" id="5_xcdgg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d0x1l"]
 radius = 9.0
@@ -75,6 +76,10 @@ health = 75.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DestroyableItem" unique_id=1865840014]
 position = Vector2(0, -17.5)
 sprite_frames = SubResource("SpriteFrames_jwd6l")
+
+[node name="Sprite2D" type="Sprite2D" parent="DestroyableItem" unique_id=1729932582]
+position = Vector2(14, 14)
+texture = ExtResource("5_xcdgg")
 
 [node name="CollisionBox" type="CharacterBody2D" parent="." unique_id=1127774373]
 collision_mask = 0
