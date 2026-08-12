@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name Player
 
+@export var animated_sprite_2d : AnimatedSprite2D
+
 @export var shot_speed_multiplier = 1
 
 @export var speedMulti = 1.0
@@ -33,6 +35,9 @@ var on_magma : bool = false
 
 func _ready():
 	GameState.player = self
+	
+	animated_sprite_2d = $AnimatedSprite2D
+	
 	GameState.bullet_time = false
 
 func _physics_process(delta: float) -> void:
