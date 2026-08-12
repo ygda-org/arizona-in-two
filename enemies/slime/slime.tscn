@@ -38,6 +38,7 @@ radius = 75.0
 radius = 125.0
 
 [node name="Slime" type="CharacterBody2D" unique_id=113900471]
+platform_floor_layers = 4294967278
 script = ExtResource("1_sv735")
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1188971178]
