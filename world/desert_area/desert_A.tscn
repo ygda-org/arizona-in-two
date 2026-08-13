@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://chyscyessavhl" path="res://assets/tilesets/grass_area/grass_decor.png" id="6_p8ejn"]
 [ext_resource type="TileSet" uid="uid://kdjb34j8n6i1" path="res://assets/tilesets/CameraBounding.tres" id="8_1y4f1"]
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="8_4f6ip"]
-[ext_resource type="PackedScene" uid="uid://c4kv058u3oyf5" path="res://enemies/tumbleweed_depricated/tumbleweed_enemy.tscn" id="9_b3xd2"]
 [ext_resource type="PackedScene" uid="uid://cvrmisvpyoqcv" path="res://world/decor/yellow_short_cactus.tscn" id="9_lbcur"]
 [ext_resource type="PackedScene" uid="uid://28rbkwo17tdr" path="res://world/decor/pink_saguaro_cactus.tscn" id="9_p8ejn"]
 [ext_resource type="PackedScene" uid="uid://cebyisuj2w2wj" path="res://world/decor/pink_bulb_cactus.tscn" id="9_sp5ms"]
@@ -279,12 +278,6 @@ position = Vector2(133, 99)
 
 [node name="Slime3" parent="Enemies" unique_id=1265399135 instance=ExtResource("17_4f6ip")]
 position = Vector2(-60, 332)
-
-[node name="Tumbleweed Enemy" parent="Enemies" unique_id=1242878640 instance=ExtResource("9_b3xd2")]
-position = Vector2(-146, 78)
-
-[node name="Tumbleweed Enemy2" parent="Enemies" unique_id=1442943878 instance=ExtResource("9_b3xd2")]
-position = Vector2(483, 39)
 
 [node name="PersistantMusicComponent" parent="." unique_id=554467455 instance=ExtResource("11_ymvjg")]
 music = 1

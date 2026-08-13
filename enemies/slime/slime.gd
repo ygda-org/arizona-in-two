@@ -14,6 +14,8 @@ var state : String = "idle"
 
 var player_in_range : bool = false
 
+var can_attack : bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$IdleTimer.wait_time = randf_range(4.0,7.0)
@@ -40,6 +42,8 @@ func _physics_process(delta: float) -> void:
 			velocity = velocity.lerp(target_velocity, ACCEL * delta)
 			if velocity.length_squared() < 0.01 and $DashTimer.is_stopped():
 				modulate = Color(1.0,1.0,1.0)
+				can_attack = true
+				$AttackTimer.start()
 				state = "idle"
 				$IdleTimer.start()
 	
@@ -47,10 +51,13 @@ func _physics_process(delta: float) -> void:
 	particles.emitting = velocity.length_squared() > 0
 	move_and_slide()
 	
-	if player_in_range:
-		if $AttackTimer.time_left == 0:
-			GameState.damage_player(10)
-			$AttackTimer.start()
+	if player_in_range and $AttackTimer.time_left != 0.0 and can_attack:
+		can_attack = false
+		GameState.damage_player(10)
+	
+	if player_in_range and state == "dash" and $MinDelayAttackTimer.time_left == 0.0 and velocity != Vector2(0,0):
+		$MinDelayAttackTimer.start()
+		GameState.damage_player(10)
 
 func _on_idle_timer_timeout() -> void:
 	if target_velocity == Vector2.ZERO:

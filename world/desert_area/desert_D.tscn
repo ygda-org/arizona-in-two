@@ -13,11 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://dcrg1lgshthv0" path="res://assets/tilesets/ice_area/ice_terrain.png" id="7_jkucu"]
 [ext_resource type="Texture2D" uid="uid://bbruf7qlq0adb" path="res://assets/tilesets/ice_area/ice_decor.png" id="8_gxgex"]
 [ext_resource type="PackedScene" uid="uid://b883ik2jdt2jl" path="res://enemies/dashing_slime/dashing_slime_enemy.tscn" id="8_w031j"]
-[ext_resource type="PackedScene" uid="uid://c4kv058u3oyf5" path="res://enemies/tumbleweed_depricated/tumbleweed_enemy.tscn" id="9_d5hvg"]
 [ext_resource type="TileSet" uid="uid://beguowxpoc1hi" path="res://assets/tilesets/MainTiles.tres" id="9_yerux"]
 [ext_resource type="TileSet" uid="uid://kdjb34j8n6i1" path="res://assets/tilesets/CameraBounding.tres" id="10_1lflj"]
-[ext_resource type="PackedScene" uid="uid://cvrmisvpyoqcv" path="res://world/decor/cactus1.tscn" id="10_inhj0"]
-[ext_resource type="PackedScene" uid="uid://28rbkwo17tdr" path="res://world/decor/cactus2.tscn" id="11_x2klr"]
+[ext_resource type="PackedScene" uid="uid://cvrmisvpyoqcv" path="res://world/decor/yellow_short_cactus.tscn" id="10_inhj0"]
+[ext_resource type="PackedScene" uid="uid://28rbkwo17tdr" path="res://world/decor/pink_saguaro_cactus.tscn" id="11_x2klr"]
 [ext_resource type="PackedScene" uid="uid://csyqleioe2hjd" path="res://globals/audio/persistant_music_component.tscn" id="15_qnkw2"]
 [ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="16_yerux"]
 [ext_resource type="PackedScene" uid="uid://bnoh5n8gambhh" path="res://enemies/final_boss/boss.tscn" id="20_x2klr"]
@@ -357,15 +356,6 @@ position = Vector2(215, -299)
 
 [node name="SlimeEnemy3" parent="Enemies" unique_id=276335791 instance=ExtResource("6_aiqcp")]
 position = Vector2(380, -370)
-
-[node name="Tumbleweed Enemy" parent="Enemies" unique_id=1407076588 instance=ExtResource("9_d5hvg")]
-position = Vector2(790, 64)
-
-[node name="Tumbleweed Enemy2" parent="Enemies" unique_id=1814081839 instance=ExtResource("9_d5hvg")]
-position = Vector2(-264, 74)
-
-[node name="Tumbleweed Enemy3" parent="Enemies" unique_id=340104888 instance=ExtResource("9_d5hvg")]
-position = Vector2(-217, -168)
 
 [node name="SlimeEnemy4" parent="Enemies" unique_id=28628146 instance=ExtResource("6_aiqcp")]
 position = Vector2(817, -156)

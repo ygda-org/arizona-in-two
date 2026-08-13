@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://nl8234om3bpc" path="res://assets/tilesets/desert_area/Sand_terrain.png" id="5_slyl0"]
 [ext_resource type="Texture2D" uid="uid://cs6fp0sjky41q" path="res://assets/tilesets/grass_area/grass_terrain.png" id="6_q4so1"]
 [ext_resource type="Texture2D" uid="uid://chyscyessavhl" path="res://assets/tilesets/grass_area/grass_decor.png" id="7_qus3i"]
-[ext_resource type="PackedScene" uid="uid://c4kv058u3oyf5" path="res://enemies/tumbleweed_depricated/tumbleweed_enemy.tscn" id="7_va8d0"]
 [ext_resource type="TileSet" uid="uid://kdjb34j8n6i1" path="res://assets/tilesets/CameraBounding.tres" id="9_3tbr8"]
 [ext_resource type="TileSet" uid="uid://beguowxpoc1hi" path="res://assets/tilesets/MainTiles.tres" id="9_l6xbm"]
 [ext_resource type="PackedScene" uid="uid://cvrmisvpyoqcv" path="res://world/decor/yellow_short_cactus.tscn" id="9_tyo1m"]
@@ -327,12 +326,6 @@ position = Vector2(316, 304)
 [node name="Bullets" type="Node" parent="." unique_id=2112137914]
 
 [node name="Enemies" type="Node" parent="." unique_id=1557669727]
-
-[node name="Tumbleweed Enemy" parent="Enemies" unique_id=587647401 instance=ExtResource("7_va8d0")]
-position = Vector2(-92, 199)
-
-[node name="Tumbleweed Enemy2" parent="Enemies" unique_id=2075535658 instance=ExtResource("7_va8d0")]
-position = Vector2(18, -125)
 
 [node name="Slime" parent="Enemies" unique_id=113900471 instance=ExtResource("17_qfxr5")]
 position = Vector2(196, 20)
