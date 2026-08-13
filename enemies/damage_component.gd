@@ -27,15 +27,15 @@ func accept_bullet_(bullet: Bullet):
 		pass # knockback
 	take_damage(damage_from_bullet)
 
-func take_damage(damage_from_player: float):
+func take_damage(damage: float):
 	if "Player" in parent.name:
-		GameState.player_health -= damage_from_player
+		GameState.player_health -= damage
 		parent.damaged_sequence()
 		if GameState.player_health <= 0:
 			parent.suicide()
 		return
 		
-	health -= damage_from_player #take damage
+	health -= damage #take damage
 	if(health <= 0):
 		parent.suicide()
 	parent.damaged_sequence()

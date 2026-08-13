@@ -12,6 +12,8 @@ var state : String = "idle"
 
 @onready var particles = $CPUParticles2D
 
+var player_in_range : bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$IdleTimer.wait_time = randf_range(4.0,7.0)
@@ -44,6 +46,11 @@ func _physics_process(delta: float) -> void:
 	# Particles only show up when moving
 	particles.emitting = velocity.length_squared() > 0
 	move_and_slide()
+	
+	if player_in_range:
+		if $AttackTimer.time_left == 0:
+			GameState.damage_player(10)
+			$AttackTimer.start()
 
 func _on_idle_timer_timeout() -> void:
 	if target_velocity == Vector2.ZERO:
@@ -123,3 +130,13 @@ func _on_dash_timer_timeout() -> void:
 		target_velocity.y = sign(target_velocity.y) * DASH_STRENGTH
 	velocity = target_velocity
 	target_velocity = Vector2.ZERO
+
+
+func _on_damage_area_body_entered(body):
+	if body.is_in_group("player"):
+		player_in_range = true
+
+
+func _on_damage_area_body_exited(body):
+	if body.is_in_group("player"):
+		player_in_range = false
