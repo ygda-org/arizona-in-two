@@ -20,11 +20,13 @@ func _on_start_pressed() -> void:
 	$ArizonaTextAnimationPlayer.play("return_to_shoot")
 	await get_tree().create_timer(0.25).timeout
 	SFX.play(SFX.Id.GUNSHOT)
+	SFX.play(SFX.Id.GUNSHOT_QUICK)
 	$Bullet.visible = true
 	$ShootAnimationPlayer.play("shoot")
 	$Explosion.visible = true
 	$Explosion.play("default")
 	await get_tree().create_timer(0.047).timeout
+	SFX.play(SFX.Id.WOOD_BREAK)
 	$WoodBreakingParticles.emitting = true
 	$Explosion.visible = false
 	$"2TextPivot/2Text".visible = false

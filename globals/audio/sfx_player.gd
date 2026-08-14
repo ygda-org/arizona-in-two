@@ -37,6 +37,8 @@ enum Id {
 	THICK_RELOAD, ## The sound of the player reloading their gun. "Thick," whatever that means
 	THIN_RELOAD, ## The sound of the player reloading their gun. "Thin," whatever that means
 	BUTTON_CLICK, ## A button being clicked on
+	WOOD_BREAK, ## The sound of the "2" sign breaking in the title screen
+	GUNSHOT_QUICK, ## The GUNSHOT, but quicker
 }
 
 ## [code]TRUE[/code]: Print debug messages [br]

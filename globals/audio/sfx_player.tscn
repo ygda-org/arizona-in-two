@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://bpuy6t3l573ku" path="res://assets/audio/sfx/flame.mp3" id="9_gw3hu"]
 [ext_resource type="AudioStream" uid="uid://hvjnckmltn55" path="res://assets/audio/sfx/freeze.mp3" id="10_o2y6d"]
 [ext_resource type="AudioStream" uid="uid://b05h0b0ddsl77" path="res://assets/audio/sfx/grass_step.mp3" id="11_yfqdi"]
+[ext_resource type="AudioStream" uid="uid://bm8eirkvy3co4" path="res://assets/audio/sfx/gunshot_quick.wav" id="12_4a5pt"]
 [ext_resource type="AudioStream" uid="uid://df7yjug8i2tdt" path="res://assets/audio/sfx/gunshot.wav" id="12_y0yxb"]
 [ext_resource type="AudioStream" uid="uid://b5etqinmy2q33" path="res://assets/audio/sfx/hit_sound.mp3" id="13_xpcgx"]
 [ext_resource type="AudioStream" uid="uid://crapdfjodrnmx" path="res://assets/audio/sfx/magma_step.mp3" id="14_ol38a"]
@@ -21,11 +22,14 @@
 [ext_resource type="AudioStream" uid="uid://dtrfncm12ild" path="res://assets/audio/sfx/thick_reload.wav" id="19_vva8u"]
 [ext_resource type="AudioStream" uid="uid://cy2p0naxwdor6" path="res://assets/audio/sfx/thin_reload.wav" id="20_c7squ"]
 [ext_resource type="AudioStream" uid="uid://gss24sooc3ef" path="res://assets/audio/sfx/button_click.mp3" id="21_wqlko"]
+[ext_resource type="AudioStream" uid="uid://cpv2titnbdrie" path="res://assets/audio/sfx/wood_crash.wav" id="22_4a5pt"]
 
-[sub_resource type="Resource" id="Resource_64ml4"]
+[sub_resource type="Resource" id="Resource_wqlko"]
 script = ExtResource("2_2bsey")
 bus = "SFX"
 stream = ExtResource("3_wqlko")
+volume_variance = 1.5
+pitch_variance = 0.1
 metadata/_custom_type_script = "uid://tlf86ayg5nux"
 
 [sub_resource type="Resource" id="Resource_f4dxo"]
@@ -140,11 +144,27 @@ bus = "SFX"
 stream = ExtResource("21_wqlko")
 metadata/_custom_type_script = "uid://tlf86ayg5nux"
 
+[sub_resource type="Resource" id="Resource_tw0h2"]
+script = ExtResource("2_2bsey")
+bus = "SFX"
+stream = ExtResource("22_4a5pt")
+volume_variance = 1.5
+pitch_variance = 0.1
+metadata/_custom_type_script = "uid://tlf86ayg5nux"
+
+[sub_resource type="Resource" id="Resource_5k3b2"]
+script = ExtResource("2_2bsey")
+bus = "SFX"
+stream = ExtResource("12_4a5pt")
+volume_variance = 1.5
+pitch_variance = 0.1
+metadata/_custom_type_script = "uid://tlf86ayg5nux"
+
 [node name="SfxPlayer" type="Node" unique_id=324261651]
 process_mode = 3
 script = ExtResource("1_dtfen")
 id_to_setting = Dictionary[int, ExtResource("2_2bsey")]({
-0: SubResource("Resource_64ml4"),
+0: SubResource("Resource_wqlko"),
 1: SubResource("Resource_f4dxo"),
 2: SubResource("Resource_8f646"),
 3: SubResource("Resource_itlmw"),
@@ -162,5 +182,7 @@ id_to_setting = Dictionary[int, ExtResource("2_2bsey")]({
 15: SubResource("Resource_lhcgj"),
 16: SubResource("Resource_yqsia"),
 17: SubResource("Resource_dadm8"),
-18: SubResource("Resource_mmtk7")
+18: SubResource("Resource_mmtk7"),
+19: SubResource("Resource_tw0h2"),
+20: SubResource("Resource_5k3b2")
 })
