@@ -98,12 +98,8 @@ one_shot = true
 [node name="DashTimer" type="Timer" parent="." unique_id=717472758]
 one_shot = true
 
-[node name="AttackTimer" type="Timer" parent="." unique_id=1768464472]
-one_shot = true
-ignore_time_scale = true
-
 [node name="MinDelayAttackTimer" type="Timer" parent="." unique_id=42129705]
-wait_time = 0.5
+wait_time = 1.5
 one_shot = true
 ignore_time_scale = true
 
