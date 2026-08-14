@@ -94,7 +94,12 @@ func _on_birds_1_timer_timeout():
 	$Birds1AnimationPlayer.play("birds_1")
 
 func _on_birds_2_timer_timeout():
-	$Birds1Timer.wait_time = randf_range(10,30)
+	$Birds2Timer.wait_time = randf_range(30,40)
+	$Birds2Timer.start()
 	$Birds2AnimationPlayer.play("birds_2")
 
+func _on_birds_3_timer_timeout():
+	$Birds3Timer.wait_time = randf_range(20,40)
+	$Birds3Timer.start()
+	$Birds3AnimationPlayer.play("birds_3")
 #endregion
