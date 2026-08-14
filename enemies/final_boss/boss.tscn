@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bc2yst6fi7hj1" path="res://assets/final_boss/miniboss_run_up.png" id="13_qjocp"]
 [ext_resource type="Script" uid="uid://dpy7r5bv0b76i" path="res://enemies/final_boss/repositioning.gd" id="15_dusnj"]
 [ext_resource type="Script" uid="uid://c7f1uydu0b1ls" path="res://enemies/final_boss/spread_shot.gd" id="16_qjocp"]
+[ext_resource type="Script" uid="uid://dua0tkrujxxcl" path="res://enemies/final_boss/trail_shot.gd" id="17_6y1th"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xu4f0"]
 atlas = ExtResource("1_f8dde")
@@ -429,14 +430,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_mc8pv")
-}],
-"loop": 0,
-"name": &"back",
-"speed": 0.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_chvmf")
 }, {
 "duration": 1.0,
@@ -505,7 +498,7 @@ animations = [{
 "texture": ExtResource("7_1silq")
 }],
 "loop": 0,
-"name": &"front",
+"name": &"down",
 "speed": 0.0
 }, {
 "frames": [{
@@ -627,6 +620,14 @@ animations = [{
 "loop": 1,
 "name": &"run_up",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mc8pv")
+}],
+"loop": 0,
+"name": &"up",
+"speed": 0.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nlyx1"]
@@ -637,7 +638,7 @@ script = ExtResource("1_31cql")
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=674278309]
 sprite_frames = SubResource("SpriteFrames_5kg8m")
-animation = &"attack_right"
+animation = &"up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=924015887]
 visible = false
@@ -658,4 +659,33 @@ script = ExtResource("16_qjocp")
 bullet_speed = 150.0
 
 [node name="Bullets" type="Node2D" parent="States/SpreadShot" unique_id=229049656]
+top_level = true
+
+[node name="States2" type="Node2D" parent="." unique_id=1497081670]
+
+[node name="Repositioning" type="Node2D" parent="States2" unique_id=567011270]
+script = ExtResource("15_dusnj")
+travel_distance = 150.0
+
+[node name="WallCheck" type="RayCast2D" parent="States2/Repositioning" unique_id=479113488]
+target_position = Vector2(0, 150)
+
+[node name="SpreadShot" type="Node2D" parent="States2" unique_id=331703116]
+script = ExtResource("16_qjocp")
+bullet_speed = 150.0
+
+[node name="Bullets" type="Node2D" parent="States2/SpreadShot" unique_id=2050936424]
+top_level = true
+
+[node name="Repositioning2" type="Node2D" parent="States2" unique_id=1897584174]
+script = ExtResource("15_dusnj")
+travel_distance = 150.0
+
+[node name="WallCheck" type="RayCast2D" parent="States2/Repositioning2" unique_id=1200720742]
+target_position = Vector2(0, 150)
+
+[node name="TrailShot" type="Node2D" parent="States2" unique_id=150108068]
+script = ExtResource("17_6y1th")
+
+[node name="Bullets" type="Node2D" parent="States2/TrailShot" unique_id=1134389621]
 top_level = true
