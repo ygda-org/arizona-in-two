@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cvrmisvpyoqcv"]
 
-[ext_resource type="Script" uid="uid://b2fqeuied0jhp" path="res://world/decor/destroyable_object.gd" id="1_kvyrp"]
+[ext_resource type="Script" uid="uid://b2fqeuied0jhp" path="res://world/decor (deprecated)/destroyable_object.gd" id="1_kvyrp"]
 [ext_resource type="Texture2D" uid="uid://i56i6tp6j76v" path="res://assets/temporary-tiles/cactus1_die.png" id="2_4qofl"]
 [ext_resource type="PackedScene" uid="uid://c7fw2aq587t44" path="res://enemies/damage_component.tscn" id="3_4qofl"]
 [ext_resource type="Texture2D" uid="uid://3amr3vk23oy2" path="res://assets/decor/Yellow Flower Short Cactus.png" id="3_tm5b5"]

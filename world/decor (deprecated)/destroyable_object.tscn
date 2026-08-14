@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b831vo3mm0kjn"]
 
-[ext_resource type="Script" uid="uid://b2fqeuied0jhp" path="res://world/decor/destroyable_object.gd" id="1_g56as"]
+[ext_resource type="Script" uid="uid://b2fqeuied0jhp" path="res://world/decor (deprecated)/destroyable_object.gd" id="1_g56as"]
 [ext_resource type="PackedScene" uid="uid://c7fw2aq587t44" path="res://enemies/damage_component.tscn" id="3_kptd0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r320e"]

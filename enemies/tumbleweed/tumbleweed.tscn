@@ -29,6 +29,7 @@ animations = [{
 size = Vector2(14, 14)
 
 [node name="Tumbleweed" type="CharacterBody2D" unique_id=953680716]
+platform_floor_layers = 0
 script = ExtResource("1_klt0j")
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1875656018]

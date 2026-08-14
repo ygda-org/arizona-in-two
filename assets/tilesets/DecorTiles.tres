@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://chyscyessavhl" path="res://assets/tilesets/grass_area/grass_decor.png" id="3_y7ffg"]
 [ext_resource type="Texture2D" uid="uid://dq3avqf8vlk6r" path="res://assets/temporary-tiles/programmer_art-objects.png" id="4_y7ffg"]
 [ext_resource type="Texture2D" uid="uid://c746h544057v2" path="res://assets/temporary-tiles/rock.png" id="5_ndwly"]
-[ext_resource type="PackedScene" uid="uid://cvrmisvpyoqcv" path="res://world/decor/yellow_short_cactus.tscn" id="6_5eegf"]
-[ext_resource type="PackedScene" uid="uid://28rbkwo17tdr" path="res://world/decor/pink_saguaro_cactus.tscn" id="7_wotkm"]
+[ext_resource type="PackedScene" uid="uid://cvrmisvpyoqcv" path="res://world/decor (deprecated)/yellow_short_cactus.tscn" id="6_5eegf"]
+[ext_resource type="PackedScene" uid="uid://28rbkwo17tdr" path="res://world/decor (deprecated)/pink_saguaro_cactus.tscn" id="7_wotkm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ndwly"]
 texture = ExtResource("1_clk78")

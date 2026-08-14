@@ -13,10 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://c1vqdg3iq4258" path="res://enemies/jumping_slime/jumping_slime_enemy.tscn" id="8_nxr48"]
 [ext_resource type="Texture2D" uid="uid://diprdd8pofiw0" path="res://assets/tilesets/magma_area/magma_decoration.png" id="8_tbuvq"]
 [ext_resource type="PackedScene" uid="uid://b883ik2jdt2jl" path="res://enemies/dashing_slime/dashing_slime_enemy.tscn" id="9_7mpu7"]
-[ext_resource type="PackedScene" uid="uid://cvrmisvpyoqcv" path="res://world/decor/yellow_short_cactus.tscn" id="10_2q6vy"]
+[ext_resource type="PackedScene" uid="uid://cvrmisvpyoqcv" path="res://world/decor (deprecated)/yellow_short_cactus.tscn" id="10_2q6vy"]
 [ext_resource type="TileSet" uid="uid://kdjb34j8n6i1" path="res://assets/tilesets/CameraBounding.tres" id="10_ssmtt"]
 [ext_resource type="TileSet" uid="uid://beguowxpoc1hi" path="res://assets/tilesets/MainTiles.tres" id="10_tbuvq"]
-[ext_resource type="PackedScene" uid="uid://28rbkwo17tdr" path="res://world/decor/pink_saguaro_cactus.tscn" id="11_ylqwr"]
+[ext_resource type="PackedScene" uid="uid://28rbkwo17tdr" path="res://world/decor (deprecated)/pink_saguaro_cactus.tscn" id="11_ylqwr"]
 [ext_resource type="PackedScene" uid="uid://csyqleioe2hjd" path="res://globals/audio/persistant_music_component.tscn" id="15_8xi7t"]
 [ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="16_gs5mx"]
 
