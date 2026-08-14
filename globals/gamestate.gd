@@ -1,7 +1,7 @@
 extends Node
 
 var master_volume = 0.5
-var music_volume = 0.5
+var music_volume = 0.75
 var ambience_volume = 0.5
 var sfx_volume = 0.5
 
@@ -43,6 +43,12 @@ var total_elapsed_time = 0
 
 var loaded_camera_spawns = []
 
+func _ready():
+	change_bus_volume("Master", GameState.master_volume)
+	change_bus_volume("Music", GameState.music_volume)
+	change_bus_volume("SFX", GameState.sfx_volume)
+	change_bus_volume("Ambience", GameState.ambience_volume)
+
 func _process(delta):
 	total_elapsed_time += delta
 
@@ -74,3 +80,17 @@ func player_selected_bullet_cycle(num: int):
 	player_selected_bullet = posmod(player_selected_bullet+num, player_max_bullet_strength+1)
 	if player_selected_bullet == 1:
 		player_selected_bullet = posmod(player_selected_bullet+num, player_max_bullet_strength+1)
+		
+func change_bus_volume(bus, linear_value):
+	if bus == "Master":
+		GameState.master_volume = linear_value
+	if bus == "Music":
+		GameState.music_volume = linear_value
+	if bus == "SFX":
+		GameState.sfx_volume = linear_value
+	if bus == "Ambience":
+		GameState.ambience_volume = linear_value
+	
+	var db_value = linear_to_db(linear_value)
+	var bus_index = AudioServer.get_bus_index(bus)
+	AudioServer.set_bus_volume_db(bus_index, db_value)

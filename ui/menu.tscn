@@ -16,6 +16,41 @@
 [ext_resource type="PackedScene" uid="uid://qrjkf43abikr" path="res://world/desert_area/heat_haze.tscn" id="10_2fd1n"]
 [ext_resource type="Texture2D" uid="uid://by5s6bmite3tu" path="res://assets/title_screen/bullet.png" id="12_oumb1"]
 [ext_resource type="Texture2D" uid="uid://dxp26twl78ty0" path="res://assets/title_screen/explosion.png" id="14_ybgh7"]
+[ext_resource type="Shader" uid="uid://b1xuow6r73j4v" path="res://assets/title_screen/title_dust.gdshader" id="17_akon5"]
+
+[sub_resource type="Gradient" id="Gradient_fhhs2"]
+offsets = PackedFloat32Array(0, 0.112709835, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.023398181, 0.014807642, 0.008642228, 0.009620539, 0.88700384, 0.56134427, 0.32761905, 0.3647059)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4aosy"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x388h"]
+width = 960
+height = 540
+noise = SubResource("FastNoiseLite_4aosy")
+color_ramp = SubResource("Gradient_fhhs2")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jwd6l"]
+shader = ExtResource("17_akon5")
+shader_parameter/noise = SubResource("NoiseTexture2D_x388h")
+
+[sub_resource type="Gradient" id="Gradient_lf6dv"]
+offsets = PackedFloat32Array(0, 0.25659472, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.02132882, 0.015799126, 0.008887008, 0.010368176, 0.84705883, 0.627451, 0.3529412, 0.4117647)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_c5cit"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_akon5"]
+width = 960
+height = 540
+noise = SubResource("FastNoiseLite_c5cit")
+color_ramp = SubResource("Gradient_lf6dv")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c5cit"]
+shader = ExtResource("17_akon5")
+shader_parameter/noise = SubResource("NoiseTexture2D_akon5")
 
 [sub_resource type="Animation" id="Animation_ybgh7"]
 resource_name = "fade_out"
@@ -375,13 +410,28 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_chbq3")
 
-[node name="HeatHaze" parent="." unique_id=1368225760 instance=ExtResource("10_2fd1n")]
-z_index = -1
+[node name="Dust" type="ColorRect" parent="." unique_id=528907208]
+material = SubResource("ShaderMaterial_jwd6l")
 layout_mode = 0
-offset_left = -3518.0
-offset_top = -3254.0
-offset_right = -1084.0
-offset_bottom = 2835.0
+offset_top = 2.0
+offset_right = 1919.0
+offset_bottom = 1081.0
+color = Color(1, 0.16862746, 0.08627451, 1)
+
+[node name="DustFront" type="ColorRect" parent="." unique_id=236533789]
+z_index = 4
+z_as_relative = false
+texture_repeat = 2
+material = SubResource("ShaderMaterial_c5cit")
+layout_mode = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1920.0
+offset_bottom = 1078.0
+color = Color(1, 0.16862746, 0.08627451, 1)
+
+[node name="HeatHaze" parent="." unique_id=1368225760 instance=ExtResource("10_2fd1n")]
+layout_mode = 0
 
 [node name="Fade" type="ColorRect" parent="." unique_id=2131059613]
 z_index = 4
@@ -565,9 +615,10 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = 271.0
 offset_top = 716.0
-offset_right = 670.0
-offset_bottom = 803.0
+offset_right = 671.0
+offset_bottom = 796.0
 grow_horizontal = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("3_4c782")
 theme_override_font_sizes/font_size = 48
 text = "Play"
@@ -580,9 +631,10 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = 271.0
 offset_top = 816.0
-offset_right = 670.0
-offset_bottom = 903.0
+offset_right = 671.0
+offset_bottom = 896.0
 grow_horizontal = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("3_4c782")
 theme_override_font_sizes/font_size = 48
 text = "Settings"
@@ -595,9 +647,10 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = 271.0
 offset_top = 916.0
-offset_right = 670.0
-offset_bottom = 1003.0
+offset_right = 671.0
+offset_bottom = 996.0
 grow_horizontal = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("3_4c782")
 theme_override_font_sizes/font_size = 48
 text = "Quit"
@@ -647,8 +700,11 @@ frame_progress = 1.0
 [connection signal="timeout" from="Birds1Timer" to="." method="_on_birds_1_timer_timeout"]
 [connection signal="timeout" from="Birds2Timer" to="." method="_on_birds_2_timer_timeout"]
 [connection signal="mouse_entered" from="Start" to="." method="_on_start_mouse_entered"]
+[connection signal="mouse_exited" from="Start" to="." method="_on_start_mouse_exited"]
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="mouse_entered" from="Settings" to="." method="_on_settings_mouse_entered"]
+[connection signal="mouse_exited" from="Settings" to="." method="_on_settings_mouse_exited"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
 [connection signal="mouse_entered" from="Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="Quit" to="." method="_on_quit_mouse_exited"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
