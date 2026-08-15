@@ -3,12 +3,58 @@
 [ext_resource type="Script" uid="uid://bsprq1ni0j5b5" path="res://enemies/tumbleweed/tumbleweed.gd" id="1_klt0j"]
 [ext_resource type="PackedScene" uid="uid://c8518ga76vmyi" path="res://enemies/enemy_component.tscn" id="2_tlg85"]
 [ext_resource type="Shader" uid="uid://dx1icrv8b1ma" path="res://enemies/effect.gdshader" id="2_v6xly"]
+[ext_resource type="Texture2D" uid="uid://b1wj7oailsxuy" path="res://assets/tumbleweed/Tumbles_Red.png" id="3_33qiy"]
 [ext_resource type="Texture2D" uid="uid://b1n6fhv2uaidy" path="res://assets/tumbleweed/Tumbles.png" id="3_d6hyn"]
+[ext_resource type="Texture2D" uid="uid://ewl6a0oa82p3" path="res://assets/tumbleweed/tumbles_die-Sheet.png" id="4_hij00"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_55d6i"]
 shader = ExtResource("2_v6xly")
 shader_parameter/enabled = false
 shader_parameter/color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hij00"]
+atlas = ExtResource("3_33qiy")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8vr3"]
+atlas = ExtResource("4_hij00")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lc7j6"]
+atlas = ExtResource("4_hij00")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1ei1"]
+atlas = ExtResource("4_hij00")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpmro"]
+atlas = ExtResource("4_hij00")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi1xx"]
+atlas = ExtResource("4_hij00")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxxwb"]
+atlas = ExtResource("4_hij00")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hi504"]
+atlas = ExtResource("4_hij00")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rffym"]
+atlas = ExtResource("4_hij00")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07o2t"]
+atlas = ExtResource("4_hij00")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpblp"]
+atlas = ExtResource("4_hij00")
+region = Rect2(144, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_33qiy"]
 atlas = ExtResource("3_d6hyn")
@@ -16,6 +62,49 @@ region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_55d6i"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hij00")
+}],
+"loop": 1,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8vr3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lc7j6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1ei1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpmro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi1xx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxxwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hi504")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rffym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07o2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpblp")
+}],
+"loop": 0,
+"name": &"death",
+"speed": 8.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_33qiy")
@@ -28,6 +117,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5fofi"]
 size = Vector2(14, 14)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_d6hyn"]
+radius = 11.0
+
 [node name="Tumbleweed" type="CharacterBody2D" unique_id=953680716]
 platform_floor_layers = 0
 script = ExtResource("1_klt0j")
@@ -35,6 +127,8 @@ script = ExtResource("1_klt0j")
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1875656018]
 material = SubResource("ShaderMaterial_55d6i")
 sprite_frames = SubResource("SpriteFrames_55d6i")
+animation = &"death"
+autoplay = "default"
 
 [node name="HitBox" type="CollisionShape2D" parent="." unique_id=628819797]
 shape = SubResource("RectangleShape2D_5fofi")
@@ -43,3 +137,22 @@ shape = SubResource("RectangleShape2D_5fofi")
 
 [node name="IdleTimer" type="Timer" parent="." unique_id=837921707]
 one_shot = true
+
+[node name="SeedTimer" type="Timer" parent="." unique_id=132489239]
+wait_time = 7.0
+autostart = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1229668674]
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=2035953679]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=437163594]
+shape = SubResource("CircleShape2D_d6hyn")
+debug_color = Color(0.88235295, 0.5294118, 0.37254903, 0.41960785)
+
+[connection signal="damaged" from="EnemyComponent" to="." method="_on_enemy_component_damaged"]
+[connection signal="dead" from="EnemyComponent" to="." method="_on_enemy_component_dead"]
+[connection signal="timeout" from="SeedTimer" to="." method="_on_seed_timer_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]

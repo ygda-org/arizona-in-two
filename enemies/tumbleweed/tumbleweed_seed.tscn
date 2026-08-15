@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://be1q1g5ea2ltp"]
+
+[ext_resource type="Script" uid="uid://baveb880jssec" path="res://enemies/tumbleweed/tumbleweed_seed.gd" id="1_j1yni"]
+[ext_resource type="Texture2D" uid="uid://bg0udcbvhic8t" path="res://assets/tumbleweed/Tumbles_Green.png" id="2_ruivi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jwd6l"]
+
+[node name="TumbleweedBullet" type="CharacterBody2D" unique_id=1246033488]
+collision_layer = 3
+platform_floor_layers = 0
+script = ExtResource("1_j1yni")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=476634210]
+texture = ExtResource("2_ruivi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=770799040]
+shape = SubResource("CircleShape2D_jwd6l")
+
+[node name="GrowthTimer" type="Timer" parent="." unique_id=1191331462]
+one_shot = true
+
+[connection signal="timeout" from="GrowthTimer" to="." method="_on_growth_timer_timeout"]

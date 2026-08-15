@@ -11,6 +11,7 @@ func _ready() -> void:
 	$"2TextPivot/2TextRight".visible = false
 	
 func _on_start_pressed() -> void:
+	$Start.disabled = true
 	var tween : Tween = $Start.create_tween()
 	tween.tween_property($Start, "scale", Vector2(1 - button_grow_amount,1 - button_grow_amount), 0.025)
 	tween.tween_interval(0.1)

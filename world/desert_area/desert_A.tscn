@@ -215,6 +215,7 @@ texture = ExtResource("13_sp5ms")
 0:0/size_in_atlas = Vector2i(4, 7)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(-8, 0)
+0:0/0/y_sort_origin = 8
 4:0/size_in_atlas = Vector2i(4, 5)
 4:0/0 = 0
 4:0/0/texture_origin = Vector2i(-8, 0)
@@ -266,6 +267,8 @@ tile_map_data = PackedByteArray("AAD2/wEAAwACAAUAAAD2/wIAAwACAAYAAAD3/wEAAwACAAU
 tile_set = ExtResource("2_ngcoc")
 
 [node name="Decor" type="TileMapLayer" parent="." unique_id=604627265]
+z_index = 1
+y_sort_enabled = true
 tile_map_data = PackedByteArray("AAD1/wQABAABAAMAAAD3/wMABAACAAMAAAD1/wMABAAAAAMAAAD2/wMABAABAAMAAAAOAAoAAQACAAEAAAAMAAEAAQACAAEAAAACAAUAAQACAAEAAAD4/wYAAQACAAEAAAAXAP//AQACAAEAAAAAAAsAAQABAAEAAAD3/xUAAQABAAEAAAAeAAMAAQABAAEAAAAbAAIAAQABAAEAAAD7/wQAAQABAAEAADD1/wYAAQABAAEAAAD4/wMAAQABAAEAAFAXAAAABAABAAMAAAD5/xEAAQABAAEAAAAYAAwABwAEAAAAAAAKAA8ABwAAAAAAAAD+/wUABwAEAAAAAAAZAAYABwAIAAQAAAD+/w4ABwAIAAAAAAAPAAQABwAAAAAAAAA=")
 tile_set = SubResource("TileSet_vy8nl")
 
@@ -281,6 +284,7 @@ tile_set = ExtResource("8_1y4f1")
 
 [node name="Player" parent="." unique_id=1151601546 instance=ExtResource("8_4f6ip")]
 unique_name_in_owner = true
+y_sort_enabled = true
 position = Vector2(288, 356)
 
 [node name="Bullets" type="Node" parent="." unique_id=507993896]
