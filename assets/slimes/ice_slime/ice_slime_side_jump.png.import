@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3kq4e5vtcpi5"
-path="res://.godot/imported/sand_slime.png-76d4bdd705048d1a46315b09f2bd9056.ctex"
+uid="uid://cwrs2l4ih4n06"
+path="res://.godot/imported/ice_slime_side_jump.png-6e83c5ab58ea64d71bc8f5e3e6c6c4ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/slimes/sand_slime.png"
-dest_files=["res://.godot/imported/sand_slime.png-76d4bdd705048d1a46315b09f2bd9056.ctex"]
+source_file="res://assets/slimes/ice_slime/ice_slime_side_jump.png"
+dest_files=["res://.godot/imported/ice_slime_side_jump.png-6e83c5ab58ea64d71bc8f5e3e6c6c4ab.ctex"]
 
 [params]
 

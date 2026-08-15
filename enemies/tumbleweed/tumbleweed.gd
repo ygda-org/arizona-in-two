@@ -73,15 +73,18 @@ func create_new_seed(direction: Vector2):
 func _on_seed_timer_timeout():
 	if dying:
 		return
-	if on_screen:
-		if counter < MAX_SEEDS:
-			if generation < GENERATION_CHANCES.size() - 1:
-				if randf() < GENERATION_CHANCES[generation]:
-					create_new_seed(Vector2(randf_range(-1,1),randf_range(-1,1)))
-					counter += 1
-				elif counter == 0:
-					create_new_seed(Vector2(randf_range(-1,1),randf_range(-1,1)))
-					counter += 1
+	if not on_screen:
+		return
+	if not counter < MAX_SEEDS:
+		return
+	if not generation < GENERATION_CHANCES.size() - 1:
+		return
+	if randf() < GENERATION_CHANCES[generation]:
+		create_new_seed(Vector2(randf_range(-1,1),randf_range(-1,1)))
+		counter += 1
+	elif counter == 0:
+		create_new_seed(Vector2(randf_range(-1,1),randf_range(-1,1)))
+		counter += 1
 
 
 func _on_visible_on_screen_notifier_2d_screen_entered():

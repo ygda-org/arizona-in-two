@@ -18,8 +18,8 @@ var can_attack : bool = false
 
 @export var damage = 10
 
-## "Normal," "Ice," or "Fire"
-@export var type: String = "Normal"
+## "sand," "ice," or "fire"
+@export var type: String = "fire"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -33,6 +33,7 @@ func _physics_process(delta: float) -> void:
 	match state:
 		"idle":
 			velocity = velocity.lerp(target_velocity, ACCEL * delta)
+			$Anim.play(type + "_idle_front")
 		"chase":
 			target_velocity = GameState.player.global_position - global_position
 			if abs(abs(target_velocity.x) - abs(target_velocity.y)) > 10:
@@ -111,9 +112,8 @@ func _on_chase_area_body_exited(body: Node2D) -> void:
 
 
 func _on_enemy_component_dead() -> void:
-	#Uncomment once there is a death animation
-	#$Anim.play("death")
-	#await $Anim.animation_finished
+	$Anim.play(type + "_death")
+	await $Anim.animation_finished
 	var dead_body = DEAD_ENEMY.instantiate()
 	dead_body.position = position
 	dead_body.type = "slime_dead"
