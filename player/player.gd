@@ -27,6 +27,8 @@ const SHOTGUN_SPREAD = PI/4 # spread per shot
 @onready var camera = $Camera
 @onready var particles = $CPUParticles2D
 
+var ice = false
+
 var on_sand : bool = false
 var on_snow : bool = false
 var on_grass : bool = false
@@ -53,6 +55,11 @@ func _physics_process(delta: float) -> void:
 	movement(delta) # Movement function (Others can be added below)
 	
 	shoot(delta)
+	
+	if ice == true:
+		speedMulti = 0.5
+	elif ice == false:
+		speedMulti = 1
 	
 	move_and_slide()
 
@@ -211,6 +218,20 @@ func suicide():
 func damaged_sequence():
 	pass
 
+func apply_fire():
+	$AnimatedSprite2D.modulate = Color(1.0, 0.306, 0.445, 1.0)
+	for i in 3:
+		GameState.damage_player(5)
+		await get_tree().create_timer(1.0).timeout
+	$AnimatedSprite2D.modulate = Color(1.0,1.0,1.0)
+
+func apply_ice():
+	ice = true
+	$AnimatedSprite2D.modulate = Color(0.227,0.356,1.0)
+	await get_tree().create_timer(2).timeout
+	$AnimatedSprite2D.modulate = Color(1.0,1.0,1.0)
+	ice = false
+
 func _on_i_frame_timer_timeout() -> void:
 	if GameState.player_health == 0:
 		return
@@ -221,6 +242,8 @@ func _on_i_frame_timer_timeout() -> void:
 func _on_bullet_time_dur_timeout() -> void:
 	GameState.bullet_time = false
 	$BulletTimeCD.start()
+
+#region footsteps
 
 func _on_sand_footsteps_body_entered(_body):
 	on_sand = true
@@ -260,3 +283,5 @@ func play_footsteps():
 		SFX.play(SFX.Id.SNOW_FOOTSTEPS)
 	if on_magma:
 		SFX.play(SFX.Id.MAGMA_STEP)
+
+#endregion

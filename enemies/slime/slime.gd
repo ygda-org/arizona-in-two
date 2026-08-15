@@ -18,6 +18,9 @@ var can_attack : bool = false
 
 @export var damage = 10
 
+## "Normal," "Ice," or "Fire"
+@export var type: String = "Normal"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$IdleTimer.wait_time = randf_range(4.0,7.0)
@@ -56,6 +59,10 @@ func _physics_process(delta: float) -> void:
 		can_attack = false
 		$MinDelayAttackTimer.start()
 		GameState.damage_player(damage)
+		if type == "Fire":
+			GameState.player.apply_fire()
+		if type == "Ice":
+			GameState.player.apply_ice()
 
 func _on_idle_timer_timeout() -> void:
 	if target_velocity == Vector2.ZERO:

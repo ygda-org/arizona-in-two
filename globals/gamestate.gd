@@ -75,6 +75,7 @@ func damage_player(amount : int):
 	if player:
 		player.call_deferred("set_iframe_shader", true)
 		player.iFrameTimer.start()
+		
 
 func player_selected_bullet_cycle(num: int):
 	player_selected_bullet = posmod(player_selected_bullet+num, player_max_bullet_strength+1)
