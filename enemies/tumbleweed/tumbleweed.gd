@@ -75,9 +75,13 @@ func _on_seed_timer_timeout():
 		return
 	if on_screen:
 		if counter < MAX_SEEDS:
-			if randf() < GENERATION_CHANCES[generation]:
-				create_new_seed(Vector2(randf_range(-1,1),randf_range(-1,1)))
-				counter += 1
+			if generation < GENERATION_CHANCES.size() - 1:
+				if randf() < GENERATION_CHANCES[generation]:
+					create_new_seed(Vector2(randf_range(-1,1),randf_range(-1,1)))
+					counter += 1
+				elif counter == 0:
+					create_new_seed(Vector2(randf_range(-1,1),randf_range(-1,1)))
+					counter += 1
 
 
 func _on_visible_on_screen_notifier_2d_screen_entered():

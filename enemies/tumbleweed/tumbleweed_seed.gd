@@ -4,7 +4,9 @@ extends CharacterBody2D
 
 @export var direction: Vector2
 
-const SPEED : float = 50.0
+const ACCEL : float = 50.0
+
+const DECEL : float = 200.0
 
 var initial_position
 
@@ -18,9 +20,9 @@ func _ready():
 
 func _physics_process(delta):
 	if initial_position.distance_to(global_position) < 30:
-		velocity += direction * SPEED * delta
+		velocity += direction * ACCEL * delta
 	else:
-		velocity = Vector2(0,0)
+		velocity = velocity.move_toward(Vector2(0,0), 10)
 	
 	move_and_slide()
 
