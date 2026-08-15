@@ -4,13 +4,19 @@ extends Node2D
 
 const BULLET = preload("uid://dk37b1wotxqbv")
 
+const SHOT_DIRECTIONS = [Vector2i(1,0), Vector2i(1,1), 
+Vector2i(0,1), Vector2i(-1,1),
+Vector2i(-1,0), Vector2i(-1,-1),
+Vector2i(0,-1), Vector2i(1,-1)]
+
 func activate():
 	var player = GameState.player
 	var dir = global_position.direction_to(player.global_position)
-	if abs(dir.x) > abs(dir.y):
-		dir = Vector2i(dir.x/abs(dir.x), 0)
-	else:
-		dir = Vector2i(0, dir.y/abs(dir.y))
+	var closest_dir = SHOT_DIRECTIONS[0]
+	for direction in SHOT_DIRECTIONS:
+		if Vector2(direction).normalized().distance_to(dir) < Vector2(closest_dir).normalized().distance_to(dir):
+			closest_dir = direction
+	dir = closest_dir
 	get_parent().get_parent().play_anim_by_dir("", dir)
 	await get_tree().create_timer(0.3).timeout
 	get_parent().get_parent().play_anim_by_dir("attack_", dir)

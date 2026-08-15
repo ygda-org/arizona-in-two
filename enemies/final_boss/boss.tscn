@@ -689,3 +689,5 @@ script = ExtResource("17_6y1th")
 
 [node name="Bullets" type="Node2D" parent="States2/TrailShot" unique_id=1134389621]
 top_level = true
+
+[node name="States3" type="Node2D" parent="." unique_id=1002841587]

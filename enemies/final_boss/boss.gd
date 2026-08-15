@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var current_state = 0
 
-@onready var states = $States2
+@onready var states = $States3
 
 const VEC_TO_DIR = {Vector2i(1,0.0): "right", Vector2i(-1.0, 0.0): "left", Vector2i(0.0, 1.0): "down", Vector2i(0.0, -1.0): "up"}
 
@@ -25,6 +25,9 @@ func next_state():
 	states.get_child(current_state).activate()
 
 func play_anim_by_dir(anim_name, dir):
+	if dir.x and dir.y:
+		$Anim.play(anim_name + VEC_TO_DIR[Vector2i(dir.x, 0)])
+		return
 	$Anim.play(anim_name + VEC_TO_DIR[dir])
 
 func next_phase():

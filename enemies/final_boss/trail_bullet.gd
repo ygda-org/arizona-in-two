@@ -8,8 +8,8 @@ const SPIKE_SIZE = 16.0
 const SPIKE = preload("uid://coip13emt7e8v")
 
 func _ready():
-	create_spike()
-	$Timer.timeout.connect(create_spike)
+	for i in range(30):
+		create_spike()
 
 
 func create_spike():
