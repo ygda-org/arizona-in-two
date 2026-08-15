@@ -7,7 +7,7 @@ extends CharacterBody2D
 const VEC_TO_DIR = {Vector2i(1,0.0): "right", Vector2i(-1.0, 0.0): "left", Vector2i(0.0, 1.0): "down", Vector2i(0.0, -1.0): "up"}
 
 func _ready():
-	states.get_node("Repositioning").activate()
+	states.get_child(0).activate()
 
 func _physics_process(_delta):
 	for node in states.get_children():

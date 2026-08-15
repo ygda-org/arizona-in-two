@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://dpy7r5bv0b76i" path="res://enemies/final_boss/repositioning.gd" id="15_dusnj"]
 [ext_resource type="Script" uid="uid://c7f1uydu0b1ls" path="res://enemies/final_boss/spread_shot.gd" id="16_qjocp"]
 [ext_resource type="Script" uid="uid://dua0tkrujxxcl" path="res://enemies/final_boss/trail_shot.gd" id="17_6y1th"]
+[ext_resource type="Script" uid="uid://dwnpnyj7j5035" path="res://enemies/final_boss/arena_form.gd" id="18_32tma"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xu4f0"]
 atlas = ExtResource("1_f8dde")
@@ -691,3 +692,11 @@ script = ExtResource("17_6y1th")
 top_level = true
 
 [node name="States3" type="Node2D" parent="." unique_id=1002841587]
+
+[node name="ArenaForm" type="Node2D" parent="States3" unique_id=1074060867]
+z_index = 3
+script = ExtResource("18_32tma")
+arena_center = Vector2(300, 200)
+
+[node name="Arena" type="Node2D" parent="States3/ArenaForm" unique_id=1712900028]
+top_level = true
