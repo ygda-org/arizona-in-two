@@ -4,7 +4,3 @@
 
 [node name="TrailBullet" type="Node2D" unique_id=446084881]
 script = ExtResource("1_rmym5")
-
-[node name="Timer" type="Timer" parent="." unique_id=1498597220]
-wait_time = 0.14
-autostart = true
