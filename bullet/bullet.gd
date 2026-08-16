@@ -15,7 +15,7 @@ var bullet_attribute = "Normal"
 #Certain node(s) should be excluded from bullet detection
 @export var excluded_nodes : Array[Node2D]
 
-var speed = 128 #The speed of the bullet
+var speed = 512 #The speed of the bullet
 
 var bounceCount = 0
 var maxBounceCount = 2

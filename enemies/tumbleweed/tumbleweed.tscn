@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ewl6a0oa82p3" path="res://assets/tumbleweed/tumbles_die-Sheet.png" id="4_hij00"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_55d6i"]
+resource_local_to_scene = true
 shader = ExtResource("2_v6xly")
 shader_parameter/enabled = false
 shader_parameter/color = Color(0, 0, 0, 1)
@@ -136,7 +137,7 @@ shape = SubResource("RectangleShape2D_5fofi")
 [node name="EnemyComponent" parent="." unique_id=25077899 instance=ExtResource("2_tlg85")]
 
 [node name="IdleTimer" type="Timer" parent="." unique_id=837921707]
-one_shot = true
+autostart = true
 
 [node name="SeedTimer" type="Timer" parent="." unique_id=132489239]
 wait_time = 7.0
@@ -152,6 +153,7 @@ debug_color = Color(0.88235295, 0.5294118, 0.37254903, 0.41960785)
 
 [connection signal="damaged" from="EnemyComponent" to="." method="_on_enemy_component_damaged"]
 [connection signal="dead" from="EnemyComponent" to="." method="_on_enemy_component_dead"]
+[connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
 [connection signal="timeout" from="SeedTimer" to="." method="_on_seed_timer_timeout"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

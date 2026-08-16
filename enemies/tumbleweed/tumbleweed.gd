@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const ACCEL : float = 20.0
-const IDLE_SPEED : float = 20.0
+const ACCEL : float = 80.0
+const IDLE_SPEED : float = 80.0
 var target_velocity : Vector2 = Vector2.ZERO
 #idle
 var state : String = "idle"
@@ -22,7 +22,7 @@ var TUMBLEWEED_SEED: PackedScene
 
 var on_screen = false
 
-var dying = false
+var dying : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -39,26 +39,25 @@ func _physics_process(delta: float) -> void:
 	match state:
 		"idle":
 			velocity = velocity.lerp(target_velocity, ACCEL * delta)
+	
 	move_and_slide()
 
 func _on_idle_timer_timeout() -> void:
 	if dying: 
 		return
-	if target_velocity == Vector2.ZERO:
-		var rand_num : int = randi_range(0,3)
-		match rand_num:
-			0:
-				target_velocity = Vector2.UP * IDLE_SPEED
-			1:
-				target_velocity = Vector2.DOWN * IDLE_SPEED
-			2:
-				target_velocity = Vector2.LEFT * IDLE_SPEED
-			3:
-				target_velocity = Vector2.RIGHT * IDLE_SPEED
-		$IdleTimer.wait_time = randf_range(0.5,1.5)
-	else:
-		target_velocity = Vector2.ZERO
-		$IdleTimer.wait_time = randf_range(1.25,3.0)
+	target_velocity = Vector2(IDLE_SPEED * randf_range(-1,1),IDLE_SPEED * randf_range(-1,1))
+		#var rand_num : int = randi_range(0,3)
+		#match rand_num:
+			#0:
+				#target_velocity = Vector2.UP * IDLE_SPEED
+			#1:
+				#target_velocity = Vector2.DOWN * IDLE_SPEED
+			#2:
+				#target_velocity = Vector2.LEFT * IDLE_SPEED
+			#3:
+				#target_velocity = Vector2.RIGHT * IDLE_SPEED
+		#$IdleTimer.wait_time = randf_range(0.5,1.5)
+	$IdleTimer.wait_time = randf_range(0.75,1.5)
 	$IdleTimer.start()
 	
 func create_new_seed(direction: Vector2):
@@ -110,10 +109,11 @@ func suicide():
 func _on_enemy_component_dead():
 	suicide()
 
-
 func _on_enemy_component_damaged():
 	if dying:
 		return
 	$Anim.play("angry")
 	await get_tree().create_timer(1.0).timeout
+	if dying:
+		return
 	$Anim.play("default")

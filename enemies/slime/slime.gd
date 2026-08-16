@@ -19,7 +19,9 @@ var can_attack : bool = false
 @export var damage = 10
 
 ## "sand," "ice," or "fire"
-@export var type: String = "fire"
+@export var type: String = "sand"
+
+var dying = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,6 +32,8 @@ const DEAD_ENEMY = preload("uid://dg6vd4w76xk55")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	if dying:
+		return
 	match state:
 		"idle":
 			velocity = velocity.lerp(target_velocity, ACCEL * delta)
@@ -60,12 +64,14 @@ func _physics_process(delta: float) -> void:
 		can_attack = false
 		$MinDelayAttackTimer.start()
 		GameState.damage_player(damage)
-		if type == "Fire":
+		if type == "fire":
 			GameState.player.apply_fire()
-		if type == "Ice":
+		if type == "ice":
 			GameState.player.apply_ice()
 
 func _on_idle_timer_timeout() -> void:
+	if dying: 
+		return
 	if target_velocity == Vector2.ZERO:
 		var rand_num : int = randi_range(0,3)
 		match rand_num:
@@ -84,6 +90,8 @@ func _on_idle_timer_timeout() -> void:
 	$IdleTimer.start()
 
 func _on_target_area_body_entered(body: Node2D) -> void:
+	if dying:
+		return
 	if not body is Player:
 		return
 	if state == "dash":
@@ -101,6 +109,8 @@ func _on_target_area_body_entered(body: Node2D) -> void:
 
 
 func _on_chase_area_body_exited(body: Node2D) -> void:
+	if dying: 
+		return
 	if not body is Player:
 		return
 	if state == "dash":
@@ -112,27 +122,34 @@ func _on_chase_area_body_exited(body: Node2D) -> void:
 
 
 func _on_enemy_component_dead() -> void:
+	if dying:
+		return
+	dying = true
 	$Anim.play(type + "_death")
 	await $Anim.animation_finished
 	var dead_body = DEAD_ENEMY.instantiate()
 	dead_body.position = position
-	dead_body.type = "slime_dead"
+	dead_body.type = type + "_slime_dead"
 	dead_body.set_type()
 	get_parent().add_child(dead_body)
 	queue_free()
 
 
 func _on_dash_area_body_entered(body: Node2D) -> void:
+	if dying:
+		return
 	if not body is Player:
 		return
 	state = "dash"
 	target_velocity = Vector2.ZERO
 	velocity = Vector2.ZERO
-	modulate = Color(1.0,0.0,0.0)
+	modulate = Color(1.0, 0.526, 0.458, 1.0)
 	$DashTimer.start()
 
 
 func _on_dash_timer_timeout() -> void:
+	if dying:
+		return
 	target_velocity = GameState.player.global_position - global_position
 	if abs(target_velocity.x) > abs(target_velocity.y):
 		target_velocity.x = sign(target_velocity.x) * DASH_STRENGTH

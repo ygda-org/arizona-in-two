@@ -34,3 +34,7 @@ func _on_growth_timer_timeout():
 	tumble.name = name + "Tumble"
 	tumble.generation = generation
 	queue_free()
+
+
+func _on_enemy_component_dead():
+	queue_free()
