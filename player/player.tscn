@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://xk1407v4wl7x" path="res://assets/player/left_jack_idle.png" id="10_tqiix"]
 [ext_resource type="Texture2D" uid="uid://cqt1vli8lq1gm" path="res://assets/player/right_jack_idle.png" id="13_e7oew"]
 [ext_resource type="Texture2D" uid="uid://cguesv3kvy608" path="res://assets/particles/walk_particle.png" id="17_tqiix"]
+[ext_resource type="PackedScene" uid="uid://cyyylb4r6n4c" path="res://ui/settings.tscn" id="18_e7oew"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tqiix"]
 radius = 1.0
@@ -437,6 +438,13 @@ collision_mask = 2048
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SnowFootsteps" unique_id=799058838]
 position = Vector2(-0.5, 10)
 shape = SubResource("SegmentShape2D_x388h")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=102788478]
+process_mode = 3
+layer = 5
+
+[node name="Settings" parent="CanvasLayer" unique_id=268189996 instance=ExtResource("18_e7oew")]
+process_mode = 3
 
 [connection signal="timeout" from="ShotgunPowerTimer" to="." method="_on_shotgun_power_timer_timeout"]
 [connection signal="timeout" from="BouncesPowerTimer" to="." method="_on_bounces_power_timer_timeout"]

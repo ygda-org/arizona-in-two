@@ -43,6 +43,8 @@ var total_elapsed_time = 0
 
 var loaded_camera_spawns = []
 
+var from_menu: bool
+
 func _ready():
 	change_bus_volume("Master", GameState.master_volume)
 	change_bus_volume("Music", GameState.music_volume)

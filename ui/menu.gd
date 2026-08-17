@@ -11,6 +11,7 @@ func _ready() -> void:
 	$"2TextPivot/2TextRight".visible = false
 	
 func _on_start_pressed() -> void:
+	GameState.from_menu = false
 	$Start.disabled = true
 	var tween : Tween = $Start.create_tween()
 	tween.tween_property($Start, "scale", Vector2(1 - button_grow_amount,1 - button_grow_amount), 0.025)
@@ -40,7 +41,7 @@ func _on_start_pressed() -> void:
 	# Use change_zone to also fix the camera to the map's bounds
 	SceneSwitcher.switch_scene("res://world/desert_area/desert_A.tscn", "FromGrass")
 	#SceneSwitcher.switch_scene(game)
-#region buttons
+
 func _on_settings_pressed() -> void:
 	var tween : Tween = $Settings.create_tween()
 	tween.tween_property($Settings, "scale", Vector2(1 - button_grow_amount,1 - button_grow_amount), 0.025)
@@ -49,8 +50,8 @@ func _on_settings_pressed() -> void:
 	SFX.play(SFX.Id.BUTTON_CLICK)
 	await get_tree().create_timer(0.25).timeout
 	
-	var setting: String = "uid://cyyylb4r6n4c"
-	SceneSwitcher.switch_scene_no_player(setting)
+	GameState.from_menu = true
+	$SettingsMenu.visible = true
 
 func _on_quit_pressed() -> void:
 	var tween : Tween = $Quit.create_tween()
@@ -61,7 +62,7 @@ func _on_quit_pressed() -> void:
 	await get_tree().create_timer(0.25).timeout
 	
 	get_tree().quit()
-
+#region enter exit buttons
 func _on_start_mouse_entered():
 	var tween : Tween = $Start.create_tween()
 	tween.tween_property($Start, "scale", Vector2(1 + button_grow_amount,1 + button_grow_amount), 0.05)

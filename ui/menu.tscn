@@ -19,6 +19,7 @@
 [ext_resource type="Shader" uid="uid://b1xuow6r73j4v" path="res://assets/title_screen/title_dust.gdshader" id="17_akon5"]
 [ext_resource type="Texture2D" uid="uid://b7qcun7kl6w8g" path="res://assets/title_screen/wind.png" id="17_c5cit"]
 [ext_resource type="Texture2D" uid="uid://bgh7fqt42youe" path="res://assets/title_screen/shrapnel.png" id="19_lf6dv"]
+[ext_resource type="PackedScene" uid="uid://cyyylb4r6n4c" path="res://ui/settings.tscn" id="20_is7kr"]
 
 [sub_resource type="Gradient" id="Gradient_fhhs2"]
 offsets = PackedFloat32Array(0, 0.112709835, 1)
@@ -449,6 +450,7 @@ particles_anim_v_frames = 2
 particles_anim_loop = false
 
 [node name="Menu" type="Control" unique_id=1875752583]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -795,6 +797,10 @@ damping_max = 1000.0
 scale_amount_min = 1.8
 scale_amount_max = 2.2
 anim_offset_max = 1.0
+
+[node name="SettingsMenu" parent="." unique_id=268189996 instance=ExtResource("20_is7kr")]
+z_index = 10
+layout_mode = 1
 
 [connection signal="timeout" from="Birds1Timer" to="." method="_on_birds_1_timer_timeout"]
 [connection signal="timeout" from="Birds2Timer" to="." method="_on_birds_2_timer_timeout"]

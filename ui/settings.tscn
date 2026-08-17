@@ -1,8 +1,15 @@
 [gd_scene format=3 uid="uid://cyyylb4r6n4c"]
 
 [ext_resource type="Script" uid="uid://v8usb3pleuvu" path="res://ui/settings.gd" id="1_he5ap"]
+[ext_resource type="Theme" uid="uid://bxmpqit5ywl2s" path="res://settings_theme.tres" id="2_045ga"]
+[ext_resource type="Texture2D" uid="uid://cgucl62qvyr5p" path="res://assets/ui/pause_menu/pause_menu.png" id="3_jxi54"]
+[ext_resource type="Texture2D" uid="uid://bbsohqa51kh45" path="res://assets/ui/pause_menu/nine_slice.png" id="4_q0pcl"]
+[ext_resource type="Texture2D" uid="uid://brfchn3e0rrqh" path="res://assets/ui/pause_menu/resume_normal.png" id="5_bqqix"]
+[ext_resource type="Texture2D" uid="uid://bsv0frpuftgwc" path="res://assets/ui/pause_menu/resume_pressed.png" id="6_b4akq"]
+[ext_resource type="Texture2D" uid="uid://r0bhdxjpf22t" path="res://assets/ui/pause_menu/resume_hovered.png" id="7_uh4u3"]
 
 [node name="Settings" type="Control" unique_id=268189996]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,75 +18,119 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_he5ap")
 
-[node name="Exit" type="Button" parent="." unique_id=1656264372]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -48.5
-offset_top = -60.0
-offset_right = 51.5
-offset_bottom = -29.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Exit"
-
-[node name="Master" type="HSlider" parent="." unique_id=698902497]
+[node name="Old" type="TextureRect" parent="." unique_id=1732115114]
 layout_mode = 0
-offset_left = 780.0
-offset_top = 226.0
-offset_right = 1496.0
-offset_bottom = 296.0
+offset_left = -1209.0
+offset_top = 93.0
+offset_right = -303.57837
+offset_bottom = 993.0
+texture = ExtResource("3_jxi54")
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1287367430]
+layout_mode = 0
+offset_left = 673.0
+offset_top = 348.0
+offset_right = 1118.0
+offset_bottom = 508.0
+scale = Vector2(1.5, 1.5)
+columns = 2
+
+[node name="MasterLabel" type="Label" parent="GridContainer" unique_id=8991219]
+process_mode = 3
+layout_mode = 2
+theme = ExtResource("2_045ga")
+text = "Master"
+
+[node name="Master" type="HSlider" parent="GridContainer" unique_id=698902497]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_045ga")
 max_value = 1.0
-step = 0.05
+step = 0.1
 value = 0.5
+tick_count = 11
+ticks_on_borders = true
 
-[node name="Music" type="HSlider" parent="." unique_id=973182846]
-layout_mode = 0
-offset_left = 784.0
-offset_top = 304.0
-offset_right = 1500.0
-offset_bottom = 374.0
+[node name="MusicLabel" type="Label" parent="GridContainer" unique_id=608725584]
+process_mode = 3
+layout_mode = 2
+theme = ExtResource("2_045ga")
+text = "Music"
+
+[node name="Music" type="HSlider" parent="GridContainer" unique_id=973182846]
+process_mode = 3
+layout_mode = 2
+theme = ExtResource("2_045ga")
 max_value = 1.0
-step = 0.05
+step = 0.1
 value = 0.5
+tick_count = 11
+ticks_on_borders = true
 
-[node name="Ambience" type="HSlider" parent="." unique_id=444301408]
-layout_mode = 0
-offset_left = 798.0
-offset_top = 424.0
-offset_right = 1514.0
-offset_bottom = 494.0
+[node name="AmbienceLabel" type="Label" parent="GridContainer" unique_id=1088458790]
+process_mode = 3
+layout_mode = 2
+theme = ExtResource("2_045ga")
+text = "Ambience"
+
+[node name="Ambience" type="HSlider" parent="GridContainer" unique_id=444301408]
+process_mode = 3
+layout_mode = 2
+theme = ExtResource("2_045ga")
 max_value = 1.0
-step = 0.05
+step = 0.1
 value = 0.5
+tick_count = 11
+ticks_on_borders = true
 
-[node name="SFX" type="HSlider" parent="." unique_id=798061514]
-layout_mode = 0
-offset_left = 794.0
-offset_top = 511.0
-offset_right = 1510.0
-offset_bottom = 581.0
+[node name="SFXLabel" type="Label" parent="GridContainer" unique_id=1276036635]
+process_mode = 3
+layout_mode = 2
+theme = ExtResource("2_045ga")
+text = "SFX"
+
+[node name="SFX" type="HSlider" parent="GridContainer" unique_id=798061514]
+process_mode = 3
+layout_mode = 2
+theme = ExtResource("2_045ga")
 max_value = 1.0
-step = 0.05
+step = 0.1
 value = 0.5
+tick_count = 11
+ticks_on_borders = true
 
-[node name="Label" type="Label" parent="." unique_id=8991219]
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1658963312]
+z_index = -1
 layout_mode = 0
-offset_left = 558.0
-offset_top = 315.0
-offset_right = 1158.0
-offset_bottom = 877.0
-text = "master
-music
-ambience
-sfx"
+offset_left = 629.0
+offset_top = 297.0
+offset_right = 1395.0
+offset_bottom = 900.0
+texture = ExtResource("4_q0pcl")
+patch_margin_left = 48
+patch_margin_top = 48
+patch_margin_right = 48
+patch_margin_bottom = 48
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
-[connection signal="mouse_entered" from="Exit" to="." method="_on_exit_mouse_entered"]
-[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
-[connection signal="value_changed" from="Master" to="." method="_on_master_value_changed"]
-[connection signal="value_changed" from="Music" to="." method="_on_music_value_changed"]
-[connection signal="value_changed" from="Ambience" to="." method="_on_ambience_value_changed"]
-[connection signal="value_changed" from="SFX" to="." method="_on_sfx_value_changed"]
+[node name="ResumeButton" type="TextureButton" parent="." unique_id=661781561]
+layout_mode = 0
+offset_left = 1123.0
+offset_top = 713.0
+offset_right = 1211.0
+offset_bottom = 778.0
+scale = Vector2(3, 3)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture_normal = ExtResource("5_bqqix")
+texture_pressed = ExtResource("6_b4akq")
+texture_hover = ExtResource("7_uh4u3")
+
+[connection signal="value_changed" from="GridContainer/Master" to="." method="_on_master_value_changed"]
+[connection signal="value_changed" from="GridContainer/Music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="GridContainer/Ambience" to="." method="_on_ambience_value_changed"]
+[connection signal="value_changed" from="GridContainer/SFX" to="." method="_on_sfx_value_changed"]
+[connection signal="mouse_entered" from="ResumeButton" to="." method="_on_resume_button_mouse_entered"]
+[connection signal="mouse_exited" from="ResumeButton" to="." method="_on_resume_button_mouse_exited"]
+[connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]

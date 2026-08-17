@@ -45,6 +45,7 @@ stream = ExtResource("8_q22p3")
 metadata/_custom_type_script = "uid://bgobmrj4eva5m"
 
 [node name="MusicManager" type="Node" unique_id=1614362050]
+process_mode = 3
 script = ExtResource("1_kx7sf")
 sound_effect_dict = Dictionary[int, ExtResource("2_totfy")]({
 0: SubResource("Resource_ar1xu"),

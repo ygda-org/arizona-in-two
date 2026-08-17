@@ -1,0 +1,58 @@
+[gd_resource type="Theme" format=3 uid="uid://bxmpqit5ywl2s"]
+
+[ext_resource type="Texture2D" uid="uid://b5pexmotesqkj" path="res://assets/ui/pause_menu/pause_gear.png" id="1_nn4k1"]
+[ext_resource type="FontFile" uid="uid://cyhc3qspkhxkm" path="res://assets/ui/font.png" id="2_c4yp0"]
+[ext_resource type="Texture2D" uid="uid://d3sqmrgrl6m6q" path="res://assets/ui/pause_menu/ticker.png" id="2_vfxh0"]
+
+[sub_resource type="DPITexture" id="DPITexture_c4yp0"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\" fill-opacity=\".37\"/></svg>
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vfxh0"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.4)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x22y6"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8pejn"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[resource]
+HSlider/constants/center_grabber = 1
+HSlider/constants/grabber_offset = 0
+HSlider/constants/tick_offset = -16
+HSlider/icons/grabber = ExtResource("1_nn4k1")
+HSlider/icons/grabber_disabled = SubResource("DPITexture_c4yp0")
+HSlider/icons/grabber_highlight = ExtResource("1_nn4k1")
+HSlider/icons/tick = ExtResource("2_vfxh0")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_vfxh0")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_x22y6")
+HSlider/styles/slider = SubResource("StyleBoxFlat_8pejn")
+Label/fonts/font = ExtResource("2_c4yp0")
