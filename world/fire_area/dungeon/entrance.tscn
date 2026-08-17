@@ -15,7 +15,7 @@ tile_map_data = PackedByteArray("AAACAP7/AQANAAAAAAD+//7/AQANAAAAAAD9//7/AQANAAA
 tile_set = ExtResource("1_ag33r")
 
 [node name="Player" parent="." unique_id=2010892964 instance=ExtResource("2_ips5l")]
-position = Vector2(8, 112)
+position = Vector2(-7, 68)
 
 [node name="FromCorridor" type="Marker2D" parent="." unique_id=808092160]
 position = Vector2(9, 11)

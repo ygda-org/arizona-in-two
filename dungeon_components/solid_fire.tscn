@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://lwvtvn0dynyo"]
+
+[ext_resource type="Script" uid="uid://bfcnqdet5t31q" path="res://dungeon_components/solid_fire.gd" id="1_7te80"]
+[ext_resource type="Texture2D" uid="uid://dglm2jbw7m4iw" path="res://assets/world_assets/GMTK2026Fireanim.png" id="1_i4rih"]
+[ext_resource type="Texture2D" uid="uid://dumicu8uaowm6" path="res://assets/tilesets/magma_area/Magma Dungeon Tileset.png" id="2_6u4r6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lybi"]
+atlas = ExtResource("1_i4rih")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cw8i4"]
+atlas = ExtResource("1_i4rih")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omjy3"]
+atlas = ExtResource("1_i4rih")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrii7"]
+atlas = ExtResource("1_i4rih")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dq2bx"]
+atlas = ExtResource("1_i4rih")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlqx6"]
+atlas = ExtResource("1_i4rih")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6u4r6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lybi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cw8i4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omjy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrii7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dq2bx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlqx6")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6auk"]
+size = Vector2(16, 16)
+
+[node name="SolidFire" type="StaticBody2D" unique_id=1637378769]
+collision_layer = 17
+script = ExtResource("1_7te80")
+
+[node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1945471542]
+sprite_frames = SubResource("SpriteFrames_6u4r6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=230221506]
+shape = SubResource("RectangleShape2D_u6auk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=195748768]
+z_index = -1
+texture = ExtResource("2_6u4r6")
+region_enabled = true
+region_rect = Rect2(192, 48, 16, 16)

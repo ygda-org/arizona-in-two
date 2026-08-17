@@ -2,6 +2,9 @@
 
 [ext_resource type="TileSet" uid="uid://bw0xbfjy4ywhf" path="res://assets/tilesets/dungeon_tiles.tres" id="1_6wuf5"]
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="2_18kc2"]
+[ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="3_p6lap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opy35"]
 
 [node name="Corridor" type="Node2D" unique_id=684226174]
 
@@ -9,7 +12,26 @@
 tile_map_data = PackedByteArray("AAABAOr/AQAJAAUAAAABAOz/AQAJAAQAAAABAO7/AQAJAAMAAAABAPD/AQAJAAUAAAABAPL/AQAJAAQAAAABAPT/AQAJAAMAAAABAPb/AQAJAAUAAAABAPj/AQAJAAQAAAABAPr/AQAJAAMAAAABAPz/AQAJAAUAAAABAP7/AQAJAAYAAAADAOj/AQAMAAMAAAADAOr/AQAMAAQAAAADAOz/AQAMAAQAAAADAO7/AQAMAAQAAAADAPD/AQAMAAQAAAADAPL/AQAMAAQAAAADAPT/AQAMAAQAAAADAPb/AQAMAAQAAAADAPj/AQAMAAQAAAADAPr/AQAMAAQAAAADAPz/AQAMAAQAAAABAOb/AQAJAAAAAAABAOj/AQAJAAMAAAABAOn/AQAJAAQAAAABAOv/AQAJAAMAAAABAO3/AQAJAAUAAAABAO//AQAJAAQAAAABAPH/AQAJAAMAAAABAPP/AQAJAAUAAAABAPX/AQAJAAQAAAABAPf/AQAJAAMAAAABAPn/AQAJAAUAAAABAPv/AQAJAAQAAAAEAOf/AQAXAAAAAAAEAOj/AQANAAMAAAAEAOn/AQAMAAMAAAAEAOv/AQAMAAQAAAAEAO3/AQAMAAQAAAAEAO//AQAMAAQAAAAEAPH/AQAMAAQAAAAEAPP/AQAMAAQAAAAEAPX/AQAMAAQAAAAEAPf/AQAMAAQAAAAEAPn/AQAMAAQAAAAEAPv/AQAMAAQAAAAEAPz/AQANAAMAAAAEAP3/AQAXAAUAAAAFAOj/AQAMAAMAAAAFAOr/AQAMAAQAAAAFAOz/AQAMAAQAAAAFAO7/AQAMAAQAAAAFAPD/AQAMAAQAAAAFAPL/AQAMAAQAAAAFAPT/AQAMAAQAAAAFAPb/AQAMAAQAAAAFAPj/AQAMAAQAAAAFAPr/AQAMAAQAAAAFAPv/AQANAAMAAAAFAPz/AQAOAAMAAAAHAOb/AQAPAAAAAAAHAOj/AQAPAAMAAAAHAOn/AQAPAAQAAAAHAOr/AQAPAAUAAAAHAOv/AQAPAAMAAAAHAOz/AQAPAAQAAAAHAO3/AQAPAAUAAAAHAO7/AQAPAAMAAAAHAO//AQAPAAQAAAAHAPD/AQAPAAUAAAAHAPH/AQAPAAMAAAAHAPL/AQAPAAQAAAAHAPP/AQAPAAUAAAAHAPT/AQAPAAMAAAAHAPX/AQAPAAQAAAAHAPb/AQAPAAUAAAAHAPf/AQAPAAMAAAAHAPj/AQAPAAQAAAAHAPn/AQAPAAUAAAAHAPr/AQAPAAMAAAAHAPv/AQAPAAQAAAAHAPz/AQAPAAUAAAAHAP7/AQAPAAYAAAA=")
 tile_set = ExtResource("1_6wuf5")
 
+[node name="Player" parent="." unique_id=2010892964 instance=ExtResource("2_18kc2")]
+
 [node name="FromEntrance" type="Marker2D" parent="." unique_id=1228326055]
 position = Vector2(72, -56)
 
-[node name="Player" parent="." unique_id=2010892964 instance=ExtResource("2_18kc2")]
+[node name="ToEntrance" parent="." unique_id=223363775 instance=ExtResource("3_p6lap")]
+to_scene = "uid://10v5hhytf56d"
+spawn_loc = "FromEntrance"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToEntrance" unique_id=1740749690]
+position = Vector2(72, -38)
+shape = SubResource("RectangleShape2D_opy35")
+
+[node name="FromMain" type="Marker2D" parent="." unique_id=1616344890]
+position = Vector2(72, -370)
+
+[node name="ToMain" parent="." unique_id=2089183326 instance=ExtResource("3_p6lap")]
+to_scene = "uid://b4sor858luf7s"
+spawn_loc = "FromCorridor"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToMain" unique_id=1571754416]
+position = Vector2(72, -395)
+shape = SubResource("RectangleShape2D_opy35")

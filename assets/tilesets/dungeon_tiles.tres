@@ -2,12 +2,25 @@
 
 [ext_resource type="Texture2D" uid="uid://bthlnjo27u0b1" path="res://assets/tilesets/ice_area/Ice_Dungeon_Tileset.png" id="1_otlcc"]
 [ext_resource type="Texture2D" uid="uid://dumicu8uaowm6" path="res://assets/tilesets/magma_area/Magma Dungeon Tileset.png" id="2_8jlc2"]
+[ext_resource type="PackedScene" uid="uid://lwvtvn0dynyo" path="res://dungeon_components/solid_fire.tscn" id="3_ck35l"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_8jlc2"]
 tile_data = PackedInt32Array(0, 786433, 4, 131072, 786433, 4, 65537, 786433, 4, 2, 786433, 4, 131074, 786433, 4)
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ck35l"]
 tile_data = PackedInt32Array(0, 786433, 4, 131072, 786433, 4, 65537, 786433, 4, 2, 786433, 4, 131074, 786433, 4, 65539, 786433, 4)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_pipel"]
+tile_data = PackedInt32Array(0, 786433, 3, 65536, 851969, 3, 131072, 786433, 3, 1, 851969, 3, 65537, 786433, 3, 131073, 851969, 3, 2, 786433, 3, 65538, 851969, 3, 131074, 786433, 3)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_5tye0"]
+tile_data = PackedInt32Array(0, 786433, 3, 65536, 851969, 3, 1, 851969, 3, 65537, 786433, 3)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_rakxy"]
+tile_data = PackedInt32Array(0, 786433, 3, 65536, 851969, 3, 131072, 786433, 3, 196608, 851969, 3, 1, 851969, 3, 65537, 786433, 3, 131073, 851969, 3, 196609, 786433, 3, 2, 786433, 3, 65538, 851969, 3, 131074, 786433, 3, 196610, 851969, 3, 3, 851969, 3, 65539, 786433, 3, 131075, 851969, 3, 196611, 786433, 3)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_kuwb0"]
+tile_data = PackedInt32Array(0, 851969, 3, 65536, 851969, 3, 131072, 851969, 3, 1, 851969, 3, 65537, 851969, 3, 131073, 851969, 3, 2, 851969, 3, 65538, 851969, 3, 131074, 851969, 3)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8jlc2"]
 texture = ExtResource("1_otlcc")
@@ -272,9 +285,17 @@ texture = ExtResource("2_8jlc2")
 19:0/0/texture_origin = Vector2i(0, 8)
 19:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -24, 8, -24, -40, 24, -40, 24, 8, 8, 8, 8, -20, -8, -20)
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_pipel"]
+scenes/1/scene = ExtResource("3_ck35l")
+
 [resource]
 physics_layer_0/collision_layer = 33
 sources/0 = SubResource("TileSetAtlasSource_8jlc2")
 sources/1 = SubResource("TileSetAtlasSource_ck35l")
+sources/2 = SubResource("TileSetScenesCollectionSource_pipel")
 pattern_0 = SubResource("TileMapPattern_8jlc2")
 pattern_1 = SubResource("TileMapPattern_ck35l")
+pattern_2 = SubResource("TileMapPattern_pipel")
+pattern_3 = SubResource("TileMapPattern_5tye0")
+pattern_4 = SubResource("TileMapPattern_rakxy")
+pattern_5 = SubResource("TileMapPattern_kuwb0")
