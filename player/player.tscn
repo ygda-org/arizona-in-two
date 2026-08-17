@@ -444,7 +444,7 @@ process_mode = 3
 layer = 5
 
 [node name="Settings" parent="CanvasLayer" unique_id=268189996 instance=ExtResource("18_e7oew")]
-process_mode = 3
+visible = false
 
 [connection signal="timeout" from="ShotgunPowerTimer" to="." method="_on_shotgun_power_timer_timeout"]
 [connection signal="timeout" from="BouncesPowerTimer" to="." method="_on_bounces_power_timer_timeout"]

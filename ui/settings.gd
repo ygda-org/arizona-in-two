@@ -3,15 +3,17 @@ extends Control
 var button_grow_time : float = 0.05
 var button_grow_amount : float = 0.15
 
+var opened : bool = false
+
 func _ready() -> void:
 	visible = false
 	
-	create_bitmap($ResumeButton)
+	create_bitmap($Menu/ResumeButton)
 	
-	$GridContainer/Master.value = GameState.master_volume 
-	$GridContainer/Music.value = GameState.music_volume
-	$GridContainer/Ambience.value = GameState.ambience_volume
-	$GridContainer/SFX.value = GameState.sfx_volume
+	$Menu/GridContainer/Master.value = GameState.master_volume 
+	$Menu/GridContainer/Music.value = GameState.music_volume
+	$Menu/GridContainer/Ambience.value = GameState.ambience_volume
+	$Menu/GridContainer/SFX.value = GameState.sfx_volume
 	
 	change_bus_volume("Master", GameState.master_volume)
 	change_bus_volume("Music", GameState.music_volume)
@@ -33,9 +35,21 @@ func _process(_delta):
 	if Input.is_action_just_pressed("Menu"):
 		GameState.from_menu = false
 		toggle_pause()
-		
+		opened = true
 	if GameState.from_menu and get_tree().paused == false:
 		toggle_pause()
+		opened = true
+		
+	if opened:
+		opened = false
+		opening_sequence()
+		
+
+func opening_sequence():
+	$Menu.visible = true
+	var tween : Tween = $Menu.create_tween()
+	$Menu.position.y = 0
+	#tween.tween_property($Menu, "position", Vector2(0,0), 1.0).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 
 func toggle_pause():
 	if get_tree().paused == true:
@@ -74,21 +88,25 @@ func change_bus_volume(bus, linear_value):
 
 
 func _on_resume_button_mouse_entered():
-	var tween : Tween = $ResumeButton.create_tween()
-	tween.tween_property($ResumeButton, "scale", Vector2(3 + button_grow_amount,3 + button_grow_amount), 0.05)
+	var tween : Tween = $Menu/ResumeButton.create_tween()
+	tween.tween_property($Menu/ResumeButton, "scale", Vector2(3 + button_grow_amount,3 + button_grow_amount), 0.05)
 	SFX.play(SFX.Id.BUTTON_HOVER)
 
 
 func _on_resume_button_pressed():
-	var tween : Tween = $ResumeButton.create_tween()
-	tween.tween_property($ResumeButton, "scale", Vector2(3 - button_grow_amount,3 - button_grow_amount), 0.025)
+	var tween : Tween = $Menu/ResumeButton.create_tween()
+	var tweenVignette : Tween = $Vignette.create_tween()
+	tween.tween_property($Vignette, "modulate", Color(1,1,1,0), 1)
+	tween.tween_property($Menu/ResumeButton, "scale", Vector2(3 - button_grow_amount,3 - button_grow_amount), 0.025)
 	tween.tween_interval(0.1)
-	tween.tween_property($ResumeButton, "scale", Vector2(3,3), 0.025)
+	tween.tween_property($Menu/ResumeButton, "scale", Vector2(3,3), 0.025)
 	SFX.play(SFX.Id.BUTTON_CLICK)
+	#var tweenMenu : Tween = $Menu.create_tween()
+	#tweenMenu.tween_property($Menu, "position", Vector2(0,-1000), 1.0).set_ease(Tween.EASE_IN)
 	await get_tree().create_timer(0.25).timeout
 	visible = false
 
 
 func _on_resume_button_mouse_exited():
-	var tween : Tween = $ResumeButton.create_tween()
-	tween.tween_property($ResumeButton, "scale", Vector2(3,3), button_grow_amount)
+	var tween : Tween = $Menu/ResumeButton.create_tween()
+	tween.tween_property($Menu/ResumeButton, "scale", Vector2(3,3), button_grow_amount)
