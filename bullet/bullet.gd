@@ -24,6 +24,7 @@ func _ready() -> void:
 	SFX.play(SFX.Id.GUNSHOT)
 	$Sprite2D.rotation = direction.angle()
 	$Sprite2DShadow.rotation = direction.angle()
+	$FireParticles.direction = -sign(direction)
 	if GameState.player_selected_bullet == 1:
 		$Sprite2D.texture = load("uid://b0hh83564wuyl")
 		bullet_attribute = "Silver"

@@ -372,7 +372,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_c5cit"]
 resource_name = "shoot"
-length = 0.15
+length = 0.19999999999999998
 step = 0.0333
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -381,10 +381,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1050, 361), Vector2(1907, 510)]
+"values": [Vector2(1050, 361), Vector2(2179, 560)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lf6dv"]
@@ -392,6 +392,16 @@ _data = {
 &"RESET": SubResource("Animation_akon5"),
 &"shoot": SubResource("Animation_c5cit")
 }
+
+[sub_resource type="Gradient" id="Gradient_is7kr"]
+offsets = PackedFloat32Array(0, 0.5255102, 0.6760204)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_is7kr"]
+gradient = SubResource("Gradient_is7kr")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c5cit"]
 atlas = ExtResource("14_ybgh7")
@@ -448,6 +458,10 @@ particles_animation = true
 particles_anim_h_frames = 2
 particles_anim_v_frames = 2
 particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_x388h"]
+offsets = PackedFloat32Array(0, 0.43229166, 1)
+colors = PackedColorArray(1, 0.30353206, 0, 1, 1, 0.9704087, 0, 1, 1, 0.9704087, 0, 0)
 
 [node name="Menu" type="Control" unique_id=1875752583]
 process_mode = 3
@@ -754,10 +768,26 @@ z_index = 1
 layout_mode = 0
 offset_left = 1528.0
 offset_top = 482.0
-offset_right = 1835.7024
-offset_bottom = 665.01794
+offset_right = 1835.7019
+offset_bottom = 665.01746
 texture = ExtResource("12_oumb1")
 expand_mode = 2
+
+[node name="ExplosionParticles" type="CPUParticles2D" parent="Bullet" unique_id=642001193]
+z_index = -1
+position = Vector2(17, 76)
+amount = 50
+texture = SubResource("GradientTexture2D_is7kr")
+lifetime = 0.2
+randomness = 0.1
+emission_shape = 1
+emission_sphere_radius = 32.0
+direction = Vector2(-1, -0.18)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 1000.0
+initial_velocity_max = 1000.0
+color = Color(1, 1, 1, 0.045)
 
 [node name="Wind?" type="TextureRect" parent="Bullet" unique_id=487769108]
 visible = false
@@ -769,6 +799,7 @@ offset_bottom = 102.0
 texture = ExtResource("17_c5cit")
 
 [node name="Explosion" type="AnimatedSprite2D" parent="." unique_id=721506479]
+visible = false
 z_index = 4
 position = Vector2(1392.9999, 475.99997)
 scale = Vector2(16.22121, 16.103956)
@@ -799,8 +830,31 @@ scale_amount_max = 2.2
 anim_offset_max = 1.0
 
 [node name="SettingsMenu" parent="." unique_id=268189996 instance=ExtResource("20_is7kr")]
+visible = false
 z_index = 10
 layout_mode = 1
+
+[node name="ExplosionParticles" type="CPUParticles2D" parent="." unique_id=914028944]
+z_index = 5
+position = Vector2(1356, 491)
+emitting = false
+amount = 50
+texture = SubResource("GradientTexture2D_is7kr")
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.2
+randomness = 0.1
+emission_shape = 2
+emission_sphere_radius = 32.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 1000.0
+initial_velocity_max = 1000.0
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_min = 1.7
+scale_amount_max = 2.3
+color_ramp = SubResource("Gradient_x388h")
 
 [connection signal="timeout" from="Birds1Timer" to="." method="_on_birds_1_timer_timeout"]
 [connection signal="timeout" from="Birds2Timer" to="." method="_on_birds_2_timer_timeout"]

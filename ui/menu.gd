@@ -25,8 +25,9 @@ func _on_start_pressed() -> void:
 	SFX.play(SFX.Id.GUNSHOT_QUICK, false, -6)
 	$Bullet.visible = true
 	$ShootAnimationPlayer.play("shoot")
-	$Explosion.visible = true
-	$Explosion.play("default")
+	#$Explosion.visible = true
+	#$Explosion.play("default")
+	$ExplosionParticles.emitting = true
 	await get_tree().create_timer(0.047).timeout
 	SFX.play(SFX.Id.WOOD_BREAK)
 	$WoodBreakingParticles.emitting = true
@@ -34,7 +35,7 @@ func _on_start_pressed() -> void:
 	$"2TextPivot/2Text".visible = false
 	$"2TextPivot/2TextLeft".visible = true
 	$"2TextPivot/2TextRight".visible = true
-	await get_tree().create_timer(0.125).timeout
+	await get_tree().create_timer(0.375).timeout
 	$FadeOutAnimationPlayer.play("fade_out")
 	await $FadeOutAnimationPlayer.animation_finished
 	var _game: PackedScene = load("uid://bvhckihcs8a5l")
