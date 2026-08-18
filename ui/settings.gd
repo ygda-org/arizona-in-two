@@ -47,7 +47,7 @@ func _process(_delta):
 
 func opening_sequence():
 	$Menu.visible = true
-	var tween : Tween = $Menu.create_tween()
+	#var tween : Tween = $Menu.create_tween()
 	$Menu.position.y = 0
 	#tween.tween_property($Menu, "position", Vector2(0,0), 1.0).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 
@@ -94,8 +94,8 @@ func _on_resume_button_mouse_entered():
 
 func _on_resume_button_pressed():
 	var tween : Tween = $Menu/ResumeButton.create_tween()
-	var tweenVignette : Tween = $Vignette.create_tween()
-	tween.tween_property($Vignette, "modulate", Color(1,1,1,0), 1)
+	#var tweenVignette : Tween = $Vignette.create_tween()
+	#tween.tween_property($Vignette, "modulate", Color(1,1,1,0), 1)
 	tween.tween_property($Menu/ResumeButton, "scale", Vector2(3 - button_grow_amount,3 - button_grow_amount), 0.025)
 	tween.tween_interval(0.1)
 	tween.tween_property($Menu/ResumeButton, "scale", Vector2(3,3), 0.025)

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="2_egrav"]
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="3_c3srk"]
 [ext_resource type="PackedScene" uid="uid://uqyovq6ioqwj" path="res://dungeon_components/dungeon_locked_door.tscn" id="5_o4b24"]
-[ext_resource type="PackedScene" uid="uid://ctphcsxh0fik4" path="res://enemies/slime/slime_enemy.tscn" id="6_y10nc"]
+[ext_resource type="PackedScene" uid="uid://blh1a5n75wwv8" path="res://enemies/slime/slime.tscn" id="6_ytkei"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3srk"]
 
@@ -58,5 +58,6 @@ open_type = 1
 door_id = "IC1.2"
 direction = 2
 
-[node name="SlimeEnemy" parent="." unique_id=538334106 instance=ExtResource("6_y10nc")]
+[node name="SlimeEnemy" parent="." unique_id=113900471 instance=ExtResource("6_ytkei")]
 position = Vector2(30, -79)
+type = "ice"

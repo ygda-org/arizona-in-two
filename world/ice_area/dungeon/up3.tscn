@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cewmlvnbn41e1" path="res://dungeon_components/ice_turret.tscn" id="3_on24y"]
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="4_k1vdb"]
 [ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="5_3vd74"]
-[ext_resource type="PackedScene" uid="uid://ctphcsxh0fik4" path="res://enemies/slime/slime_enemy.tscn" id="6_i734c"]
+[ext_resource type="PackedScene" uid="uid://blh1a5n75wwv8" path="res://enemies/slime/slime.tscn" id="6_s7ny6"]
 [ext_resource type="PackedScene" uid="uid://uqyovq6ioqwj" path="res://dungeon_components/dungeon_locked_door.tscn" id="7_b5k3l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5kg8m"]
@@ -51,14 +51,17 @@ spawn_loc = "FromUp3"
 position = Vector2(24, 12)
 shape = SubResource("RectangleShape2D_5kg8m")
 
-[node name="SlimeEnemy" parent="." unique_id=538334106 instance=ExtResource("6_i734c")]
+[node name="SlimeEnemy" parent="." unique_id=113900471 instance=ExtResource("6_s7ny6")]
 position = Vector2(-82, -24)
+type = "ice"
 
-[node name="SlimeEnemy2" parent="." unique_id=1995240671 instance=ExtResource("6_i734c")]
+[node name="SlimeEnemy2" parent="." unique_id=1300523578 instance=ExtResource("6_s7ny6")]
 position = Vector2(-78, -106)
+type = "ice"
 
-[node name="SlimeEnemy3" parent="." unique_id=2133928503 instance=ExtResource("6_i734c")]
+[node name="SlimeEnemy3" parent="." unique_id=1991662930 instance=ExtResource("6_s7ny6")]
 position = Vector2(130, -107)
+type = "ice"
 
 [node name="DungeonLockedDoor" parent="." unique_id=663165658 instance=ExtResource("7_b5k3l")]
 position = Vector2(24, -148)
