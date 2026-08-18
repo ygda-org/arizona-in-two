@@ -323,7 +323,7 @@ position = Vector2(399, 394)
 [node name="SlimeEnemy2" parent="Enemies" unique_id=1695156242 instance=ExtResource("15_tbuvq")]
 position = Vector2(611, 269)
 
-[node name="SlimeEnemy3" parent="Enemies" unique_id=434505245 instance=ExtResource("15_tbuvq")]
+[node name="SlimeEnemy3" parent="Enemies" unique_id=1895414122 instance=ExtResource("15_tbuvq")]
 position = Vector2(694, 67)
 
 [node name="SlimeEnemy4" parent="Enemies" unique_id=2053273277 instance=ExtResource("15_tbuvq")]
