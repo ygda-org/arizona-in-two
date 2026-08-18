@@ -15,7 +15,7 @@ var bullet_attribute = "Normal"
 #Certain node(s) should be excluded from bullet detection
 @export var excluded_nodes : Array[Node2D]
 
-var speed = 512 #The speed of the bullet
+var speed = 256 #The speed of the bullet
 
 var bounceCount = 0
 var maxBounceCount = 2
@@ -23,6 +23,7 @@ var maxBounceCount = 2
 func _ready() -> void:
 	SFX.play(SFX.Id.GUNSHOT)
 	$Sprite2D.rotation = direction.angle()
+	$Sprite2DShadow.rotation = direction.angle()
 	if GameState.player_selected_bullet == 1:
 		$Sprite2D.texture = load("uid://b0hh83564wuyl")
 		bullet_attribute = "Silver"
