@@ -8,16 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="5_io3vq"]
 [ext_resource type="Texture2D" uid="uid://nl8234om3bpc" path="res://assets/tilesets/desert_area/Sand_terrain.png" id="5_lqhyg"]
 [ext_resource type="Texture2D" uid="uid://chyscyessavhl" path="res://assets/tilesets/grass_area/grass_decor.png" id="6_8xi7t"]
-[ext_resource type="PackedScene" uid="uid://ctphcsxh0fik4" path="res://enemies/slime_depricated/slime_enemy.tscn" id="7_74y8g"]
 [ext_resource type="Texture2D" uid="uid://dqvaigx2nv7to" path="res://assets/tilesets/magma_area/magma_terrain.png" id="7_gs5mx"]
-[ext_resource type="PackedScene" uid="uid://c1vqdg3iq4258" path="res://enemies/jumping_slime/jumping_slime_enemy.tscn" id="8_nxr48"]
 [ext_resource type="Texture2D" uid="uid://diprdd8pofiw0" path="res://assets/tilesets/magma_area/magma_decoration.png" id="8_tbuvq"]
-[ext_resource type="PackedScene" uid="uid://b883ik2jdt2jl" path="res://enemies/dashing_slime/dashing_slime_enemy.tscn" id="9_7mpu7"]
 [ext_resource type="PackedScene" uid="uid://cvrmisvpyoqcv" path="res://world/decor (deprecated)/yellow_short_cactus.tscn" id="10_2q6vy"]
 [ext_resource type="TileSet" uid="uid://kdjb34j8n6i1" path="res://assets/tilesets/CameraBounding.tres" id="10_ssmtt"]
 [ext_resource type="TileSet" uid="uid://beguowxpoc1hi" path="res://assets/tilesets/MainTiles.tres" id="10_tbuvq"]
 [ext_resource type="PackedScene" uid="uid://28rbkwo17tdr" path="res://world/decor (deprecated)/pink_saguaro_cactus.tscn" id="11_ylqwr"]
 [ext_resource type="PackedScene" uid="uid://csyqleioe2hjd" path="res://globals/audio/persistant_music_component.tscn" id="15_8xi7t"]
+[ext_resource type="PackedScene" uid="uid://blh1a5n75wwv8" path="res://enemies/slime/slime.tscn" id="15_tbuvq"]
 [ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="16_gs5mx"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yo18o"]
@@ -319,16 +317,16 @@ position_smoothing_speed = 4.0
 
 [node name="Enemies" type="Node" parent="." unique_id=1581671068]
 
-[node name="SlimeEnemy" parent="Enemies" unique_id=596601268 instance=ExtResource("7_74y8g")]
+[node name="SlimeEnemy" parent="Enemies" unique_id=113900471 instance=ExtResource("15_tbuvq")]
 position = Vector2(399, 394)
 
-[node name="JumpingSlimeEnemy" parent="Enemies" unique_id=1916310019 instance=ExtResource("8_nxr48")]
-position = Vector2(694, 67)
-
-[node name="SlimeEnemy2" parent="Enemies" unique_id=471742207 instance=ExtResource("7_74y8g")]
+[node name="SlimeEnemy2" parent="Enemies" unique_id=1695156242 instance=ExtResource("15_tbuvq")]
 position = Vector2(611, 269)
 
-[node name="DashingSlimeEnemy" parent="Enemies" unique_id=317395857 instance=ExtResource("9_7mpu7")]
+[node name="SlimeEnemy3" parent="Enemies" unique_id=434505245 instance=ExtResource("15_tbuvq")]
+position = Vector2(694, 67)
+
+[node name="SlimeEnemy4" parent="Enemies" unique_id=2053273277 instance=ExtResource("15_tbuvq")]
 position = Vector2(437, 4)
 
 [node name="PersistantMusicComponent" parent="." unique_id=554467455 instance=ExtResource("15_8xi7t")]

@@ -12,7 +12,6 @@ var initial_position
 
 const TUMBLEWEED = preload("res://enemies/tumbleweed/tumbleweed.tscn")
 
-
 func _ready():
 	initial_position = global_position
 	$GrowthTimer.wait_time = randf_range(10,15)

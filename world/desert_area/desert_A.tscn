@@ -293,7 +293,6 @@ position = Vector2(288, 356)
 
 [node name="Slime" parent="Enemies" unique_id=113900471 instance=ExtResource("17_4f6ip")]
 position = Vector2(426, 262)
-type = "ice"
 
 [node name="Slime2" parent="Enemies" unique_id=1037938098 instance=ExtResource("17_4f6ip")]
 position = Vector2(133, 99)

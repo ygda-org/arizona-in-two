@@ -14,6 +14,7 @@
 [ext_resource type="TileSet" uid="uid://kdjb34j8n6i1" path="res://assets/tilesets/CameraBounding.tres" id="10_1lflj"]
 [ext_resource type="PackedScene" uid="uid://cvrmisvpyoqcv" path="res://world/decor (deprecated)/yellow_short_cactus.tscn" id="10_inhj0"]
 [ext_resource type="PackedScene" uid="uid://28rbkwo17tdr" path="res://world/decor (deprecated)/pink_saguaro_cactus.tscn" id="11_x2klr"]
+[ext_resource type="PackedScene" uid="uid://blh1a5n75wwv8" path="res://enemies/slime/slime.tscn" id="15_piprv"]
 [ext_resource type="PackedScene" uid="uid://csyqleioe2hjd" path="res://globals/audio/persistant_music_component.tscn" id="15_qnkw2"]
 [ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="16_yerux"]
 [ext_resource type="PackedScene" uid="uid://bnoh5n8gambhh" path="res://enemies/final_boss/boss.tscn" id="20_x2klr"]
@@ -338,6 +339,15 @@ position_smoothing_speed = 4.0
 [node name="Bullets" type="Node" parent="." unique_id=116671318]
 
 [node name="Enemies" type="Node" parent="." unique_id=53175375]
+
+[node name="Slime" parent="Enemies" unique_id=113900471 instance=ExtResource("15_piprv")]
+position = Vector2(-287, 88)
+
+[node name="Slime2" parent="Enemies" unique_id=468600949 instance=ExtResource("15_piprv")]
+position = Vector2(721, 34)
+
+[node name="Slime3" parent="Enemies" unique_id=1208722901 instance=ExtResource("15_piprv")]
+position = Vector2(817, -149)
 
 [node name="PersistantMusicComponent" parent="." unique_id=554467455 instance=ExtResource("15_qnkw2")]
 music = 1

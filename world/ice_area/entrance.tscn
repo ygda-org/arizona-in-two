@@ -9,6 +9,7 @@
 [ext_resource type="TileSet" uid="uid://kdjb34j8n6i1" path="res://assets/tilesets/CameraBounding.tres" id="7_ysdxk"]
 [ext_resource type="PackedScene" uid="uid://bc4df4v86bpt2" path="res://world_components/destructible_ice_spike.tscn" id="8_ygj36"]
 [ext_resource type="PackedScene" uid="uid://cqdsp3qtxmisq" path="res://player/permanent_upgrades/generic_upgrade_pickup.tscn" id="9_v4ywg"]
+[ext_resource type="PackedScene" uid="uid://blh1a5n75wwv8" path="res://enemies/slime/slime.tscn" id="10_eso3y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0l1tc"]
 size = Vector2(48, 20)
@@ -80,3 +81,13 @@ upgrade_amount = 20
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GenericUpgradePickup" unique_id=700573484]
 position = Vector2(-557, -225)
 shape = SubResource("RectangleShape2D_5kg8m")
+
+[node name="Node" type="Node" parent="." unique_id=851727966]
+
+[node name="Slime" parent="Node" unique_id=113900471 instance=ExtResource("10_eso3y")]
+position = Vector2(-142, 21)
+type = "ice"
+
+[node name="Slime2" parent="Node" unique_id=975461750 instance=ExtResource("10_eso3y")]
+position = Vector2(-166, -222)
+type = "ice"

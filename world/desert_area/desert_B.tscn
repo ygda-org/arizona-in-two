@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cebyisuj2w2wj" path="res://world/decor (deprecated)/pink_bulb_cactus.tscn" id="13_d6krr"]
 [ext_resource type="PackedScene" uid="uid://csyqleioe2hjd" path="res://globals/audio/persistant_music_component.tscn" id="14_kyupo"]
 [ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="15_x2t07"]
+[ext_resource type="PackedScene" uid="uid://dhln58xkow42h" path="res://enemies/tumbleweed/tumbleweed.tscn" id="17_8logb"]
 [ext_resource type="PackedScene" uid="uid://blh1a5n75wwv8" path="res://enemies/slime/slime.tscn" id="17_qfxr5"]
 [ext_resource type="PackedScene" uid="uid://cqdsp3qtxmisq" path="res://player/permanent_upgrades/generic_upgrade_pickup.tscn" id="20_qfxr5"]
 
@@ -338,6 +339,9 @@ position = Vector2(163, 340)
 
 [node name="Slime4" parent="Enemies" unique_id=964731887 instance=ExtResource("17_qfxr5")]
 position = Vector2(-535, 300)
+
+[node name="Tumbleweed" parent="Enemies" unique_id=953680716 instance=ExtResource("17_8logb")]
+position = Vector2(-72, 202)
 
 [node name="PersistantMusicComponent" parent="." unique_id=554467455 instance=ExtResource("14_kyupo")]
 music = 1

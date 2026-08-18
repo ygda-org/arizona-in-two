@@ -92,7 +92,6 @@ func _on_resume_button_mouse_entered():
 	tween.tween_property($Menu/ResumeButton, "scale", Vector2(3 + button_grow_amount,3 + button_grow_amount), 0.05)
 	SFX.play(SFX.Id.BUTTON_HOVER)
 
-
 func _on_resume_button_pressed():
 	var tween : Tween = $Menu/ResumeButton.create_tween()
 	var tweenVignette : Tween = $Vignette.create_tween()
