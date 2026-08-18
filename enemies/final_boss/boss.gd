@@ -11,7 +11,7 @@ func _ready():
 
 func _physics_process(_delta):
 	for node in states.get_children():
-		if node is BossRepositioning and node.active:
+		if "travel_speed" in node and node.active:
 			play_anim_by_dir("run_", node.dir)
 			velocity = node.travel_speed * global_position.direction_to(node.target_position)
 			move_and_slide()

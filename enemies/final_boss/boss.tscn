@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://c7f1uydu0b1ls" path="res://enemies/final_boss/spread_shot.gd" id="16_qjocp"]
 [ext_resource type="Script" uid="uid://dua0tkrujxxcl" path="res://enemies/final_boss/trail_shot.gd" id="17_6y1th"]
 [ext_resource type="Script" uid="uid://dwnpnyj7j5035" path="res://enemies/final_boss/arena_form.gd" id="18_32tma"]
+[ext_resource type="Script" uid="uid://cxta8t4ycnj82" path="res://enemies/final_boss/go_rotate.gd" id="19_hc4tq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xu4f0"]
 atlas = ExtResource("1_f8dde")
@@ -700,3 +701,6 @@ arena_center = Vector2(300, 200)
 
 [node name="Arena" type="Node2D" parent="States3/ArenaForm" unique_id=1712900028]
 top_level = true
+
+[node name="GoRotate" type="Node2D" parent="States3" unique_id=497462467]
+script = ExtResource("19_hc4tq")
