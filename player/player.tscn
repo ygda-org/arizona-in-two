@@ -366,7 +366,7 @@ shape = SubResource("CapsuleShape2D_tqiix")
 material = SubResource("ShaderMaterial_8t03j")
 position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_g1dw6")
-animation = &"front_idle"
+animation = &"front_gun"
 
 [node name="ShotgunPowerTimer" type="Timer" parent="." unique_id=1441716618]
 wait_time = 10.0
@@ -395,7 +395,7 @@ one_shot = true
 wait_time = 2.0
 one_shot = true
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=470635656]
+[node name="WalkingParticles" type="CPUParticles2D" parent="." unique_id=470635656]
 z_index = -1
 position = Vector2(0, 9)
 texture = ExtResource("17_tqiix")

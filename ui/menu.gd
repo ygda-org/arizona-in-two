@@ -37,7 +37,6 @@ func _on_start_pressed() -> void:
 	await get_tree().create_timer(0.125).timeout
 	$FadeOutAnimationPlayer.play("fade_out")
 	await $FadeOutAnimationPlayer.animation_finished
-	print("fade")
 	var _game: PackedScene = load("uid://bvhckihcs8a5l")
 	# Use change_zone to also fix the camera to the map's bounds
 	get_tree().paused = false

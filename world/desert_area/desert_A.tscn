@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://qrjkf43abikr" path="res://world/desert_area/heat_haze.tscn" id="16_lbcur"]
 [ext_resource type="PackedScene" uid="uid://blh1a5n75wwv8" path="res://enemies/slime/slime.tscn" id="17_4f6ip"]
 [ext_resource type="PackedScene" uid="uid://dhln58xkow42h" path="res://enemies/tumbleweed/tumbleweed.tscn" id="18_b3xd2"]
+[ext_resource type="PackedScene" uid="uid://ukvstgcvpp0c" path="res://powerups/sped_boost/speed_boost.tscn" id="21_2c7xy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gdeaj"]
 
@@ -330,3 +331,6 @@ disable = true
 
 [node name="Tumbleweed" parent="." unique_id=953680716 instance=ExtResource("18_b3xd2")]
 position = Vector2(347, 80)
+
+[node name="SpeedBoost" parent="." unique_id=1252451708 instance=ExtResource("21_2c7xy")]
+position = Vector2(270, 321)

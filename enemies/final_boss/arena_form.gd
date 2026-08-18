@@ -7,7 +7,7 @@ const SPIKE = preload("uid://coip13emt7e8v")
 const RING_COUNT = 10
 
 func activate():
-	if $Arena.has_children():
+	if $Arena.get_children().size() > 0:
 		get_parent().get_parent().next_state()
 		return
 	for i in range(RING_COUNT):

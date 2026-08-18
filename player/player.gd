@@ -7,6 +7,7 @@ class_name Player
 @export var shot_speed_multiplier = 1
 
 @export var speedMulti = 1.0
+var iceMulti : float = 1.0
 var speed: int = 95
 const deceleration: int = 700
 const acceleration: int = 50
@@ -25,7 +26,7 @@ const SHOTGUN_SPREAD = PI/4 # spread per shot
 
 @onready var iFrameTimer : Timer = $IFrameTimer
 @onready var camera = $Camera
-@onready var particles = $CPUParticles2D
+@onready var particles = $WalkingParticles
 
 var ice = false
 
@@ -57,9 +58,9 @@ func _physics_process(delta: float) -> void:
 	shoot(delta)
 	
 	if ice == true:
-		speedMulti = 0.5
+		iceMulti = 0.5
 	elif ice == false:
-		speedMulti = 1
+		iceMulti = 1
 	
 	move_and_slide()
 
@@ -71,10 +72,12 @@ func movement(delta):
 	# Maps input to correct vector for velocity
 	var inputDir: Vector2 = Input.get_vector("MoveLeft", "MoveRight", "MoveUp", "MoveDown")
 	if inputDir:
+		if speedMulti > 1.0:
+				$AnimatedSprite2D.speed_scale = 1.5
 		play_footsteps()
 		
 		# Slowly increases the speed
-		velocity = lerp(velocity, speed * speedMulti * inputDir, delta * acceleration)
+		velocity = lerp(velocity, speed * speedMulti * iceMulti * inputDir, delta * acceleration)
 		if Input.is_action_pressed("DEBUGRUN"):
 			velocity *= 3
 		# Finds which direction in the X Axis
@@ -122,6 +125,8 @@ func movement(delta):
 						$AnimatedSprite2D.play("front_walk")
 		
 	else:
+		if speedMulti > 1.0:
+			$AnimatedSprite2D.speed_scale = 1.0
 		# Slowly decreases the speed of the player
 		if not $AnimatedSprite2D.animation.ends_with("gun") or not $AnimatedSprite2D.is_playing():
 			if $AnimatedSprite2D.animation.begins_with("right"):
