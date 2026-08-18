@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const ACCEL : float = 80.0
-const IDLE_SPEED : float = 80.0
+const ACCEL : float = 10.0
+const IDLE_SPEED : float = 50.0
 var target_velocity : Vector2 = Vector2.ZERO
 #idle
 var state : String = "idle"
@@ -45,17 +45,17 @@ func _physics_process(delta: float) -> void:
 func _on_idle_timer_timeout() -> void:
 	if dying: 
 		return
-	target_velocity = Vector2(IDLE_SPEED * randf_range(-1,1),IDLE_SPEED * randf_range(-1,1))
-		#var rand_num : int = randi_range(0,3)
-		#match rand_num:
-			#0:
-				#target_velocity = Vector2.UP * IDLE_SPEED
-			#1:
-				#target_velocity = Vector2.DOWN * IDLE_SPEED
-			#2:
-				#target_velocity = Vector2.LEFT * IDLE_SPEED
-			#3:
-				#target_velocity = Vector2.RIGHT * IDLE_SPEED
+	#target_velocity = Vector2(IDLE_SPEED * randf_range(-1,1),IDLE_SPEED * randf_range(-1,1))
+	var rand_num : int = randi_range(0,3)
+	match rand_num:
+		0:
+			target_velocity = Vector2.UP * IDLE_SPEED
+		1:
+			target_velocity = Vector2.DOWN * IDLE_SPEED
+		2:
+			target_velocity = Vector2.LEFT * IDLE_SPEED
+		3:
+			target_velocity = Vector2.RIGHT * IDLE_SPEED
 		#$IdleTimer.wait_time = randf_range(0.5,1.5)
 	$IdleTimer.wait_time = randf_range(0.75,1.5)
 	$IdleTimer.start()
