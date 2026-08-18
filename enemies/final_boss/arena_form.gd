@@ -4,7 +4,7 @@ extends Node2D
 
 const SPIKE = preload("uid://coip13emt7e8v")
 
-const RING_COUNT = 10
+const RING_COUNT = 9
 
 func activate():
 	if $Arena.get_children().size() > 0:
@@ -19,3 +19,6 @@ func activate():
 			$Arena.add_child(spike)
 		await get_tree().create_timer(0.5).timeout
 	get_parent().get_parent().next_state()
+
+func deactivate():
+	pass

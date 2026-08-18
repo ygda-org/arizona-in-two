@@ -2,6 +2,8 @@ extends Area2D
 
 var fade_out: bool = true
 
+var damage = 15
+
 func _ready():
 	$CollisionShape2D.disabled = true
 
@@ -15,3 +17,7 @@ func _on_timer_timeout():
 	var tween = get_tree().create_tween()
 	tween.tween_property($Anim, "modulate", Color(1.0,1.0,1.0,0.0), 1.0)
 	tween.tween_callback(queue_free)
+
+
+func _on_body_entered(_body):
+	GameState.damage_player(damage)
