@@ -460,8 +460,8 @@ particles_anim_v_frames = 2
 particles_anim_loop = false
 
 [sub_resource type="Gradient" id="Gradient_x388h"]
-offsets = PackedFloat32Array(0, 0.43229166, 1)
-colors = PackedColorArray(1, 0.30353206, 0, 1, 1, 0.9704087, 0, 1, 1, 0.9704087, 0, 0)
+offsets = PackedFloat32Array(0, 0.5807292, 1)
+colors = PackedColorArray(0.84, 0.29092, 0.21839999, 1, 0.7007099, 0.6437342, 0, 1, 1, 0.9704087, 0, 0)
 
 [node name="Menu" type="Control" unique_id=1875752583]
 process_mode = 3
@@ -773,21 +773,24 @@ offset_bottom = 665.01746
 texture = ExtResource("12_oumb1")
 expand_mode = 2
 
-[node name="ExplosionParticles" type="CPUParticles2D" parent="Bullet" unique_id=642001193]
+[node name="TrialParticles" type="CPUParticles2D" parent="Bullet" unique_id=642001193]
 z_index = -1
 position = Vector2(17, 76)
 amount = 50
 texture = SubResource("GradientTexture2D_is7kr")
 lifetime = 0.2
 randomness = 0.1
+local_coords = true
 emission_shape = 1
-emission_sphere_radius = 32.0
+emission_sphere_radius = 50.75
 direction = Vector2(-1, -0.18)
 spread = 0.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 1000.0
 initial_velocity_max = 1000.0
-color = Color(1, 1, 1, 0.045)
+scale_amount_min = 0.9
+scale_amount_max = 1.1
+color = Color(1, 1, 1, 0.11372549)
 
 [node name="Wind?" type="TextureRect" parent="Bullet" unique_id=487769108]
 visible = false
@@ -840,16 +843,16 @@ position = Vector2(1356, 491)
 emitting = false
 amount = 50
 texture = SubResource("GradientTexture2D_is7kr")
-lifetime = 0.2
+lifetime = 0.15000000000000002
 one_shot = true
 explosiveness = 0.2
 randomness = 0.1
 emission_shape = 2
-emission_sphere_radius = 32.0
+emission_sphere_radius = 20.0
 spread = 180.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 1000.0
-initial_velocity_max = 1000.0
+initial_velocity_min = 1500.0
+initial_velocity_max = 1500.0
 angle_min = -180.0
 angle_max = 180.0
 scale_amount_min = 1.7
