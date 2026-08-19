@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://csyqleioe2hjd" path="res://globals/audio/persistant_music_component.tscn" id="4_2ot4n"]
 [ext_resource type="Texture2D" uid="uid://hcgwnttwj22g" path="res://assets/title_screen/AZ2_Jackie.png" id="4_l8jcj"]
 [ext_resource type="Texture2D" uid="uid://cnob1qlymow1q" path="res://assets/title_screen/2_text.png" id="4_oumb1"]
+[ext_resource type="Shader" uid="uid://dt80t4wauxl0d" path="res://ui/noise.gdshader" id="4_wb0cg"]
 [ext_resource type="Texture2D" uid="uid://ch77j1jctvhk5" path="res://assets/title_screen/jackie_arm.png" id="5_0bcp5"]
 [ext_resource type="Texture2D" uid="uid://s050cfev7bjq" path="res://assets/title_screen/2_text_broken_left.png" id="5_k3j3x"]
 [ext_resource type="Texture2D" uid="uid://c3ekf5gkn2abe" path="res://assets/title_screen/birds_1.png" id="6_l8jcj"]
@@ -54,6 +55,22 @@ seamless = true
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c5cit"]
 shader = ExtResource("17_akon5")
 shader_parameter/noise = SubResource("NoiseTexture2D_akon5")
+
+[sub_resource type="Gradient" id="Gradient_tivod"]
+colors = PackedColorArray(0.4359982, 0.20974368, 0, 0.09411765, 1, 1, 1, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_74wlk"]
+frequency = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ryq6k"]
+width = 960
+height = 540
+noise = SubResource("FastNoiseLite_74wlk")
+color_ramp = SubResource("Gradient_tivod")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fhhs2"]
+shader = ExtResource("4_wb0cg")
+shader_parameter/noise = SubResource("NoiseTexture2D_ryq6k")
 
 [sub_resource type="Animation" id="Animation_ybgh7"]
 resource_name = "fade_out"
@@ -474,11 +491,11 @@ grow_vertical = 2
 script = ExtResource("1_chbq3")
 
 [node name="Dust" type="ColorRect" parent="." unique_id=528907208]
+texture_repeat = 2
 material = SubResource("ShaderMaterial_jwd6l")
 layout_mode = 0
-offset_top = 2.0
 offset_right = 1919.0
-offset_bottom = 1081.0
+offset_bottom = 1079.0
 color = Color(1, 0.16862746, 0.08627451, 1)
 
 [node name="DustFront" type="ColorRect" parent="." unique_id=236533789]
@@ -509,6 +526,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
+
+[node name="Noise" type="ColorRect" parent="." unique_id=415575800]
+z_index = 3
+material = SubResource("ShaderMaterial_fhhs2")
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
 
 [node name="Background" type="TextureRect" parent="." unique_id=576918719]
 z_index = -3
