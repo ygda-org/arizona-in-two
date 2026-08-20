@@ -57,10 +57,10 @@ shader = ExtResource("17_akon5")
 shader_parameter/noise = SubResource("NoiseTexture2D_akon5")
 
 [sub_resource type="Gradient" id="Gradient_tivod"]
-colors = PackedColorArray(0.4359982, 0.20974368, 0, 0.09411765, 1, 1, 1, 0)
+colors = PackedColorArray(0.44, 0.21266668, 0, 0.1254902, 1, 1, 1, 0)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_74wlk"]
-frequency = 1.0
+frequency = 0.3219
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ryq6k"]
 width = 960
@@ -105,6 +105,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Jackie:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-20, 15)]
 }
 
 [sub_resource type="Animation" id="Animation_jbsda"]
@@ -155,11 +167,41 @@ tracks/0/keys = {
 "values": [0.0]
 }
 
+[sub_resource type="Animation" id="Animation_74wlk"]
+resource_name = "shoot"
+length = 0.05
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Jackie/JackieArmPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.061086524]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("Jackie:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 15), Vector2(-20, 15)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2ot4n"]
 _data = {
 &"RESET": SubResource("Animation_lf6dv"),
 &"jackie_idle": SubResource("Animation_jbsda"),
-&"return_to_shoot": SubResource("Animation_is7kr")
+&"return_to_shoot": SubResource("Animation_is7kr"),
+&"shoot": SubResource("Animation_74wlk")
 }
 
 [sub_resource type="Animation" id="Animation_oumb1"]
@@ -389,7 +431,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_c5cit"]
 resource_name = "shoot"
-length = 0.19999999999999998
+length = 0.2
 step = 0.0333
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -617,6 +659,7 @@ scale = Vector2(0.71999943, 0.71999943)
 texture = ExtResource("4_oumb1")
 
 [node name="2TextRight" type="TextureRect" parent="2TextPivot" unique_id=874874927]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -639,10 +682,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -960.0
-offset_top = -526.361
-offset_right = 960.0
-offset_bottom = 553.6389
+offset_left = -980.0
+offset_top = -525.0
+offset_right = 940.0
+offset_bottom = 555.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_l8jcj")
@@ -651,9 +694,9 @@ expand_mode = 1
 [node name="JackieArmPivot" type="Control" parent="Jackie" unique_id=479233744]
 anchors_preset = 0
 offset_left = 254.0
-offset_top = 581.6643
+offset_top = 581.664
 offset_right = 254.0
-offset_bottom = 581.6643
+offset_bottom = 581.664
 
 [node name="Arm" type="TextureRect" parent="Jackie/JackieArmPivot" unique_id=1716939129]
 z_index = 2
@@ -793,8 +836,8 @@ z_index = 1
 layout_mode = 0
 offset_left = 1528.0
 offset_top = 482.0
-offset_right = 1835.7019
-offset_bottom = 665.01746
+offset_right = 1835.7021
+offset_bottom = 665.01776
 texture = ExtResource("12_oumb1")
 expand_mode = 2
 

@@ -21,6 +21,7 @@ func _on_start_pressed() -> void:
 	$JackieAnimationPlayer.play("return_to_shoot")
 	$ArizonaTextAnimationPlayer.play("return_to_shoot")
 	await get_tree().create_timer(0.25).timeout
+	$JackieAnimationPlayer.play("shoot")
 	SFX.play(SFX.Id.GUNSHOT, false, -6)
 	SFX.play(SFX.Id.GUNSHOT_QUICK, false, -6)
 	$Bullet.visible = true
