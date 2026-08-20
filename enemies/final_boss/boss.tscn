@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://dpy7r5bv0b76i" path="res://enemies/final_boss/repositioning.gd" id="15_dusnj"]
 [ext_resource type="Script" uid="uid://c7f1uydu0b1ls" path="res://enemies/final_boss/spread_shot.gd" id="16_qjocp"]
 [ext_resource type="Script" uid="uid://dua0tkrujxxcl" path="res://enemies/final_boss/trail_shot.gd" id="17_6y1th"]
+[ext_resource type="Script" uid="uid://cybmljilkgtmm" path="res://enemies/final_boss/grid_shot.gd" id="18_4bbdc"]
 [ext_resource type="Script" uid="uid://dwnpnyj7j5035" path="res://enemies/final_boss/arena_form.gd" id="18_32tma"]
 [ext_resource type="Script" uid="uid://cxta8t4ycnj82" path="res://enemies/final_boss/go_rotate.gd" id="19_hc4tq"]
 
@@ -692,6 +693,19 @@ script = ExtResource("17_6y1th")
 [node name="Bullets" type="Node2D" parent="States2/TrailShot" unique_id=1134389621]
 top_level = true
 
+[node name="Repositioning3" type="Node2D" parent="States2" unique_id=1840286046]
+script = ExtResource("15_dusnj")
+travel_distance = 150.0
+
+[node name="WallCheck" type="RayCast2D" parent="States2/Repositioning3" unique_id=441981583]
+target_position = Vector2(0, 150)
+
+[node name="GridShot" type="Node2D" parent="States2" unique_id=28676757]
+script = ExtResource("18_4bbdc")
+
+[node name="Shots" type="Node2D" parent="States2/GridShot" unique_id=154721869]
+top_level = true
+
 [node name="States3" type="Node2D" parent="." unique_id=1002841587]
 
 [node name="ArenaForm" type="Node2D" parent="States3" unique_id=1074060867]
@@ -704,3 +718,10 @@ top_level = true
 
 [node name="GoRotate" type="Node2D" parent="States3" unique_id=497462467]
 script = ExtResource("19_hc4tq")
+
+[node name="SpreadShot" type="Node2D" parent="States3" unique_id=760198225]
+script = ExtResource("16_qjocp")
+bullet_speed = 150.0
+
+[node name="Bullets" type="Node2D" parent="States3/SpreadShot" unique_id=499949856]
+top_level = true
