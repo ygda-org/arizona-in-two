@@ -6,7 +6,6 @@ var button_grow_amount : float = 0.05
 func _ready() -> void:
 	$Fade.color.a = 0.0
 	$Bullet.visible = false
-	$Explosion.visible = false
 	$"2TextPivot/2TextLeft".visible = false
 	$"2TextPivot/2TextRight".visible = false
 	
@@ -21,18 +20,14 @@ func _on_start_pressed() -> void:
 	$JackieAnimationPlayer.play("return_to_shoot")
 	$ArizonaTextAnimationPlayer.play("return_to_shoot")
 	await get_tree().create_timer(0.25).timeout
-	$JackieAnimationPlayer.play("shoot")
+	#$JackieAnimationPlayer.play("shoot")
 	SFX.play(SFX.Id.GUNSHOT, false, -6)
 	SFX.play(SFX.Id.GUNSHOT_QUICK, false, -6)
 	$Bullet.visible = true
 	$ShootAnimationPlayer.play("shoot")
-	#$Explosion.visible = true
-	#$Explosion.play("default")
 	$ExplosionParticles.emitting = true
 	await get_tree().create_timer(0.047).timeout
 	SFX.play(SFX.Id.WOOD_BREAK)
-	$WoodBreakingParticles.emitting = true
-	$Explosion.visible = false
 	$"2TextPivot/2Text".visible = false
 	$"2TextPivot/2TextLeft".visible = true
 	$"2TextPivot/2TextRight".visible = true

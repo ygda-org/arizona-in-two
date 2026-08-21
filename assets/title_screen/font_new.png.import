@@ -1,0 +1,25 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://dba72wgetufoh"
+path="res://.godot/imported/font_new.png-3bf7df28404491c924fdc1544564aa09.fontdata"
+
+[deps]
+
+source_file="res://assets/title_screen/font_new.png"
+dest_files=["res://.godot/imported/font_new.png-3bf7df28404491c924fdc1544564aa09.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("0-127")
+kerning_pairs=PackedStringArray("S e +1", "t t -1", "t i -3", "i n -2", "n g +1", "g s +1", "P l -2", "l a -2", "a y +1", "Q u +1", "u i -1", "i t -3", "H E +1", "E A +1", "A L +1", "T H +1", "0 0 +1", "H : -1", "GAMEOVER GAMEOVER +1", "RESTART RESTART +1")
+columns=10
+rows=13
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(0, 0, 0, 0)
+ascent=0
+descent=0
+fallbacks=[]
+compress=true
+scaling_mode=2

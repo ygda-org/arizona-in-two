@@ -1,8 +1,8 @@
 [gd_resource type="Theme" format=3 uid="uid://bxmpqit5ywl2s"]
 
 [ext_resource type="Texture2D" uid="uid://b5pexmotesqkj" path="res://assets/ui/pause_menu/pause_gear.png" id="1_nn4k1"]
-[ext_resource type="FontFile" uid="uid://cyhc3qspkhxkm" path="res://assets/ui/font.png" id="2_c4yp0"]
 [ext_resource type="Texture2D" uid="uid://d3sqmrgrl6m6q" path="res://assets/ui/pause_menu/ticker.png" id="2_vfxh0"]
+[ext_resource type="FontFile" uid="uid://dba72wgetufoh" path="res://assets/title_screen/font_new.png" id="3_c4yp0"]
 
 [sub_resource type="DPITexture" id="DPITexture_c4yp0"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\" fill-opacity=\".37\"/></svg>
@@ -71,4 +71,4 @@ HSlider/icons/tick = ExtResource("2_vfxh0")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_vfxh0")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_x22y6")
 HSlider/styles/slider = SubResource("StyleBoxFlat_8pejn")
-Label/fonts/font = ExtResource("2_c4yp0")
+Label/fonts/font = ExtResource("3_c4yp0")

@@ -10,5 +10,4 @@ void fragment() {
 	
 	// Called for every pixel the material is visible on.
 	COLOR = texture(noise, UV / 3.0);
-	//COLOR = texture(noise, (UV + sin(TIME * 0.1) + 1.0) / 3.0);
 }
