@@ -25,6 +25,7 @@ func activate():
 	var bullet = BULLET.instantiate()
 	bullet.direction = dir
 	bullet.global_position = global_position
+	bullet.timer_modifier_amount = 0.05;
 	$Bullets.add_child(bullet)
 	await get_tree().create_timer(1.0).timeout
 	get_parent().get_parent().next_state()

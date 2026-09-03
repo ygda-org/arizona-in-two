@@ -4,8 +4,16 @@ var fade_out: bool = true
 
 var damage = 15
 
+var timer_modifier : float = 0
+var timer_variation : bool = false
+
 func _ready():
 	$CollisionShape2D.disabled = true
+	
+	$Timer.wait_time += timer_modifier
+	if timer_variation:
+		$Timer.wait_time += randf_range(-0.25,0.25)
+	$Timer.start()
 
 func _on_anim_animation_finished():
 	$CollisionShape2D.disabled = false

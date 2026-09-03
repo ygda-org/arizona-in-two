@@ -21,6 +21,7 @@ func activate():
 		bullet.global_position.x = 350 * side2 + 150
 		bullet.direction = Vector2i(-bullet.global_position.normalized()*2)
 		bullet.global_position.y = -300 + i * 50 + v_offset
+		bullet.timer_variation = true
 		$Shots.add_child(bullet)
 	get_parent().get_parent().play_anim_by_dir("attack_", Vector2i(0, side2))
 	get_parent().get_parent().queue_anim_by_dir("attack_", Vector2i(side, 0))
