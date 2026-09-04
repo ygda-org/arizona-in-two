@@ -42,6 +42,8 @@ func _ready():
 	animated_sprite_2d = $AnimatedSprite2D
 	
 	GameState.bullet_time = false
+	
+	$IceEffect.visible = false
 
 func _physics_process(delta: float) -> void:
 	if SceneSwitcher.anim.is_playing():
@@ -233,8 +235,10 @@ func apply_fire():
 func apply_ice():
 	ice = true
 	$AnimatedSprite2D.modulate = Color(0.227,0.356,1.0)
+	$IceEffect.visible = true;
 	await get_tree().create_timer(2).timeout
 	$AnimatedSprite2D.modulate = Color(1.0,1.0,1.0)
+	$IceEffect.visible = false;
 	ice = false
 
 func _on_i_frame_timer_timeout() -> void:

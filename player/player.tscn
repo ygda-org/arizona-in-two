@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://lejvxsfpvag0" path="res://assets/player/JackieGunRight.png" id="10_32hag"]
 [ext_resource type="Texture2D" uid="uid://xk1407v4wl7x" path="res://assets/player/left_jack_idle.png" id="10_tqiix"]
 [ext_resource type="Texture2D" uid="uid://cqt1vli8lq1gm" path="res://assets/player/right_jack_idle.png" id="13_e7oew"]
+[ext_resource type="Texture2D" uid="uid://bwomkri8ucxyd" path="res://assets/player/player_frozen.png" id="15_c35mf"]
 [ext_resource type="Texture2D" uid="uid://cguesv3kvy608" path="res://assets/particles/walk_particle.png" id="17_tqiix"]
 [ext_resource type="PackedScene" uid="uid://cyyylb4r6n4c" path="res://ui/settings.tscn" id="18_e7oew"]
 
@@ -352,6 +353,7 @@ collision_layer = 17
 collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_rkbax")
+metadata/_edit_vertical_guides_ = [-26.0]
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=27240685]
 position = Vector2(0, 4)
@@ -366,7 +368,13 @@ shape = SubResource("CapsuleShape2D_tqiix")
 material = SubResource("ShaderMaterial_8t03j")
 position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_g1dw6")
-animation = &"front_gun"
+animation = &"back_walk"
+frame = 3
+frame_progress = 0.077651165
+
+[node name="IceEffect" type="Sprite2D" parent="." unique_id=89943771]
+position = Vector2(0, -5)
+texture = ExtResource("15_c35mf")
 
 [node name="ShotgunPowerTimer" type="Timer" parent="." unique_id=1441716618]
 wait_time = 10.0

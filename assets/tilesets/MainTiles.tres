@@ -272,6 +272,19 @@ texture = ExtResource("4_iugvd")
 4:4/0 = 0
 5:5/0 = 0
 4:5/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+8:1/0 = 0
+9:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_laruj"]
 texture = ExtResource("5_gaw6i")

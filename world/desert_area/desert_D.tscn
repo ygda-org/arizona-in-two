@@ -357,7 +357,7 @@ to_scene = "res://world/desert_area/desert_B.tscn"
 spawn_loc = "FromD"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="South" unique_id=1266743141]
-position = Vector2(208, 360)
+position = Vector2(208, 377)
 shape = SubResource("RectangleShape2D_yerux")
 
 [node name="East" parent="." unique_id=615517061 instance=ExtResource("16_yerux")]

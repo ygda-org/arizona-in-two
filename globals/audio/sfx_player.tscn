@@ -79,7 +79,7 @@ metadata/_custom_type_script = "uid://tlf86ayg5nux"
 script = ExtResource("2_2bsey")
 bus = "SFX"
 stream = ExtResource("11_yfqdi")
-min_delay = 0.16
+min_delay = 0.5
 metadata/_custom_type_script = "uid://tlf86ayg5nux"
 
 [sub_resource type="Resource" id="Resource_p267l"]
@@ -98,7 +98,7 @@ metadata/_custom_type_script = "uid://tlf86ayg5nux"
 script = ExtResource("2_2bsey")
 bus = "SFX"
 stream = ExtResource("14_ol38a")
-min_delay = 0.6
+min_delay = 0.5
 metadata/_custom_type_script = "uid://tlf86ayg5nux"
 
 [sub_resource type="Resource" id="Resource_65w6s"]
@@ -111,7 +111,7 @@ metadata/_custom_type_script = "uid://tlf86ayg5nux"
 script = ExtResource("2_2bsey")
 bus = "SFX"
 stream = ExtResource("16_mbaoh")
-min_delay = 0.57
+min_delay = 0.5
 metadata/_custom_type_script = "uid://tlf86ayg5nux"
 
 [sub_resource type="Resource" id="Resource_p704l"]
