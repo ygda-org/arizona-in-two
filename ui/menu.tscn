@@ -15,7 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://ndcm38qcknrn" path="res://assets/title_screen/gun_end.png" id="8_7toyc"]
 [ext_resource type="PackedScene" uid="uid://qrjkf43abikr" path="res://world/desert_area/heat_haze.tscn" id="10_2fd1n"]
 [ext_resource type="Texture2D" uid="uid://by5s6bmite3tu" path="res://assets/title_screen/bullet.png" id="12_oumb1"]
-[ext_resource type="FontFile" uid="uid://dba72wgetufoh" path="res://assets/title_screen/font_new.png" id="15_vmbxc"]
+[ext_resource type="Script" uid="uid://gb1g6xjateib" path="res://ui/animated_button.gd" id="15_c5cit"]
+[ext_resource type="FontFile" uid="uid://dba72wgetufoh" path="res://assets/title_screen/font_new.png" id="15_lf6dv"]
 [ext_resource type="Shader" uid="uid://b1xuow6r73j4v" path="res://assets/title_screen/title_dust.gdshader" id="17_akon5"]
 [ext_resource type="PackedScene" uid="uid://cyyylb4r6n4c" path="res://ui/settings.tscn" id="20_is7kr"]
 
@@ -699,53 +700,44 @@ wait_time = 8.0
 one_shot = true
 autostart = true
 
-[node name="Start" type="Button" parent="." unique_id=1943681305]
-z_index = 1
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 271.0
-offset_top = 716.0
-offset_right = 671.0
-offset_bottom = 796.0
-grow_horizontal = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("15_vmbxc")
-theme_override_font_sizes/font_size = 64
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=222161918]
+layout_mode = 0
+offset_left = 1155.0
+offset_top = 721.0
+offset_right = 1658.0
+offset_bottom = 1015.0
+theme_override_constants/separation = 30
+metadata/_edit_group_ = true
+
+[node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=1843446050]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_visual_only = false
+theme_override_fonts/font = ExtResource("15_lf6dv")
+theme_override_font_sizes/font_size = 70
 text = "Play"
+script = ExtResource("15_c5cit")
 
-[node name="Settings" type="Button" parent="." unique_id=98883936]
-z_index = 1
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 271.0
-offset_top = 816.0
-offset_right = 671.0
-offset_bottom = 896.0
-grow_horizontal = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("15_vmbxc")
-theme_override_font_sizes/font_size = 64
+[node name="SettingsButton" type="Button" parent="VBoxContainer" unique_id=1868401367]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_visual_only = false
+theme_override_fonts/font = ExtResource("15_lf6dv")
+theme_override_font_sizes/font_size = 70
 text = "Settings"
+script = ExtResource("15_c5cit")
 
-[node name="Quit" type="Button" parent="." unique_id=1385478513]
-z_index = 1
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 271.0
-offset_top = 916.0
-offset_right = 671.0
-offset_bottom = 996.0
-grow_horizontal = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("15_vmbxc")
-theme_override_font_sizes/font_size = 64
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=49798173]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_visual_only = false
+theme_override_fonts/font = ExtResource("15_lf6dv")
+theme_override_font_sizes/font_size = 70
 text = "Quit"
+script = ExtResource("15_c5cit")
 
 [node name="FadeOutAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1334846934]
 libraries/ = SubResource("AnimationLibrary_k3j3x")
@@ -833,12 +825,6 @@ color_ramp = SubResource("Gradient_x388h")
 [connection signal="timeout" from="Birds1Timer" to="." method="_on_birds_1_timer_timeout"]
 [connection signal="timeout" from="Birds2Timer" to="." method="_on_birds_2_timer_timeout"]
 [connection signal="timeout" from="Birds3Timer" to="." method="_on_birds_3_timer_timeout"]
-[connection signal="mouse_entered" from="Start" to="." method="_on_start_mouse_entered"]
-[connection signal="mouse_exited" from="Start" to="." method="_on_start_mouse_exited"]
-[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
-[connection signal="mouse_entered" from="Settings" to="." method="_on_settings_mouse_entered"]
-[connection signal="mouse_exited" from="Settings" to="." method="_on_settings_mouse_exited"]
-[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
-[connection signal="mouse_entered" from="Quit" to="." method="_on_quit_mouse_entered"]
-[connection signal="mouse_exited" from="Quit" to="." method="_on_quit_mouse_exited"]
-[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

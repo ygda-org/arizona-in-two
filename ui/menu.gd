@@ -8,15 +8,10 @@ func _ready() -> void:
 	$Bullet.visible = false
 	$"2TextPivot/2TextLeft".visible = false
 	$"2TextPivot/2TextRight".visible = false
-	
-func _on_start_pressed() -> void:
+
+func _on_play_button_pressed():
 	GameState.from_menu = false
-	$Start.disabled = true
-	var tween : Tween = $Start.create_tween()
-	tween.tween_property($Start, "scale", Vector2(1 - button_grow_amount,1 - button_grow_amount), 0.025)
-	tween.tween_interval(0.1)
-	tween.tween_property($Start, "scale", Vector2(1,1), 0.025)
-	SFX.play(SFX.Id.BUTTON_CLICK)
+	$VBoxContainer/PlayButton.disabled = true
 	$JackieAnimationPlayer.play("return_to_shoot")
 	$ArizonaTextAnimationPlayer.play("return_to_shoot")
 	await get_tree().create_timer(0.25).timeout
@@ -40,55 +35,12 @@ func _on_start_pressed() -> void:
 	SceneSwitcher.switch_scene("res://world/desert_area/desert_A.tscn", "FromGrass")
 	#SceneSwitcher.switch_scene(_game)
 
-func _on_settings_pressed() -> void:
-	var tween : Tween = $Settings.create_tween()
-	tween.tween_property($Settings, "scale", Vector2(1 - button_grow_amount,1 - button_grow_amount), 0.025)
-	tween.tween_interval(0.1)
-	tween.tween_property($Settings, "scale", Vector2(1,1), 0.025)
-	SFX.play(SFX.Id.BUTTON_CLICK)
-	await get_tree().create_timer(0.25).timeout
-	
+func _on_settings_button_pressed():
 	GameState.from_menu = true
 	$SettingsMenu.visible = true
-
-func _on_quit_pressed() -> void:
-	var tween : Tween = $Quit.create_tween()
-	tween.tween_property($Quit, "scale", Vector2(1 - button_grow_amount,1 - button_grow_amount), 0.025)
-	tween.tween_interval(0.1)
-	tween.tween_property($Quit, "scale", Vector2(1,1), 0.025)
-	SFX.play(SFX.Id.BUTTON_CLICK)
-	await get_tree().create_timer(0.25).timeout
 	
+func _on_quit_button_pressed():
 	get_tree().quit()
-#region enter exit buttons
-func _on_start_mouse_entered():
-	var tween : Tween = $Start.create_tween()
-	tween.tween_property($Start, "scale", Vector2(1 + button_grow_amount,1 + button_grow_amount), 0.05)
-	SFX.play(SFX.Id.BUTTON_HOVER)
-	
-func _on_settings_mouse_entered():
-	var tween : Tween = $Settings.create_tween()
-	tween.tween_property($Settings, "scale", Vector2(1 + button_grow_amount,1 + button_grow_amount), 0.05)
-	SFX.play(SFX.Id.BUTTON_HOVER)
-	
-func _on_quit_mouse_entered():
-	var tween : Tween = $Quit.create_tween()
-	tween.tween_property($Quit, "scale", Vector2(1 + button_grow_amount,1 + button_grow_amount), 0.05)
-	SFX.play(SFX.Id.BUTTON_HOVER)
-
-func _on_start_mouse_exited():
-	var tween : Tween = $Start.create_tween()
-	tween.tween_property($Start, "scale", Vector2(1.0,1.0), 0.05)
-
-func _on_settings_mouse_exited():
-	var tween : Tween = $Settings.create_tween()
-	tween.tween_property($Settings, "scale", Vector2(1.0,1.0), 0.05)
-
-func _on_quit_mouse_exited():
-	var tween : Tween = $Quit.create_tween()
-	tween.tween_property($Quit, "scale", Vector2(1.0,1.0), 0.05)
-
-#endregion
 
 #region idle
 func _on_birds_1_timer_timeout():

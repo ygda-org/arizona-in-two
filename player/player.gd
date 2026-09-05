@@ -30,7 +30,7 @@ const SHOTGUN_SPREAD = PI/4 # spread per shot
 
 var ice = false
 
-var floor : String
+var ground : String
 
 
 func _ready():
@@ -258,36 +258,36 @@ func _on_bullet_time_dur_timeout() -> void:
 #region footsteps
 
 func _on_sand_footsteps_body_entered(_body):
-	floor = "Sand"
+	ground = "Sand"
 	
 func _on_sand_footsteps_body_exited(_body):
-	floor = ""
+	ground = ""
 
 func _on_grass_footsteps_body_entered(_body):
-	floor = "Grass"
+	ground = "Grass"
 
 
 func _on_grass_footsteps_body_exited(_body):
-	floor = ""
+	ground = ""
 
 
 func _on_magma_footsteps_body_entered(_body):
-	floor = "Magma"
+	ground = "Magma"
 
 
 func _on_magma_footsteps_body_exited(_body):
-	floor = ""
+	ground = ""
 
 
 func _on_snow_footsteps_body_entered(_body):
-	floor = "Snow"
+	ground = "Snow"
 
 
 func _on_snow_footsteps_body_exited(_body):
-	floor = ""
+	ground = ""
 
 func play_footsteps():
-	match floor:
+	match ground:
 		"Sand":
 			SFX.play(SFX.Id.GRASS_STEP)
 		"Grass":
