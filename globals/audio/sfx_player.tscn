@@ -142,6 +142,8 @@ metadata/_custom_type_script = "uid://tlf86ayg5nux"
 script = ExtResource("2_2bsey")
 bus = "SFX"
 stream = ExtResource("21_wqlko")
+volume_variance = 1.5
+pitch_variance = 0.1
 metadata/_custom_type_script = "uid://tlf86ayg5nux"
 
 [sub_resource type="Resource" id="Resource_tw0h2"]

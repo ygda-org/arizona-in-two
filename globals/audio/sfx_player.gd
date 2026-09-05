@@ -345,7 +345,7 @@ func play_3d(id : Id, node : Node, loop : bool = false):
 
 #region _add_min_delay_timer, _add_fade_timer, _process, _node_to_id
 
-func _add_min_delay_timer(id : Id):
+func _add_min_delay_timer(id : Id) -> void:
 	var setting = id_to_setting[id]
 	var min_delay_timer : Timer = Timer.new()
 	min_delay_timer.name = Id.keys()[id] + "MinDelayTimer"
@@ -354,7 +354,7 @@ func _add_min_delay_timer(id : Id):
 	min_delay_timer.timeout.connect(min_delay_timer.queue_free)
 	add_child(min_delay_timer)
 
-func _add_fade_timer(audio_stream_player : AudioStreamPlayer, type : String, length : float):
+func _add_fade_timer(audio_stream_player : AudioStreamPlayer, type : String, length : float) -> void:
 	for node in audio_stream_player.get_children():
 		node.queue_free()
 	var timer : Timer = Timer.new()
@@ -366,12 +366,12 @@ func _add_fade_timer(audio_stream_player : AudioStreamPlayer, type : String, len
 	audio_stream_player.add_child(timer)
 	audio_stream_player.volume_limit = audio_stream_player.volume_db
 
-func _process(_delta):
+func _process(_delta) -> void:
 	for node in get_children():
 		if node is not AudioStreamPlayer:
 			continue
 		
-		for timer in node.get_children():
+		for timer : Timer in node.get_children():
 			var type : String
 			if "unpause" in timer.name:
 				type = "unpause"
@@ -384,9 +384,9 @@ func _process(_delta):
 				var volume : float = id_to_setting[_node_to_id(node)].volume
 				if type == "unpause": ## Fade in
 					node.stream_paused = false
-					var distance_through_curve = (timer.wait_time - timer.time_left) / timer.wait_time
-					var multiplicand = (db_to_linear(volume) - db_to_linear(node.volume_limit)) / db_to_linear(volume)
-					var adder = db_to_linear(node.volume_limit - volume)
+					var distance_through_curve : float = (timer.wait_time - timer.time_left) / timer.wait_time
+					var multiplicand : float = (db_to_linear(volume) - db_to_linear(node.volume_limit)) / db_to_linear(volume)
+					var adder : float = db_to_linear(node.volume_limit - volume)
 					node.volume_db = linear_to_db((distance_through_curve * multiplicand) + adder) + volume
 				if type == "pause" or type == "clear": ## Fade out
 					node.volume_db = linear_to_db(timer.time_left / timer.wait_time) + node.volume_limit
@@ -403,8 +403,8 @@ func _process(_delta):
 ## [b]Accepts a node of type [AudioStreamPlayer], and returns its associated id.[/b] [br]
 ## [br]
 ## [param audio_stream_player]: The [AudioStreamPlayer] whose id will be returned
-func _node_to_id(audio_stream_player : AudioStreamPlayer):
-	var text = audio_stream_player.name.remove_chars("1234567890")
+func _node_to_id(audio_stream_player : AudioStreamPlayer) -> int:
+	var text : String = audio_stream_player.name.remove_chars("1234567890")
 	text = text.to_upper()
 	return Id[text]
 #endregion

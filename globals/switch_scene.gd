@@ -6,7 +6,7 @@ var recents = [null, null]
 
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
-func switch_scene(scene_path, spawn_loc): # Accepts a String parameter
+func switch_scene(scene_path, spawn_loc) -> void: # Accepts a String parameter
 	recents = [scene_path, spawn_loc]
 	anim.play("switch")
 
@@ -14,7 +14,7 @@ func switch_scene_start():
 	GameState.loaded_camera_spawns = []
 	call_deferred("switch_scene_deferred", recents[0], recents[1])
 
-func switch_scene_deferred(scene_path, spawn_loc):
+func switch_scene_deferred(scene_path, spawn_loc) -> void:
 	get_tree().change_scene_to_file(scene_path)
 	await get_tree().process_frame
 	await get_tree().process_frame
@@ -22,7 +22,7 @@ func switch_scene_deferred(scene_path, spawn_loc):
 	var player = level.get_node("Player")
 	player.set_spawn_position(level.find_child(spawn_loc).global_position)
 
-func switch_scene_no_player(scene_path):
+func switch_scene_no_player(scene_path) -> void:
 	call_deferred("switch_scene_no_player_deferred", scene_path)
 
 func switch_scene_no_player_deferred(scene_path):

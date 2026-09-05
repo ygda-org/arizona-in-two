@@ -15,9 +15,9 @@ signal dead
 func _ready() -> void:
 	pass # Replace with function body.
 
-func process_bullet(bullet: Bullet):
-	var bullet_dmg = bullet.damage #exported damage
-	var effects = bullet.bullet_attribute #exported effect string
+func process_bullet(bullet: Bullet) -> void:
+	var bullet_dmg: int = bullet.damage #exported damage
+	var effects: String = bullet.bullet_attribute #exported effect string
 	#do certain actions based on the effects here
 	if effects == "Silver":
 		pass # knockback
@@ -33,11 +33,6 @@ func process_bullet(bullet: Bullet):
 			shader_mat.set_shader_parameter("enabled", true)
 			$FlashTimer.start()
 		damaged.emit()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 
 func _on_flash_timer_timeout() -> void:
 	shader_mat.set_shader_parameter("enabled", false)

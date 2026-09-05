@@ -8,16 +8,16 @@ const ACCEL : float = 50.0
 
 const DECEL : float = 200.0
 
-var initial_position
+var initial_position: Vector2
 
-const TUMBLEWEED = preload("res://enemies/tumbleweed/tumbleweed.tscn")
+const TUMBLEWEED: PackedScene = preload("res://enemies/tumbleweed/tumbleweed.tscn")
 
-func _ready():
+func _ready() -> void:
 	initial_position = global_position
 	$GrowthTimer.wait_time = randf_range(10,15)
 	$GrowthTimer.start()
 
-func _physics_process(delta):
+func _physics_process(delta : float) -> void:
 	if initial_position.distance_to(global_position) < 30:
 		velocity += direction * ACCEL * delta
 	else:
@@ -26,7 +26,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-func _on_growth_timer_timeout():
+func _on_growth_timer_timeout() -> void:
 	var tumble = TUMBLEWEED.instantiate()
 	get_parent().add_child(tumble)
 	tumble.position = position
@@ -35,5 +35,5 @@ func _on_growth_timer_timeout():
 	queue_free()
 
 
-func _on_enemy_component_dead():
+func _on_enemy_component_dead() -> void:
 	queue_free()

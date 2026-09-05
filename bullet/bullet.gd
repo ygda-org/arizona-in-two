@@ -2,23 +2,23 @@ extends Area2D
 
 class_name Bullet
 
-@export var damage = 1 #Bullet's damage
+@export var damage: int = 1 #Bullet's damage
 #@export var effects = ["fire","ice"] #Bullet's effects
 
 ## set this variable on instantiate if special effects
-var bullet_attribute = "Normal"
+var bullet_attribute: String = "Normal"
 
-@export var direction = Vector2() # bullet direction of travel
+@export var direction: Vector2 = Vector2() # bullet direction of travel
 
-@export var bulletBounce = false
+@export var bulletBounce : bool = false
 
 #Certain node(s) should be excluded from bullet detection
 @export var excluded_nodes : Array[Node2D]
 
-var speed = 256 #The speed of the bullet
+var speed: float = 256 #The speed of the bullet
 
-var bounceCount = 0
-var maxBounceCount = 2
+var bounceCount: int = 0
+var maxBounceCount: int = 2
 
 func _ready() -> void:
 	SFX.play(SFX.Id.GUNSHOT)
@@ -36,10 +36,10 @@ func _ready() -> void:
 		bullet_attribute = "Ice"
 	name = "Bullet" + str(GameState.total_elapsed_time)
 	
-func _physics_process(delta):
+func _physics_process(delta) -> void:
 	position += speed * direction * delta
 
-func _on_visible_on_screen_notifier_2d_screen_exited():
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	call_deferred("queue_free")
 
 func _on_body_entered(body: Node2D) -> void:
@@ -88,7 +88,7 @@ func _on_body_entered(body: Node2D) -> void:
 			call_deferred("queue_free")
 		await get_tree().create_timer(0.05).timeout
 
-func play_hit_sound():
+func play_hit_sound() -> void:
 	if bullet_attribute == "Fire":
 		SFX.play(SFX.Id.FLAME)
 	elif bullet_attribute == "Ice":
@@ -96,6 +96,6 @@ func play_hit_sound():
 	else:
 		SFX.play(SFX.Id.HIT_SOUND)
 
-func suicide():
+func suicide() -> void:
 	#explosions or smth if needed
 	queue_free()

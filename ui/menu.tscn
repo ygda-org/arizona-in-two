@@ -710,6 +710,7 @@ theme_override_constants/separation = 30
 metadata/_edit_group_ = true
 
 [node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=1843446050]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 offset_transform_enabled = true
@@ -720,6 +721,7 @@ text = "Play"
 script = ExtResource("15_c5cit")
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer" unique_id=1868401367]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 offset_transform_enabled = true
@@ -730,6 +732,7 @@ text = "Settings"
 script = ExtResource("15_c5cit")
 
 [node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=49798173]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 offset_transform_enabled = true

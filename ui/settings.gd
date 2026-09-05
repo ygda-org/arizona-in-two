@@ -20,18 +20,18 @@ func _ready() -> void:
 	change_bus_volume("SFX", GameState.sfx_volume)
 	change_bus_volume("Ambience", GameState.ambience_volume)
 
-func create_bitmap(button):
+func create_bitmap(button : TextureButton) ->void:
 	if button.texture_normal:
 		# Get the image from the texture normal
-		var image = button.texture_normal.get_image()
+		var image: Image = button.texture_normal.get_image()
 		# Create the BitMap
-		var bitmap = BitMap.new()
+		var bitmap: BitMap = BitMap.new()
 		# Fill it from the image alpha
 		bitmap.create_from_image_alpha(image)
 		# Assign it to the mask
 		button.texture_click_mask = bitmap
 
-func _process(_delta):
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Menu"):
 		GameState.from_menu = false
 		toggle_pause()
@@ -45,13 +45,13 @@ func _process(_delta):
 		opening_sequence()
 		
 
-func opening_sequence():
+func opening_sequence() -> void:
 	$Menu.visible = true
 	#var tween : Tween = $Menu.create_tween()
 	$Menu.position.y = 0
 	#tween.tween_property($Menu, "position", Vector2(0,0), 1.0).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 
-func toggle_pause():
+func toggle_pause() -> void:
 	if get_tree().paused == true:
 		SFX.unpause_all(true, 10.0)
 	if get_tree().paused == false:
@@ -60,19 +60,19 @@ func toggle_pause():
 	get_tree().paused = not get_tree().paused
 	visible = get_tree().paused
 
-func _on_master_value_changed(value):
+func _on_master_value_changed(value: float) -> void:
 	change_bus_volume("Master", value)
 
-func _on_music_value_changed(value):
+func _on_music_value_changed(value: float) -> void:
 	change_bus_volume("Music", value)
 
-func _on_ambience_value_changed(value):
+func _on_ambience_value_changed(value: float) -> void:
 	change_bus_volume("Ambience", value)
 
-func _on_sfx_value_changed(value):
+func _on_sfx_value_changed(value: float) -> void:
 	change_bus_volume("SFX", value)
 
-func change_bus_volume(bus, linear_value):
+func change_bus_volume(bus: String, linear_value: float) -> void :
 	if bus == "Master":
 		GameState.master_volume = linear_value
 	if bus == "Music":
@@ -82,17 +82,17 @@ func change_bus_volume(bus, linear_value):
 	if bus == "Ambience":
 		GameState.ambience_volume = linear_value
 	
-	var db_value = linear_to_db(linear_value)
-	var bus_index = AudioServer.get_bus_index(bus)
+	var db_value: float = linear_to_db(linear_value)
+	var bus_index: int = AudioServer.get_bus_index(bus)
 	AudioServer.set_bus_volume_db(bus_index, db_value)
 
 
-func _on_resume_button_mouse_entered():
-	var tween : Tween = $Menu/ResumeButton.create_tween()
+func _on_resume_button_mouse_entered() -> void:
+	var tween: Tween = $Menu/ResumeButton.create_tween()
 	tween.tween_property($Menu/ResumeButton, "scale", Vector2(3 + button_grow_amount,3 + button_grow_amount), 0.05)
 	SFX.play(SFX.Id.BUTTON_HOVER)
 
-func _on_resume_button_pressed():
+func _on_resume_button_pressed() -> void:
 	var tween : Tween = $Menu/ResumeButton.create_tween()
 	#var tweenVignette : Tween = $Vignette.create_tween()
 	#tween.tween_property($Vignette, "modulate", Color(1,1,1,0), 1)
@@ -106,6 +106,6 @@ func _on_resume_button_pressed():
 	visible = false
 
 
-func _on_resume_button_mouse_exited():
+func _on_resume_button_mouse_exited() -> void:
 	var tween : Tween = $Menu/ResumeButton.create_tween()
 	tween.tween_property($Menu/ResumeButton, "scale", Vector2(3,3), button_grow_amount)

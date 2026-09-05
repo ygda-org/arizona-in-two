@@ -19,15 +19,15 @@ func _ready() -> void:
 		if node.name == "MinAttackDelayTimer":
 			min_attack_delay_timer = node
 
-func accept_bullet_(bullet: Bullet):
-	var damage_from_bullet = bullet.damage #exported damage
-	var effects = bullet.bullet_attribute #exported effect string
+func accept_bullet_(bullet: Bullet) -> void:
+	var damage_from_bullet : int = bullet.damage #exported damage
+	var effects : String = bullet.bullet_attribute #exported effect string
 	#do certain actions based on the effects here
 	if effects == "Silver":
 		pass # knockback
 	take_damage(damage_from_bullet)
 
-func take_damage(damage_taken: float):
+func take_damage(damage_taken: int) -> void:
 	if "Player" in parent.name:
 		GameState.player_health -= damage_taken
 		parent.damaged_sequence()
@@ -59,7 +59,7 @@ func _physics_process(_delta: float) -> void:
 		else:
 			deal_damage(collision)
 			
-func deal_damage(collision : KinematicCollision2D):
+func deal_damage(collision : KinematicCollision2D) -> void:
 	var obj := collision.get_collider()
 	var normal := collision.get_normal()
 	obj.velocity -= normal * knockback_strength

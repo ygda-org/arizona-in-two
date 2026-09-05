@@ -9,7 +9,7 @@ func _ready() -> void:
 	$"2TextPivot/2TextLeft".visible = false
 	$"2TextPivot/2TextRight".visible = false
 
-func _on_play_button_pressed():
+func _on_play_button_pressed() -> void:
 	GameState.from_menu = false
 	$VBoxContainer/PlayButton.disabled = true
 	$JackieAnimationPlayer.play("return_to_shoot")
@@ -35,25 +35,28 @@ func _on_play_button_pressed():
 	SceneSwitcher.switch_scene("res://world/desert_area/desert_A.tscn", "FromGrass")
 	#SceneSwitcher.switch_scene(_game)
 
-func _on_settings_button_pressed():
+func _on_settings_button_pressed() -> void:
+	await %SettingsButton.on_button_pressed_finished
+	
 	GameState.from_menu = true
 	$SettingsMenu.visible = true
 	
-func _on_quit_button_pressed():
+func _on_quit_button_pressed() -> void:
+	await %QuitButton.on_button_pressed_finished
 	get_tree().quit()
 
 #region idle
-func _on_birds_1_timer_timeout():
+func _on_birds_1_timer_timeout() -> void:
 	$Birds1Timer.wait_time = randf_range(10,30)
 	$Birds1Timer.start()
 	$Birds1AnimationPlayer.play("birds_1")
 
-func _on_birds_2_timer_timeout():
+func _on_birds_2_timer_timeout() -> void:
 	$Birds2Timer.wait_time = randf_range(30,40)
 	$Birds2Timer.start()
 	$Birds2AnimationPlayer.play("birds_2")
 
-func _on_birds_3_timer_timeout():
+func _on_birds_3_timer_timeout() -> void:
 	$Birds3Timer.wait_time = randf_range(20,40)
 	$Birds3Timer.start()
 	$Birds3AnimationPlayer.play("birds_3")
