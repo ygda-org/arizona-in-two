@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bpx1uek3wf426" path="res://ui/gui.gd" id="1_xcsiv"]
 [ext_resource type="Texture2D" uid="uid://bykg2im4ts65f" path="res://assets/ui/dialogue_box.png" id="1_xlv5r"]
 [ext_resource type="FontFile" uid="uid://dba72wgetufoh" path="res://assets/title_screen/font_new.png" id="4_d8lyu"]
+[ext_resource type="Texture2D" uid="uid://bbsohqa51kh45" path="res://assets/ui/pause_menu/nine_slice.png" id="4_gqidp"]
 [ext_resource type="Texture2D" uid="uid://crj36pd7r8ype" path="res://assets/ui/current_normal_bullet.png" id="4_juqqw"]
 [ext_resource type="Texture2D" uid="uid://ba47whfpnvqcu" path="res://assets/ui/current_ice_bullet.png" id="5_02e3h"]
 [ext_resource type="Texture2D" uid="uid://q8jl3t8sqild" path="res://assets/ui/current_silver_bullet.png" id="5_s5xys"]
@@ -183,6 +184,7 @@ text = "RESTART"
 flat = true
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=536456143]
+visible = false
 layout_mode = 0
 offset_left = 19.0
 offset_top = 22.0
@@ -190,30 +192,47 @@ offset_right = 495.0
 offset_bottom = 108.0
 texture = ExtResource("1_xlv5r")
 
-[node name="Label" type="Label" parent="TextureRect" unique_id=836696298]
+[node name="HealthLabel" type="Label" parent="." unique_id=836696298]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 30.0
-offset_top = -33.0
-offset_right = 464.0
-offset_bottom = 31.0
+offset_left = 62.0
+offset_top = -499.0
+offset_right = 461.0
+offset_bottom = -435.0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_d8lyu")
 theme_override_font_sizes/font_size = 56
 text = "HEALTH: 1000"
+horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HealthNinePatch" type="NinePatchRect" parent="." unique_id=1248139963]
+z_index = -1
+layout_mode = 0
+offset_left = 15.0
+offset_top = 14.0
+offset_right = 508.0
+offset_bottom = 135.0
+texture = ExtResource("4_gqidp")
+region_rect = Rect2(0, 0, 144, 144)
+patch_margin_left = 48
+patch_margin_top = 48
+patch_margin_right = 48
+patch_margin_bottom = 48
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2049067625]
 libraries/ = SubResource("AnimationLibrary_juqqw")
 
 [node name="BulletIndicator" type="Control" parent="." unique_id=918409497]
 anchors_preset = 0
-offset_left = 114.0
-offset_top = 880.0
-offset_right = 154.0
-offset_bottom = 920.0
+offset_left = 77.0
+offset_top = 953.0
+offset_right = 144.5
+offset_bottom = 985.5
 scale = Vector2(4, 4)
 
 [node name="Normal" type="TextureRect" parent="BulletIndicator" unique_id=1951300491]

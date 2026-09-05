@@ -30,10 +30,7 @@ const SHOTGUN_SPREAD = PI/4 # spread per shot
 
 var ice = false
 
-var on_sand : bool = false
-var on_snow : bool = false
-var on_grass : bool = false
-var on_magma : bool = false
+var floor : String
 
 
 func _ready():
@@ -76,6 +73,9 @@ func movement(delta):
 	if inputDir:
 		if speedMulti > 1.0:
 				$AnimatedSprite2D.speed_scale = 1.5
+				SFX.id_to_setting[SFX.Id.GRASS_STEP].min_delay = 1.0/3.0
+				SFX.id_to_setting[SFX.Id.MAGMA_STEP].min_delay = 1.0/3.0
+				SFX.id_to_setting[SFX.Id.SNOW_FOOTSTEPS].min_delay = 1.0/3.0
 		play_footsteps()
 		
 		# Slowly increases the speed
@@ -127,8 +127,11 @@ func movement(delta):
 						$AnimatedSprite2D.play("front_walk")
 		
 	else:
-		if speedMulti > 1.0:
+		if speedMulti == 1.0:
 			$AnimatedSprite2D.speed_scale = 1.0
+			SFX.id_to_setting[SFX.Id.GRASS_STEP].min_delay = 0.5
+			SFX.id_to_setting[SFX.Id.MAGMA_STEP].min_delay = 0.5
+			SFX.id_to_setting[SFX.Id.SNOW_FOOTSTEPS].min_delay = 0.5
 		# Slowly decreases the speed of the player
 		if not $AnimatedSprite2D.animation.ends_with("gun") or not $AnimatedSprite2D.is_playing():
 			if $AnimatedSprite2D.animation.begins_with("right"):
@@ -255,42 +258,42 @@ func _on_bullet_time_dur_timeout() -> void:
 #region footsteps
 
 func _on_sand_footsteps_body_entered(_body):
-	on_sand = true
+	floor = "Sand"
 	
 func _on_sand_footsteps_body_exited(_body):
-	on_sand = false
+	floor = ""
 
 func _on_grass_footsteps_body_entered(_body):
-	on_grass = true
+	floor = "Grass"
 
 
 func _on_grass_footsteps_body_exited(_body):
-	on_grass = false
+	floor = ""
 
 
 func _on_magma_footsteps_body_entered(_body):
-	on_magma = true
+	floor = "Magma"
 
 
 func _on_magma_footsteps_body_exited(_body):
-	on_magma = false
+	floor = ""
 
 
 func _on_snow_footsteps_body_entered(_body):
-	on_snow = true
+	floor = "Snow"
 
 
 func _on_snow_footsteps_body_exited(_body):
-	on_snow = false
+	floor = ""
 
 func play_footsteps():
-	if on_sand:
-		SFX.play(SFX.Id.GRASS_STEP)
-	if on_grass:
-		SFX.play(SFX.Id.GRASS_STEP)
-	if on_snow:
-		SFX.play(SFX.Id.SNOW_FOOTSTEPS)
-	if on_magma:
-		SFX.play(SFX.Id.MAGMA_STEP)
-
+	match floor:
+		"Sand":
+			SFX.play(SFX.Id.GRASS_STEP)
+		"Grass":
+			SFX.play(SFX.Id.GRASS_STEP)
+		"Magma":
+			SFX.play(SFX.Id.MAGMA_STEP)
+		"Snow":
+			SFX.play(SFX.Id.SNOW_FOOTSTEPS)
 #endregion

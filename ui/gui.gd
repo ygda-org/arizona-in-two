@@ -15,7 +15,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	$TextureRect/Label.text = "Health: " + str(GameState.player_health)
+	$HealthLabel.text = "Health: " + str(GameState.player_health)
 	set_bullet(indicators[GameState.player_selected_bullet])
 	
 
