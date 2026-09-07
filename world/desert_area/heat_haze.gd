@@ -1,10 +1,10 @@
 @tool
 extends ColorRect
 
-@export var disable: bool = false:
+@export var enabled: bool = false:
 	set(new_bool):
-		disable = new_bool
-		material.set_shader_parameter("disable", new_bool)
+		enabled = new_bool
+		material.set_shader_parameter("enabled", new_bool)
 
 func _ready() -> void:
 	set_travel_direction()
