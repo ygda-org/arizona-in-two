@@ -33,7 +33,6 @@ SceneSwitcher="*uid://dy5m1txurt7y5"
 
 [debug]
 
-gdscript/warnings/untyped_declaration=1
 gdscript/warnings/inferred_declaration=1
 
 [display]

@@ -46,7 +46,7 @@ func _physics_process(_delta: float) -> void:
 	# Check collisions
 	for i: int in parent.get_slide_collision_count():
 		var collision : KinematicCollision2D = parent.get_slide_collision(i)
-		var obj := collision.get_collider()
+		var obj: Object = collision.get_collider()
 		# Player check
 		if obj is not Player:
 			continue
@@ -60,8 +60,8 @@ func _physics_process(_delta: float) -> void:
 			deal_damage(collision)
 			
 func deal_damage(collision : KinematicCollision2D) -> void:
-	var obj := collision.get_collider()
-	var normal := collision.get_normal()
+	var obj: Object = collision.get_collider()
+	var normal: Vector2 = collision.get_normal()
 	obj.velocity -= normal * knockback_strength
 	GameState.damage_player(damage)
 	if suicide_on_death:
