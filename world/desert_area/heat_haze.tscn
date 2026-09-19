@@ -19,9 +19,13 @@ shader_parameter/distort_texture = SubResource("NoiseTexture2D_4f6ip")
 
 [node name="HeatHaze" type="ColorRect" unique_id=1368225760]
 material = SubResource("ShaderMaterial_o6noq")
-offset_left = -3280.0
-offset_top = -3280.0
-offset_right = 3048.0
-offset_bottom = 2809.0
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("2_nltn4")
-disable = false

@@ -373,6 +373,7 @@ frame = 3
 frame_progress = 0.077651165
 
 [node name="IceEffect" type="Sprite2D" parent="." unique_id=89943771]
+visible = false
 position = Vector2(0, -5)
 texture = ExtResource("15_c35mf")
 

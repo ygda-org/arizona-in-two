@@ -461,8 +461,8 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
 [sub_resource type="Gradient" id="Gradient_x388h"]
-offsets = PackedFloat32Array(0, 0.5807292, 1)
-colors = PackedColorArray(0.84, 0.29092, 0.21839999, 1, 0.7007099, 0.6437342, 0, 1, 1, 0.9704087, 0, 0)
+offsets = PackedFloat32Array(0, 0.35565478, 0.6785714, 1)
+colors = PackedColorArray(0.77, 0.40271, 0.35419998, 1, 0.83, 0.48555002, 0.1411, 1, 0.73, 0.69410837, 0.29930001, 1, 1, 0.9704087, 0, 0)
 
 [node name="Menu" type="Control" unique_id=1875752583]
 process_mode = 3
@@ -496,10 +496,16 @@ color = Color(1, 0.16862746, 0.08627451, 1)
 
 [node name="HeatHaze" parent="." unique_id=1368225760 instance=ExtResource("10_2fd1n")]
 layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 1920.0
 offset_bottom = 1080.0
+grow_horizontal = 1
+grow_vertical = 1
+enabled = true
 
 [node name="Fade" type="ColorRect" parent="." unique_id=2131059613]
 z_index = 5

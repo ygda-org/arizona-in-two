@@ -10,25 +10,25 @@ var target_velocity : Vector2 = Vector2.ZERO
 #dash
 var state : String = "idle"
 
-@onready var particles = $CPUParticles2D
+@onready var particles: CPUParticles2D = $CPUParticles2D
 
 var player_in_range : bool = false
 
 var can_attack : bool = false
 
-@export var damage = 10
+@export var damage: int = 10
 
 ## "sand," "ice," or "fire"
 @export var type: String = "sand"
 
-var dying = false
+var dying: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$IdleTimer.wait_time = randf_range(4.0,7.0)
 	$IdleTimer.start()
 
-const DEAD_ENEMY = preload("uid://dg6vd4w76xk55")
+const DEAD_ENEMY: PackedScene = preload("uid://dg6vd4w76xk55")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -161,11 +161,11 @@ func _on_dash_timer_timeout() -> void:
 	target_velocity = Vector2.ZERO
 
 
-func _on_damage_area_body_entered(body):
+func _on_damage_area_body_entered(body) -> void:
 	if body.is_in_group("player"):
 		player_in_range = true
 
 
-func _on_damage_area_body_exited(body):
+func _on_damage_area_body_exited(body) -> void:
 	if body.is_in_group("player"):
 		player_in_range = false

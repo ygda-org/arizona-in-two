@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://blkr6nvo6raah" path="res://assets/slimes/fire_slime/Enemy_Fire Slime_Death.png" id="1_dwuds"]
 [ext_resource type="Texture2D" uid="uid://85x2s0y3mwak" path="res://assets/slimes/ice_slime/ice_slime_death.png" id="2_hnlai"]
-[ext_resource type="Texture2D" uid="uid://bcqpx7i1ylxw4" path="res://assets/temporary-tiles/slime_die.png" id="3_43ywd"]
+[ext_resource type="Texture2D" uid="uid://dwnwopvbasiy1" path="res://assets/slimes/sand_slime/sand_slime_die.png" id="3_dwuds"]
 [ext_resource type="Script" uid="uid://bvuqssr30vsou" path="res://enemies/dead_enemy.gd" id="4_oon7s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_43ywd"]
@@ -13,8 +13,8 @@ region = Rect2(0, 32, 16, 16)
 atlas = ExtResource("2_hnlai")
 region = Rect2(0, 32, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tfndu"]
-atlas = ExtResource("3_43ywd")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnlai"]
+atlas = ExtResource("3_dwuds")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jwd6l"]
@@ -37,7 +37,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tfndu")
+"texture": SubResource("AtlasTexture_hnlai")
 }],
 "loop": 1,
 "name": &"sand_slime_dead",
@@ -45,6 +45,7 @@ animations = [{
 }]
 
 [node name="EnemyDeadBody" type="AnimatedSprite2D" unique_id=928376474]
+position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_jwd6l")
 animation = &"fire_slime_dead"
 script = ExtResource("4_oon7s")

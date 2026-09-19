@@ -15,7 +15,7 @@ func _ready() -> void:
 		assert(parent.has_method("suicide"), 'ERROR: No suicide method found')
 	assert(parent.has_method("damaged_sequence"), 'ERROR: No damaged_sequence method found')
 	
-	for node in get_parent().get_children():
+	for node: Node in get_parent().get_children():
 		if node.name == "MinAttackDelayTimer":
 			min_attack_delay_timer = node
 
@@ -44,7 +44,7 @@ func _physics_process(_delta: float) -> void:
 	if knockback_strength == 0.0 and damage == 0.0:
 		return
 	# Check collisions
-	for i in parent.get_slide_collision_count():
+	for i: int in parent.get_slide_collision_count():
 		var collision : KinematicCollision2D = parent.get_slide_collision(i)
 		var obj := collision.get_collider()
 		# Player check

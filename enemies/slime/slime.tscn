@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cyhob7b03wrxv" path="res://assets/slimes/ice_slime/ice_slime_front_jump.png" id="14_xk5ca"]
 [ext_resource type="Texture2D" uid="uid://qivxb3m5if0r" path="res://assets/slimes/ice_slime/ice_slime_left.png" id="15_qxyj3"]
 [ext_resource type="Texture2D" uid="uid://cwrs2l4ih4n06" path="res://assets/slimes/ice_slime/ice_slime_side_jump.png" id="16_mq5nl"]
+[ext_resource type="Texture2D" uid="uid://dwnwopvbasiy1" path="res://assets/slimes/sand_slime/sand_slime_die.png" id="17_7tnrn"]
 [ext_resource type="Texture2D" uid="uid://c3kq4e5vtcpi5" path="res://assets/slimes/sand_slime/sand_slime.png" id="17_beew1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6326o"]
@@ -259,9 +260,21 @@ region = Rect2(16, 16, 16, 16)
 atlas = ExtResource("16_mq5nl")
 region = Rect2(0, 32, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7tnrn"]
-atlas = ExtResource("17_beew1")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndc6n"]
+atlas = ExtResource("17_7tnrn")
 region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2dvd"]
+atlas = ExtResource("17_7tnrn")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16mib"]
+atlas = ExtResource("17_7tnrn")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3bgs"]
+atlas = ExtResource("17_7tnrn")
+region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_441ib"]
 atlas = ExtResource("17_beew1")
@@ -515,7 +528,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7tnrn")
+"texture": SubResource("AtlasTexture_ndc6n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2dvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16mib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3bgs")
 }],
 "loop": 0,
 "name": &"sand_death",
@@ -575,7 +597,7 @@ script = ExtResource("1_sv735")
 material = SubResource("ShaderMaterial_6326o")
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_sv735")
-animation = &"ice_death"
+animation = &"sand_death"
 
 [node name="HitBox" type="CollisionShape2D" parent="." unique_id=1621758793]
 position = Vector2(0, -0.5)
