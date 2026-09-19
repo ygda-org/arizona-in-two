@@ -32,6 +32,7 @@ var ice = false
 
 var ground : String
 
+const DEBUG_MODE = false;
 
 func _ready():
 	GameState.player = self
@@ -80,7 +81,7 @@ func movement(delta):
 		
 		# Slowly increases the speed
 		velocity = lerp(velocity, speed * speedMulti * iceMulti * inputDir, delta * acceleration)
-		if Input.is_action_pressed("DEBUGRUN"):
+		if Input.is_action_pressed("DEBUGRUN") && DEBUG_MODE:
 			velocity *= 3
 		# Finds which direction in the X Axis
 		var horizontal := "" 

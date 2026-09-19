@@ -31,10 +31,6 @@ MusicManager="*uid://dmyqcgho218p5"
 SFX="*uid://ci2bwtllpwfr4"
 SceneSwitcher="*uid://dy5m1txurt7y5"
 
-[debug]
-
-gdscript/warnings/inferred_declaration=1
-
 [display]
 
 window/size/viewport_width=1920
