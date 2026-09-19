@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://csyqleioe2hjd" path="res://globals/audio/persistant_music_component.tscn" id="15_8xi7t"]
 [ext_resource type="PackedScene" uid="uid://blh1a5n75wwv8" path="res://enemies/slime/slime.tscn" id="15_tbuvq"]
 [ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="16_gs5mx"]
+[ext_resource type="PackedScene" uid="uid://oxjanjnhv45y" path="res://world_components/destructible_fire.tscn" id="18_ssmtt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yo18o"]
 
@@ -364,3 +365,19 @@ spawn_loc = "FromDesertE"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToBoss" unique_id=1159127996]
 position = Vector2(313, -76)
 shape = SubResource("RectangleShape2D_5kg8m")
+
+[node name="DestructibleFire" parent="." unique_id=69963188 instance=ExtResource("18_ssmtt")]
+position = Vector2(295, -31)
+persist_break_id = "b1"
+
+[node name="DestructibleFire2" parent="." unique_id=991066999 instance=ExtResource("18_ssmtt")]
+position = Vector2(306, -31)
+persist_break_id = "b2"
+
+[node name="DestructibleFire3" parent="." unique_id=839839811 instance=ExtResource("18_ssmtt")]
+position = Vector2(318, -31)
+persist_break_id = "b3"
+
+[node name="DestructibleFire4" parent="." unique_id=849520273 instance=ExtResource("18_ssmtt")]
+position = Vector2(330, -31)
+persist_break_id = "b4"
