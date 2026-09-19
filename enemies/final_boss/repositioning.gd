@@ -17,9 +17,13 @@ func activate():
 		if not $WallCheck.is_colliding():
 			target_position = $WallCheck.target_position + get_parent().get_parent().global_position
 			break
+		print('fail')
 	dir = Vector2i($WallCheck.target_position.normalized())
 	
 	active = true
+	await get_tree().create_timer(1.2).timeout
+	if active:
+		get_parent().get_parent().next_state()
 
 func deactivate():
 	active = false

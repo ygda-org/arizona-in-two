@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ccunl7y3ynb87" path="res://enemies/final_boss/boss.gd" id="1_31cql"]
 [ext_resource type="Texture2D" uid="uid://b7mb7s7y4f3br" path="res://assets/final_boss/miniboss_basicAttack_down.png" id="1_f8dde"]
 [ext_resource type="Texture2D" uid="uid://c6qlxoai6dm1n" path="res://assets/final_boss/Miniboss_back.png" id="1_mc8pv"]
+[ext_resource type="Shader" uid="uid://dgurnonpv27rm" path="res://player/iframe_flash.gdshader" id="2_cp7le"]
 [ext_resource type="Texture2D" uid="uid://cvv62hokajy0e" path="res://assets/final_boss/miniboss_basicAttack_left.png" id="2_txdav"]
 [ext_resource type="Texture2D" uid="uid://bl7kmxsm1v1ip" path="res://assets/final_boss/miniboss_basicAttack_right.png" id="3_txdav"]
 [ext_resource type="Texture2D" uid="uid://jbx3kwdylflv" path="res://assets/final_boss/miniboss_basicAttack_up.png" id="4_xu4f0"]
@@ -20,6 +21,11 @@
 [ext_resource type="Script" uid="uid://cybmljilkgtmm" path="res://enemies/final_boss/grid_shot.gd" id="18_4bbdc"]
 [ext_resource type="Script" uid="uid://dwnpnyj7j5035" path="res://enemies/final_boss/arena_form.gd" id="18_32tma"]
 [ext_resource type="Script" uid="uid://cxta8t4ycnj82" path="res://enemies/final_boss/go_rotate.gd" id="19_hc4tq"]
+[ext_resource type="PackedScene" uid="uid://c8518ga76vmyi" path="res://enemies/enemy_component.tscn" id="21_5ue5q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ue5q"]
+shader = ExtResource("2_cp7le")
+shader_parameter/isFlash = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xu4f0"]
 atlas = ExtResource("1_f8dde")
@@ -492,9 +498,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ne36u")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"death",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -640,8 +646,11 @@ size = Vector2(20, 53)
 script = ExtResource("1_31cql")
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=674278309]
+material = SubResource("ShaderMaterial_5ue5q")
 sprite_frames = SubResource("SpriteFrames_5kg8m")
-animation = &"up"
+animation = &"death"
+frame = 2
+frame_progress = 0.47759348
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=924015887]
 visible = false
@@ -725,3 +734,6 @@ bullet_speed = 150.0
 
 [node name="Bullets" type="Node2D" parent="States3/SpreadShot" unique_id=499949856]
 top_level = true
+
+[node name="EnemyComponent" parent="." unique_id=25077899 instance=ExtResource("21_5ue5q")]
+knockback_strength = 0.0

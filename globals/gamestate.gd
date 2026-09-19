@@ -32,6 +32,7 @@ signal puzzle_cleared
 
 var persist_break_ids = []
 var ice_dungeon_boss_cleared = false
+var final_boss_cleared = false
 
 var player_can_take_damage : bool = true
 
@@ -62,6 +63,9 @@ func restart_sequence():
 	SceneSwitcher.switch_scene(MENU, "")
 	player_health = player_max_health
 
+func final_boss_clear():
+	final_boss_cleared = true
+
 func damage_player(amount : int):
 	
 	player_can_take_damage = false
@@ -77,7 +81,7 @@ func damage_player(amount : int):
 	if player:
 		player.call_deferred("set_iframe_shader", true)
 		player.iFrameTimer.start()
-		
+
 
 func player_selected_bullet_cycle(num: int):
 	player_selected_bullet = posmod(player_selected_bullet+num, player_max_bullet_strength+1)
