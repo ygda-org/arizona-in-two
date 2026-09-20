@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://crmwqdbla8l2j"]
+
+[ext_resource type="Script" uid="uid://1ad6vnrjkjir" path="res://ui/scrolling_credits.gd" id="1_c3b3f"]
+[ext_resource type="Theme" uid="uid://bxmpqit5ywl2s" path="res://settings_theme.tres" id="2_t3scn"]
+[ext_resource type="Texture2D" uid="uid://b3ywb7xvtfeh3" path="res://assets/discord_logo.png" id="3_rmmey"]
+
+[node name="ScrollingCredits" type="Control" unique_id=1092669113]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_c3b3f")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1330554668]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("2_t3scn")
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=360135786]
+layout_mode = 2
+text = "A game by YGDA"
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=1286202649]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer" unique_id=1546280957]
+layout_mode = 2
+text = "President: Penguinja"
+
+[node name="Label6" type="Label" parent="VBoxContainer" unique_id=1605704272]
+layout_mode = 2
+text = "Vice President 1: stonkola"
+
+[node name="Label7" type="Label" parent="VBoxContainer" unique_id=1751515995]
+layout_mode = 2
+text = "Vice President 2: ne3n"
+
+[node name="Label11" type="Label" parent="VBoxContainer" unique_id=90429631]
+layout_mode = 2
+
+[node name="Label10" type="Label" parent="VBoxContainer" unique_id=1595806097]
+layout_mode = 2
+text = "Programming Department"
+
+[node name="Label4" type="Label" parent="VBoxContainer" unique_id=1179589878]
+layout_mode = 2
+text = "Lead Programmer: MrPuffyWuff"
+
+[node name="Label22" type="Label" parent="VBoxContainer" unique_id=1744613577]
+layout_mode = 2
+text = "Programming Assistance: Penguinja"
+
+[node name="Label16" type="Label" parent="VBoxContainer" unique_id=5074594]
+layout_mode = 2
+text = "Programmer: Theophylaktos"
+
+[node name="Label13" type="Label" parent="VBoxContainer" unique_id=421357678]
+layout_mode = 2
+
+[node name="Label12" type="Label" parent="VBoxContainer" unique_id=1889474457]
+layout_mode = 2
+text = "Art Department"
+
+[node name="Label8" type="Label" parent="VBoxContainer" unique_id=2015876506]
+layout_mode = 2
+text = "Lead Artist 1: youzicha08"
+
+[node name="Label9" type="Label" parent="VBoxContainer" unique_id=645463476]
+layout_mode = 2
+text = "Lead Artist 2: sashasauceys"
+
+[node name="Label15" type="Label" parent="VBoxContainer" unique_id=294052350]
+layout_mode = 2
+
+[node name="Label14" type="Label" parent="VBoxContainer" unique_id=906273647]
+layout_mode = 2
+text = "Music Department"
+
+[node name="Label5" type="Label" parent="VBoxContainer" unique_id=12362236]
+layout_mode = 2
+text = "Lead Musician: .cavedin"
+
+[node name="Label21" type="Label" parent="VBoxContainer" unique_id=1673846056]
+layout_mode = 2
+text = "Music Assistance: stonkola"
+
+[node name="Label18" type="Label" parent="VBoxContainer" unique_id=2003751675]
+layout_mode = 2
+
+[node name="Label17" type="Label" parent="VBoxContainer" unique_id=1689988277]
+layout_mode = 2
+text = "Special Thanks to"
+
+[node name="Label19" type="Label" parent="VBoxContainer" unique_id=15334842]
+layout_mode = 2
+text = "Theophylaktos, for keeping the project alive and dedicating so much of their own time"
+
+[node name="Label20" type="Label" parent="VBoxContainer" unique_id=1011514854]
+layout_mode = 2
+text = "Harbinger_of_entropy, for helping with the last few terrain assets needed"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=1041798905]
+texture_filter = 2
+layout_mode = 2
+texture = ExtResource("3_rmmey")
+expand_mode = 4
