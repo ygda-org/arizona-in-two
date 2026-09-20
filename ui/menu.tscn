@@ -508,7 +508,7 @@ grow_vertical = 1
 enabled = true
 
 [node name="Fade" type="ColorRect" parent="." unique_id=2131059613]
-z_index = 5
+z_index = 101
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -707,6 +707,7 @@ one_shot = true
 autostart = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=222161918]
+z_index = 100
 layout_mode = 0
 offset_left = 1155.0
 offset_top = 721.0
