@@ -327,7 +327,6 @@ offset_left = -2562.0
 offset_top = -3648.0
 offset_right = 3766.0
 offset_bottom = 2441.0
-disable = true
 
 [node name="Tumbleweed" parent="." unique_id=953680716 instance=ExtResource("18_b3xd2")]
 position = Vector2(347, 80)

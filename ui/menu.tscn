@@ -807,7 +807,7 @@ color = Color(1, 1, 1, 0.11372549)
 
 [node name="SettingsMenu" parent="." unique_id=268189996 instance=ExtResource("20_is7kr")]
 visible = false
-z_index = 10
+z_index = 200
 layout_mode = 1
 
 [node name="ExplosionParticles" type="CPUParticles2D" parent="." unique_id=914028944]

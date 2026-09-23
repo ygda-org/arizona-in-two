@@ -32,7 +32,7 @@ var ice = false
 
 var ground : String
 
-const DEBUG_MODE = false;
+const DEBUG_MODE = true;
 
 func _ready():
 	GameState.player = self
