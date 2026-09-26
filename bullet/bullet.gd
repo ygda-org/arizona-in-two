@@ -28,12 +28,19 @@ func _ready() -> void:
 	if GameState.player_selected_bullet == 1:
 		$Sprite2D.texture = load("uid://b0hh83564wuyl")
 		bullet_attribute = "Silver"
+		%FireParticles.visible = true
+		%IceParticles.visible = false
 	elif GameState.player_selected_bullet == 2:
 		$Sprite2D.texture = load("uid://clwyj6ncrsr3g")
 		bullet_attribute = "Fire"
+		%FireParticles.visible = true
+		%IceParticles.visible = false
 	elif GameState.player_selected_bullet == 3:
 		$Sprite2D.texture = load("uid://du5vgx11eg5vh")
 		bullet_attribute = "Ice"
+		%FireParticles.visible = false
+		%IceParticles.visible = true
+		print("hi")
 	name = "Bullet" + str(GameState.total_elapsed_time)
 	
 func _physics_process(delta) -> void:

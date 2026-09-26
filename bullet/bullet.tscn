@@ -13,7 +13,7 @@ radius = 6.0
 size = Vector2(5, 2)
 
 [sub_resource type="Gradient" id="Gradient_jwd6l"]
-colors = PackedColorArray(1, 0.30943933, 0, 1, 1, 0.9537517, 0.25030932, 1)
+colors = PackedColorArray(0.30881462, 0.6585333, 1, 1, 0.47518945, 0.8487858, 0.89036036, 1)
 
 [node name="Bullet" type="Area2D" unique_id=1957532685]
 collision_layer = 65
@@ -60,17 +60,28 @@ collide_with_areas = true
 shape = SubResource("RectangleShape2D_3udht")
 
 [node name="FireParticles" type="CPUParticles2D" parent="." unique_id=720159987]
+unique_name_in_owner = true
 scale = Vector2(2, 2)
 amount = 16
-lifetime = 0.09999999999999999
+lifetime = 0.1
 local_coords = true
 direction = Vector2(-1, 0)
 spread = 13.19
 gravity = Vector2(0, 0)
 initial_velocity_max = 136.21
 color_ramp = SubResource("Gradient_jwd6l")
-hue_variation_min = -1.0
-hue_variation_max = 1.0
+
+[node name="IceParticles" type="CPUParticles2D" parent="." unique_id=653926183]
+unique_name_in_owner = true
+scale = Vector2(2, 2)
+amount = 16
+lifetime = 0.1
+local_coords = true
+direction = Vector2(-1, 0)
+spread = 13.19
+gravity = Vector2(0, 0)
+initial_velocity_max = 136.21
+color_ramp = SubResource("Gradient_jwd6l")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
