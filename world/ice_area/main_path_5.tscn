@@ -39,6 +39,7 @@ tile_map_data = PackedByteArray("AAADAP7/AQABAAIAAAADAP//AQABAAIAAAADAAAAAQABAAI
 tile_set = ExtResource("1_fcksg")
 
 [node name="Player" parent="." unique_id=2010892964 instance=ExtResource("4_sjy13")]
+position = Vector2(-50, 20)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=398418729]
 
@@ -70,7 +71,7 @@ position = Vector2(-442, 0.5)
 shape = SubResource("RectangleShape2D_i50wy")
 
 [node name="FromDungeon" type="Marker2D" parent="." unique_id=926265064]
-position = Vector2(-435, 26)
+position = Vector2(-500, 19)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1491429952]
 tile_map_data = PackedByteArray("AADk////AAAPAAAAAADh//7/AAAJAAMAAADn//7/AAAMAAMAAADn//v/AAAMAAAAAADh//v/AAAJAAAAAADj//v/AAADAAYAAADk//v/AAAEAAYAAADl//v/AAAFAAYAAAA=")
