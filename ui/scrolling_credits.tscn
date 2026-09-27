@@ -18,88 +18,194 @@ theme = ExtResource("2_t3scn")
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=360135786]
 layout_mode = 2
 text = "A game by YGDA"
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="VBoxContainer" unique_id=1286202649]
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="VBoxContainer" unique_id=1546280957]
 layout_mode = 2
 text = "President: Penguinja"
+horizontal_alignment = 1
 
 [node name="Label6" type="Label" parent="VBoxContainer" unique_id=1605704272]
 layout_mode = 2
 text = "Vice President 1: stonkola"
+horizontal_alignment = 1
 
 [node name="Label7" type="Label" parent="VBoxContainer" unique_id=1751515995]
 layout_mode = 2
 text = "Vice President 2: ne3n"
+horizontal_alignment = 1
 
 [node name="Label11" type="Label" parent="VBoxContainer" unique_id=90429631]
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="Label10" type="Label" parent="VBoxContainer" unique_id=1595806097]
 layout_mode = 2
 text = "Programming Department"
+horizontal_alignment = 1
 
 [node name="Label4" type="Label" parent="VBoxContainer" unique_id=1179589878]
 layout_mode = 2
 text = "Lead Programmer: MrPuffyWuff"
+horizontal_alignment = 1
 
 [node name="Label22" type="Label" parent="VBoxContainer" unique_id=1744613577]
 layout_mode = 2
 text = "Programming Assistance: Penguinja"
+horizontal_alignment = 1
 
 [node name="Label16" type="Label" parent="VBoxContainer" unique_id=5074594]
 layout_mode = 2
 text = "Programmer: Theophylaktos"
+horizontal_alignment = 1
+
+[node name="Label23" type="Label" parent="VBoxContainer" unique_id=1703042874]
+layout_mode = 2
+text = "Programmer: Ikean"
+horizontal_alignment = 1
+
+[node name="Label27" type="Label" parent="VBoxContainer" unique_id=278712137]
+layout_mode = 2
+text = "Programmer: rota-fortunae"
+horizontal_alignment = 1
+
+[node name="Label28" type="Label" parent="VBoxContainer" unique_id=868163372]
+layout_mode = 2
+text = "Programmer: JustBetter14"
+horizontal_alignment = 1
 
 [node name="Label13" type="Label" parent="VBoxContainer" unique_id=421357678]
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="Label12" type="Label" parent="VBoxContainer" unique_id=1889474457]
 layout_mode = 2
 text = "Art Department"
+horizontal_alignment = 1
+
+[node name="Label36" type="Label" parent="VBoxContainer" unique_id=1173801418]
+layout_mode = 2
+text = "Former Lead Artist: 89cutefrogs"
+horizontal_alignment = 1
 
 [node name="Label8" type="Label" parent="VBoxContainer" unique_id=2015876506]
 layout_mode = 2
 text = "Lead Artist 1: youzicha08"
+horizontal_alignment = 1
 
 [node name="Label9" type="Label" parent="VBoxContainer" unique_id=645463476]
 layout_mode = 2
-text = "Lead Artist 2: sashasauceys"
+text = "Lead Artist 2: SASHASAUCE"
+horizontal_alignment = 1
+
+[node name="Label24" type="Label" parent="VBoxContainer" unique_id=955131442]
+layout_mode = 2
+text = "Artist: Harbinger_of_entropy"
+horizontal_alignment = 1
+
+[node name="Label26" type="Label" parent="VBoxContainer" unique_id=840483800]
+layout_mode = 2
+text = "Artist: InfinitePrograms"
+horizontal_alignment = 1
+
+[node name="Label33" type="Label" parent="VBoxContainer" unique_id=325979368]
+layout_mode = 2
+text = "Artist: soireepeche"
+horizontal_alignment = 1
+
+[node name="Label29" type="Label" parent="VBoxContainer" unique_id=160161654]
+layout_mode = 2
+text = "Artist: hello-123-123"
+horizontal_alignment = 1
+
+[node name="Label30" type="Label" parent="VBoxContainer" unique_id=1083468419]
+layout_mode = 2
+text = "Artist: chewypotato88"
+horizontal_alignment = 1
+
+[node name="Label31" type="Label" parent="VBoxContainer" unique_id=883016201]
+layout_mode = 2
+text = "Artist: goldjinn_"
+horizontal_alignment = 1
 
 [node name="Label15" type="Label" parent="VBoxContainer" unique_id=294052350]
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="Label14" type="Label" parent="VBoxContainer" unique_id=906273647]
 layout_mode = 2
 text = "Music Department"
+horizontal_alignment = 1
 
 [node name="Label5" type="Label" parent="VBoxContainer" unique_id=12362236]
 layout_mode = 2
-text = "Lead Musician: .cavedin"
+text = "Lead Musician: Cavedin"
+horizontal_alignment = 1
 
 [node name="Label21" type="Label" parent="VBoxContainer" unique_id=1673846056]
 layout_mode = 2
 text = "Music Assistance: stonkola"
+horizontal_alignment = 1
+
+[node name="Label25" type="Label" parent="VBoxContainer" unique_id=1644299000]
+layout_mode = 2
+text = "Musician: Llama"
+horizontal_alignment = 1
+
+[node name="Label32" type="Label" parent="VBoxContainer" unique_id=768898101]
+layout_mode = 2
+text = "Musician: altieri"
+horizontal_alignment = 1
+
+[node name="Label35" type="Label" parent="VBoxContainer" unique_id=423959385]
+layout_mode = 2
+text = "Musician: eoxygen"
+horizontal_alignment = 1
+
+[node name="Label34" type="Label" parent="VBoxContainer" unique_id=2060426211]
+layout_mode = 2
+text = "SFX Designer: scienceisprettycool"
+horizontal_alignment = 1
 
 [node name="Label18" type="Label" parent="VBoxContainer" unique_id=2003751675]
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="Label17" type="Label" parent="VBoxContainer" unique_id=1689988277]
 layout_mode = 2
 text = "Special Thanks to"
+horizontal_alignment = 1
 
 [node name="Label19" type="Label" parent="VBoxContainer" unique_id=15334842]
 layout_mode = 2
 text = "Theophylaktos, for keeping the project alive and dedicating so much of their own time"
+horizontal_alignment = 1
 
 [node name="Label20" type="Label" parent="VBoxContainer" unique_id=1011514854]
 layout_mode = 2
 text = "Harbinger_of_entropy, for helping with the last few terrain assets needed"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="VBoxContainer" unique_id=715646076]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=1041798905]
 texture_filter = 2
 layout_mode = 2
 texture = ExtResource("3_rmmey")
 expand_mode = 4
+
+[node name="Control2" type="Control" parent="VBoxContainer" unique_id=786161030]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Label37" type="Label" parent="VBoxContainer" unique_id=753346575]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Thank you for playing!"
+horizontal_alignment = 1
