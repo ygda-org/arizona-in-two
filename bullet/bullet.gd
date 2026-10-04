@@ -22,25 +22,41 @@ var maxBounceCount: int = 2
 
 func _ready() -> void:
 	SFX.play(SFX.Id.GUNSHOT)
+	if GameState.player_bonus_damage > 0:
+		$Sprite2D.scale = Vector2(2,2)
+		$Sprite2DShadow.scale = Vector2(2,2)
+		$FireParticles.lifetime *= 2
+		$IceParticles.lifetime *= 2
+		$FireParticles.position.x -= 3
+		$FireParticles.position.x -= 3
 	$Sprite2D.rotation = direction.angle()
 	$Sprite2DShadow.rotation = direction.angle()
 	$FireParticles.direction = -sign(direction)
-	if GameState.player_selected_bullet == 1:
+	print(GameState.player_selected_bullet)
+	if GameState.player_selected_bullet == 0:
+		print("normal")
+		$Sprite2D.texture = load("uid://bof0xiqfh4ye7")
+		bullet_attribute = "Normal"
+		%FireParticles.visible = true
+		%IceParticles.visible = false
+	elif GameState.player_selected_bullet == 1:
+		print("silver")
 		$Sprite2D.texture = load("uid://b0hh83564wuyl")
 		bullet_attribute = "Silver"
 		%FireParticles.visible = true
 		%IceParticles.visible = false
 	elif GameState.player_selected_bullet == 2:
+		print("fire")
 		$Sprite2D.texture = load("uid://clwyj6ncrsr3g")
 		bullet_attribute = "Fire"
 		%FireParticles.visible = true
 		%IceParticles.visible = false
 	elif GameState.player_selected_bullet == 3:
+		print("ice")
 		$Sprite2D.texture = load("uid://du5vgx11eg5vh")
 		bullet_attribute = "Ice"
 		%FireParticles.visible = false
 		%IceParticles.visible = true
-		print("hi")
 	name = "Bullet" + str(GameState.total_elapsed_time)
 	
 func _physics_process(delta) -> void:

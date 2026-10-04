@@ -12,6 +12,9 @@ radius = 6.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3udht"]
 size = Vector2(5, 2)
 
+[sub_resource type="Gradient" id="Gradient_piprv"]
+colors = PackedColorArray(0.88, 0.24200003, 0.11439999, 1, 0.87, 0.69832003, 0.2262, 1)
+
 [sub_resource type="Gradient" id="Gradient_jwd6l"]
 colors = PackedColorArray(0.30881462, 0.6585333, 1, 1, 0.47518945, 0.8487858, 0.89036036, 1)
 
@@ -61,18 +64,20 @@ shape = SubResource("RectangleShape2D_3udht")
 
 [node name="FireParticles" type="CPUParticles2D" parent="." unique_id=720159987]
 unique_name_in_owner = true
+position = Vector2(-4, 0)
 scale = Vector2(2, 2)
 amount = 16
-lifetime = 0.1
+lifetime = 0.09999999999999999
 local_coords = true
 direction = Vector2(-1, 0)
 spread = 13.19
 gravity = Vector2(0, 0)
 initial_velocity_max = 136.21
-color_ramp = SubResource("Gradient_jwd6l")
+color_ramp = SubResource("Gradient_piprv")
 
 [node name="IceParticles" type="CPUParticles2D" parent="." unique_id=653926183]
 unique_name_in_owner = true
+position = Vector2(-4, 0)
 scale = Vector2(2, 2)
 amount = 16
 lifetime = 0.1
