@@ -67,7 +67,7 @@ to_scene = "uid://2tms3x8k4iba"
 spawn_loc = "FromOutside"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToDungeon" unique_id=1128183368]
-position = Vector2(-442, 0.5)
+position = Vector2(-441, -13)
 shape = SubResource("RectangleShape2D_i50wy")
 
 [node name="FromDungeon" type="Marker2D" parent="." unique_id=926265064]

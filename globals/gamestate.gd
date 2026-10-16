@@ -1,5 +1,7 @@
 extends Node
 
+signal game_ended
+
 var master_volume = 0.5
 var music_volume = 0.75
 var ambience_volume = 0.5

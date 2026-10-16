@@ -228,11 +228,15 @@ axis_stretch_vertical = 1
 libraries/ = SubResource("AnimationLibrary_juqqw")
 
 [node name="BulletIndicator" type="Control" parent="." unique_id=918409497]
-anchors_preset = 0
-offset_left = 77.0
-offset_top = 953.0
-offset_right = 144.5
-offset_bottom = 985.5
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 138.0
+offset_top = -185.0
+offset_right = 205.5
+offset_bottom = -152.5
+grow_vertical = 0
 scale = Vector2(4, 4)
 
 [node name="Normal" type="TextureRect" parent="BulletIndicator" unique_id=1951300491]

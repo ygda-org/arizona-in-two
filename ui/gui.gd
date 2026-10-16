@@ -12,6 +12,7 @@ func _ready() -> void:
 	$Fade.color.a = 1.0
 	$Fade/RestartButton.modulate.a = 0.0
 	GameState.player_dead.connect(game_over)
+	GameState.game_ended.connect(credits_roll)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -42,6 +43,9 @@ func set_bullet(bullet_name):
 		n.visible = false
 	$BulletIndicator/Current.visible = true
 	$BulletIndicator.get_node(bullet_name).visible = true
+
+func credits_roll():
+	add_child(load("uid://crmwqdbla8l2j").instantiate())
 
 func _on_restart_button_pressed() -> void:
 	SFX.play(SFX.Id.BUTTON_CLICK)

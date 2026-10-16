@@ -1,0 +1,73 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://1cwjh1kdpv8r"]
+
+[ext_resource type="Texture2D" uid="uid://cn2e73jtrmuyw" path="res://assets/ice_boss/claw_death_8 fps.png" id="1_35q3s"]
+[ext_resource type="Texture2D" uid="uid://b2h04m2yj0oas" path="res://assets/ice_boss/claw_idle_6 fps.png" id="2_u4x3s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syscq"]
+atlas = ExtResource("1_35q3s")
+region = Rect2(0, 0, 69, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uefml"]
+atlas = ExtResource("1_35q3s")
+region = Rect2(69, 0, 69, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v76a2"]
+atlas = ExtResource("1_35q3s")
+region = Rect2(0, 53, 69, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfr56"]
+atlas = ExtResource("1_35q3s")
+region = Rect2(69, 53, 69, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8hya"]
+atlas = ExtResource("2_u4x3s")
+region = Rect2(0, 0, 46, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2aauy"]
+atlas = ExtResource("2_u4x3s")
+region = Rect2(46, 0, 46, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hghkh"]
+atlas = ExtResource("2_u4x3s")
+region = Rect2(0, 52, 46, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pngl"]
+atlas = ExtResource("2_u4x3s")
+region = Rect2(46, 52, 46, 52)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syscq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uefml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v76a2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfr56")
+}],
+"loop": 0,
+"name": &"death",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8hya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2aauy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hghkh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pngl")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 6.0
+}]

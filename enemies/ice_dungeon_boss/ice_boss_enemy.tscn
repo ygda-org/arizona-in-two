@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://b81lxyeqy1a1c" path="res://enemies/ice_dungeon_boss/wall.gd" id="4_pe80m"]
 [ext_resource type="Script" uid="uid://dlw84fh44wgpy" path="res://enemies/ice_dungeon_boss/random_shots.gd" id="5_7qvya"]
 [ext_resource type="Script" uid="uid://bpdt157i2nt67" path="res://enemies/ice_dungeon_boss/safe_spot_shots.gd" id="5_apd6o"]
+[ext_resource type="SpriteFrames" uid="uid://1cwjh1kdpv8r" path="res://assets/ice_boss/claw.tres" id="7_stgqp"]
+[ext_resource type="Texture2D" uid="uid://bvecnkgtuy6l4" path="res://assets/ice_boss/boss_face.png" id="8_t6m3y"]
 
 [node name="IceBossEnemy" type="Node2D" unique_id=121632663]
 script = ExtResource("1_nhbj4")
@@ -78,15 +80,17 @@ top_level = true
 
 [node name="BossPiece" parent="Pieces" unique_id=1124327369 instance=ExtResource("4_7qvya")]
 position = Vector2(175, 0)
+spriteframes = ExtResource("7_stgqp")
+flip = true
 
 [node name="BossPiece2" parent="Pieces" unique_id=716733888 instance=ExtResource("4_7qvya")]
 position = Vector2(-175, 0)
-
-[node name="BossPiece3" parent="Pieces" unique_id=1839315608 instance=ExtResource("4_7qvya")]
-position = Vector2(0, 70)
+spriteframes = ExtResource("7_stgqp")
 
 [node name="BossPiece4" parent="Pieces" unique_id=1345097732 instance=ExtResource("4_7qvya")]
-position = Vector2(0, -79)
+position = Vector2(8, -87)
+texture = ExtResource("8_t6m3y")
+health_override = 200.0
 
 [connection signal="timeout" from="States/RandomShots/Timer" to="States/RandomShots" method="_on_timer_timeout"]
 [connection signal="timeout" from="States2/RandomShots/Timer" to="States2/RandomShots" method="_on_timer_timeout"]
