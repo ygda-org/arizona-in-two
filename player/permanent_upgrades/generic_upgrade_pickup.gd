@@ -14,6 +14,10 @@ enum UpgradeTypes {
 func _ready():
 	if persist_collect_id in GameState.persist_generic_upgrades:
 		queue_free()
+	if upgrade_type == 0:
+		$Sprite2D.texture = load("uid://cbxhtyv44xn5l")
+	else:
+		$Sprite2D.texture = load("uid://0anwstpb5ebt")
 
 func _on_body_entered(_body):
 	GameState.persist_generic_upgrades.append(persist_collect_id)

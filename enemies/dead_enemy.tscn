@@ -44,7 +44,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="EnemyDeadBody" type="AnimatedSprite2D" unique_id=928376474]
+[node name="DeadBody" type="AnimatedSprite2D" unique_id=928376474]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_jwd6l")
 animation = &"fire_slime_dead"

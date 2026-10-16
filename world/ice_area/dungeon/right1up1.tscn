@@ -4,8 +4,11 @@
 [ext_resource type="TileSet" uid="uid://bw0xbfjy4ywhf" path="res://assets/tilesets/dungeon_tiles.tres" id="1_p8u35"]
 [ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="2_6rch4"]
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="4_3mljh"]
+[ext_resource type="PackedScene" uid="uid://cqdsp3qtxmisq" path="res://player/permanent_upgrades/generic_upgrade_pickup.tscn" id="5_iily3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i50wy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iily3"]
 
 [node name="Right1Up1" type="Node2D" unique_id=1516066019]
 script = ExtResource("1_0aieo")
@@ -31,3 +34,9 @@ zoom = Vector2(4, 4)
 
 [node name="Player" parent="." unique_id=2010892964 instance=ExtResource("4_3mljh")]
 position = Vector2(18, -99)
+
+[node name="GenericUpgradePickup" parent="." unique_id=1062878019 instance=ExtResource("5_iily3")]
+position = Vector2(38, -73)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GenericUpgradePickup" unique_id=664763437]
+shape = SubResource("CircleShape2D_iily3")

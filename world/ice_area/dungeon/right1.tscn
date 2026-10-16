@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://tauxm8sc6ng2" path="res://player/player.tscn" id="3_kymx6"]
 [ext_resource type="PackedScene" uid="uid://bf0t0p2rrmobp" path="res://globals/scene_switch_area.tscn" id="5_4f4vd"]
 [ext_resource type="PackedScene" uid="uid://blh1a5n75wwv8" path="res://enemies/slime/slime.tscn" id="5_7er0i"]
+[ext_resource type="PackedScene" uid="uid://uqyovq6ioqwj" path="res://dungeon_components/dungeon_locked_door.tscn" id="7_t8j8v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kymx6"]
 size = Vector2(20, 30)
@@ -86,3 +87,7 @@ shape = SubResource("RectangleShape2D_i50wy")
 
 [node name="FromRight1Up1" type="Marker2D" parent="." unique_id=80416579]
 position = Vector2(104, -61)
+
+[node name="DungeonLockedDoor" parent="." unique_id=663165658 instance=ExtResource("7_t8j8v")]
+position = Vector2(104, -84)
+door_id = "ddqwdqw"

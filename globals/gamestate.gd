@@ -67,6 +67,7 @@ func restart_sequence():
 
 func final_boss_clear():
 	final_boss_cleared = true
+	game_ended.emit()
 
 func damage_player(amount : int):
 	

@@ -23,7 +23,7 @@ position = Vector2(15, 2)
 zoom = Vector2(4, 4)
 
 [node name="Player" parent="." unique_id=2010892964 instance=ExtResource("4_qgjuv")]
-position = Vector2(-136, -11)
+position = Vector2(-148, 73)
 
 [node name="IceBoss" parent="." unique_id=1408571318 instance=ExtResource("5_c24la")]
 
@@ -55,7 +55,7 @@ shape = SubResource("RectangleShape2D_2isng")
 
 [node name="ToBulletRoom" parent="." unique_id=1560740525 instance=ExtResource("6_ij60e")]
 to_scene = "uid://bpuc6nlgohj47"
-spawn_loc = "FromBoss"
+spawn_loc = "FromUp"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToBulletRoom" unique_id=1413582179]
 position = Vector2(152, -99)

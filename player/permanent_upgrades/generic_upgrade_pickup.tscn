@@ -7,4 +7,6 @@ collision_layer = 0
 collision_mask = 16
 script = ExtResource("1_4nxqf")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=107946932]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
