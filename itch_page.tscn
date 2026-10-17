@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://djeqy5fasxcbd"]
+
+[ext_resource type="Shader" uid="uid://bjribykqoen15" path="res://darkenforbottom.gdshader" id="1_ufh25"]
+[ext_resource type="Texture2D" uid="uid://bbsohqa51kh45" path="res://assets/ui/pause_menu/nine_slice.png" id="2_f68d1"]
+[ext_resource type="Texture2D" uid="uid://w8bk85x0u3uq" path="res://assets/title_screen/AZ2_BG_.png" id="2_k81e3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fngjv"]
+shader = ExtResource("1_ufh25")
+
+[node name="Control" type="Control" unique_id=2061230099]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1188628455]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_k81e3")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1751944394]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_right = 0.288
+anchor_bottom = 1.0
+offset_right = 887.04004
+color = Color(0.2523302, 0, 0.04271338, 1)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1505275909]
+layout_mode = 0
+offset_left = 459.0
+offset_top = 284.0
+offset_right = 1461.0
+offset_bottom = 1383.0
+texture = ExtResource("2_f68d1")
+patch_margin_left = 48
+patch_margin_top = 48
+patch_margin_right = 48
+patch_margin_bottom = 48
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=167833974]
+material = SubResource("ShaderMaterial_fngjv")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

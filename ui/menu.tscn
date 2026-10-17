@@ -26,7 +26,7 @@ colors = PackedColorArray(0, 0, 0, 0, 0.023398181, 0.014807642, 0.008642228, 0.0
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_4aosy"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x388h"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lf6dv"]
 width = 960
 height = 540
 noise = SubResource("FastNoiseLite_4aosy")
@@ -35,7 +35,7 @@ seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jwd6l"]
 shader = ExtResource("17_akon5")
-shader_parameter/noise = SubResource("NoiseTexture2D_x388h")
+shader_parameter/noise = SubResource("NoiseTexture2D_lf6dv")
 
 [sub_resource type="Gradient" id="Gradient_lf6dv"]
 offsets = PackedFloat32Array(0, 0.25659472, 1)
@@ -43,7 +43,7 @@ colors = PackedColorArray(0, 0, 0, 0, 0.02132882, 0.015799126, 0.008887008, 0.01
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_c5cit"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_akon5"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_is7kr"]
 width = 960
 height = 540
 noise = SubResource("FastNoiseLite_c5cit")
@@ -52,7 +52,7 @@ seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c5cit"]
 shader = ExtResource("17_akon5")
-shader_parameter/noise = SubResource("NoiseTexture2D_akon5")
+shader_parameter/noise = SubResource("NoiseTexture2D_is7kr")
 
 [sub_resource type="Gradient" id="Gradient_tivod"]
 colors = PackedColorArray(0.95795196, 0.6172059, 0, 0.102000006, 1, 1, 1, 0)
@@ -60,7 +60,7 @@ colors = PackedColorArray(0.95795196, 0.6172059, 0, 0.102000006, 1, 1, 1, 0)
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_74wlk"]
 frequency = 0.15
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ryq6k"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wb0cg"]
 width = 960
 height = 540
 noise = SubResource("FastNoiseLite_74wlk")
@@ -68,7 +68,7 @@ color_ramp = SubResource("Gradient_tivod")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fhhs2"]
 shader = ExtResource("4_wb0cg")
-shader_parameter/noise = SubResource("NoiseTexture2D_ryq6k")
+shader_parameter/noise = SubResource("NoiseTexture2D_wb0cg")
 
 [sub_resource type="Animation" id="Animation_ybgh7"]
 resource_name = "fade_out"
@@ -450,12 +450,12 @@ _data = {
 &"shoot": SubResource("Animation_c5cit")
 }
 
-[sub_resource type="Gradient" id="Gradient_is7kr"]
+[sub_resource type="Gradient" id="Gradient_vmbxc"]
 offsets = PackedFloat32Array(0, 0.5255102, 0.6760204)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_is7kr"]
-gradient = SubResource("Gradient_is7kr")
+gradient = SubResource("Gradient_vmbxc")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
@@ -777,6 +777,7 @@ libraries/ = SubResource("AnimationLibrary_lf6dv")
 music = 5
 
 [node name="Bullet" type="TextureRect" parent="." unique_id=1144379678]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = 1528.0
@@ -811,6 +812,7 @@ z_index = 200
 layout_mode = 1
 
 [node name="ExplosionParticles" type="CPUParticles2D" parent="." unique_id=914028944]
+visible = false
 z_index = 5
 position = Vector2(1356, 491)
 emitting = false

@@ -49,7 +49,7 @@ func opening_sequence() -> void:
 	$Menu.visible = true
 	#var tween : Tween = $Menu.create_tween()
 	$Menu.position.y = 0
-	#tween.tween_property($Menu, "position", Vector2(0,0), 1.0).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	#tween.tween_property($Menu, "position", 0,0), 1.0).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 
 func toggle_pause() -> void:
 	if get_tree().paused == true:
